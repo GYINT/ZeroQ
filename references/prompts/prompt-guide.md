@@ -1,5 +1,7 @@
 # QCM 应用提示词手册（5W2H 简化版 Prompt 实战案例）
 
+> **别名**：`prompt-cookbook.md`（prompts/）为同手册旧版，已标 DEPRECATED（2026-08-22），内容并入本文件 v2.2。请勿再从别处引用 `prompt-cookbook.md`。
+
 > v2.2 | 19 卡 + T 层映射列 + 触发词探测 | 万能公式：`[角色 Who] + [场景 Where] + [问题/目标 What] + [交付] + [深度:单工具/组合/系统级]`
 > 写全 Who + Where + What 三要素，Skill 即精准路由、不场景错配；深度（How much）决定回「单工具步骤」还是「组织级治理体系」。
 > **T 层映射**：每卡标注对应 input-guide T1-T4 模板层——Prompt 路由到内容资产的同时，定位输出深度；深度未标注时触发探测（见 §四）。
