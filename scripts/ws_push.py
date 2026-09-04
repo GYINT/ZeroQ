@@ -187,7 +187,7 @@ async def run_ws_push_server_async(schema, port: int = 8765, host: str = "0.0.0.
 
     async with websockets.serve(handler, host, port, max_size=10 * 1024 * 1024):
         # 日志统一走 stderr（stdio 模式下 stdout 是 JSON-RPC 协议通道，禁止污染）
-        print(f"[{server_name} v1.0.0] WS 旁路推送 ws://{host}:{port}"
+        print(f"[{server_name} v1.0.1] WS 旁路推送 ws://{host}:{port}"
               f"（toolCalled 事件订阅）", file=sys.stderr, flush=True)
         await asyncio.Future()  # 永久运行
 
@@ -233,7 +233,7 @@ def start_ws_push_thread(schema, port: int = 8765, host: str = "0.0.0.0",
 
             async with websockets.serve(handler, host, port, max_size=10 * 1024 * 1024):
                 ready.set()
-                print(f"[{server_name} v1.0.0] WS 旁路推送 ws://{host}:{port}"
+                print(f"[{server_name} v1.0.1] WS 旁路推送 ws://{host}:{port}"
                       f"（toolCalled 事件订阅）", file=sys.stderr, flush=True)
                 await asyncio.Future()
 
@@ -241,7 +241,7 @@ def start_ws_push_thread(schema, port: int = 8765, host: str = "0.0.0.0",
             asyncio.run(_serve())
         except OSError as e:
             # 端口冲突：降级为不可用（不阻塞主传输）—— ready 不 set
-            print(f"[{server_name} v1.0.0] WS 旁路启动失败（端口 {port}）: {e}",
+            print(f"[{server_name} v1.0.1] WS 旁路启动失败（端口 {port}）: {e}",
                   file=sys.stderr)
         except KeyboardInterrupt:
             pass
