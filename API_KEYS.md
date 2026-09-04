@@ -17,6 +17,8 @@
 | `SCNET_API_KEY` | SCNet 国家超算（Kimi/GLM/Qwen/DeepSeek 聚合）| 国产算力合规接入 | 跳过该 provider |
 | `AZURE_OPENAI_API_KEY` | Azure OpenAI | 企业级合规托管兜底 | 跳过该 provider |
 | `AZURE_OPENAI_ENDPOINT` | Azure OpenAI | 端点地址（配合上者）| — |
+| `ZHIPU_API_KEY` | 智谱 AI (GLM) | 中文语境检索增强兜底 | 跳过该 provider |
+| `BOCHA_API_KEY` | 博查 AI 搜索 | 联网搜索通道（L2 联网能力）| 联网能力降级为不可用 |
 | （Ollama / LM Studio）| 本地推理 | 私有化、零外发；无需 key | 本地端点不可达时跳过 |
 
 **效益总结**：LLM key 用于把「规则模板输出」升级为「领域专家级输出」（含具体失效模式、4M1E 分析、工具引用）。无 key 时 Skill 仍 100% 可用，仅输出抽象度更高。
