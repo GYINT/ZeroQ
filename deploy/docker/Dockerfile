@@ -2,7 +2,7 @@ FROM python:3.12-slim
 
 # 元信息
 LABEL maintainer="QCM MCP Team"
-LABEL version="1.0.0"
+LABEL version="1.0.1"
 LABEL description="QCM MCP Server - Quality Control Methodology MCP"
 
 # 环境变量
@@ -29,7 +29,7 @@ RUN pip install -r requirements.txt
 COPY scripts/ ./scripts/
 COPY references/ ./references/
 COPY outputs/ ./outputs/
-COPY qcm_config.yaml .
+COPY ../qcm_config.yaml qcm_config.yaml
 
 # QCM 环境变量
 ENV QCM_ROOT=/app
@@ -52,5 +52,5 @@ VOLUME ["/var/log/qcm-mcp"]
 
 # 元数据
 LABEL org.opencontainers.image.title="QCM MCP Server"
-LABEL org.opencontainers.image.version="1.0.0"
+LABEL org.opencontainers.image.version="1.0.1"
 LABEL org.opencontainers.image.description="Quality Control Methodology MCP Server"
