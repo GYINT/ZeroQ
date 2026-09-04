@@ -61,25 +61,25 @@ python scripts/mcp_server.py --watch-corpus --watch-interval 10
 
 ```bash
 # 构建
-docker build -t qcm/mcp-server:1.0.0 .
+docker build -t qcm/mcp-server:1.0.1 .
 
 # 运行
 docker run -d \
   --name qcm-mcp \
   -p 8080:8080 \
-  -e DEEPSEEK_API_KEY=sk-... \
+  -e DEEPSEEK_API_KEY=<DEEPSEEK_API_KEY> \
   -e QCM_REQUIRE_TOKEN=1 \
   -e QCM_AUTH_TOKEN=secret \
   -v qcm-cache:/var/cache/qcm \
   -v qcm-audit:/var/log/qcm-mcp \
-  qcm/mcp-server:1.0.0
+  qcm/mcp-server:1.0.1
 ```
 
 ### 2.2 Docker Compose（含 Prometheus + Grafana）
 
 ```bash
 # 复制环境变量模板
-export DEEPSEEK_API_KEY=sk-...
+export DEEPSEEK_API_KEY=<DEEPSEEK_API_KEY>
 export QCM_AUTH_TOKEN=$(openssl rand -hex 32)
 export GRAFANA_ADMIN_PASSWORD=admin
 
@@ -105,10 +105,10 @@ kubectl create namespace qcm
 
 # 创建密钥
 kubectl create secret generic qcm-secrets -n qcm \
-  --from-literal=deepseek-api-key=sk-... \
-  --from-literal=openai-api-key=sk-... \
-  --from-literal=anthropic-api-key=sk-ant-... \
-  --from-literal=dashscope-api-key=sk-... \
+  --from-literal=deepseek-api-key=<DEEPSEEK_API_KEY> \
+  --from-literal=openai-api-key=<OPENAI_API_KEY> \
+  --from-literal=anthropic-api-key=<ANTHROPIC_API_KEY> \
+  --from-literal=dashscope-api-key=<DASHSCOPE_API_KEY> \
   --from-literal=auth-token=$(openssl rand -hex 32) \
   --from-literal=jwt-secret=$(openssl rand -hex 32)
 
@@ -205,7 +205,7 @@ python scripts/mcp_server.py
 
 ```bash
 curl http://localhost:8080/health/live
-# {"status":"alive","version":"1.0.0","protocol":"V8.0+","uptime_s":42}
+# {"status":"alive","version":"1.0.1","protocol":"V8.0+","uptime_s":42}
 
 curl http://localhost:8080/health/ready
 # {"status":"ready","corpus_files":41,"llm":{"mode":"auto","providers_with_keys":["deepseek"]},...}
