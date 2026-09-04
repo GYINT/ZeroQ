@@ -1,0 +1,626 @@
+{
+  "whitelist": [
+    "README",
+    "action-orders",
+    "design-planning-scenarios",
+    "index",
+    "knowledge-base",
+    "material-mapping",
+    "multi-dimension-case-application"
+  ],
+  "observe": {
+    "extension|dangling": {
+      "stem": "extension",
+      "source": "dangling",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "t2|dangling": {
+      "stem": "t2",
+      "source": "dangling",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "asset-lifecycle|deprecated": {
+      "stem": "asset-lifecycle",
+      "source": "deprecated",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "input-guide|deprecated": {
+      "stem": "input-guide",
+      "source": "deprecated",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "input-guide-l0-l3|deprecated": {
+      "stem": "input-guide-l0-l3",
+      "source": "deprecated",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "problem-solving|deprecated": {
+      "stem": "problem-solving",
+      "source": "deprecated",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "prompt-cookbook|deprecated": {
+      "stem": "prompt-cookbook",
+      "source": "deprecated",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "scenarios|deprecated": {
+      "stem": "scenarios",
+      "source": "deprecated",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "tools-examples|deprecated": {
+      "stem": "tools-examples",
+      "source": "deprecated",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "01-shewhart|orphan": {
+      "stem": "01-shewhart",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "03-juran|orphan": {
+      "stem": "03-juran",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "06-taguchi|orphan": {
+      "stem": "06-taguchi",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "07-feigenbaum|orphan": {
+      "stem": "07-feigenbaum",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "09-shingo|orphan": {
+      "stem": "09-shingo",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "10-smith|orphan": {
+      "stem": "10-smith",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "11-imai|orphan": {
+      "stem": "11-imai",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "12-akao|orphan": {
+      "stem": "12-akao",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "13-shainin|orphan": {
+      "stem": "13-shainin",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "14-taylor|orphan": {
+      "stem": "14-taylor",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "15-harry|orphan": {
+      "stem": "15-harry",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "16-mizuno|orphan": {
+      "stem": "16-mizuno",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "17-ford|orphan": {
+      "stem": "17-ford",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "18-hammer|orphan": {
+      "stem": "18-hammer",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "19-harrington|orphan": {
+      "stem": "19-harrington",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "20-kume|orphan": {
+      "stem": "20-kume",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "21-drucker|orphan": {
+      "stem": "21-drucker",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "CHANGELOG|orphan": {
+      "stem": "CHANGELOG",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "INSTALL|orphan": {
+      "stem": "INSTALL",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "TROUBLESHOOTING|orphan": {
+      "stem": "TROUBLESHOOTING",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_action_items|orphan": {
+      "stem": "_action_items",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_assessment_summary|orphan": {
+      "stem": "_assessment_summary",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_crisis_comm|orphan": {
+      "stem": "_crisis_comm",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_crisis_judge|orphan": {
+      "stem": "_crisis_judge",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_crisis_judge_mini|orphan": {
+      "stem": "_crisis_judge_mini",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_culture_aware|orphan": {
+      "stem": "_culture_aware",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_culture_behavior|orphan": {
+      "stem": "_culture_behavior",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_culture_climate|orphan": {
+      "stem": "_culture_climate",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_culture_system|orphan": {
+      "stem": "_culture_system",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_decision_row|orphan": {
+      "stem": "_decision_row",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_distill_pack|orphan": {
+      "stem": "_distill_pack",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_dual_zero|orphan": {
+      "stem": "_dual_zero",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_followup|orphan": {
+      "stem": "_followup",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_gaps|orphan": {
+      "stem": "_gaps",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_knowledge_basis|orphan": {
+      "stem": "_knowledge_basis",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_knowledge_def|orphan": {
+      "stem": "_knowledge_def",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_knowledge_points|orphan": {
+      "stem": "_knowledge_points",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_measures|orphan": {
+      "stem": "_measures",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_meta|orphan": {
+      "stem": "_meta",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_pdca_counter|orphan": {
+      "stem": "_pdca_counter",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_pdca_current|orphan": {
+      "stem": "_pdca_current",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_pdca_target|orphan": {
+      "stem": "_pdca_target",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_pdca_verify|orphan": {
+      "stem": "_pdca_verify",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_probe|orphan": {
+      "stem": "_probe",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_route|orphan": {
+      "stem": "_route",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_score_table|orphan": {
+      "stem": "_score_table",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_state_nav|orphan": {
+      "stem": "_state_nav",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "_suggestions|orphan": {
+      "stem": "_suggestions",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "conflict-resolution|orphan": {
+      "stem": "conflict-resolution",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "consumer_electronics|orphan": {
+      "stem": "consumer_electronics",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "design-planning-scenarios|orphan": {
+      "stem": "design-planning-scenarios",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "eval|orphan": {
+      "stem": "eval",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "material-mapping|orphan": {
+      "stem": "material-mapping",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "multi-dimension-case-application|orphan": {
+      "stem": "multi-dimension-case-application",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "new_energy|orphan": {
+      "stem": "new_energy",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "observing"
+    },
+    "process-classification|orphan": {
+      "stem": "process-classification",
+      "source": "orphan",
+      "since": "2026-08-22",
+      "review_due": "2026-09-21",
+      "status": "stale_passed"
+    },
+    "2026-08-26_orphan_corpus_audit|orphan": {
+      "stem": "2026-08-26_orphan_corpus_audit",
+      "source": "orphan",
+      "since": "2026-09-01",
+      "review_due": "2026-10-01",
+      "status": "observing"
+    },
+    "C1-Q3收口验证报告-2026-08-28|orphan": {
+      "stem": "C1-Q3收口验证报告-2026-08-28",
+      "source": "orphan",
+      "since": "2026-09-01",
+      "review_due": "2026-10-01",
+      "status": "observing"
+    },
+    "INDEX|orphan": {
+      "stem": "INDEX",
+      "source": "orphan",
+      "since": "2026-09-01",
+      "review_due": "2026-10-01",
+      "status": "observing"
+    },
+    "MSA|orphan": {
+      "stem": "MSA",
+      "source": "orphan",
+      "since": "2026-09-01",
+      "review_due": "2026-10-01",
+      "status": "observing"
+    },
+    "MSA检测系统分析接入QCM评估-2026-08-31|orphan": {
+      "stem": "MSA检测系统分析接入QCM评估-2026-08-31",
+      "source": "orphan",
+      "since": "2026-09-01",
+      "review_due": "2026-10-01",
+      "status": "observing"
+    },
+    "QCM输入引导机制评估-2026-08-31|orphan": {
+      "stem": "QCM输入引导机制评估-2026-08-31",
+      "source": "orphan",
+      "since": "2026-09-01",
+      "review_due": "2026-10-01",
+      "status": "observing"
+    },
+    "QCM输入归一化实施评估-2026-08-31|orphan": {
+      "stem": "QCM输入归一化实施评估-2026-08-31",
+      "source": "orphan",
+      "since": "2026-09-01",
+      "review_due": "2026-10-01",
+      "status": "observing"
+    },
+    "Tolerance|orphan": {
+      "stem": "Tolerance",
+      "source": "orphan",
+      "since": "2026-09-01",
+      "review_due": "2026-10-01",
+      "status": "observing"
+    },
+    "assessment-report|orphan": {
+      "stem": "assessment-report",
+      "source": "orphan",
+      "since": "2026-09-01",
+      "review_due": "2026-10-01",
+      "status": "observing"
+    },
+    "case-application|orphan": {
+      "stem": "case-application",
+      "source": "orphan",
+      "since": "2026-09-01",
+      "review_due": "2026-10-01",
+      "status": "observing"
+    },
+    "decision-card|orphan": {
+      "stem": "decision-card",
+      "source": "orphan",
+      "since": "2026-09-01",
+      "review_due": "2026-10-01",
+      "status": "observing"
+    },
+    "intent-glossary|orphan": {
+      "stem": "intent-glossary",
+      "source": "orphan",
+      "since": "2026-09-01",
+      "review_due": "2026-10-01",
+      "status": "observing"
+    },
+    "quick-response|orphan": {
+      "stem": "quick-response",
+      "source": "orphan",
+      "since": "2026-09-01",
+      "review_due": "2026-10-01",
+      "status": "observing"
+    },
+    "ref_heat_backfill_2026-09|orphan": {
+      "stem": "ref_heat_backfill_2026-09",
+      "source": "orphan",
+      "since": "2026-09-01",
+      "review_due": "2026-10-01",
+      "status": "observing"
+    },
+    "semantic-audit|orphan": {
+      "stem": "semantic-audit",
+      "source": "orphan",
+      "since": "2026-09-01",
+      "review_due": "2026-10-01",
+      "status": "observing"
+    },
+    "公差分析接入QCM评估-2026-08-31|orphan": {
+      "stem": "公差分析接入QCM评估-2026-08-31",
+      "source": "orphan",
+      "since": "2026-09-01",
+      "review_due": "2026-10-01",
+      "status": "observing"
+    },
+    "战略规划PPTX全文资产C方案执行评估-2026-08-31|orphan": {
+      "stem": "战略规划PPTX全文资产C方案执行评估-2026-08-31",
+      "source": "orphan",
+      "since": "2026-09-01",
+      "review_due": "2026-10-01",
+      "status": "observing"
+    },
+    "2026-08-28|dangling": {
+      "stem": "2026-08-28",
+      "source": "dangling",
+      "since": "2026-09-01",
+      "review_due": "2026-10-01",
+      "status": "observing"
+    },
+    "2026-08-31|dangling": {
+      "stem": "2026-08-31",
+      "source": "dangling",
+      "since": "2026-09-01",
+      "review_due": "2026-10-01",
+      "status": "observing"
+    },
+    "olerance|dangling": {
+      "stem": "olerance",
+      "source": "dangling",
+      "since": "2026-09-01",
+      "review_due": "2026-10-01",
+      "status": "observing"
+    },
+    "TIMER-RUNBOOK|orphan": {
+      "stem": "TIMER-RUNBOOK",
+      "source": "orphan",
+      "since": "2026-09-02",
+      "review_due": "2026-10-02",
+      "status": "observing"
+    },
+    "2026-09-01|dangling": {
+      "stem": "2026-09-01",
+      "source": "dangling",
+      "since": "2026-09-02",
+      "review_due": "2026-10-02",
+      "status": "observing"
+    }
+  },
+  "retired": {},
+  "revived": {
+    "conflict-resolution": "2026-08-22: methods/ → governance/ 职责归位（同源 problem-solving 234-246 治理原则）"
+  }
+}
