@@ -1,0 +1,40 @@
+{
+  "id": null,
+  "uid": "qcm-overview",
+  "title": "QCM MCP Server 概览",
+  "tags": ["qcm", "mcp"],
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "30s",
+  "time": { "from": "now-1h", "to": "now" },
+  "panels": [
+    {
+      "id": 1,
+      "title": "服务存活 (up)",
+      "type": "stat",
+      "gridPos": { "h": 4, "w": 6, "x": 0, "y": 0 },
+      "targets": [
+        { "expr": "up{job=\"qcm-mcp\"}", "legendFormat": "qcm-mcp" }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "请求速率 (req/s)",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 4 },
+      "targets": [
+        { "expr": "rate(qcm_requests_total[1m])", "legendFormat": "requests/s" }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "错误速率 (err/s)",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 4 },
+      "targets": [
+        { "expr": "rate(qcm_errors_total[1m])", "legendFormat": "errors/s" }
+      ]
+    }
+  ]
+}
