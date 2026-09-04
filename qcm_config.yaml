@@ -1,0 +1,96 @@
+# QCM MCP Server · 完整配置示例
+# 用法：cp scripts/config.example.yaml qcm_config.yaml
+
+server:
+  transport: http  # stdio 或 http
+  host: 0.0.0.0
+  port: 8080
+  auth:
+    require_token: false  # 生产环境建议 true
+    token_env: QCM_AUTH_TOKEN
+
+corpus:
+  references_dir: /app/references
+  outputs_dir: /app/outputs
+
+# LLM Providers（按 priority 排序）
+providers:
+  deepseek:
+    priority: 1
+    enabled: true
+    api_key_env: DEEPSEEK_API_KEY
+    model: deepseek-chat  # 可选：覆盖默认模型
+
+  openai:
+    priority: 2
+    enabled: true
+    api_key_env: OPENAI_API_KEY
+    model: gpt-4o-mini
+
+  claude:
+    priority: 3
+    enabled: true
+    api_key_env: ANTHROPIC_API_KEY
+
+  qwen:
+    priority: 4
+    enabled: true
+    api_key_env: DASHSCOPE_API_KEY
+
+  # V0.6 新增
+  ollama:
+    priority: 5
+    enabled: true
+    base_url: http://localhost:11434/v1
+    model: llama3
+
+  azure_openai:
+    priority: 6
+    enabled: false
+    endpoint_template: "${AZURE_OPENAI_ENDPOINT}/openai/deployments/${AZURE_DEPLOYMENT}"
+    model: gpt-4o
+
+  lm_studio:
+    priority: 7
+    enabled: true
+    base_url: http://localhost:1234/v1
+    model: local-model
+
+# 工具配置
+tools:
+  enabled:
+    - qcm_research
+    - qcm_score_source
+    - qcm_decide
+    - qcm_solve_problem
+    - qcm_audit
+    - qcm_validate
+  custom_plugins_dir: /app/plugins  # V8.3.0 自定义插件目录
+
+# 限流配置（V8.3.0）
+rate_limit:
+  per_ip: 100
+  per_ip_window_s: 60
+  per_token: 1000
+  per_token_window_s: 3600
+  global_limit: 10000
+  global_window_s: 60
+
+# 审计日志
+audit:
+  log_dir: /var/log/qcm-mcp
+  max_size_mb: 100
+
+# 日志配置
+logging:
+  level: info  # debug / info / warning / error
+  format: json  # json 或 text
+# AI 搜索引擎配置（V8.4 · L2 真实联网检索）
+# 二选一即可启用（ai_search.py 引擎降级链）：
+#   ZHIPU_API_KEY=     # 智谱 GLM web_search（公测免费 · 推荐）
+#   BOCHA_API_KEY=     # 博查（0.02 元/次）
+# 也支持写入 QCM_ROOT/.env（key_manager 自动加载 · 不覆盖已存在 env）
+ai_search:
+  engines: [zhipu, bocha]  # 引擎降级顺序（环境变量提供 key 的引擎生效）
+  max_results: 5           # 单次检索条数
+  timeout_s: 15            # 超时（联网延迟 2-5s · 仅 L2 降级路径使用）
