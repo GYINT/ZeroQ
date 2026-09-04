@@ -1,176 +1,217 @@
 # QCM 大语料索引（自动生成 · 勿手改）
 file: references/tools/masters.md
 note: 大师库（21 位质量大师心智模型）
-size_bytes: 50387
-size_kb: 49.2
-anchor_count: 168
-generated: 2026-08-18 09:06
+size_bytes: 65153
+size_kb: 63.6
+anchor_count: 209
+generated: 2026-09-02 18:25
 anchors:
-  - {title: 沃特·休哈特（Walter A. Shewhart, 1891–1967, 美国）, level: 1, line: 1, end_line: 36, lines: 36}
-  - {title: 核心理论（心智模型）, level: 2, line: 5, end_line: 9, lines: 5}
-  - {title: 决策启发式（何时用 / 怎么用）, level: 2, line: 10, end_line: 14, lines: 5}
-  - {title: 代表工具与方法, level: 2, line: 15, end_line: 20, lines: 6}
-  - {title: 代表著作, level: 2, line: 21, end_line: 24, lines: 4}
-  - {title: 表达DNA（视角风格）, level: 2, line: 25, end_line: 29, lines: 5}
-  - {title: 反模式（别这么做）, level: 2, line: 30, end_line: 33, lines: 4}
-  - {title: 诚实边界, level: 2, line: 34, end_line: 36, lines: 3}
-  - {title: W.爱德华兹·戴明（W. Edwards Deming, 1900–1993, 美国）, level: 1, line: 37, end_line: 72, lines: 36}
-  - {title: 核心理论（心智模型）, level: 2, line: 41, end_line: 45, lines: 5}
-  - {title: 决策启发式（何时用 / 怎么用）, level: 2, line: 46, end_line: 50, lines: 5}
-  - {title: 代表工具与方法, level: 2, line: 51, end_line: 57, lines: 7}
-  - {title: 代表著作, level: 2, line: 58, end_line: 61, lines: 4}
-  - {title: 表达DNA（视角风格）, level: 2, line: 62, end_line: 65, lines: 4}
-  - {title: 反模式（别这么做）, level: 2, line: 66, end_line: 69, lines: 4}
-  - {title: 诚实边界, level: 2, line: 70, end_line: 72, lines: 3}
-  - {title: 约瑟夫·朱兰（Joseph M. Juran, 1904–2008, 罗马裔美）, level: 1, line: 73, end_line: 107, lines: 35}
-  - {title: 核心理论（心智模型）, level: 2, line: 77, end_line: 81, lines: 5}
-  - {title: 决策启发式（何时用 / 怎么用）, level: 2, line: 82, end_line: 86, lines: 5}
-  - {title: 代表工具与方法, level: 2, line: 87, end_line: 92, lines: 6}
-  - {title: 代表著作, level: 2, line: 93, end_line: 96, lines: 4}
-  - {title: 表达DNA（视角风格）, level: 2, line: 97, end_line: 100, lines: 4}
-  - {title: 反模式（别这么做）, level: 2, line: 101, end_line: 104, lines: 4}
-  - {title: 诚实边界, level: 2, line: 105, end_line: 107, lines: 3}
-  - {title: 菲利普·克劳士比（Philip B. Crosby, 1926–2001, 美国）, level: 1, line: 108, end_line: 143, lines: 36}
-  - {title: 核心理论（心智模型）, level: 2, line: 112, end_line: 116, lines: 5}
-  - {title: 决策启发式（何时用 / 怎么用）, level: 2, line: 117, end_line: 121, lines: 5}
-  - {title: 代表工具与方法, level: 2, line: 122, end_line: 128, lines: 7}
-  - {title: 代表著作, level: 2, line: 129, end_line: 132, lines: 4}
-  - {title: 表达DNA（视角风格）, level: 2, line: 133, end_line: 136, lines: 4}
-  - {title: 反模式（别这么做）, level: 2, line: 137, end_line: 140, lines: 4}
-  - {title: 诚实边界, level: 2, line: 141, end_line: 143, lines: 3}
-  - {title: 石川馨（Kaoru Ishikawa, 1915–1989, 日本）, level: 1, line: 144, end_line: 178, lines: 35}
-  - {title: 核心理论（心智模型）, level: 2, line: 148, end_line: 152, lines: 5}
-  - {title: 决策启发式（何时用 / 怎么用）, level: 2, line: 153, end_line: 157, lines: 5}
-  - {title: 代表工具与方法, level: 2, line: 158, end_line: 163, lines: 6}
-  - {title: 代表著作, level: 2, line: 164, end_line: 167, lines: 4}
-  - {title: 表达DNA（视角风格）, level: 2, line: 168, end_line: 171, lines: 4}
-  - {title: 反模式（别这么做）, level: 2, line: 172, end_line: 175, lines: 4}
-  - {title: 诚实边界, level: 2, line: 176, end_line: 178, lines: 3}
-  - {title: 田口玄一（Genichi Taguchi, 1924–2012, 日本）, level: 1, line: 179, end_line: 212, lines: 34}
-  - {title: 核心理论（心智模型）, level: 2, line: 183, end_line: 187, lines: 5}
-  - {title: 决策启发式（何时用 / 怎么用）, level: 2, line: 188, end_line: 192, lines: 5}
-  - {title: 代表工具与方法, level: 2, line: 193, end_line: 199, lines: 7}
-  - {title: 代表著作, level: 2, line: 200, end_line: 202, lines: 3}
-  - {title: 表达DNA（视角风格）, level: 2, line: 203, end_line: 206, lines: 4}
-  - {title: 反模式（别这么做）, level: 2, line: 207, end_line: 210, lines: 4}
-  - {title: 诚实边界, level: 2, line: 211, end_line: 212, lines: 2}
-  - {title: 阿曼德·费根堡姆（Armand V. Feigenbaum, 1922–2014, 美国）, level: 1, line: 213, end_line: 245, lines: 33}
-  - {title: 核心理论（心智模型）, level: 2, line: 217, end_line: 221, lines: 5}
-  - {title: 决策启发式（何时用 / 怎么用）, level: 2, line: 222, end_line: 226, lines: 5}
-  - {title: 代表工具与方法, level: 2, line: 227, end_line: 232, lines: 6}
-  - {title: 代表著作, level: 2, line: 233, end_line: 235, lines: 3}
-  - {title: 表达DNA（视角风格）, level: 2, line: 236, end_line: 239, lines: 4}
-  - {title: 反模式（别这么做）, level: 2, line: 240, end_line: 243, lines: 4}
-  - {title: 诚实边界, level: 2, line: 244, end_line: 245, lines: 2}
-  - {title: 大野耐一（Taiichi Ohno, 1912–1990, 日本）, level: 1, line: 246, end_line: 281, lines: 36}
-  - {title: 核心理论（心智模型）, level: 2, line: 250, end_line: 254, lines: 5}
-  - {title: 决策启发式（何时用 / 怎么用）, level: 2, line: 255, end_line: 259, lines: 5}
-  - {title: 代表工具与方法, level: 2, line: 260, end_line: 267, lines: 8}
-  - {title: 代表著作, level: 2, line: 268, end_line: 270, lines: 3}
-  - {title: 表达DNA（视角风格）, level: 2, line: 271, end_line: 274, lines: 4}
-  - {title: 反模式（别这么做）, level: 2, line: 275, end_line: 278, lines: 4}
-  - {title: 诚实边界, level: 2, line: 279, end_line: 281, lines: 3}
-  - {title: 新乡重夫（Shigeo Shingo, 1909–1990, 日本）, level: 1, line: 282, end_line: 317, lines: 36}
-  - {title: 核心理论（心智模型）, level: 2, line: 286, end_line: 290, lines: 5}
-  - {title: 决策启发式（何时用 / 怎么用）, level: 2, line: 291, end_line: 295, lines: 5}
-  - {title: 代表工具与方法, level: 2, line: 296, end_line: 302, lines: 7}
-  - {title: 代表著作, level: 2, line: 303, end_line: 306, lines: 4}
-  - {title: 表达DNA（视角风格）, level: 2, line: 307, end_line: 310, lines: 4}
-  - {title: 反模式（别这么做）, level: 2, line: 311, end_line: 314, lines: 4}
-  - {title: 诚实边界, level: 2, line: 315, end_line: 317, lines: 3}
-  - {title: 比尔·史密斯（Bill Smith, 1929–1993, 美国）, level: 1, line: 318, end_line: 353, lines: 36}
-  - {title: 核心理论（心智模型）, level: 2, line: 322, end_line: 326, lines: 5}
-  - {title: 决策启发式（何时用 / 怎么用）, level: 2, line: 327, end_line: 331, lines: 5}
-  - {title: 代表工具与方法, level: 2, line: 332, end_line: 338, lines: 7}
-  - {title: 代表著作, level: 2, line: 339, end_line: 342, lines: 4}
-  - {title: 表达DNA（视角风格）, level: 2, line: 343, end_line: 346, lines: 4}
-  - {title: 反模式（别这么做）, level: 2, line: 347, end_line: 350, lines: 4}
-  - {title: 诚实边界, level: 2, line: 351, end_line: 353, lines: 3}
-  - {title: 今井正明（Masaaki Imai, 1930–2023, 日本）, level: 1, line: 354, end_line: 388, lines: 35}
-  - {title: 核心理论（心智模型）, level: 2, line: 358, end_line: 362, lines: 5}
-  - {title: 决策启发式（何时用 / 怎么用）, level: 2, line: 363, end_line: 367, lines: 5}
-  - {title: 代表工具与方法, level: 2, line: 368, end_line: 374, lines: 7}
-  - {title: 代表著作, level: 2, line: 375, end_line: 378, lines: 4}
-  - {title: 表达DNA（视角风格）, level: 2, line: 379, end_line: 382, lines: 4}
-  - {title: 反模式（别这么做）, level: 2, line: 383, end_line: 386, lines: 4}
-  - {title: 诚实边界, level: 2, line: 387, end_line: 388, lines: 2}
-  - {title: 赤尾洋二（Yoji Akao, 1928–2016, 日本）, level: 1, line: 389, end_line: 423, lines: 35}
-  - {title: 核心理论（心智模型）, level: 2, line: 393, end_line: 397, lines: 5}
-  - {title: 决策启发式（何时用 / 怎么用）, level: 2, line: 398, end_line: 402, lines: 5}
-  - {title: 代表工具与方法, level: 2, line: 403, end_line: 408, lines: 6}
-  - {title: 代表著作, level: 2, line: 409, end_line: 412, lines: 4}
-  - {title: 表达DNA（视角风格）, level: 2, line: 413, end_line: 417, lines: 5}
-  - {title: 反模式（别这么做）, level: 2, line: 418, end_line: 421, lines: 4}
-  - {title: 诚实边界, level: 2, line: 422, end_line: 423, lines: 2}
-  - {title: 多里安·谢宁（Dorian Shainin, 1914–2000, 美国）, level: 1, line: 424, end_line: 458, lines: 35}
-  - {title: 核心理论（心智模型）, level: 2, line: 428, end_line: 432, lines: 5}
-  - {title: 决策启发式（何时用 / 怎么用）, level: 2, line: 433, end_line: 437, lines: 5}
-  - {title: 代表工具与方法, level: 2, line: 438, end_line: 445, lines: 8}
-  - {title: 代表著作, level: 2, line: 446, end_line: 448, lines: 3}
-  - {title: 表达DNA（视角风格）, level: 2, line: 449, end_line: 452, lines: 4}
-  - {title: 反模式（别这么做）, level: 2, line: 453, end_line: 456, lines: 4}
-  - {title: 诚实边界, level: 2, line: 457, end_line: 458, lines: 2}
-  - {title: 弗雷德里克·泰勒（Frederick W. Taylor, 1856–1915, 美国）, level: 1, line: 459, end_line: 493, lines: 35}
-  - {title: 核心理论（心智模型）, level: 2, line: 463, end_line: 467, lines: 5}
-  - {title: 决策启发式（何时用 / 怎么用）, level: 2, line: 468, end_line: 472, lines: 5}
-  - {title: 代表工具与方法, level: 2, line: 473, end_line: 479, lines: 7}
-  - {title: 代表著作, level: 2, line: 480, end_line: 483, lines: 4}
-  - {title: 表达DNA（视角风格）, level: 2, line: 484, end_line: 487, lines: 4}
-  - {title: 反模式（别这么做）, level: 2, line: 488, end_line: 491, lines: 4}
-  - {title: 诚实边界, level: 2, line: 492, end_line: 493, lines: 2}
-  - {title: Mikel Harry（迈凯尔·哈里, 1951–2017, 美国）, level: 1, line: 494, end_line: 527, lines: 34}
-  - {title: 核心理论（心智模型）, level: 2, line: 498, end_line: 502, lines: 5}
-  - {title: 决策启发式（何时用 / 怎么用）, level: 2, line: 503, end_line: 507, lines: 5}
-  - {title: 代表工具与方法, level: 2, line: 508, end_line: 513, lines: 6}
-  - {title: 代表著作, level: 2, line: 514, end_line: 517, lines: 4}
-  - {title: 表达DNA（视角风格）, level: 2, line: 518, end_line: 521, lines: 4}
-  - {title: 反模式（别这么做）, level: 2, line: 522, end_line: 525, lines: 4}
-  - {title: 诚实边界, level: 2, line: 526, end_line: 527, lines: 2}
-  - {title: 水野滋（Shigeru Mizuno, 1910–1989, 日本 · 东京工业大学/Tokyo Institute of Technology 教授）, level: 1, line: 528, end_line: 561, lines: 34}
-  - {title: 核心理论（心智模型）, level: 2, line: 532, end_line: 536, lines: 5}
-  - {title: 决策启发式（何时用 / 怎么用）, level: 2, line: 537, end_line: 541, lines: 5}
-  - {title: 代表工具与方法, level: 2, line: 542, end_line: 546, lines: 5}
-  - {title: 代表著作, level: 2, line: 547, end_line: 551, lines: 5}
-  - {title: 表达DNA（视角风格）, level: 2, line: 552, end_line: 555, lines: 4}
-  - {title: 反模式（别这么做）, level: 2, line: 556, end_line: 559, lines: 4}
-  - {title: 诚实边界, level: 2, line: 560, end_line: 561, lines: 2}
-  - {title: 亨利·福特（Henry Ford, 1863–1947, 美国）, level: 1, line: 562, end_line: 595, lines: 34}
-  - {title: 核心理论（心智模型）, level: 2, line: 566, end_line: 571, lines: 6}
-  - {title: 决策启发式（何时用 / 怎么用）, level: 2, line: 572, end_line: 576, lines: 5}
-  - {title: 代表工具与方法, level: 2, line: 577, end_line: 582, lines: 6}
-  - {title: 代表著作, level: 2, line: 583, end_line: 585, lines: 3}
-  - {title: 表达DNA（视角风格）, level: 2, line: 586, end_line: 589, lines: 4}
-  - {title: 反模式（别这么做）, level: 2, line: 590, end_line: 593, lines: 4}
-  - {title: 诚实边界, level: 2, line: 594, end_line: 595, lines: 2}
-  - {title: 迈克尔·哈默（Michael Hammer, 1948–2008, 美国）, level: 1, line: 596, end_line: 630, lines: 35}
-  - {title: 核心理论（心智模型）, level: 2, line: 600, end_line: 604, lines: 5}
-  - {title: 决策启发式（何时用 / 怎么用）, level: 2, line: 605, end_line: 609, lines: 5}
-  - {title: 代表工具与方法, level: 2, line: 610, end_line: 616, lines: 7}
-  - {title: 代表著作, level: 2, line: 617, end_line: 620, lines: 4}
-  - {title: 表达DNA（视角风格）, level: 2, line: 621, end_line: 624, lines: 4}
-  - {title: 反模式（别这么做）, level: 2, line: 625, end_line: 628, lines: 4}
-  - {title: 诚实边界, level: 2, line: 629, end_line: 630, lines: 2}
-  - {title: 詹姆斯·哈林顿（James Harrington / H. James Harrington, 1929–2024, 美国）, level: 1, line: 631, end_line: 666, lines: 36}
-  - {title: 核心理论（心智模型）, level: 2, line: 635, end_line: 639, lines: 5}
-  - {title: 决策启发式（何时用 / 怎么用）, level: 2, line: 640, end_line: 644, lines: 5}
-  - {title: 代表工具与方法, level: 2, line: 645, end_line: 651, lines: 7}
-  - {title: 代表著作, level: 2, line: 652, end_line: 655, lines: 4}
-  - {title: 表达DNA（视角风格）, level: 2, line: 656, end_line: 660, lines: 5}
-  - {title: 反模式（别这么做）, level: 2, line: 661, end_line: 664, lines: 4}
-  - {title: 诚实边界, level: 2, line: 665, end_line: 666, lines: 2}
-  - {title: 久米均（Hitoshi Kume, 1930年生—公开多记，待核, 日本 · 东京大学工学部教授）, level: 1, line: 667, end_line: 702, lines: 36}
-  - {title: 核心理论（心智模型）, level: 2, line: 671, end_line: 675, lines: 5}
-  - {title: 决策启发式（何时用 / 怎么用）, level: 2, line: 676, end_line: 680, lines: 5}
-  - {title: 代表工具与方法, level: 2, line: 681, end_line: 686, lines: 6}
-  - {title: 代表著作, level: 2, line: 687, end_line: 691, lines: 5}
-  - {title: 表达DNA（视角风格）, level: 2, line: 692, end_line: 696, lines: 5}
-  - {title: 反模式（别这么做）, level: 2, line: 697, end_line: 700, lines: 4}
-  - {title: 诚实边界, level: 2, line: 701, end_line: 702, lines: 2}
-  - {title: 彼得·德鲁克（Peter F. Drucker, 1909–2005, 奥地利裔美）, level: 1, line: 703, end_line: 738, lines: 36}
-  - {title: 核心理论（心智模型）, level: 2, line: 707, end_line: 712, lines: 6}
-  - {title: 决策启发式（何时用 / 怎么用）, level: 2, line: 713, end_line: 717, lines: 5}
-  - {title: 代表工具与方法, level: 2, line: 718, end_line: 723, lines: 6}
-  - {title: 代表著作, level: 2, line: 724, end_line: 727, lines: 4}
-  - {title: 表达DNA（视角风格）, level: 2, line: 728, end_line: 731, lines: 4}
-  - {title: 反模式（别这么做）, level: 2, line: 732, end_line: 735, lines: 4}
-  - {title: 诚实边界, level: 2, line: 736, end_line: 738, lines: 3}
+  - {id: -, title: 沃特·休哈特（Walter A. Shewhart, 1891–1967, 美国）, level: 1, line: 1, end_line: 36, lines: 36, tags: [], links: []}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 5, end_line: 9, lines: 5, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 10, end_line: 14, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 15, end_line: 20, lines: 6, tags: [], links: []}
+  - {id: -, title: 代表著作, level: 2, line: 21, end_line: 24, lines: 4, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 25, end_line: 29, lines: 5, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 30, end_line: 33, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 34, end_line: 36, lines: 3, tags: [], links: []}
+  - {id: -, title: W.爱德华兹·戴明（W. Edwards Deming, 1900–1993, 美国）, level: 1, line: 37, end_line: 72, lines: 36, tags: [], links: []}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 41, end_line: 45, lines: 5, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 46, end_line: 50, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 51, end_line: 57, lines: 7, tags: [], links: []}
+  - {id: -, title: 代表著作, level: 2, line: 58, end_line: 61, lines: 4, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 62, end_line: 65, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 66, end_line: 69, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 70, end_line: 72, lines: 3, tags: [], links: []}
+  - {id: -, title: 约瑟夫·朱兰（Joseph M. Juran, 1904–2008, 罗马裔美）, level: 1, line: 73, end_line: 107, lines: 35, tags: [], links: []}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 77, end_line: 81, lines: 5, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 82, end_line: 86, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 87, end_line: 92, lines: 6, tags: [], links: []}
+  - {id: -, title: 代表著作, level: 2, line: 93, end_line: 96, lines: 4, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 97, end_line: 100, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 101, end_line: 104, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 105, end_line: 107, lines: 3, tags: [], links: []}
+  - {id: -, title: 菲利普·克劳士比（Philip B. Crosby, 1926–2001, 美国）, level: 1, line: 108, end_line: 143, lines: 36, tags: [], links: []}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 112, end_line: 116, lines: 5, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 117, end_line: 121, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 122, end_line: 128, lines: 7, tags: [], links: []}
+  - {id: -, title: 代表著作, level: 2, line: 129, end_line: 132, lines: 4, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 133, end_line: 136, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 137, end_line: 140, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 141, end_line: 143, lines: 3, tags: [], links: []}
+  - {id: -, title: 石川馨（Kaoru Ishikawa, 1915–1989, 日本）, level: 1, line: 144, end_line: 178, lines: 35, tags: [], links: []}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 148, end_line: 152, lines: 5, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 153, end_line: 157, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 158, end_line: 163, lines: 6, tags: [], links: []}
+  - {id: -, title: 代表著作, level: 2, line: 164, end_line: 167, lines: 4, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 168, end_line: 171, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 172, end_line: 175, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 176, end_line: 178, lines: 3, tags: [], links: []}
+  - {id: -, title: 田口玄一（Genichi Taguchi, 1924–2012, 日本）, level: 1, line: 179, end_line: 212, lines: 34, tags: [], links: []}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 183, end_line: 187, lines: 5, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 188, end_line: 192, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 193, end_line: 199, lines: 7, tags: [], links: []}
+  - {id: -, title: 代表著作, level: 2, line: 200, end_line: 202, lines: 3, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 203, end_line: 206, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 207, end_line: 210, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 211, end_line: 212, lines: 2, tags: [], links: []}
+  - {id: -, title: 阿曼德·费根堡姆（Armand V. Feigenbaum, 1922–2014, 美国）, level: 1, line: 213, end_line: 245, lines: 33, tags: [], links: []}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 217, end_line: 221, lines: 5, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 222, end_line: 226, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 227, end_line: 232, lines: 6, tags: [], links: []}
+  - {id: -, title: 代表著作, level: 2, line: 233, end_line: 235, lines: 3, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 236, end_line: 239, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 240, end_line: 243, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 244, end_line: 245, lines: 2, tags: [], links: []}
+  - {id: -, title: 大野耐一（Taiichi Ohno, 1912–1990, 日本）, level: 1, line: 246, end_line: 281, lines: 36, tags: [], links: []}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 250, end_line: 254, lines: 5, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 255, end_line: 259, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 260, end_line: 267, lines: 8, tags: [], links: []}
+  - {id: -, title: 代表著作, level: 2, line: 268, end_line: 270, lines: 3, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 271, end_line: 274, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 275, end_line: 278, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 279, end_line: 281, lines: 3, tags: [], links: []}
+  - {id: -, title: 新乡重夫（Shigeo Shingo, 1909–1990, 日本）, level: 1, line: 282, end_line: 317, lines: 36, tags: [], links: []}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 286, end_line: 290, lines: 5, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 291, end_line: 295, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 296, end_line: 302, lines: 7, tags: [], links: []}
+  - {id: -, title: 代表著作, level: 2, line: 303, end_line: 306, lines: 4, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 307, end_line: 310, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 311, end_line: 314, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 315, end_line: 317, lines: 3, tags: [], links: []}
+  - {id: -, title: 比尔·史密斯（Bill Smith, 1929–1993, 美国）, level: 1, line: 318, end_line: 353, lines: 36, tags: [], links: []}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 322, end_line: 326, lines: 5, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 327, end_line: 331, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 332, end_line: 338, lines: 7, tags: [], links: []}
+  - {id: -, title: 代表著作, level: 2, line: 339, end_line: 342, lines: 4, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 343, end_line: 346, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 347, end_line: 350, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 351, end_line: 353, lines: 3, tags: [], links: []}
+  - {id: -, title: 今井正明（Masaaki Imai, 1930–2023, 日本）, level: 1, line: 354, end_line: 388, lines: 35, tags: [], links: []}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 358, end_line: 362, lines: 5, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 363, end_line: 367, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 368, end_line: 374, lines: 7, tags: [], links: []}
+  - {id: -, title: 代表著作, level: 2, line: 375, end_line: 378, lines: 4, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 379, end_line: 382, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 383, end_line: 386, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 387, end_line: 388, lines: 2, tags: [], links: []}
+  - {id: -, title: 赤尾洋二（Yoji Akao, 1928–2016, 日本）, level: 1, line: 389, end_line: 423, lines: 35, tags: [], links: []}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 393, end_line: 397, lines: 5, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 398, end_line: 402, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 403, end_line: 408, lines: 6, tags: [], links: []}
+  - {id: -, title: 代表著作, level: 2, line: 409, end_line: 412, lines: 4, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 413, end_line: 417, lines: 5, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 418, end_line: 421, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 422, end_line: 423, lines: 2, tags: [], links: []}
+  - {id: -, title: 多里安·谢宁（Dorian Shainin, 1914–2000, 美国）, level: 1, line: 424, end_line: 458, lines: 35, tags: [], links: []}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 428, end_line: 432, lines: 5, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 433, end_line: 437, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 438, end_line: 445, lines: 8, tags: [], links: []}
+  - {id: -, title: 代表著作, level: 2, line: 446, end_line: 448, lines: 3, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 449, end_line: 452, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 453, end_line: 456, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 457, end_line: 458, lines: 2, tags: [], links: []}
+  - {id: -, title: 弗雷德里克·泰勒（Frederick W. Taylor, 1856–1915, 美国）, level: 1, line: 459, end_line: 493, lines: 35, tags: [], links: []}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 463, end_line: 467, lines: 5, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 468, end_line: 472, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 473, end_line: 479, lines: 7, tags: [], links: []}
+  - {id: -, title: 代表著作, level: 2, line: 480, end_line: 483, lines: 4, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 484, end_line: 487, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 488, end_line: 491, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 492, end_line: 493, lines: 2, tags: [], links: []}
+  - {id: -, title: Mikel Harry（迈凯尔·哈里, 1951–2017, 美国）, level: 1, line: 494, end_line: 527, lines: 34, tags: [], links: []}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 498, end_line: 502, lines: 5, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 503, end_line: 507, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 508, end_line: 513, lines: 6, tags: [], links: []}
+  - {id: -, title: 代表著作, level: 2, line: 514, end_line: 517, lines: 4, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 518, end_line: 521, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 522, end_line: 525, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 526, end_line: 527, lines: 2, tags: [], links: []}
+  - {id: -, title: 水野滋（Shigeru Mizuno, 1910–1989, 日本 · 东京工业大学/Tokyo Institute of Technology 教授）, level: 1, line: 528, end_line: 561, lines: 34, tags: [], links: []}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 532, end_line: 536, lines: 5, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 537, end_line: 541, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 542, end_line: 546, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表著作, level: 2, line: 547, end_line: 551, lines: 5, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 552, end_line: 555, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 556, end_line: 559, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 560, end_line: 561, lines: 2, tags: [], links: []}
+  - {id: -, title: 亨利·福特（Henry Ford, 1863–1947, 美国）, level: 1, line: 562, end_line: 595, lines: 34, tags: [], links: []}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 566, end_line: 571, lines: 6, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 572, end_line: 576, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 577, end_line: 582, lines: 6, tags: [], links: []}
+  - {id: -, title: 代表著作, level: 2, line: 583, end_line: 585, lines: 3, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 586, end_line: 589, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 590, end_line: 593, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 594, end_line: 595, lines: 2, tags: [], links: []}
+  - {id: -, title: 迈克尔·哈默（Michael Hammer, 1948–2008, 美国）, level: 1, line: 596, end_line: 630, lines: 35, tags: [], links: []}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 600, end_line: 604, lines: 5, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 605, end_line: 609, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 610, end_line: 616, lines: 7, tags: [], links: []}
+  - {id: -, title: 代表著作, level: 2, line: 617, end_line: 620, lines: 4, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 621, end_line: 624, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 625, end_line: 628, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 629, end_line: 630, lines: 2, tags: [], links: []}
+  - {id: -, title: 詹姆斯·哈林顿（James Harrington / H. James Harrington, 1929–2024, 美国）, level: 1, line: 631, end_line: 666, lines: 36, tags: [], links: []}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 635, end_line: 639, lines: 5, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 640, end_line: 644, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 645, end_line: 651, lines: 7, tags: [], links: []}
+  - {id: -, title: 代表著作, level: 2, line: 652, end_line: 655, lines: 4, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 656, end_line: 660, lines: 5, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 661, end_line: 664, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 665, end_line: 666, lines: 2, tags: [], links: []}
+  - {id: -, title: 久米均（Hitoshi Kume, 1930年生—公开多记，待核, 日本 · 东京大学工学部教授）, level: 1, line: 667, end_line: 702, lines: 36, tags: [], links: []}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 671, end_line: 675, lines: 5, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 676, end_line: 680, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 681, end_line: 686, lines: 6, tags: [], links: []}
+  - {id: -, title: 代表著作, level: 2, line: 687, end_line: 691, lines: 5, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 692, end_line: 696, lines: 5, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 697, end_line: 700, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 701, end_line: 702, lines: 2, tags: [], links: []}
+  - {id: -, title: 彼得·德鲁克（Peter F. Drucker, 1909–2005, 奥地利裔美）, level: 1, line: 703, end_line: 739, lines: 37, tags: [], links: []}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 707, end_line: 712, lines: 6, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 713, end_line: 717, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 718, end_line: 723, lines: 6, tags: [], links: []}
+  - {id: -, title: 代表著作, level: 2, line: 724, end_line: 727, lines: 4, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 728, end_line: 731, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 732, end_line: 735, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 736, end_line: 739, lines: 4, tags: [], links: []}
+  - {id: -, title: 吴恩达（Andrew Ng, 1976– , 美籍华裔）, level: 1, line: 740, end_line: 776, lines: 37, tags: [], links: [##G01, ##G04, ##G07]}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 744, end_line: 748, lines: 5, tags: [], links: []}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 749, end_line: 753, lines: 5, tags: [], links: []}
+  - {id: -, title: 代表工具与方法, level: 2, line: 754, end_line: 759, lines: 6, tags: [], links: [##G01, ##G04, ##G07]}
+  - {id: -, title: 代表著作, level: 2, line: 760, end_line: 764, lines: 5, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 765, end_line: 768, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 769, end_line: 772, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 773, end_line: 776, lines: 4, tags: [], links: []}
+  - {id: -, title: 李飞飞（Fei-Fei Li, 1976– , 美籍华裔）, level: 1, line: 777, end_line: 813, lines: 37, tags: [], links: [##G07, ##G10, ##G01]}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 781, end_line: 785, lines: 5, tags: [], links: [##G07, ##G10]}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 786, end_line: 790, lines: 5, tags: [], links: [##G01]}
+  - {id: -, title: 代表工具与方法, level: 2, line: 791, end_line: 796, lines: 6, tags: [], links: [##G01, ##G10]}
+  - {id: -, title: 代表著作, level: 2, line: 797, end_line: 801, lines: 5, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 802, end_line: 805, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 806, end_line: 809, lines: 4, tags: [], links: []}
+  - {id: -, title: 诚实边界, level: 2, line: 810, end_line: 813, lines: 4, tags: [], links: [##G01, ##G10]}
+  - {id: -, title: 杰弗里·辛顿（Geoffrey Hinton, 1947– , 加拿大）, level: 1, line: 814, end_line: 850, lines: 37, tags: [], links: [##G01, ##G05, ##G09, ##G07, ##G04, ##G10, ##A01]}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 818, end_line: 822, lines: 5, tags: [], links: [##G01, ##G05, ##G09, ##G07, ##G04]}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 823, end_line: 827, lines: 5, tags: [], links: [##G10]}
+  - {id: -, title: 代表工具与方法, level: 2, line: 828, end_line: 833, lines: 6, tags: [], links: [##G01, ##G05, ##G07, ##G09]}
+  - {id: -, title: 代表著作, level: 2, line: 834, end_line: 838, lines: 5, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 839, end_line: 842, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 843, end_line: 846, lines: 4, tags: [], links: [##A01]}
+  - {id: -, title: 诚实边界, level: 2, line: 847, end_line: 850, lines: 4, tags: [], links: []}
+  - {id: -, title: 扬·勒丘恩（Yann LeCun, 1960– , 法国）, level: 1, line: 851, end_line: 887, lines: 37, tags: [], links: [##G01, ##G05, ##G07, ##G10]}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 855, end_line: 859, lines: 5, tags: [], links: [##G01, ##G05, ##G07]}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 860, end_line: 864, lines: 5, tags: [], links: [##G01, ##G07, ##G10]}
+  - {id: -, title: 代表工具与方法, level: 2, line: 865, end_line: 870, lines: 6, tags: [], links: [##G01, ##G05, ##G07, ##G10]}
+  - {id: -, title: 代表著作, level: 2, line: 871, end_line: 875, lines: 5, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 876, end_line: 879, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 880, end_line: 883, lines: 4, tags: [], links: [##G01]}
+  - {id: -, title: 诚实边界, level: 2, line: 884, end_line: 887, lines: 4, tags: [], links: [##G01, ##G05, ##G07]}
+  - {id: -, title: 约书亚·本吉奥（Yoshua Bengio, 1964– , 加拿大）, level: 1, line: 888, end_line: 943, lines: 56, tags: [], links: [##G04, ##G06, ##G10, ##G07]}
+  - {id: -, title: 核心理论（心智模型）, level: 2, line: 892, end_line: 896, lines: 5, tags: [], links: [##G04, ##G06, ##G10]}
+  - {id: -, title: 决策启发式（何时用 / 怎么用）, level: 2, line: 897, end_line: 901, lines: 5, tags: [], links: [##G04, ##G06, ##G10]}
+  - {id: -, title: 代表工具与方法, level: 2, line: 902, end_line: 908, lines: 7, tags: [], links: [##G04, ##G06, ##G07, ##G10]}
+  - {id: -, title: 代表著作, level: 2, line: 909, end_line: 913, lines: 5, tags: [], links: []}
+  - {id: -, title: 表达DNA（视角风格）, level: 2, line: 914, end_line: 917, lines: 4, tags: [], links: []}
+  - {id: -, title: 反模式（别这么做）, level: 2, line: 918, end_line: 921, lines: 4, tags: [], links: [##G06, ##G10]}
+  - {id: -, title: 诚实边界, level: 2, line: 922, end_line: 927, lines: 6, tags: [], links: [##G04, ##G06, ##G10]}
+  - {id: -, title: AI 大师实证核验（多源采集 + 矛盾检测）, level: 2, line: 928, end_line: 943, lines: 16, tags: [], links: []}
