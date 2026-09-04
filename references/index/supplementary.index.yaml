@@ -1,0 +1,13 @@
+# QCM 大语料索引（自动生成 · 勿手改）
+file: references/knowledge/supplementary.md
+note: 补充知识索引（人物/方法/规划/治理 25 篇孤儿文档反向链接汇总）
+size_bytes: 4155
+size_kb: 4.1
+anchor_count: 5
+generated: 2026-09-02 18:25
+anchors:
+  - {id: -, title: 补充参考库索引（supplementary）, level: 1, line: 1, end_line: 58, lines: 58, tags: [], links: []}
+  - {id: -, title: 一、质量大师人物库（references/people/）, level: 2, line: 9, end_line: 32, lines: 24, tags: [], links: []}
+  - {id: -, title: 二、方法框架库（references/methods/）, level: 2, line: 33, end_line: 43, lines: 11, tags: [], links: []}
+  - {id: -, title: 三、规划与运行态（references/planning/）, level: 2, line: 44, end_line: 53, lines: 10, tags: [], links: []}
+  - {id: -, title: 四、治理（references/governance/）, level: 2, line: 54, end_line: 58, lines: 5, tags: [], links: []}
