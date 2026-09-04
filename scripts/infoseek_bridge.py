@@ -421,7 +421,12 @@ def _web_search_infoseek(query: str, max_results: int = 5) -> Optional[List[Dict
     """L2a 主路 · 复用 Infoseek search_web（5 引擎成熟链 · 并行+降级）
 
     Infoseek 可用时优先（零重复建设）；返回真实联网锚点 [{url,title,snippet}]。
+
+    可用性信号与 L0 探测统一（probe_infoseek），避免两套发现路径分叉：
+    INFOSEEK_SERVER 不可达时 L0/L2a 同时失效，保证降级链（L0→L1→L2→L3）一致。
     """
+    if probe_infoseek() != "available":
+        return None
     inf = _probe_infoseek_path()
     if not inf:
         return None
@@ -604,7 +609,12 @@ def _web_llm_supplement(query: str, failure_dims: Optional[List[str]] = None) ->
 
 # ============ L3 · 缺口记录 ============
 def _append_gap_tracker(query: str, failure_dims: List[str], path: str) -> None:
-    """写入 gap_tracker.md（status=pending_infoseek · 待 M4 批量回源）"""
+    """写入 gap_tracker.md（status=pending_infoseek · 待 M4 批量回源）
+
+    M1.3 修复：写入前按问题去重（与消费端 corpus_sync.gap_tracker_entries 同键：
+    表格第 2 列问题字段）——同一缺口多次 L3 降级只保留首条，不再无限追加，
+    根治 2026-08-18 08:30/08:34/08:38 式 98 行重复日志堆叠。
+    """
     try:
         entry = (
             f"\n| {time.strftime('%Y-%m-%d %H:%M')} | {query[:40]} | "
@@ -612,9 +622,15 @@ def _append_gap_tracker(query: str, failure_dims: List[str], path: str) -> None:
         )
         header = "| 时间 | 缺口问题 | 失败维度 | 状态 | 降级路径 |\n|------|----------|----------|------|----------|\n"
         if os.path.exists(path):
+            content = open(path, encoding="utf-8").read()
+            # M1.3 去重：同问题（第 2 列）已有记录 → 跳过（更新时间为首条时间，保持稳定）
+            for line in content.splitlines():
+                if "pending_infoseek" in line and line.strip().startswith("|"):
+                    cells = [c.strip() for c in line.strip().strip("|").split("|")]
+                    if len(cells) >= 3 and cells[1] == query[:40]:
+                        return  # 已登记同一缺口，不重复追加
             with open(path, "a", encoding="utf-8") as f:
                 # 若无表头则补表头
-                content = open(path, encoding="utf-8").read()
                 if "| 时间 |" not in content:
                     f.write("\n" + header)
                 f.write(entry)
