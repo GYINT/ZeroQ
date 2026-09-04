@@ -10,10 +10,9 @@
 
 ```yaml
 name: QCM
-version: 1.0.0
-internal_version: 0.0.0
-display_name: Quality Crisis Management（QCM）
-description: 'QCM 问题解决指导 Skill · 4 层级架构（输出/协议/输入/底层）· 严格分离 · 动作阶段主·时间维度子 · 输出层 4 形态 · 场景路由消费（意图×领域→形态×组件动态组合）· 组件池三机制（归一化/热度/约束映射）· 5 范式 · action-orders.md 14 章协议权威 · 文件层治理（生命周期/守卫 9 检/归档）· 路径归一化（paths/registry）· 插件扩展（plugins/ 热加载）· 回归全绿 · Infoseek 协同 5 维缺口检测 + 混合策略 3 阶段触发'
+version: 1.0.1
+display_name: Quality Control Manual（归零 · QCM）
+description: '归零（QCM）质量管理指导 Skill · 4 层级架构（输出/协议/输入/底层）· 严格分离 · 动作阶段主·时间维度子 · 输出层 4 形态 · 场景路由消费（意图×领域→形态×组件动态组合）· 组件池三机制（归一化/热度/约束映射）· 5 原则 · action-orders.md 15 章协议权威 · 文件层治理（生命周期/守卫 12 检/归档）· 路径归一化（paths/registry）· 插件扩展（plugins/ 热加载）· 回归全绿 · Infoseek 协同 5 维缺口检测 + 混合策略 3 阶段触发'
 
 author: Forka
 license: Apache-2.0
@@ -35,9 +34,9 @@ protocol_authority: action-orders.md
 
 ---
 
-## 5 大范式（V6.1-6.3 强化）
+## 5 大原则（V6.1-6.3 强化）
 
-| # | 范式 | 实施 |
+| # | 原则 | 实施 |
 |---|------|------|
 | ① | **单一职责** | QCM = 质量管理 · action-orders.md = 协议层单一权威 |
 | ② | **契约驱动** | MDS 22 字段契约 + action-orders §1-§7 + 4 形态 input_schema/output_schema |
