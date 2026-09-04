@@ -1,0 +1,19 @@
+# QCM 大语料索引（自动生成 · 勿手改）
+file: references/knowledge/business-communication-hourensou.md
+note: 报告·联络·商谈（报连相）与 PDCA 指示确认流程
+size_bytes: 5685
+size_kb: 5.6
+anchor_count: 11
+generated: 2026-09-02 18:25
+anchors:
+  - {id: -, title: 报告·联络·商谈（报连相）与 PDCA 指示确认流程, level: 1, line: 1, end_line: 105, lines: 105, tags: [], links: [§四]}
+  - {id: -, title: 1. 报告、联络、商谈总结, level: 2, line: 8, end_line: 26, lines: 19, tags: [], links: []}
+  - {id: -, title: 关键区分, level: 3, line: 19, end_line: 26, lines: 8, tags: [], links: []}
+  - {id: -, title: 2. PDCA 指示确认与闭环流程, level: 2, line: 27, end_line: 82, lines: 56, tags: [], links: []}
+  - {id: -, title: 2.1 Plan（计划）, level: 3, line: 31, end_line: 43, lines: 13, tags: [], links: []}
+  - {id: -, title: 2.2 Do（执行）, level: 3, line: 44, end_line: 56, lines: 13, tags: [], links: []}
+  - {id: -, title: 2.3 Check & Act（检查与改进）, level: 3, line: 57, end_line: 68, lines: 12, tags: [], links: []}
+  - {id: -, title: 流程中的沟通动作映射, level: 3, line: 69, end_line: 82, lines: 14, tags: [], links: []}
+  - {id: -, title: 3. 使用提示, level: 2, line: 83, end_line: 92, lines: 10, tags: [], links: []}
+  - {id: -, title: 4. 与 QCM 知识族的主动联动（问题沟通 / 向上管理场景）, level: 2, line: 93, end_line: 105, lines: 13, tags: [], links: [§四]}
+  - {id: -, title: 联动检索入口（供 agent / 工具调用）, level: 3, line: 102, end_line: 105, lines: 4, tags: [], links: []}
