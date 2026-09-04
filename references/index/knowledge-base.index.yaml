@@ -1,111 +1,111 @@
 # QCM 大语料索引（自动生成 · 勿手改）
 file: references/knowledge/knowledge-base.md
 note: 知识库（案例集/外部素材）
-size_bytes: 91722
-size_kb: 89.6
+size_bytes: 97746
+size_kb: 95.5
 anchor_count: 103
-generated: 2026-08-18 09:06
+generated: 2026-09-02 18:25
 anchors:
-  - {title: QCM 知识库与外部素材（Knowledge & Materials）, level: 1, line: 1, end_line: 21, lines: 21}
-  - {title: 目录, level: 2, line: 9, end_line: 19, lines: 11}
-  - {title: 第一部分：企业/行业案例集, level: 2, line: 20, end_line: 21, lines: 2}
-  - {title: 企业 / 行业质量管理案例集, level: 1, line: 22, end_line: 237, lines: 216}
-  - {title: 一、某通信科技龙头：以客户为中心的大质量体系, level: 2, line: 28, end_line: 52, lines: 25}
-  - {title: 核心做法, level: 3, line: 30, end_line: 37, lines: 8}
-  - {title: 代表工具 / 方法, level: 3, line: 38, end_line: 40, lines: 3}
-  - {title: 可借鉴点, level: 3, line: 41, end_line: 45, lines: 5}
-  - {title: 来源（公开资料）, level: 3, line: 46, end_line: 52, lines: 7}
-  - {title: 二、某汽车集团：并购某北欧豪华品牌后的质量体系跃升, level: 2, line: 53, end_line: 75, lines: 23}
-  - {title: 核心做法, level: 3, line: 55, end_line: 60, lines: 6}
-  - {title: 代表工具 / 方法, level: 3, line: 61, end_line: 63, lines: 3}
-  - {title: 可借鉴点, level: 3, line: 64, end_line: 68, lines: 5}
-  - {title: 来源（公开资料）, level: 3, line: 69, end_line: 75, lines: 7}
-  - {title: 三、航空宇航：双归零方法论与宇航质量体系, level: 2, line: 76, end_line: 103, lines: 28}
-  - {title: 核心做法, level: 3, line: 78, end_line: 87, lines: 10}
-  - {title: 代表工具 / 方法, level: 3, line: 88, end_line: 90, lines: 3}
-  - {title: 可借鉴点, level: 3, line: 91, end_line: 95, lines: 5}
-  - {title: 来源（公开资料）, level: 3, line: 96, end_line: 103, lines: 8}
-  - {title: 四、quality-in 工具地图, level: 2, line: 104, end_line: 126, lines: 23}
-  - {title: 核心做法, level: 3, line: 106, end_line: 111, lines: 6}
-  - {title: 代表课程 / 工具, level: 3, line: 112, end_line: 115, lines: 4}
-  - {title: 可借鉴点, level: 3, line: 116, end_line: 120, lines: 5}
-  - {title: 来源（公开资料）, level: 3, line: 121, end_line: 126, lines: 6}
-  - {title: 五、某精密制造龙头：精密制造全工艺链质量治理, level: 2, line: 127, end_line: 157, lines: 31}
-  - {title: 核心画像（公开资料，跨源调研）, level: 3, line: 129, end_line: 135, lines: 7}
-  - {title: 代表工具 / 方法（映射到 QCM）, level: 3, line: 136, end_line: 143, lines: 8}
-  - {title: 可借鉴点, level: 3, line: 144, end_line: 149, lines: 6}
-  - {title: 来源（公开资料，三源）, level: 3, line: 150, end_line: 157, lines: 8}
-  - {title: 六、某精密制造龙头（消费电子 + 新能源双轮）的质量闭环, level: 2, line: 158, end_line: 184, lines: 27}
-  - {title: 核心画像（公开资料，2026-07-22 跨源调研）, level: 3, line: 160, end_line: 166, lines: 7}
-  - {title: 代表工具 / 方法（映射到 QCM）, level: 3, line: 167, end_line: 171, lines: 5}
-  - {title: 可借鉴点, level: 3, line: 172, end_line: 177, lines: 6}
-  - {title: 来源（公开资料）, level: 3, line: 178, end_line: 184, lines: 7}
-  - {title: 七、某射频器件龙头：泛射频 + 车规的 AI 质检与垂直整合, level: 2, line: 185, end_line: 212, lines: 28}
-  - {title: 核心画像（公开资料，2026-07-22 跨源调研）, level: 3, line: 187, end_line: 192, lines: 6}
-  - {title: 代表工具 / 方法（映射到 QCM）, level: 3, line: 193, end_line: 197, lines: 5}
-  - {title: 可借鉴点, level: 3, line: 198, end_line: 203, lines: 6}
-  - {title: 来源（公开资料）, level: 3, line: 204, end_line: 212, lines: 9}
-  - {title: 八、某激光装备集团：质量体系规划与方针管理实践, level: 2, line: 213, end_line: 235, lines: 23}
-  - {title: 核心做法, level: 3, line: 215, end_line: 221, lines: 7}
-  - {title: 代表工具 / 方法, level: 3, line: 222, end_line: 224, lines: 3}
-  - {title: 可借鉴点, level: 3, line: 225, end_line: 230, lines: 6}
-  - {title: 来源, level: 3, line: 231, end_line: 235, lines: 5}
-  - {title: 第二部分：经典著作书单（41本）, level: 2, line: 236, end_line: 237, lines: 2}
-  - {title: 质量管理经典与前沿著作总览（41 本）, level: 1, line: 238, end_line: 304, lines: 67}
-  - {title: 阅读路径建议（补充启发式）, level: 2, line: 286, end_line: 300, lines: 15}
-  - {title: 第三部分：质量管理维度与多维应用, level: 2, line: 301, end_line: 304, lines: 4}
-  - {title: 3.1 维度索引, level: 3, line: 303, end_line: 304, lines: 2}
-  - {title: 质量管理四维交叉拆解索引（战略 / 过程 / 工具 / 改进）, level: 1, line: 305, end_line: 551, lines: 247}
-  - {title: 一、战略层面（Strategic）：质量作为经营 / 系统战略, level: 2, line: 312, end_line: 350, lines: 39}
-  - {title: 二、过程层面（Process）：过程 / 系统设计与管理, level: 2, line: 351, end_line: 389, lines: 39}
-  - {title: 三、工具层面（Tool）：单一质量工具点用, level: 2, line: 390, end_line: 481, lines: 92}
-  - {title: 四、改进层面（Improvement）：持续改进与突破, level: 2, line: 482, end_line: 520, lines: 39}
-  - {title: 导航与选维度决策启发, level: 2, line: 521, end_line: 533, lines: 13}
-  - {title: 五、横向治理维度补注（目标 / 风险 / 流程 / 现场 / 岗位执行）, level: 2, line: 534, end_line: 551, lines: 18}
-  - {title: 3.2 多维案例应用, level: 3, line: 550, end_line: 551, lines: 2}
-  - {title: 多链融合与多维交叉——质量工具应用案例输出模板, level: 1, line: 552, end_line: 704, lines: 153}
-  - {title: 输出框架（五维交叉，三维定位）, level: 2, line: 556, end_line: 584, lines: 29}
-  - {title: 示例：SPC 控制图（完整五维交叉案例）, level: 2, line: 585, end_line: 632, lines: 48}
-  - {title: ① 四层穿透（组织维度）, level: 3, line: 587, end_line: 595, lines: 9}
-  - {title: ② 四面交叉（流程维度）, level: 3, line: 596, end_line: 607, lines: 12}
-  - {title: ③ 多链根因（SPC 判异后分析）, level: 3, line: 608, end_line: 615, lines: 8}
-  - {title: ④ 工具链串联, level: 3, line: 616, end_line: 621, lines: 6}
-  - {title: ⑤ 治理节拍, level: 3, line: 622, end_line: 632, lines: 11}
-  - {title: 示例：8D 八步法（五维交叉案例）, level: 2, line: 633, end_line: 680, lines: 48}
-  - {title: ① 四层穿透, level: 3, line: 635, end_line: 643, lines: 9}
-  - {title: ② 四面交叉, level: 3, line: 644, end_line: 655, lines: 12}
-  - {title: ③ 多链根因（客户端焊不上）, level: 3, line: 656, end_line: 663, lines: 8}
-  - {title: ④ 工具链串联, level: 3, line: 664, end_line: 669, lines: 6}
-  - {title: ⑤ 治理节拍, level: 3, line: 670, end_line: 680, lines: 11}
-  - {title: 使用说明, level: 2, line: 681, end_line: 690, lines: 10}
-  - {title: 文件索引, level: 2, line: 691, end_line: 702, lines: 12}
-  - {title: 第四部分：现场管理 GK, level: 2, line: 703, end_line: 704, lines: 2}
-  - {title: 日系现场管理（GK）体系 · 通用方法论蒸馏, level: 1, line: 705, end_line: 1024, lines: 320}
-  - {title: ① 定义与基本思想, level: 2, line: 713, end_line: 721, lines: 9}
-  - {title: ② 核心模块, level: 2, line: 722, end_line: 738, lines: 17}
-  - {title: ③ SQGK（供应商现场管理）, level: 2, line: 739, end_line: 748, lines: 10}
-  - {title: ④ 质量工具在 GK 中的应用, level: 2, line: 749, end_line: 764, lines: 16}
-  - {title: ⑤ 与 QCM 人物方法论的映射, level: 2, line: 765, end_line: 779, lines: 15}
-  - {title: ⑥ 可借鉴点（通用，不绑定具体企业）, level: 2, line: 780, end_line: 792, lines: 13}
-  - {title: ⑦ 现场管理者软技能模块（班组长能力育成）, level: 2, line: 793, end_line: 859, lines: 67}
-  - {title: 7.1 报告制作（A3 化、简洁易懂）, level: 3, line: 797, end_line: 805, lines: 9}
-  - {title: 7.2 有效沟通（报联商 Hō-Ren-Sō）, level: 3, line: 806, end_line: 819, lines: 14}
-  - {title: 7.3 问题分析与解决（界定→要因→方案→落地）, level: 3, line: 820, end_line: 830, lines: 11}
-  - {title: 7.4 角色能力成长（技能·认知·行为基础）, level: 3, line: 831, end_line: 843, lines: 13}
-  - {title: 7.5 流程管理（端到端、ECRS 优化）, level: 3, line: 844, end_line: 859, lines: 16}
-  - {title: 第五部分：外部培训素材映射（PPT → QCM）, level: 2, line: 860, end_line: 861, lines: 2}
-  - {title: 二、问题分析与解决 ↔ QCM 主流程映射（核心）, level: 2, line: 862, end_line: 890, lines: 29}
-  - {title: 四阶段 ↔ 六步导航映射, level: 3, line: 864, end_line: 872, lines: 9}
-  - {title: 关键工具映射明细, level: 3, line: 873, end_line: 890, lines: 18}
-  - {title: 三、报告制作 ↔ QCM 输出表达模块映射, level: 2, line: 891, end_line: 911, lines: 21}
-  - {title: 报告类型 ↔ 输出模板映射, level: 3, line: 901, end_line: 911, lines: 11}
-  - {title: 四、有效沟通 ↔ QCM 治理协作模块映射, level: 2, line: 912, end_line: 927, lines: 16}
-  - {title: 五、应用调取方式, level: 2, line: 928, end_line: 954, lines: 27}
-  - {title: 触发路由（SKILL.md 意图路由扩展）, level: 3, line: 930, end_line: 937, lines: 8}
-  - {title: 调取示例, level: 3, line: 938, end_line: 954, lines: 17}
-  - {title: 六、映射索引表（速查）, level: 2, line: 955, end_line: 978, lines: 24}
-  - {title: 第六部分：应用与扩展规则, level: 2, line: 979, end_line: 1024, lines: 46}
-  - {title: 6.1 调取路由（用户请求 → 素材 + QCM 模块）, level: 3, line: 981, end_line: 991, lines: 11}
-  - {title: 6.2 外部知识蒸馏入库规则（extension.md F 接口）, level: 3, line: 992, end_line: 1003, lines: 12}
-  - {title: 6.3 应用约束（不破坏 QCM 结构）, level: 3, line: 1004, end_line: 1013, lines: 10}
-  - {title: 6.4 覆盖监控, level: 3, line: 1014, end_line: 1024, lines: 11}
+  - {id: -, title: QCM 知识库与外部素材（Knowledge & Materials）, level: 1, line: 1, end_line: 23, lines: 23, tags: [], links: []}
+  - {id: -, title: 目录, level: 2, line: 9, end_line: 21, lines: 13, tags: [], links: []}
+  - {id: -, title: 第一部分：企业/行业案例集, level: 2, line: 22, end_line: 23, lines: 2, tags: [], links: []}
+  - {id: -, title: 企业 / 行业质量管理案例集, level: 1, line: 24, end_line: 239, lines: 216, tags: [], links: [##A01, ##B05, ##A05, ##A02, ##B06, ##B01, ##B03, ##E01, ##E02, ##E03, ##E05, ##F01, ##C08, ##C06, ##C09]}
+  - {id: -, title: 一、某通信科技龙头：以客户为中心的大质量体系, level: 2, line: 30, end_line: 54, lines: 25, tags: [], links: []}
+  - {id: -, title: 核心做法, level: 3, line: 32, end_line: 39, lines: 8, tags: [], links: []}
+  - {id: -, title: 代表工具 / 方法, level: 3, line: 40, end_line: 42, lines: 3, tags: [], links: []}
+  - {id: -, title: 可借鉴点, level: 3, line: 43, end_line: 47, lines: 5, tags: [], links: []}
+  - {id: -, title: 来源（公开资料）, level: 3, line: 48, end_line: 54, lines: 7, tags: [], links: []}
+  - {id: -, title: 二、某汽车集团：并购某北欧豪华品牌后的质量体系跃升, level: 2, line: 55, end_line: 77, lines: 23, tags: [], links: []}
+  - {id: -, title: 核心做法, level: 3, line: 57, end_line: 62, lines: 6, tags: [], links: []}
+  - {id: -, title: 代表工具 / 方法, level: 3, line: 63, end_line: 65, lines: 3, tags: [], links: []}
+  - {id: -, title: 可借鉴点, level: 3, line: 66, end_line: 70, lines: 5, tags: [], links: []}
+  - {id: -, title: 来源（公开资料）, level: 3, line: 71, end_line: 77, lines: 7, tags: [], links: []}
+  - {id: -, title: 三、航空宇航：双归零方法论与宇航质量体系, level: 2, line: 78, end_line: 105, lines: 28, tags: [], links: []}
+  - {id: -, title: 核心做法, level: 3, line: 80, end_line: 89, lines: 10, tags: [], links: []}
+  - {id: -, title: 代表工具 / 方法, level: 3, line: 90, end_line: 92, lines: 3, tags: [], links: []}
+  - {id: -, title: 可借鉴点, level: 3, line: 93, end_line: 97, lines: 5, tags: [], links: []}
+  - {id: -, title: 来源（公开资料）, level: 3, line: 98, end_line: 105, lines: 8, tags: [], links: []}
+  - {id: -, title: 四、quality-in 工具地图, level: 2, line: 106, end_line: 128, lines: 23, tags: [], links: []}
+  - {id: -, title: 核心做法, level: 3, line: 108, end_line: 113, lines: 6, tags: [], links: []}
+  - {id: -, title: 代表课程 / 工具, level: 3, line: 114, end_line: 117, lines: 4, tags: [], links: []}
+  - {id: -, title: 可借鉴点, level: 3, line: 118, end_line: 122, lines: 5, tags: [], links: []}
+  - {id: -, title: 来源（公开资料）, level: 3, line: 123, end_line: 128, lines: 6, tags: [], links: []}
+  - {id: -, title: 五、某精密制造龙头：精密制造全工艺链质量治理, level: 2, line: 129, end_line: 159, lines: 31, tags: [], links: [##A01, ##B05, ##A05, ##A02, ##B06, ##B01, ##B03, ##E01, ##E02, ##E03, ##E05, ##F01, ##C08, ##C06, ##C09]}
+  - {id: -, title: 核心画像（公开资料，跨源调研）, level: 3, line: 131, end_line: 137, lines: 7, tags: [], links: []}
+  - {id: -, title: 代表工具 / 方法（映射到 QCM）, level: 3, line: 138, end_line: 145, lines: 8, tags: [], links: [##A01, ##B05, ##A05, ##A02, ##B06, ##B01, ##B03, ##E01, ##E02, ##E03, ##E05, ##F01, ##C08, ##C06, ##C09]}
+  - {id: -, title: 可借鉴点, level: 3, line: 146, end_line: 151, lines: 6, tags: [], links: []}
+  - {id: -, title: 来源（公开资料，三源）, level: 3, line: 152, end_line: 159, lines: 8, tags: [], links: []}
+  - {id: -, title: 六、某精密制造龙头（消费电子 + 新能源双轮）的质量闭环, level: 2, line: 160, end_line: 186, lines: 27, tags: [], links: [##B06, ##A01]}
+  - {id: -, title: 核心画像（公开资料，2026-07-22 跨源调研）, level: 3, line: 162, end_line: 168, lines: 7, tags: [], links: []}
+  - {id: -, title: 代表工具 / 方法（映射到 QCM）, level: 3, line: 169, end_line: 173, lines: 5, tags: [], links: [##B06, ##A01]}
+  - {id: -, title: 可借鉴点, level: 3, line: 174, end_line: 179, lines: 6, tags: [], links: []}
+  - {id: -, title: 来源（公开资料）, level: 3, line: 180, end_line: 186, lines: 7, tags: [], links: []}
+  - {id: -, title: 七、某射频器件龙头：泛射频 + 车规的 AI 质检与垂直整合, level: 2, line: 187, end_line: 214, lines: 28, tags: [], links: []}
+  - {id: -, title: 核心画像（公开资料，2026-07-22 跨源调研）, level: 3, line: 189, end_line: 194, lines: 6, tags: [], links: []}
+  - {id: -, title: 代表工具 / 方法（映射到 QCM）, level: 3, line: 195, end_line: 199, lines: 5, tags: [], links: []}
+  - {id: -, title: 可借鉴点, level: 3, line: 200, end_line: 205, lines: 6, tags: [], links: []}
+  - {id: -, title: 来源（公开资料）, level: 3, line: 206, end_line: 214, lines: 9, tags: [], links: []}
+  - {id: -, title: 八、某激光装备集团：质量体系规划与方针管理实践, level: 2, line: 215, end_line: 237, lines: 23, tags: [], links: []}
+  - {id: -, title: 核心做法, level: 3, line: 217, end_line: 223, lines: 7, tags: [], links: []}
+  - {id: -, title: 代表工具 / 方法, level: 3, line: 224, end_line: 226, lines: 3, tags: [], links: []}
+  - {id: -, title: 可借鉴点, level: 3, line: 227, end_line: 232, lines: 6, tags: [], links: []}
+  - {id: -, title: 来源, level: 3, line: 233, end_line: 237, lines: 5, tags: [], links: []}
+  - {id: -, title: 第二部分：经典著作书单（41本）, level: 2, line: 238, end_line: 239, lines: 2, tags: [], links: []}
+  - {id: -, title: 质量管理经典与前沿著作总览（41 本）, level: 1, line: 240, end_line: 308, lines: 69, tags: [], links: []}
+  - {id: -, title: 阅读路径建议（补充启发式）, level: 2, line: 288, end_line: 302, lines: 15, tags: [], links: []}
+  - {id: -, title: 第三部分：质量管理维度与多维应用, level: 2, line: 303, end_line: 308, lines: 6, tags: [], links: []}
+  - {id: -, title: 3.1 维度索引, level: 3, line: 307, end_line: 308, lines: 2, tags: [], links: []}
+  - {id: -, title: 质量管理四维交叉拆解索引（战略 / 过程 / 工具 / 改进）, level: 1, line: 309, end_line: 571, lines: 263, tags: [], links: [##D08, ##E05]}
+  - {id: -, title: 一、战略层面（Strategic）：质量作为经营 / 系统战略, level: 2, line: 316, end_line: 354, lines: 39, tags: [], links: []}
+  - {id: -, title: 二、过程层面（Process）：过程 / 系统设计与管理, level: 2, line: 355, end_line: 393, lines: 39, tags: [], links: []}
+  - {id: -, title: 三、工具层面（Tool）：单一质量工具点用, level: 2, line: 394, end_line: 501, lines: 108, tags: [], links: [##D08, ##E05]}
+  - {id: -, title: 四、改进层面（Improvement）：持续改进与突破, level: 2, line: 502, end_line: 540, lines: 39, tags: [], links: []}
+  - {id: -, title: 导航与选维度决策启发, level: 2, line: 541, end_line: 553, lines: 13, tags: [], links: []}
+  - {id: -, title: 五、横向治理维度补注（目标 / 风险 / 流程 / 现场 / 岗位执行）, level: 2, line: 554, end_line: 571, lines: 18, tags: [], links: []}
+  - {id: -, title: 3.2 多维案例应用, level: 3, line: 570, end_line: 571, lines: 2, tags: [], links: []}
+  - {id: -, title: 多链融合与多维交叉——质量工具应用案例输出模板, level: 1, line: 572, end_line: 724, lines: 153, tags: [], links: [§一, §二, §三, §四]}
+  - {id: -, title: 输出框架（五维交叉，三维定位）, level: 2, line: 576, end_line: 604, lines: 29, tags: [], links: []}
+  - {id: -, title: 示例：SPC 控制图（完整五维交叉案例）, level: 2, line: 605, end_line: 652, lines: 48, tags: [], links: []}
+  - {id: -, title: ① 四层穿透（组织维度）, level: 3, line: 607, end_line: 615, lines: 9, tags: [], links: []}
+  - {id: -, title: ② 四面交叉（流程维度）, level: 3, line: 616, end_line: 627, lines: 12, tags: [], links: []}
+  - {id: -, title: ③ 多链根因（SPC 判异后分析）, level: 3, line: 628, end_line: 635, lines: 8, tags: [], links: []}
+  - {id: -, title: ④ 工具链串联, level: 3, line: 636, end_line: 641, lines: 6, tags: [], links: []}
+  - {id: -, title: ⑤ 治理节拍, level: 3, line: 642, end_line: 652, lines: 11, tags: [], links: []}
+  - {id: -, title: 示例：8D 八步法（五维交叉案例）, level: 2, line: 653, end_line: 700, lines: 48, tags: [], links: []}
+  - {id: -, title: ① 四层穿透, level: 3, line: 655, end_line: 663, lines: 9, tags: [], links: []}
+  - {id: -, title: ② 四面交叉, level: 3, line: 664, end_line: 675, lines: 12, tags: [], links: []}
+  - {id: -, title: ③ 多链根因（客户端焊不上）, level: 3, line: 676, end_line: 683, lines: 8, tags: [], links: []}
+  - {id: -, title: ④ 工具链串联, level: 3, line: 684, end_line: 689, lines: 6, tags: [], links: []}
+  - {id: -, title: ⑤ 治理节拍, level: 3, line: 690, end_line: 700, lines: 11, tags: [], links: []}
+  - {id: -, title: 使用说明, level: 2, line: 701, end_line: 710, lines: 10, tags: [], links: []}
+  - {id: -, title: 文件索引, level: 2, line: 711, end_line: 722, lines: 12, tags: [], links: [§一, §二, §三, §四]}
+  - {id: -, title: 第四部分：现场管理 GK, level: 2, line: 723, end_line: 724, lines: 2, tags: [], links: []}
+  - {id: -, title: 日系现场管理（GK）体系 · 通用方法论蒸馏, level: 1, line: 725, end_line: 1048, lines: 324, tags: [], links: []}
+  - {id: -, title: ① 定义与基本思想, level: 2, line: 733, end_line: 741, lines: 9, tags: [], links: []}
+  - {id: -, title: ② 核心模块, level: 2, line: 742, end_line: 758, lines: 17, tags: [], links: []}
+  - {id: -, title: ③ SQGK（供应商现场管理）, level: 2, line: 759, end_line: 768, lines: 10, tags: [], links: []}
+  - {id: -, title: ④ 质量工具在 GK 中的应用, level: 2, line: 769, end_line: 784, lines: 16, tags: [], links: []}
+  - {id: -, title: ⑤ 与 QCM 人物方法论的映射, level: 2, line: 785, end_line: 799, lines: 15, tags: [], links: []}
+  - {id: -, title: ⑥ 可借鉴点（通用，不绑定具体企业）, level: 2, line: 800, end_line: 812, lines: 13, tags: [], links: []}
+  - {id: -, title: ⑦ 现场管理者软技能模块（班组长能力育成）, level: 2, line: 813, end_line: 881, lines: 69, tags: [], links: []}
+  - {id: -, title: 7.1 报告制作（A3 化、简洁易懂）, level: 3, line: 817, end_line: 825, lines: 9, tags: [], links: []}
+  - {id: -, title: 7.2 有效沟通（报联商 Hō-Ren-Sō）, level: 3, line: 826, end_line: 841, lines: 16, tags: [], links: []}
+  - {id: -, title: 7.3 问题分析与解决（界定→要因→方案→落地）, level: 3, line: 842, end_line: 852, lines: 11, tags: [], links: []}
+  - {id: -, title: 7.4 角色能力成长（技能·认知·行为基础）, level: 3, line: 853, end_line: 865, lines: 13, tags: [], links: []}
+  - {id: -, title: 7.5 流程管理（端到端、ECRS 优化）, level: 3, line: 866, end_line: 881, lines: 16, tags: [], links: []}
+  - {id: -, title: 第五部分：外部培训素材映射（PPT → QCM）, level: 2, line: 882, end_line: 885, lines: 4, tags: [], links: []}
+  - {id: -, title: 二、问题分析与解决 ↔ QCM 主流程映射（核心）, level: 2, line: 886, end_line: 914, lines: 29, tags: [], links: []}
+  - {id: -, title: 四阶段 ↔ 六步导航映射, level: 3, line: 888, end_line: 896, lines: 9, tags: [], links: []}
+  - {id: -, title: 关键工具映射明细, level: 3, line: 897, end_line: 914, lines: 18, tags: [], links: []}
+  - {id: -, title: 三、报告制作 ↔ QCM 输出表达模块映射, level: 2, line: 915, end_line: 935, lines: 21, tags: [], links: []}
+  - {id: -, title: 报告类型 ↔ 输出模板映射, level: 3, line: 925, end_line: 935, lines: 11, tags: [], links: []}
+  - {id: -, title: 四、有效沟通 ↔ QCM 治理协作模块映射, level: 2, line: 936, end_line: 951, lines: 16, tags: [], links: []}
+  - {id: -, title: 五、应用调取方式, level: 2, line: 952, end_line: 978, lines: 27, tags: [], links: []}
+  - {id: -, title: 触发路由（SKILL.md 意图路由扩展）, level: 3, line: 954, end_line: 961, lines: 8, tags: [], links: []}
+  - {id: -, title: 调取示例, level: 3, line: 962, end_line: 978, lines: 17, tags: [], links: []}
+  - {id: -, title: 六、映射索引表（速查）, level: 2, line: 979, end_line: 1002, lines: 24, tags: [], links: []}
+  - {id: -, title: 第六部分：应用与扩展规则, level: 2, line: 1003, end_line: 1048, lines: 46, tags: [], links: []}
+  - {id: -, title: 6.1 调取路由（用户请求 → 素材 + QCM 模块）, level: 3, line: 1005, end_line: 1015, lines: 11, tags: [], links: []}
+  - {id: -, title: 6.2 外部知识蒸馏入库规则（extension.md F 接口）, level: 3, line: 1016, end_line: 1027, lines: 12, tags: [], links: []}
+  - {id: -, title: 6.3 应用约束（不破坏 QCM 结构）, level: 3, line: 1028, end_line: 1037, lines: 10, tags: [], links: []}
+  - {id: -, title: 6.4 覆盖监控, level: 3, line: 1038, end_line: 1048, lines: 11, tags: [], links: []}
