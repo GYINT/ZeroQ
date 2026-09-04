@@ -1,3 +1,21 @@
+> [!WARNING]
+> ## ⚠️ DEPRECATED — 本文件已废弃（2026-08-22）
+>
+> redirect_to: references/methods/3a5why.md; references/methods/pd-qm-workflow.md; references/governance/governance.md
+> deprecated_since: 2026-08-22
+> reason: 内容三段拼贴全部有真源（3a5why / pd-qm-workflow / governance 冲突治理），本文件不具独立信息价值
+>
+> **原因（详）**：内容杂糅污染事故。本文件 246 行实为三段内容拼贴，全部有真源，本文件不具独立信息价值：
+> - **1–118 行**：`3A5WHY 不合格遏制处理流程` —— 与 `references/methods/3a5why.md` 重复（标题/定位段逐字一致）。请用 `3a5why.md`。
+> - **119–233 行**：`PD 岗位质量工作流` —— 与 `references/methods/pd-qm-workflow.md` 精确重复（比例 1.0）。请用 `pd-qm-workflow.md`。
+> - **234–246 行**：`QCM 冲突治理原则` —— 主题不符（methods/ 目录下治理类内容），已由 `references/governance/`（冲突治理登记册）承载职责。请勿从此文件引用。
+>
+> **不删除原因**：`tests/engines/qcm_all_test.py`/`qcm_cross_test.py` 仍把本文件当作测试样本（Y-2 真孤儿用例），物理删除会破坏回归测试；且历史报告与 git 历史引用本文件。**已重定向**：所有生效文档引用已改为 `3a5why.md` / `pd-qm-workflow.md`（含 action-orders.md §1.1/§12.1、mds-input.md 定位段）。后续新内容一律不得引用本文件。
+>
+> **物理清理**：观察期满（≥30 日）+ 月度评审确认 + 人工核准后，移入 `references/archive/`（每 1 个季度物理清理窗口）。
+>
+> **TODO（评估后执行）**：测试样本迁移至 `problem-solving-flow-framework.md`（同族的真·问题解决总纲）后，可物理删除。
+
 # 3A5WHY 不合格遏制处理流程
 
 > **定位**：基于「三现（3A: 现场/现物/现实）→ 五问（5WHY: 发生·流出·系统三链）→ 三流遏制（库存/在途/在制）→ 系统预防（过程控制+流程管理）」的结构化问题解决闭环。适用于来料/过程/客诉三类不合格的遏制与根除。与 QCM 现有工具的关系：5WHY 应用实例（`knowledge-base.md` #5）的单链深化版 + 8D D4-D6 的细化版 + QRQC 的跟进闭环版。
@@ -243,3 +261,14 @@ APQP（AIAG 五大工具）；QFD（赤尾洋二 / 水野滋）；P-Diagram（�
 ## 更新规则
 
 - 新增冲突时追加一条到登记册，不修改已有条目
+
+---
+
+## 🔗 重定向汇总（DEPRECATED）
+
+| 本文件段落 | 行区间 | 规范源 | 状态 |
+|-----------|--------|--------|------|
+| 3A5WHY 不合格遏制处理流程 | 1–118 | `methods/3a5why.md` | 已覆盖（逐字重复） |
+| PD 岗位质量工作流 | 119–233 | `methods/pd-qm-workflow.md` | 已覆盖（比例 1.0） |
+| QCM 冲突治理原则 | 234–246 | `governance/`（冲突治理登记册） | 职责已由他处承载 |
+| **文件整体** | 全文件 | — | **DEPRECATED，勿再引用** |
