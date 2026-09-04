@@ -14,6 +14,8 @@
 - 第四部分：现场管理 GK
 - 第五部分：外部培训素材映射（4 PPT → QCM 模块）
 - 第六部分：应用与扩展规则（调取方式 + 蒸馏入库）
+- 补充参考库索引（人物/方法/规划/治理）：[supplementary](references/knowledge/supplementary.md)
+- 知识族独立文档：设计/规划场景库 `design-planning-scenarios.md` · 外部素材映射库 `material-mapping.md` · 工具案例五维交叉输出模板 `multi-dimension-case-application.md`（均位于 `references/knowledge/`，经 `corpus_loader` 按需检索可达）
 
 ---
 
@@ -300,6 +302,8 @@
 
 ## 第三部分：质量管理维度与多维应用
 
+> **工具案例输出框架（五维交叉）**：工具应用案例的标准输出范式——"四层穿透 × 四面交叉 × 多链根因 × 工具链串联 × 治理节拍"五维交叉，含 SPC/8D 完整示例。见独立知识文档 `multi-dimension-case-application.md`（同属 `references/knowledge/` 知识族，经 `corpus_loader` 按锚点/关键词按需检索可达：`load_section("multi-dimension-case-application", "输出框架（五维交叉，三维定位）")` 或 `search_corpus("五维交叉")`）。
+
 ### 3.1 维度索引
 
 # 质量管理四维交叉拆解索引（战略 / 过程 / 工具 / 改进）
@@ -455,6 +459,16 @@
 - SQE 供应商问题解决（Supplier Quality Engineering）（tools 实例 tools 实例 E05）：适用采购 × ② 基础方法论（管理面，以 8D 为骨架的供应商版：D1 组建→D3 围堵→D4 根因→D5 对策→D7 预防再发，逃逸率 ppm 关闭判据；与 8D F01 同源、VDA 6.3 E01 互补）（矩阵：见 tools.md E05）。
 - VDA 6.5 产品审核（Product Audit，客户视角最终把关）（tools 实例 tools 实例 E06）：适用采购 × 生产制造交付把关（产品面，缺陷分级 A/B/C + QKZ 评级）（矩阵：见 tools.md E06）。
 - AI 视觉质检 / AOI（Automated Optical Inspection）（tools 实例 tools 实例 E07）：适用生产制造 × ② 基础方法论（过程面）（矩阵：见 tools.md E07）。
+- AI 视觉质检（深度学习 AOI / 缺陷检测）（tools 实例 tools 实例 G01）：适用生产制造 × ② 基础方法论（过程面，深度学习缺陷检测，AI 视觉质检新一代；与 E07 同领域互补，矩阵：见 tools.md G01）。
+- 预测性质量（Predictive Quality / 退化预测）（tools 实例 tools 实例 G02）：适用生产制造 × ③ 系统方法论（过程面，模式/退化趋势预测，质量前移；矩阵：见 tools.md G02）。
+- 数字孪生质量仿真（Digital Twin）（tools 实例 tools 实例 G03）：适用产品开发 + 生产制造 × ③ 系统方法论（系统面，物理-数字镜像仿真，质量虚拟验证；矩阵：见 tools.md G03）。
+- 生成式测试设计（GenAI 测试用例 / 故障注入生成）（tools 实例 tools 实例 G04）：适用产品开发 × ③ 系统方法论（产品面，GenAI 自动生成测试用例/故障注入，覆盖边界；矩阵：见 tools.md G04）。
+- 无监督异常检测（时序 / 多维）（tools 实例 tools 实例 G05）：适用生产制造 × ② 基础方法论（过程面，无标注异常发现，未知失效模式预警；矩阵：见 tools.md G05）。
+- 大模型辅助根因分析（LLM-RCA）（tools 实例 tools 实例 G06）：适用售后 + 现场 × ② 基础方法论（管理面，LLM 辅助根因定位，与 8D/FTA 协同；矩阵：见 tools.md G06）。
+- 合成数据增强（Synthetic Data Augmentation for QC）（tools 实例 tools 实例 G07）：适用产品开发 × ② 基础方法论（产品面，稀缺缺陷样本生成，AI 模型训练增强；矩阵：见 tools.md G07）。
+- 自适应过程控制（AI-SPC / 智能控制）（tools 实例 tools 实例 G08）：适用生产制造 × ③ 系统方法论（过程面，AI 驱动自适应控制，动态调参；矩阵：见 tools.md G08）。
+- 质量知识图谱（Quality Knowledge Graph）（tools 实例 tools 实例 G09）：适用战略 × ③ 系统方法论（系统面，质量知识关联图谱，跨域知识检索；矩阵：见 tools.md G09）。
+- AI 治理与模型风控（Model Risk / Responsible AI 质检）（tools 实例 tools 实例 G10）：适用战略 × ③ 系统方法论（系统面，AI 模型风险与负责任 AI，AI 质检治理红线；矩阵：见 tools.md G10）。
 - 质量 4.0（Quality 4.0）（tools 实例 tools 实例 E08）：适用战略 × ③ 系统方法论（系统面，全价值链 / 全链：研发—采购—制造—售后数据打通）（矩阵：见 tools.md E08）。
 - AS9145（航空 APQP + PPAP）（tools 实例 tools 实例 B11）：适用产品开发 × ③ 系统方法论（系统面，覆盖"规划 → 开发 → 量产批准"全链）（矩阵：见 tools.md B11）。
 - FAI 首件检验（AS9102 航空）（tools 实例 tools 实例 B12）：适用产品开发（首件样件）+ 生产制造（首批生产）× ① 单一工具（点工具）（产品面）（矩阵：见 tools.md B12）。
@@ -464,6 +478,12 @@
 - CMMI 过程成熟度（tools 实例 tools 实例 E10）：适用战略 × ③ 系统方法论（系统面）（矩阵：见 tools.md E10）。
 - DFSS（IDDOV / DMADV，六西格玛设计）（tools 实例 tools 实例 B15）：适用产品开发 × ③ 系统方法论（系统面，覆盖"规划 → 开发"全流程）（矩阵：见 tools.md B15）。
 - NPS / CSAT 客户满意度（tools 实例 tools 实例 C12）：适用售后服务 × ① 单一工具（管理面）（矩阵：见 tools.md C12）。
+- PESTEL 外部环境分析（tools 实例 tools 实例 C13）：适用战略 × ② 基础方法论（管理面，外部环境六维扫描 P/E/S/T/E/L，战略规划"看产业"前段；矩阵：见 tools.md C13）。
+- 安索夫矩阵（Ansoff Matrix 产品-市场增长策略）（tools 实例 tools 实例 C14）：适用战略 × ② 基础方法论（管理面，现有/新产品 × 现有/新市场四象限增长路径，战略规划"看客户"；与 #8 客户选择、#9 麦肯锡矩阵关联：矩阵：见 tools.md C14）。
+- 麦肯锡矩阵（市场吸引力-竞争力 3×3 定位，GE-McKinsey Matrix）（tools 实例 tools 实例 C15）：适用战略 × ③ 系统方法论（管理面，九宫格组合定位 + 资源投入-商业影响复核，战略规划"看竞争"；矩阵：见 tools.md C15）。
+- 三地平线增长模型（Three Horizons of Growth，H1/H2/H3）（tools 实例 tools 实例 C16）：适用战略 × ③ 系统方法论（管理面，核心/成长/未来机会三档业务平衡，统筹短期绩效与长期增长；矩阵：见 tools.md C16）。
+- BSC 平衡计分卡（Balanced Scorecard，四维度战略衡量）（tools 实例 tools 实例 C17）：适用战略 × ③ 系统方法论（管理面，财务/客户/内部运营/技术人才四维因果链，战略解码；与 #16 X-Matrix、#21 系统图关联：矩阵：见 tools.md C17）。
+- 战略地图（Strategy Map，目标因果链路图）（tools 实例 tools 实例 C18）：适用战略 × ③ 系统方法论（管理面，四层因果地图可视化战略，承接 BSC 因果链；矩阵：见 tools.md C18）。
 - 供应链风险矩阵（ISO 31000）
 - 自检互检（tools 实例 tools 实例 F10）：适用岗位执行×① 点工具（产品面，三检制自检/互检/专检，IATF 16949 控制计划联动）。
 - 作业观察表（tools 实例 tools 实例 D18）
@@ -817,6 +837,8 @@ GK 的现场落地最终靠"人"——尤其班组长 / 一线管理者。通用
 - **同事 / 部门间沟通**：同事间做共同日程表实现可视化、周例会同步；部门间明确拜托目的→确认对方负荷→上级正式拜托函→定期会议共享进展。
 - **沟通能力三角形**：对上级=报告+联络+商谈；对同事=联络+商谈；对部门=报告+联络；扩大三角面积即提升整体沟通能力。
 
+> **扩展明细（报联商完整版）**：本节为 GK 软技能模块的"报联商"速查。报告·联络·商谈的**完整定义 + 对象 + 时机 + 特征 + 时间形式 + 要点 + PDCA 指示确认全流程 + 使用提示**，见独立知识文档 `business-communication-hourensou.md`（同属 `references/knowledge/` 知识族，经 `corpus_loader` 按锚点/关键词按需检索可达：`load_section("business-communication-hourensou", "PDCA 指示确认与闭环流程")` 或 `search_corpus("报连相")`）。两者主题同源——本节是"何时用哪个/三角模型"的精炼，该文档是"怎么用/全流程节点"的展开，互补而非重复。
+
 ### 7.3 问题分析与解决（界定→要因→方案→落地）
 
 问题 = 现实与期望的差距。四阶段闭环：
@@ -858,6 +880,8 @@ GK 的现场落地最终靠"人"——尤其班组长 / 一线管理者。通用
 ---
 
 ## 第五部分：外部培训素材映射（PPT → QCM）
+
+> **外部素材映射库（完整版）**：本部分为 PPT→QCM 模块的精炼；4 个培训 PPT（报告制作/有效沟通×2/问题分析与解决）的完整映射、触发路由与调取示例，见独立知识文档 `material-mapping.md`（同属 `references/knowledge/` 知识族，经 `corpus_loader` 按需检索可达：`load_section("material-mapping", "问题分析与解决 ↔ QCM 主流程映射（核心）")` 或 `search_corpus("PPT 映射")`）。
 
 ## 二、问题分析与解决 ↔ QCM 主流程映射（核心）
 
