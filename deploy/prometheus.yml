@@ -1,0 +1,13 @@
+# Prometheus 抓取配置（E1-02 · 配合 qcm-mcp 的 /metrics 端点）
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: qcm-mcp
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['qcm-mcp:8080']
+        labels:
+          service: qcm-mcp
