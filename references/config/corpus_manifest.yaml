@@ -1,0 +1,20 @@
+# QCM 大语料清单单一真源（V8.6 · 自适应分类 + 自动检入）
+# 由 scripts/gen_corpus_index.py --scan --auto 自动维护；手工可调 note/reason，勿删条目。
+threshold_kb: 30
+corpus:
+  - {rel: references/tools/tools.md, level: kw, group: 工具族, freq: low, note: "工具库（SPC/防错/8D 等 90+ 工具实例）"}
+  - {rel: references/knowledge/knowledge-base.md, level: chapter, group: 知识族, freq: low, note: "知识库（案例集/外部素材）"}
+  - {rel: references/tools/masters.md, level: chapter, group: 知识族, freq: low, note: "大师库（21 位质量大师心智模型）"}
+  - {rel: references/scenarios/cases.md, level: chapter, group: 知识族, freq: low, note: "案例库（双归零/行业案例）"}
+  - {rel: references/protocol/action-orders.md, level: chapter, group: 协议族, freq: high, note: "协议章（AO-1~AO-4/5 段式/危机协议/§14 路由协议 · 按章懒加载）"}
+  - {rel: references/knowledge/business-communication-hourensou.md, level: chapter, group: 知识族, freq: low, note: "报告·联络·商谈（报连相）与 PDCA 指示确认流程"}
+  - {rel: references/knowledge/design-planning-scenarios.md, level: chapter, group: 知识族, freq: low, note: "设计/规划场景库（NPI/APQP + 产品规划 · P0-2 场景补全）"}
+  - {rel: references/knowledge/material-mapping.md, level: chapter, group: 知识族, freq: low, note: "外部素材映射库（PPT→QCM 模块 · 触发路由）"}
+  - {rel: references/knowledge/multi-dimension-case-application.md, level: chapter, group: 知识族, freq: low, note: "工具案例五维交叉输出模板"}
+  - {rel: references/knowledge/extension.md, level: chapter, group: 知识族, freq: low, note: "扩展接口规范（七接口 A–G）· F 接口外部知识蒸馏与挂载使用指引"}
+  - {rel: references/knowledge/supplementary.md, level: chapter, group: 知识族, freq: low, note: "补充知识索引（人物/方法/规划/治理 25 篇孤儿文档反向链接汇总）"}
+  - {rel: references/scenarios/events/QE-2026-001.md, level: chapter, group: 事件证据族, freq: low, note: "事件归零资产化入口（归一化·route-aware）"}
+  - {rel: references/scenarios/events/QE-2026-002.md, level: chapter, group: 事件证据族, freq: low, note: "事件归零资产化入口（归一化·route-aware）"}
+excluded:
+  - {rel: references/testing/test-cases.md, note: "测试案例库（>30KB）", reason: "测试资产·非运行语料·仅经索引锚点按需检索·不走全量懒加载"}
+  - {rel: references/scenarios/events/README.md, note: "事件归一化入口目录说明（目录描述·非内容承载；P3 检索面由 enroll_corpus 生成 <event_id>.md 实际承载）", reason: "目录描述符·非语料内容；登记为 known 以规避 config_sync 孤儿误报，索引仅锚点结构"}
