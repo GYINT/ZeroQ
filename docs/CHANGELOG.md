@@ -1,8 +1,7 @@
 # QCM 变更日志（CHANGELOG）
 
 > 依据：Keep a Changelog 规范
-> 版本策略：对外发布版本 **1.0.0**；内部开发版本基线 **0.0.0**（内部迭代递增，见 `skill_meta.json` 的 `internal_version`）
-> 发布前内部开发史（含 V0.x/V8.x 标注）已脱敏收口于本文档（发布版 CHANGELOG），仅供内部追溯。
+> 版本策略：对外发布版本统一为 **1.0.1**（SKILL.md / manifest / skill_meta / SERVER_VERSION / 镜像标签一致）。
 
 ---
 
@@ -17,7 +16,7 @@
 
 ### 变更（Changed）
 - **SKILL.md / README.md 重写**：去除全部内部版本标注（V4.6→V8.3.1 散注），呈现面向外部用户的干净文档；架构（4 层级 / 5 范式 / 14 章协议 / 4 形态 / 场景路由 / 文件治理 / Infoseek 协同）内容完整保留。
-- **manifest.yaml / skill_meta.json**：`version` 更新为 `1.0.0`，新增 `internal_version: 0.0.0`；`description` 去除版本号前缀。
+- **manifest.yaml / skill_meta.json**：`version` 统一为对外发布版本 `1.0.1`；`description` 去除版本号前缀。
 - **代码版本常量**：`mcp_server.py` 的 `SERVER_VERSION` 统一为 `1.0.0`；CLI help 与 `ws_push.py` 运行时日志去除内部版本标注。
 - **CHANGELOG 收口**：1647 行内部开发史归档并脱敏，本文档仅保留面向发布的变更说明。
 - **开源许可**：`license: Internal` → **Apache-2.0**（落地 `LICENSE` 全文，同步 frontmatter / manifest / skill_meta / openapi / README 徽章）。
@@ -47,6 +46,5 @@
 
 | 维度 | 版本 | 说明 |
 |------|------|------|
-| 对外发布版本 | `1.0.0` | 用户可见的统一版本（SKILL.md / manifest / skill_meta / SERVER_VERSION / 镜像标签）|
-| 内部开发版本 | `0.0.0` 起 | 内部迭代基线，后续内部版本递增，不对外暴露 |
+| 对外发布版本 | `1.0.1` | 用户可见的统一版本（SKILL.md / manifest / skill_meta / SERVER_VERSION / 镜像标签）|
 | 协议层标识 | `V8.0+` | `action-orders.md` 方法论演进轴，独立于产品发布版本 |
