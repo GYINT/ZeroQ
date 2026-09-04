@@ -1,102 +1,120 @@
 # QCM 大语料索引（自动生成 · 勿手改）
 file: references/tools/tools.md
 note: 工具库（SPC/防错/8D 等 90+ 工具实例）
-size_bytes: 208668
-size_kb: 203.8
-anchor_count: 94
-generated: 2026-08-18 09:06
+size_bytes: 251524
+size_kb: 245.6
+anchor_count: 112
+generated: 2026-09-02 18:25
 anchors:
-  - {title: 质量工具应用实例（可落地蒸馏版）, level: 1, line: 1, end_line: 1566, lines: 1566}
-  - {title: A01. SPC 统计过程控制（控制图 + 过程能力）, level: 2, line: 11, end_line: 53, lines: 43}
-  - {title: A02. Poka-Yoke 防错, level: 2, line: 54, end_line: 82, lines: 29}
-  - {title: A03. 柏拉图（Pareto）与 鱼骨图（因果图）, level: 2, line: 83, end_line: 108, lines: 26}
-  - {title: A04. 5S, level: 2, line: 109, end_line: 141, lines: 33}
-  - {title: A05. MSA 测量系统分析（Measurement Systems Analysis）, level: 2, line: 142, end_line: 171, lines: 30}
-  - {title: A06. 直方图 Histogram, level: 2, line: 172, end_line: 197, lines: 26}
-  - {title: A07. 散布图 Scatter, level: 2, line: 198, end_line: 216, lines: 19}
-  - {title: A08. 检查表 Check Sheet, level: 2, line: 217, end_line: 238, lines: 22}
-  - {title: A09. 层别法 Stratification, level: 2, line: 239, end_line: 259, lines: 21}
-  - {title: A10. 测量不确定度 GUM（Guide to the Expression of Uncertainty in Measurement）, level: 2, line: 260, end_line: 273, lines: 14}
-  - {title: A11. 假设检验（Hypothesis Testing，t / Z / F / 卡方）, level: 2, line: 274, end_line: 287, lines: 14}
-  - {title: A12. 回归分析（Regression Analysis，一元/多元最小二乘）, level: 2, line: 288, end_line: 305, lines: 18}
-  - {title: A13. EWMA / CUSUM 时间加权控制图（Exponentially Weighted Moving Average / Cumulative Sum）, level: 2, line: 306, end_line: 329, lines: 24}
-  - {title: B01. FMEA（AIAG-VDA 七步法）, level: 2, line: 330, end_line: 359, lines: 30}
-  - {title: B02. QFD 质量功能展开, level: 2, line: 360, end_line: 391, lines: 32}
-  - {title: B03. PPAP 生产件批准, level: 2, line: 392, end_line: 420, lines: 29}
-  - {title: B04. DOE 田口参数设计（Design of Experiments / Taguchi Robust Design）, level: 2, line: 421, end_line: 452, lines: 32}
-  - {title: B05. 控制计划 Control Plan, level: 2, line: 453, end_line: 471, lines: 19}
-  - {title: B06. APQP 五大工具集成（Advanced Product Quality Planning）, level: 2, line: 472, end_line: 501, lines: 30}
-  - {title: B07. 矩阵图（Matrix Diagram，L 型）, level: 2, line: 502, end_line: 525, lines: 24}
-  - {title: B08. PDPC（Process Decision Program Chart，过程决策程序图）, level: 2, line: 526, end_line: 542, lines: 17}
-  - {title: B09. 箭条图 / 网络图（Arrow / Network Diagram，PERT/CPM）, level: 2, line: 543, end_line: 563, lines: 21}
-  - {title: B10. 因果矩阵 C&E（Cause & Effect Matrix）, level: 2, line: 564, end_line: 583, lines: 20}
-  - {title: B11. AS9145（航空 APQP + PPAP）, level: 2, line: 584, end_line: 606, lines: 23}
-  - {title: B12. FAI 首件检验（AS9102 航空）, level: 2, line: 607, end_line: 629, lines: 23}
-  - {title: B13. HALT / HASS（高加速寿命试验 / 高加速应力筛选）, level: 2, line: 630, end_line: 655, lines: 26}
-  - {title: B14. 可靠性增长管理（Duane / Crow-AMSAA）, level: 2, line: 656, end_line: 686, lines: 31}
-  - {title: B15. DFSS（IDDOV / DMADV，六西格玛设计）, level: 2, line: 687, end_line: 713, lines: 27}
-  - {title: C01. 亲和图 KJ（Affinity Diagram）, level: 2, line: 714, end_line: 730, lines: 17}
-  - {title: C02. 关联图（Interrelationship Diagram）, level: 2, line: 731, end_line: 752, lines: 22}
-  - {title: C03. 系统图（Tree Diagram，目标展开树）, level: 2, line: 753, end_line: 770, lines: 18}
-  - {title: C04. KANO 模型（Kano Model）, level: 2, line: 771, end_line: 788, lines: 18}
-  - {title: C05. VOC 顾客之声（Voice of the Customer）, level: 2, line: 789, end_line: 807, lines: 19}
-  - {title: C06. 方针管理 Hoshin（Hoshin Kanri / Policy Deployment）, level: 2, line: 808, end_line: 824, lines: 17}
-  - {title: C07. FTA 故障树分析（Fault Tree Analysis）, level: 2, line: 825, end_line: 842, lines: 18}
-  - {title: C08. FRACAS 故障报告闭环（Failure Reporting, Analysis, and Corrective Action System）, level: 2, line: 843, end_line: 864, lines: 22}
-  - {title: C09. 质量成本 COPQ / PONC 分析（Cost of Poor Quality / Price of Nonconformance）, level: 2, line: 865, end_line: 887, lines: 23}
-  - {title: C10. X-Matrix 方针展开矩阵（Hoshin 战略部署）, level: 2, line: 888, end_line: 918, lines: 31}
-  - {title: C11. 六西格玛项目章程 Six Sigma Project Charter（DMAIC 立项文档）, level: 2, line: 919, end_line: 949, lines: 31}
-  - {title: C12. NPS / CSAT 客户满意度, level: 2, line: 950, end_line: 976, lines: 27}
-  - {title: D01. Kaizen / PDCA（改进循环）, level: 2, line: 977, end_line: 1004, lines: 28}
-  - {title: D02. 看板 Kanban, level: 2, line: 1005, end_line: 1018, lines: 14}
-  - {title: D03. SMED 快速换模（Single-Minute Exchange of Die）, level: 2, line: 1019, end_line: 1037, lines: 19}
-  - {title: D04. 安灯 Andon, level: 2, line: 1038, end_line: 1053, lines: 16}
-  - {title: D05. 价值流图 VSM（Value Stream Mapping）, level: 2, line: 1054, end_line: 1070, lines: 17}
-  - {title: D06. 标准作业 Standard Work, level: 2, line: 1071, end_line: 1086, lines: 16}
-  - {title: D07. TPM 全员生产维护（Total Productive Maintenance）, level: 2, line: 1087, end_line: 1105, lines: 19}
-  - {title: D08. ECRS 改善四原则（Eliminate/Combine/Rearrange/Simplify）, level: 2, line: 1106, end_line: 1115, lines: 10}
-  - {title: D09. ESIA 流程优化四步（Eliminate/Simplify/Integrate/Automate）, level: 2, line: 1116, end_line: 1127, lines: 12}
-  - {title: D10. 均衡生产 Heijunka（生产平准化）, level: 2, line: 1128, end_line: 1156, lines: 29}
-  - {title: D11. 节拍时间 Takt Time, level: 2, line: 1157, end_line: 1183, lines: 27}
-  - {title: D12. 单件流 One-Piece Flow, level: 2, line: 1184, end_line: 1213, lines: 30}
-  - {title: D13. OEE 设备综合效率（Overall Equipment Effectiveness）, level: 2, line: 1214, end_line: 1241, lines: 28}
-  - {title: D14. Gemba Walk 现场巡视（现地现物管理）, level: 2, line: 1242, end_line: 1268, lines: 27}
-  - {title: D15. QCC 品管圈（QC Circle）, level: 2, line: 1269, end_line: 1296, lines: 28}
-  - {title: D16. 山积图 Yamazumi（作业平衡图 / Operator Balance Chart）, level: 2, line: 1297, end_line: 1325, lines: 29}
-  - {title: D17. 拉动系统 Pull System（广义）, level: 2, line: 1326, end_line: 1354, lines: 29}
-  - {title: D18. 作业观察表（Work Observation Sheet / 作業観察，丰田 TPS）, level: 2, line: 1355, end_line: 1366, lines: 12}
-  - {title: D19. 目视化管理（Visual Management / 管理项目一览表）, level: 2, line: 1367, end_line: 1375, lines: 9}
-  - {title: D20. TWI 一线督导训练体系（Training Within Industry：JI/JM/JR/JS）, level: 2, line: 1376, end_line: 1384, lines: 9}
-  - {title: D21. 改善提案制度（Kaizen Teian / 合理化提案）, level: 2, line: 1385, end_line: 1393, lines: 9}
-  - {title: D22. 五现主义（现场·现物·现实·原理·原则）, level: 2, line: 1394, end_line: 1402, lines: 9}
-  - {title: D23. QRQC 快速反应品质控制（Quick Response Quality Control）, level: 2, line: 1403, end_line: 1411, lines: 9}
-  - {title: D24. 班组长一日管理（Team Leader Daily Management）, level: 2, line: 1412, end_line: 1420, lines: 9}
-  - {title: D25. 预知性管理 / 4M 变更管理（人·机·料·法变更预知）, level: 2, line: 1421, end_line: 1437, lines: 17}
-  - {title: E01. 供应商过程审核 VDA 6.3, level: 2, line: 1438, end_line: 1466, lines: 29}
-  - {title: E02. 供应商审核（Supplier Audit）, level: 2, line: 1467, end_line: 1483, lines: 17}
-  - {title: E03. 供应商记分卡（Supplier Scorecard）, level: 2, line: 1484, end_line: 1505, lines: 22}
-  - {title: E04. 来料 AQL 抽样检验（Acceptance Sampling，ANSI/ASQ Z1.4 / GB/T 2828.1，零缺陷 C=0）, level: 2, line: 1506, end_line: 1522, lines: 17}
-  - {title: E05. SQE 供应商问题解决（Supplier Quality Engineering）, level: 2, line: 1523, end_line: 1539, lines: 17}
-  - {title: E06. VDA 6.5 产品审核（Product Audit，客户视角最终把关）, level: 2, line: 1540, end_line: 1566, lines: 27}
-  - {title: QCM 质量工具应用实例（补入组 2：质量基础 / 统计 / 问题解决类，编号 #44–#54）, level: 1, line: 1567, end_line: 1888, lines: 322}
-  - {title: E07. AI 视觉质检 / AOI（Automated Optical Inspection）, level: 2, line: 1573, end_line: 1599, lines: 27}
-  - {title: E08. 质量 4.0（Quality 4.0）, level: 2, line: 1600, end_line: 1622, lines: 23}
-  - {title: E09. ISO 9001：2015 QMS 体系工具, level: 2, line: 1623, end_line: 1648, lines: 26}
-  - {title: E10. CMMI 过程成熟度, level: 2, line: 1649, end_line: 1672, lines: 24}
-  - {title: E11. 供应链风险矩阵（ISO 31000）, level: 2, line: 1673, end_line: 1696, lines: 24}
-  - {title: F01. 8D 问题解决, level: 2, line: 1697, end_line: 1733, lines: 37}
-  - {title: F02. A3 问题解决报告（A3 Problem Solving Report）, level: 2, line: 1734, end_line: 1747, lines: 14}
-  - {title: F03. DMAIC 六西格玛路线图（Six Sigma DMAIC Roadmap）, level: 2, line: 1748, end_line: 1761, lines: 14}
-  - {title: F04. 5Why（Five Whys，独立工具化）, level: 2, line: 1762, end_line: 1775, lines: 14}
-  - {title: F05. 5W2H 问题陈述（Problem Statement，独立工具化）, level: 2, line: 1776, end_line: 1789, lines: 14}
-  - {title: F06. CAPA 纠正预防系统（Corrective Action / Preventive Action System）, level: 2, line: 1790, end_line: 1803, lines: 14}
-  - {title: F07. RCA 根本原因分析体系（Root Cause Analysis System）, level: 2, line: 1804, end_line: 1817, lines: 14}
-  - {title: F08. Stage-Gate 阶段门（NPD 门径管理）, level: 2, line: 1818, end_line: 1846, lines: 29}
-  - {title: F09. 质量门 Quality Gate（制造/项目节点把关）, level: 2, line: 1847, end_line: 1873, lines: 27}
-  - {title: F10. 自检互检（Self-check / Mutual Check，三检制）, level: 2, line: 1874, end_line: 1888, lines: 15}
-  - {title: 本组来源汇总（权威源清单）, level: 3, line: 1883, end_line: 1888, lines: 6}
-  - {title: QCM 工具扩展 · t2 组完整实例（精益 / 管理 / 流程类，编号 #55–#66）, level: 1, line: 1889, end_line: 1933, lines: 45}
-  - {title: 本组来源汇总（权威源清单）, level: 3, line: 1899, end_line: 1933, lines: 35}
-  - {title: 质量工具应用实例（可落地蒸馏版）— 追加组 t3（数字化 / 体系 / 可靠性类，#67–#77）, level: 1, line: 1934, end_line: 1977, lines: 44}
-  - {title: 本组来源汇总（权威源清单）, level: 3, line: 1940, end_line: 1958, lines: 19}
-  - {title: F11. 过程链联动审核（Cross-Process-Chain Joint Audit，端到端过程方法审核）, level: 2, line: 1959, end_line: 1977, lines: 19}
+  - {id: -, title: 质量工具应用实例（可落地蒸馏版）, level: 1, line: 1, end_line: 1785, lines: 1785, tags: [], links: [##C06, ##E02, ##E05, ##B01]}
+  - {id: -, title: A01. SPC 统计过程控制（控制图 + 过程能力）, level: 2, line: 11, end_line: 53, lines: 43, tags: [], links: []}
+  - {id: -, title: A02. Poka-Yoke 防错, level: 2, line: 54, end_line: 82, lines: 29, tags: [], links: []}
+  - {id: -, title: A03. 柏拉图（Pareto）与 鱼骨图（因果图）, level: 2, line: 83, end_line: 108, lines: 26, tags: [], links: []}
+  - {id: -, title: A04. 5S, level: 2, line: 109, end_line: 141, lines: 33, tags: [], links: []}
+  - {id: -, title: A05. MSA 测量系统分析（Measurement Systems Analysis）, level: 2, line: 142, end_line: 184, lines: 43, tags: [], links: []}
+  - {id: -, title: A06. 直方图 Histogram, level: 2, line: 185, end_line: 210, lines: 26, tags: [], links: []}
+  - {id: -, title: A07. 散布图 Scatter, level: 2, line: 211, end_line: 229, lines: 19, tags: [], links: []}
+  - {id: -, title: A08. 检查表 Check Sheet, level: 2, line: 230, end_line: 251, lines: 22, tags: [], links: []}
+  - {id: -, title: A09. 层别法 Stratification, level: 2, line: 252, end_line: 272, lines: 21, tags: [], links: []}
+  - {id: -, title: A10. 测量不确定度 GUM（Guide to the Expression of Uncertainty in Measurement）, level: 2, line: 273, end_line: 286, lines: 14, tags: [], links: []}
+  - {id: -, title: A11. 假设检验（Hypothesis Testing，t / Z / F / 卡方）, level: 2, line: 287, end_line: 300, lines: 14, tags: [], links: []}
+  - {id: -, title: A12. 回归分析（Regression Analysis，一元/多元最小二乘）, level: 2, line: 301, end_line: 318, lines: 18, tags: [], links: []}
+  - {id: -, title: A13. EWMA / CUSUM 时间加权控制图（Exponentially Weighted Moving Average / Cumulative Sum）, level: 2, line: 319, end_line: 342, lines: 24, tags: [], links: []}
+  - {id: -, title: B01. FMEA（AIAG-VDA 七步法）, level: 2, line: 343, end_line: 372, lines: 30, tags: [], links: []}
+  - {id: -, title: B02. QFD 质量功能展开, level: 2, line: 373, end_line: 404, lines: 32, tags: [], links: []}
+  - {id: -, title: B03. PPAP 生产件批准, level: 2, line: 405, end_line: 433, lines: 29, tags: [], links: []}
+  - {id: -, title: B04. DOE 田口参数设计（Design of Experiments / Taguchi Robust Design）, level: 2, line: 434, end_line: 465, lines: 32, tags: [], links: []}
+  - {id: -, title: B05. 控制计划 Control Plan, level: 2, line: 466, end_line: 484, lines: 19, tags: [], links: []}
+  - {id: -, title: B06. APQP 五大工具集成（Advanced Product Quality Planning）, level: 2, line: 485, end_line: 514, lines: 30, tags: [], links: [##C06]}
+  - {id: -, title: B07. 矩阵图（Matrix Diagram，L 型）, level: 2, line: 515, end_line: 538, lines: 24, tags: [], links: []}
+  - {id: -, title: B08. PDPC（Process Decision Program Chart，过程决策程序图）, level: 2, line: 539, end_line: 555, lines: 17, tags: [], links: []}
+  - {id: -, title: B09. 箭条图 / 网络图（Arrow / Network Diagram，PERT/CPM）, level: 2, line: 556, end_line: 576, lines: 21, tags: [], links: []}
+  - {id: -, title: B10. 因果矩阵 C&E（Cause & Effect Matrix）, level: 2, line: 577, end_line: 596, lines: 20, tags: [], links: []}
+  - {id: -, title: B11. AS9145（航空 APQP + PPAP）, level: 2, line: 597, end_line: 619, lines: 23, tags: [], links: []}
+  - {id: -, title: B12. FAI 首件检验（AS9102 航空）, level: 2, line: 620, end_line: 642, lines: 23, tags: [], links: []}
+  - {id: -, title: B13. HALT / HASS（高加速寿命试验 / 高加速应力筛选）, level: 2, line: 643, end_line: 668, lines: 26, tags: [], links: []}
+  - {id: -, title: B14. 可靠性增长管理（Duane / Crow-AMSAA）, level: 2, line: 669, end_line: 699, lines: 31, tags: [], links: []}
+  - {id: -, title: B15. DFSS（IDDOV / DMADV，六西格玛设计）, level: 2, line: 700, end_line: 726, lines: 27, tags: [], links: []}
+  - {id: -, title: C01. 亲和图 KJ（Affinity Diagram）, level: 2, line: 727, end_line: 743, lines: 17, tags: [], links: []}
+  - {id: -, title: C02. 关联图（Interrelationship Diagram）, level: 2, line: 744, end_line: 765, lines: 22, tags: [], links: []}
+  - {id: -, title: C03. 系统图（Tree Diagram，目标展开树）, level: 2, line: 766, end_line: 783, lines: 18, tags: [], links: []}
+  - {id: -, title: C04. KANO 模型（Kano Model）, level: 2, line: 784, end_line: 801, lines: 18, tags: [], links: []}
+  - {id: -, title: C05. VOC 顾客之声（Voice of the Customer）, level: 2, line: 802, end_line: 820, lines: 19, tags: [], links: []}
+  - {id: -, title: C06. 方针管理 Hoshin（Hoshin Kanri / Policy Deployment）, level: 2, line: 821, end_line: 837, lines: 17, tags: [], links: []}
+  - {id: -, title: C07. FTA 故障树分析（Fault Tree Analysis）, level: 2, line: 838, end_line: 855, lines: 18, tags: [], links: []}
+  - {id: -, title: C08. FRACAS 故障报告闭环（Failure Reporting, Analysis, and Corrective Action System）, level: 2, line: 856, end_line: 877, lines: 22, tags: [], links: []}
+  - {id: -, title: C09. 质量成本 COPQ / PONC 分析（Cost of Poor Quality / Price of Nonconformance）, level: 2, line: 878, end_line: 900, lines: 23, tags: [], links: []}
+  - {id: -, title: C10. X-Matrix 方针展开矩阵（Hoshin 战略部署）, level: 2, line: 901, end_line: 931, lines: 31, tags: [], links: []}
+  - {id: -, title: C11. 六西格玛项目章程 Six Sigma Project Charter（DMAIC 立项文档）, level: 2, line: 932, end_line: 962, lines: 31, tags: [], links: []}
+  - {id: -, title: C12. NPS / CSAT 客户满意度, level: 2, line: 963, end_line: 989, lines: 27, tags: [], links: []}
+  - {id: -, title: C13. PESTEL 外部环境分析（PESTEL Analysis）, level: 2, line: 990, end_line: 1022, lines: 33, tags: [], links: []}
+  - {id: -, title: C14. 安索夫矩阵（Ansoff Matrix 产品-市场增长策略）, level: 2, line: 1023, end_line: 1052, lines: 30, tags: [], links: []}
+  - {id: -, title: C15. 麦肯锡矩阵（市场吸引力-竞争力 3×3 定位，GE-McKinsey Matrix）, level: 2, line: 1053, end_line: 1082, lines: 30, tags: [], links: []}
+  - {id: -, title: C16. 三地平线增长模型（Three Horizons of Growth，H1/H2/H3）, level: 2, line: 1083, end_line: 1111, lines: 29, tags: [], links: []}
+  - {id: -, title: C17. BSC 平衡计分卡（Balanced Scorecard，四维度战略衡量）, level: 2, line: 1112, end_line: 1145, lines: 34, tags: [], links: []}
+  - {id: -, title: C18. 战略地图（Strategy Map，目标因果链路图）, level: 2, line: 1146, end_line: 1174, lines: 29, tags: [], links: []}
+  - {id: -, title: D01. Kaizen / PDCA（改进循环）, level: 2, line: 1175, end_line: 1202, lines: 28, tags: [], links: []}
+  - {id: -, title: D02. 看板 Kanban, level: 2, line: 1203, end_line: 1216, lines: 14, tags: [], links: []}
+  - {id: -, title: D03. SMED 快速换模（Single-Minute Exchange of Die）, level: 2, line: 1217, end_line: 1235, lines: 19, tags: [], links: []}
+  - {id: -, title: D04. 安灯 Andon, level: 2, line: 1236, end_line: 1251, lines: 16, tags: [], links: []}
+  - {id: -, title: D05. 价值流图 VSM（Value Stream Mapping）, level: 2, line: 1252, end_line: 1268, lines: 17, tags: [], links: []}
+  - {id: -, title: D06. 标准作业 Standard Work, level: 2, line: 1269, end_line: 1284, lines: 16, tags: [], links: []}
+  - {id: -, title: D07. TPM 全员生产维护（Total Productive Maintenance）, level: 2, line: 1285, end_line: 1303, lines: 19, tags: [], links: []}
+  - {id: -, title: D08. ECRS 改善四原则（Eliminate/Combine/Rearrange/Simplify）, level: 2, line: 1304, end_line: 1313, lines: 10, tags: [], links: []}
+  - {id: -, title: D09. ESIA 流程优化四步（Eliminate/Simplify/Integrate/Automate）, level: 2, line: 1314, end_line: 1325, lines: 12, tags: [], links: []}
+  - {id: -, title: D10. 均衡生产 Heijunka（生产平准化）, level: 2, line: 1326, end_line: 1354, lines: 29, tags: [], links: []}
+  - {id: -, title: D11. 节拍时间 Takt Time, level: 2, line: 1355, end_line: 1381, lines: 27, tags: [], links: []}
+  - {id: -, title: D12. 单件流 One-Piece Flow, level: 2, line: 1382, end_line: 1411, lines: 30, tags: [], links: []}
+  - {id: -, title: D13. OEE 设备综合效率（Overall Equipment Effectiveness）, level: 2, line: 1412, end_line: 1439, lines: 28, tags: [], links: []}
+  - {id: -, title: D14. Gemba Walk 现场巡视（现地现物管理）, level: 2, line: 1440, end_line: 1466, lines: 27, tags: [], links: []}
+  - {id: -, title: D15. QCC 品管圈（QC Circle）, level: 2, line: 1467, end_line: 1494, lines: 28, tags: [], links: []}
+  - {id: -, title: D16. 山积图 Yamazumi（作业平衡图 / Operator Balance Chart）, level: 2, line: 1495, end_line: 1523, lines: 29, tags: [], links: []}
+  - {id: -, title: D17. 拉动系统 Pull System（广义）, level: 2, line: 1524, end_line: 1552, lines: 29, tags: [], links: []}
+  - {id: -, title: D18. 作业观察表（Work Observation Sheet / 作業観察，丰田 TPS）, level: 2, line: 1553, end_line: 1564, lines: 12, tags: [], links: []}
+  - {id: -, title: D19. 目视化管理（Visual Management / 管理项目一览表）, level: 2, line: 1565, end_line: 1573, lines: 9, tags: [], links: []}
+  - {id: -, title: D20. TWI 一线督导训练体系（Training Within Industry：JI/JM/JR/JS）, level: 2, line: 1574, end_line: 1582, lines: 9, tags: [], links: []}
+  - {id: -, title: D21. 改善提案制度（Kaizen Teian / 合理化提案）, level: 2, line: 1583, end_line: 1591, lines: 9, tags: [], links: []}
+  - {id: -, title: D22. 五现主义（现场·现物·现实·原理·原则）, level: 2, line: 1592, end_line: 1600, lines: 9, tags: [], links: []}
+  - {id: -, title: D23. QRQC 快速反应品质控制（Quick Response Quality Control）, level: 2, line: 1601, end_line: 1609, lines: 9, tags: [], links: []}
+  - {id: -, title: D24. 班组长一日管理（Team Leader Daily Management）, level: 2, line: 1610, end_line: 1618, lines: 9, tags: [], links: []}
+  - {id: -, title: D25. 预知性管理 / 4M 变更管理（人·机·料·法变更预知）, level: 2, line: 1619, end_line: 1627, lines: 9, tags: [], links: []}
+  - {id: -, title: D26. 公差分析与尺寸链（Tolerance Analysis & Dimension Chain）, level: 2, line: 1628, end_line: 1656, lines: 29, tags: [], links: []}
+  - {id: -, title: E01. 供应商过程审核 VDA 6.3, level: 2, line: 1657, end_line: 1685, lines: 29, tags: [], links: []}
+  - {id: -, title: E02. 供应商审核（Supplier Audit）, level: 2, line: 1686, end_line: 1702, lines: 17, tags: [], links: []}
+  - {id: -, title: E03. 供应商记分卡（Supplier Scorecard）, level: 2, line: 1703, end_line: 1724, lines: 22, tags: [], links: [##E02, ##E05]}
+  - {id: -, title: E04. 来料 AQL 抽样检验（Acceptance Sampling，ANSI/ASQ Z1.4 / GB/T 2828.1，零缺陷 C=0）, level: 2, line: 1725, end_line: 1741, lines: 17, tags: [], links: []}
+  - {id: -, title: E05. SQE 供应商问题解决（Supplier Quality Engineering）, level: 2, line: 1742, end_line: 1758, lines: 17, tags: [], links: []}
+  - {id: -, title: E06. VDA 6.5 产品审核（Product Audit，客户视角最终把关）, level: 2, line: 1759, end_line: 1785, lines: 27, tags: [], links: [##B01]}
+  - {id: -, title: QCM 质量工具应用实例（补入组 2：质量基础 / 统计 / 问题解决类，编号 #44–#54）, level: 1, line: 1786, end_line: 2107, lines: 322, tags: [], links: []}
+  - {id: -, title: E07. AI 视觉质检 / AOI（Automated Optical Inspection）, level: 2, line: 1792, end_line: 1818, lines: 27, tags: [], links: []}
+  - {id: -, title: E08. 质量 4.0（Quality 4.0）, level: 2, line: 1819, end_line: 1841, lines: 23, tags: [], links: []}
+  - {id: -, title: E09. ISO 9001：2015 QMS 体系工具, level: 2, line: 1842, end_line: 1867, lines: 26, tags: [], links: []}
+  - {id: -, title: E10. CMMI 过程成熟度, level: 2, line: 1868, end_line: 1891, lines: 24, tags: [], links: []}
+  - {id: -, title: E11. 供应链风险矩阵（ISO 31000）, level: 2, line: 1892, end_line: 1915, lines: 24, tags: [], links: []}
+  - {id: -, title: F01. 8D 问题解决, level: 2, line: 1916, end_line: 1952, lines: 37, tags: [], links: []}
+  - {id: -, title: F02. A3 问题解决报告（A3 Problem Solving Report）, level: 2, line: 1953, end_line: 1966, lines: 14, tags: [], links: []}
+  - {id: -, title: F03. DMAIC 六西格玛路线图（Six Sigma DMAIC Roadmap）, level: 2, line: 1967, end_line: 1980, lines: 14, tags: [], links: []}
+  - {id: -, title: F04. 5Why（Five Whys，独立工具化）, level: 2, line: 1981, end_line: 1994, lines: 14, tags: [], links: []}
+  - {id: -, title: F05. 5W2H 问题陈述（Problem Statement，独立工具化）, level: 2, line: 1995, end_line: 2008, lines: 14, tags: [], links: []}
+  - {id: -, title: F06. CAPA 纠正预防系统（Corrective Action / Preventive Action System）, level: 2, line: 2009, end_line: 2022, lines: 14, tags: [], links: []}
+  - {id: -, title: F07. RCA 根本原因分析体系（Root Cause Analysis System）, level: 2, line: 2023, end_line: 2036, lines: 14, tags: [], links: []}
+  - {id: -, title: F08. Stage-Gate 阶段门（NPD 门径管理）, level: 2, line: 2037, end_line: 2065, lines: 29, tags: [], links: []}
+  - {id: -, title: F09. 质量门 Quality Gate（制造/项目节点把关）, level: 2, line: 2066, end_line: 2092, lines: 27, tags: [], links: []}
+  - {id: -, title: F10. 自检互检（Self-check / Mutual Check，三检制）, level: 2, line: 2093, end_line: 2107, lines: 15, tags: [], links: []}
+  - {id: -, title: 本组来源汇总（权威源清单）, level: 3, line: 2102, end_line: 2107, lines: 6, tags: [], links: []}
+  - {id: -, title: QCM 工具扩展 · t2 组完整实例（精益 / 管理 / 流程类，编号 #55–#66）, level: 1, line: 2108, end_line: 2152, lines: 45, tags: [], links: []}
+  - {id: -, title: 本组来源汇总（权威源清单）, level: 3, line: 2118, end_line: 2152, lines: 35, tags: [], links: []}
+  - {id: -, title: 质量工具应用实例（可落地蒸馏版）— 追加组 t3（数字化 / 体系 / 可靠性类，#67–#77）, level: 1, line: 2153, end_line: 2310, lines: 158, tags: [], links: [##E01, ##F06, ##D25, ##A02, ##A05, ##A01, ##B13, ##B04, ##B01, ##F01, ##F02, ##F07, ##C08, ##G01, ##G06, ##G07]}
+  - {id: -, title: 本组来源汇总（权威源清单）, level: 3, line: 2159, end_line: 2177, lines: 19, tags: [], links: []}
+  - {id: -, title: F11. 过程链联动审核（Cross-Process-Chain Joint Audit，端到端过程方法审核）, level: 2, line: 2178, end_line: 2188, lines: 11, tags: [], links: [##E01, ##F06, ##D25]}
+  - {id: -, title: G 域 · AI 与数字智能质量工具（G01–G10）, level: 2, line: 2189, end_line: 2192, lines: 4, tags: [], links: []}
+  - {id: -, title: G01. AI 视觉质检（深度学习 AOI / 缺陷检测）, level: 2, line: 2193, end_line: 2203, lines: 11, tags: [], links: [##A02, ##A05]}
+  - {id: -, title: G02. 预测性质量（Predictive Quality / 退化预测）, level: 2, line: 2204, end_line: 2214, lines: 11, tags: [], links: [##A01, ##B13]}
+  - {id: -, title: G03. 数字孪生质量仿真（Digital Twin）, level: 2, line: 2215, end_line: 2225, lines: 11, tags: [], links: [##B04, ##B01]}
+  - {id: -, title: G04. 生成式测试设计（GenAI 测试用例 / 故障注入生成）, level: 2, line: 2226, end_line: 2236, lines: 11, tags: [], links: [##B04, ##F01]}
+  - {id: -, title: G05. 无监督异常检测（时序 / 多维）, level: 2, line: 2237, end_line: 2247, lines: 11, tags: [], links: [##A01]}
+  - {id: -, title: G06. 大模型辅助根因分析（LLM-RCA）, level: 2, line: 2248, end_line: 2258, lines: 11, tags: [], links: [##F02, ##F01, ##F07, ##C08]}
+  - {id: -, title: G07. 合成数据增强（Synthetic Data Augmentation for QC）, level: 2, line: 2259, end_line: 2269, lines: 11, tags: [], links: [##G01]}
+  - {id: -, title: G08. 自适应过程控制（AI-SPC / 智能控制）, level: 2, line: 2270, end_line: 2280, lines: 11, tags: [], links: [##A01]}
+  - {id: -, title: G09. 质量知识图谱（Quality Knowledge Graph）, level: 2, line: 2281, end_line: 2291, lines: 11, tags: [], links: [##G06, ##C08]}
+  - {id: -, title: G10. AI 治理与模型风控（Model Risk / Responsible AI 质检）, level: 2, line: 2292, end_line: 2310, lines: 19, tags: [], links: [##G07, ##G06]}
