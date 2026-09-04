@@ -1,0 +1,91 @@
+# QCM 大语料索引（自动生成 · 勿手改）
+file: references/protocol/action-orders.md
+note: 协议章（AO-1~AO-4/5 段式/危机协议/§14 路由协议 · 按章懒加载）
+size_bytes: 39451
+size_kb: 38.5
+anchor_count: 83
+generated: 2026-09-02 18:25
+anchors:
+  - {id: -, title: 行动指令卡协议（Action Orders · v8.0+ 权威 · 动作维度主·时间维度子 · 协议层 SOLE 权威）, level: 1, line: 1, end_line: 758, lines: 758, tags: [], links: [§三]}
+  - {id: -, title: §1 行动指令卡 AO-1~AO-4（动作维度主 · 时间维度子）, level: 2, line: 11, end_line: 74, lines: 64, tags: [], links: []}
+  - {id: -, title: 1.1 AO-1 围堵遏制（围堵阶段 · L1 操作级子标签）, level: 3, line: 13, end_line: 27, lines: 15, tags: [], links: []}
+  - {id: -, title: 1.2 AO-2 应对方案（消除阶段 · L2 选型级子标签）, level: 3, line: 28, end_line: 42, lines: 15, tags: [], links: []}
+  - {id: -, title: 1.3 AO-3 行动分解（纠正阶段 · L3 执行级子标签）, level: 3, line: 43, end_line: 57, lines: 15, tags: [], links: []}
+  - {id: -, title: 1.4 AO-4 组织治理（预防阶段 · L4 治理级子标签 · 4 层 × N 维度）, level: 3, line: 58, end_line: 74, lines: 17, tags: [], links: []}
+  - {id: -, title: §2 5 段式输出结构（动作维度主 · 严格分离）, level: 2, line: 75, end_line: 144, lines: 70, tags: [], links: []}
+  - {id: -, title: 2.1 标准结构（5 段式 · V1.6.1 移除 D 折叠段）, level: 3, line: 77, end_line: 114, lines: 38, tags: [], links: []}
+  - {id: -, title: 2.2 段×动作阶段映射表, level: 3, line: 115, end_line: 125, lines: 11, tags: [], links: []}
+  - {id: -, title: 2.3 5 段式 × 4 输出形态映射表, level: 3, line: 126, end_line: 144, lines: 19, tags: [], links: []}
+  - {id: -, title: §3 危机管理协议（动作阶段主）, level: 2, line: 145, end_line: 193, lines: 49, tags: [], links: [§三]}
+  - {id: -, title: 3.1 危机判定（D1+D2+D3）, level: 3, line: 147, end_line: 157, lines: 11, tags: [], links: []}
+  - {id: -, title: 3.2 危机分级（4 档）, level: 3, line: 158, end_line: 166, lines: 9, tags: [], links: []}
+  - {id: -, title: 3.3 危机沟通（3T × 3 列表）, level: 3, line: 167, end_line: 176, lines: 10, tags: [], links: []}
+  - {id: -, title: 3.4 双归零按动作阶段展开, level: 3, line: 177, end_line: 193, lines: 17, tags: [], links: [§三]}
+  - {id: -, title: §4 L1-L4 危机触发矩阵, level: 2, line: 194, end_line: 204, lines: 11, tags: [], links: []}
+  - {id: -, title: §5 责任层定义（动作阶段 + 责任主体双轴）, level: 2, line: 205, end_line: 217, lines: 13, tags: [], links: []}
+  - {id: -, title: §6 D 折叠段契约（5 触发词）, level: 2, line: 218, end_line: 239, lines: 22, tags: [], links: []}
+  - {id: -, title: 6.1 折叠机制, level: 3, line: 220, end_line: 224, lines: 5, tags: [], links: []}
+  - {id: -, title: 6.2 触发词清单, level: 3, line: 225, end_line: 239, lines: 15, tags: [], links: []}
+  - {id: -, title: §7 L4 组织治理 4 层 × N 维度（预防阶段 · 4 层 × N 维度表）, level: 2, line: 240, end_line: 263, lines: 24, tags: [], links: []}
+  - {id: -, title: 7.1 核心定义, level: 3, line: 242, end_line: 252, lines: 11, tags: [], links: []}
+  - {id: -, title: 7.2 L4 组织治理 4 层 × N 维度表, level: 3, line: 253, end_line: 263, lines: 11, tags: [], links: []}
+  - {id: -, title: §8 QCM-Infoseek 归因协议（V7.0 新增 · 5 维触发信号）, level: 2, line: 264, end_line: 383, lines: 120, tags: [], links: []}
+  - {id: -, title: 8.1 触发条件, level: 3, line: 266, end_line: 270, lines: 5, tags: [], links: []}
+  - {id: -, title: 8.2 接口契约, level: 3, line: 271, end_line: 295, lines: 25, tags: [], links: []}
+  - {id: -, title: 8.3 调用流程, level: 3, line: 296, end_line: 304, lines: 9, tags: [], links: []}
+  - {id: -, title: 8.4 入库策略, level: 3, line: 305, end_line: 310, lines: 6, tags: [], links: []}
+  - {id: -, title: 8.5 降级协议（V8.0+ 新增 · Infoseek 未安装/不可用兜底）, level: 3, line: 311, end_line: 383, lines: 73, tags: [], links: []}
+  - {id: -, title: 8.5.1 降级链（L0 → L1 → L2 → L3）, level: 4, line: 315, end_line: 334, lines: 20, tags: [], links: []}
+  - {id: -, title: 8.5.2 探测机制（_probe_infoseek）, level: 4, line: 335, end_line: 341, lines: 7, tags: [], links: []}
+  - {id: -, title: 8.5.3 输出契约扩展（§8.2 output_schema 补充）, level: 4, line: 342, end_line: 359, lines: 18, tags: [], links: []}
+  - {id: -, title: 8.5.4 降级标注规则, level: 4, line: 360, end_line: 367, lines: 8, tags: [], links: []}
+  - {id: -, title: 8.5.5 知识闭环（缺口回填）, level: 4, line: 368, end_line: 374, lines: 7, tags: [], links: []}
+  - {id: -, title: 8.5.6 契约一致性, level: 4, line: 375, end_line: 383, lines: 9, tags: [], links: []}
+  - {id: -, title: §9 案例资产化协议（V8.0 新增 · 组织运行资产）, level: 2, line: 384, end_line: 436, lines: 53, tags: [], links: []}
+  - {id: -, title: 9.1 资产定义, level: 3, line: 386, end_line: 391, lines: 6, tags: [], links: []}
+  - {id: -, title: 9.2 案例资产元数据, level: 3, line: 392, end_line: 416, lines: 25, tags: [], links: []}
+  - {id: -, title: 9.3 生命周期, level: 3, line: 417, end_line: 422, lines: 6, tags: [], links: []}
+  - {id: -, title: 9.4 同类问题复用算法, level: 3, line: 423, end_line: 428, lines: 6, tags: [], links: []}
+  - {id: -, title: 9.5 动态管理（防臃肿）, level: 3, line: 429, end_line: 436, lines: 8, tags: [], links: []}
+  - {id: -, title: §10 Infoseek 收敛协议（V8.0 新增 · 逐级收敛）, level: 2, line: 437, end_line: 469, lines: 33, tags: [], links: []}
+  - {id: -, title: 10.1 收敛级别, level: 3, line: 439, end_line: 444, lines: 6, tags: [], links: []}
+  - {id: -, title: 10.2 收敛深度限制, level: 3, line: 445, end_line: 455, lines: 11, tags: [], links: []}
+  - {id: -, title: 10.3 终止条件, level: 3, line: 456, end_line: 462, lines: 7, tags: [], links: []}
+  - {id: -, title: 10.4 案例/场景对 Infoseek 调研的影响, level: 3, line: 463, end_line: 469, lines: 7, tags: [], links: []}
+  - {id: -, title: §11 热词与末端触点协议（V8.0+ 新增 · QCM 颗粒度 4 层 + L4 末端触点收敛）, level: 2, line: 470, end_line: 510, lines: 41, tags: [], links: []}
+  - {id: -, title: 11.1 QCM 颗粒度与收敛级别, level: 3, line: 472, end_line: 480, lines: 9, tags: [], links: []}
+  - {id: -, title: 11.2 热词体系, level: 3, line: 481, end_line: 488, lines: 8, tags: [], links: []}
+  - {id: -, title: 11.3 L4 末端触点盲点收敛, level: 3, line: 489, end_line: 495, lines: 7, tags: [], links: []}
+  - {id: -, title: 11.4 降级一致性原则, level: 3, line: 496, end_line: 502, lines: 7, tags: [], links: []}
+  - {id: -, title: 11.5 健康指标, level: 3, line: 503, end_line: 510, lines: 8, tags: [], links: []}
+  - {id: -, title: §12 三要素新鲜度与行业适配性协议（V8.0+ 新增）, level: 2, line: 511, end_line: 546, lines: 36, tags: [], links: []}
+  - {id: -, title: 12.1 三大要素库, level: 3, line: 513, end_line: 518, lines: 6, tags: [], links: []}
+  - {id: -, title: 12.2 新鲜度协议, level: 3, line: 519, end_line: 525, lines: 7, tags: [], links: []}
+  - {id: -, title: 12.3 行业适配性协议, level: 3, line: 526, end_line: 531, lines: 6, tags: [], links: []}
+  - {id: -, title: 12.4 Infoseek 协同, level: 3, line: 532, end_line: 538, lines: 7, tags: [], links: []}
+  - {id: -, title: 12.5 输出应用, level: 3, line: 539, end_line: 546, lines: 8, tags: [], links: []}
+  - {id: -, title: §13 缺口暴露驱动 Infoseek 协同协议（V8.0+ 新增）, level: 2, line: 547, end_line: 605, lines: 59, tags: [], links: []}
+  - {id: -, title: 13.1 缺口检测（5 维）, level: 3, line: 549, end_line: 554, lines: 6, tags: [], links: []}
+  - {id: -, title: 13.2 Infoseek 协同触发, level: 3, line: 555, end_line: 560, lines: 6, tags: [], links: []}
+  - {id: -, title: 13.3 混合策略 3 阶段触发, level: 3, line: 561, end_line: 568, lines: 8, tags: [], links: []}
+  - {id: -, title: 13.4 5 维层级映射（自顶向下 · 归一化）, level: 3, line: 569, end_line: 578, lines: 10, tags: [], links: []}
+  - {id: -, title: 13.5 输出标注, level: 3, line: 579, end_line: 584, lines: 6, tags: [], links: []}
+  - {id: -, title: 13.6 写入策略, level: 3, line: 585, end_line: 590, lines: 6, tags: [], links: []}
+  - {id: -, title: 13.7 健康指标, level: 3, line: 591, end_line: 597, lines: 7, tags: [], links: []}
+  - {id: -, title: 13.8 缺口 → 调研 → 进化闭环, level: 3, line: 598, end_line: 605, lines: 8, tags: [], links: []}
+  - {id: -, title: 版本履历, level: 2, line: 606, end_line: 623, lines: 18, tags: [], links: []}
+  - {id: -, title: §14 场景路由协议（V8.3 · 意图6 × 领域8 双维路由）, level: 2, line: 624, end_line: 711, lines: 88, tags: [], links: []}
+  - {id: -, title: 14.1 路由架构（两级分类器）, level: 3, line: 626, end_line: 632, lines: 7, tags: [], links: []}
+  - {id: -, title: 14.2 词库单一真源（keyword.yaml · V8.2 归一化）, level: 3, line: 633, end_line: 652, lines: 20, tags: [], links: []}
+  - {id: -, title: 14.3 领域路由（次路由）, level: 3, line: 653, end_line: 656, lines: 4, tags: [], links: []}
+  - {id: -, title: 14.4 置信度与回问, level: 3, line: 657, end_line: 664, lines: 8, tags: [], links: []}
+  - {id: -, title: 14.5 路由矩阵（意图6 × 领域8 · ✅有效）, level: 3, line: 665, end_line: 678, lines: 14, tags: [], links: []}
+  - {id: -, title: 14.6 形态映射, level: 3, line: 679, end_line: 684, lines: 6, tags: [], links: []}
+  - {id: -, title: 14.7 缺口联动, level: 3, line: 685, end_line: 688, lines: 4, tags: [], links: []}
+  - {id: -, title: 14.8 工具词条挂载规则（V8.6 M0.9 · 顶层宽·应用层紧 落地约束）, level: 3, line: 689, end_line: 711, lines: 23, tags: [], links: []}
+  - {id: -, title: §15 下挂协议（V8.4+ 新增 · 方法子能力挂接父流程的最小约束集）, level: 2, line: 712, end_line: 758, lines: 47, tags: [], links: []}
+  - {id: -, title: 15.1 四件套定义（下挂视角）, level: 3, line: 718, end_line: 726, lines: 9, tags: [], links: []}
+  - {id: -, title: 15.2 三条红线（违反即失效）, level: 3, line: 727, end_line: 732, lines: 6, tags: [], links: []}
+  - {id: -, title: 15.3 下挂五步（最小流程 · 较独立接入省约 40% 工作量）, level: 3, line: 733, end_line: 742, lines: 10, tags: [], links: []}
+  - {id: -, title: 15.4 下挂登记条款（新方法下挂必须在此登记）, level: 3, line: 743, end_line: 750, lines: 8, tags: [], links: []}
+  - {id: -, title: 15.5 与既有协议的关系, level: 3, line: 751, end_line: 758, lines: 8, tags: [], links: []}
