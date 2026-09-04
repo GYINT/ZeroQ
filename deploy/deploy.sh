@@ -29,7 +29,7 @@ DOCKER_DIR="${SKILL_ROOT}/deploy/docker"
 COMPOSE_FILE="${DOCKER_DIR}/docker-compose.yml"
 CONFIG_EXAMPLE="${SKILL_ROOT}/scripts/config.example.yaml"
 CONFIG_FILE="${SKILL_ROOT}/qcm_config.yaml"
-IMAGE_NAME="qcm/mcp-server:1.0.0"
+IMAGE_NAME="qcm/mcp-server:1.0.1"
 CONTAINER_NAME="qcm-mcp"
 HOST_PORT="${QCM_HOST_PORT:-8080}"
 HEALTH_URL="http://localhost:${HOST_PORT}/health/live"
@@ -164,7 +164,7 @@ helm_install() {
   log "Helm 安装 ${rel} → namespace ${ns}"
   helm upgrade --install "${rel}" "${SKILL_ROOT}/deploy/k8s/helm/qcm-mcp" \
     --namespace "${ns}" --create-namespace \
-    --set image.repository=qcm/mcp-server --set image.tag=1.0.0 \
+    --set image.repository=qcm/mcp-server --set image.tag=1.0.1 \
     "$@"
   ok "Helm release ${rel} 已就绪（kubectl -n ${ns} get pods）"
 }
