@@ -1,0 +1,214 @@
+# QCM 校验配置
+# V1.0.0（2026-08-17）
+# 说明：从 qcm_output_validator.py 硬编码提取，供验证器动态加载
+
+checks:
+  # === ① 结构完整性 ===
+  - id: has_section_template
+    name: 段模板完整性
+    forms:
+      case_application:
+        required: true
+        sections: [行动要项, 事态导航, 危机沟通, 行动措施, 后续计划, 双归零]
+      decision_card:
+        required: true
+        sections: [决策, 责任, 动作]
+      assessment_report:
+        required: true
+        sections: [评估摘要, 现状评估, 关键缺口, 改进建议, 后续计划]
+      quick_response:
+        required: true
+        sections: [判定, 立即动作]
+
+  # === ② 契约字段（防御性）===
+  - id: has_side_effects
+    name: side_effects 字段
+    forms:
+      case_application: {required: true, pattern: "side_effects|rollback"}
+      decision_card:    {required: true, pattern: "side_effects|rollback"}
+      assessment_report: {required: true, pattern: "side_effects|rollback"}
+      quick_response:   {required: false, pattern: "side_effects|rollback"}
+
+  - id: has_input_schema
+    name: input_schema 字段
+    forms:
+      case_application: {required: true, pattern: "input_schema|输入模式"}
+      decision_card:    {required: true, pattern: "input_schema|输入模式"}
+      assessment_report: {required: true, pattern: "input_schema|输入模式"}
+      quick_response:   {required: false, pattern: "input_schema|输入模式"}
+
+  - id: has_output_schema
+    name: output_schema 字段
+    forms:
+      case_application: {required: true, pattern: "output_schema|输出模式"}
+      decision_card:    {required: true, pattern: "output_schema|输出模式"}
+      assessment_report: {required: true, pattern: "output_schema|输出模式"}
+      quick_response:   {required: false, pattern: "output_schema|输出模式"}
+
+  - id: has_degradation_paths
+    name: degradation_paths 降级路径
+    forms:
+      case_application: {required: true, pattern: "degradation|降级"}
+      decision_card:    {required: true, pattern: "degradation|降级"}
+      assessment_report: {required: true, pattern: "degradation|降级"}
+      quick_response:   {required: false, pattern: "degradation|降级"}
+
+  - id: has_execution_trace
+    name: execution_trace 执行溯源
+    forms:
+      case_application: {required: true, pattern: "execution_trace|执行溯源"}
+      decision_card:    {required: true, pattern: "execution_trace|执行溯源"}
+      assessment_report: {required: true, pattern: "execution_trace|执行溯源"}
+      quick_response:   {required: false, pattern: "execution_trace|执行溯源"}
+
+  - id: has_unverified_marker
+    name: unverified 标注
+    forms:
+      case_application: {required: true, pattern: "\\[unverified\\]|未验证"}
+      decision_card:    {required: true, pattern: "\\[unverified\\]|未验证"}
+      assessment_report: {required: true, pattern: "\\[unverified\\]|未验证"}
+      quick_response:   {required: false, pattern: "\\[unverified\\]|未验证"}
+
+  - id: has_data_freshness
+    name: 数据时效声明
+    forms:
+      case_application: {required: true, pattern: "时效|有效期|截至"}
+      decision_card:    {required: true, pattern: "时效|有效期|截至"}
+      assessment_report: {required: true, pattern: "时效|有效期|截至"}
+      quick_response:   {required: false, pattern: "时效|有效期|截至"}
+
+  - id: has_boundary_declaration
+    name: 边界声明
+    forms:
+      case_application: {required: true, pattern: "边界|适用范围|不适用"}
+      decision_card:    {required: true, pattern: "边界|适用范围|不适用"}
+      assessment_report: {required: true, pattern: "边界|适用范围|不适用"}
+      quick_response:   {required: false, pattern: "边界|适用范围|不适用"}
+
+  - id: has_forbidden_content_list
+    name: 禁忌内容清单
+    forms:
+      case_application: {required: true, pattern: "禁忌|禁止|勿|不得"}
+      decision_card:    {required: true, pattern: "禁忌|禁止|勿|不得"}
+      assessment_report: {required: true, pattern: "禁忌|禁止|勿|不得"}
+      quick_response:   {required: false, pattern: "禁忌|禁止|勿|不得"}
+
+  # === ③ 行动化（RACI / Owner）===
+  - id: has_raci
+    name: RACI 结构
+    forms:
+      case_application: {required: true, pattern: "【R:.+C:.+I:.*】"}
+      decision_card:    {required: true, pattern: "【R:.+C:.+I:.*】"}
+      assessment_report: {required: true, pattern: "【R:.+C:.+I:.*】"}
+      quick_response:   {required: false}
+
+  - id: has_owner
+    name: 快响责任人
+    forms:
+      case_application: {required: false}
+      decision_card:    {required: false}
+      assessment_report: {required: false}
+      quick_response:   {required: true, pattern: "责任[:：]"}
+
+  # === ④ 探针三查 ===
+  - id: has_positioning_depth
+    name: 定位探针-层次化
+    forms:
+      case_application: {required: true, pattern: "组织层|责任层|战略/管理/业务/执行"}
+      decision_card:    {required: false, pattern: "责任层|组织层"}
+      assessment_report: {required: false, pattern: "层级|治理层"}
+      quick_response:   {required: false}
+
+  - id: has_multi_chain
+    name: 定位探针-深度化
+    forms:
+      case_application: {required: true, pattern: "发生链|流出链|系统链"}
+      decision_card:    {required: false}
+      assessment_report: {required: false, pattern: "治理链"}
+      quick_response:   {required: false}
+
+  - id: has_explicit_marker
+    name: 定位探针-显性化
+    forms:
+      case_application: {required: true, pattern: "溢价|标注|P[0-9]"}
+      decision_card:    {required: false, pattern: "危机等级|P[0-9]"}
+      assessment_report: {required: false}
+      quick_response:   {required: true, pattern: "判定|P[0-9]"}
+
+  # === ⑤ 双归零三查 ===
+  - id: has_zero_depth
+    name: 双归零-机理深度
+    forms:
+      case_application: {required: true, pattern: "机理|复现|措施有效"}
+      decision_card:    {required: false}
+      assessment_report: {required: false}
+      quick_response:   {required: false}
+
+  - id: has_zero_layer
+    name: 双归零-责任层次
+    forms:
+      case_application: {required: true, pattern: "责任|管理层|问责"}
+      decision_card:    {required: false}
+      assessment_report: {required: false}
+      quick_response:   {required: false}
+
+  - id: has_zero_status
+    name: 双归零-状态显性
+    forms:
+      case_application: {required: true, pattern: "✅||🔄"}
+      decision_card:    {required: false}
+      assessment_report: {required: false}
+      quick_response:   {required: false}
+
+  # === ⑥ 组件治理 ===
+  - id: has_component_manifest
+    name: 组件池闭合
+    forms:
+      case_application: {required: true}
+      decision_card:    {required: true}
+      assessment_report: {required: true}
+      quick_response:   {required: true}
+    special: "check_component_closure"
+
+  - id: has_component_engine
+    name: 组件引擎健康
+    forms:
+      case_application: {required: true}
+      decision_card:    {required: true}
+      assessment_report: {required: true}
+      quick_response:   {required: true}
+    special: "check_component_engine"
+
+  - id: has_component_mapping
+    name: 组件映射闭合
+    forms:
+      case_application: {required: true}
+      decision_card:    {required: true}
+      assessment_report: {required: true}
+      quick_response:   {required: true}
+    special: "check_component_mapping"
+
+  # === ⑦ 场景路由消费（P1 镜像 · 分级） ===
+  - id: has_route_meta
+    name: 路由元数据行
+    forms:
+      case_application: {required: true, pattern: "【路由】"}
+      decision_card:    {required: true, pattern: "【路由】"}
+      assessment_report: {required: true, pattern: "【路由】"}
+      quick_response:   {required: true, pattern: "【路由】"}
+
+  - id: route_confidence
+    name: 路由置信度标注
+    forms:
+      case_application: {required: true, pattern: "置信度"}
+      decision_card:    {required: true, pattern: "置信度"}
+      assessment_report: {required: true, pattern: "置信度"}
+      quick_response:   {required: true, pattern: "置信度"}
+
+  - id: route_domain
+    name: 领域工具预选（案例应用全消费）
+    forms:
+      case_application: {required: true, pattern: "工具预选"}
+      decision_card:    {required: false}
+      assessment_report: {required: false}
+      quick_response:   {required: false}
