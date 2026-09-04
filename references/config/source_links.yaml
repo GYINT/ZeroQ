@@ -1,0 +1,24 @@
+# QCM 词源登记中心映射（S5.5 · R5 数据源映射归一化配置）
+# 用途：定义「词源(source) → 登记中心(index)」映射，R5 注入链双向校验按此遍历
+#       多词源扩展时无需改代码，仅登记新映射即可（全生命周期归一化动态自适应）
+# 维护：新增词源时登记条目（source/keyword_field/pack_id_field/pack_keyword_field/index_path 必填）
+# 校验：core/guardian_reverse.py check_r5 消费 · 未登记词源自动提示（动态自适应）
+
+source_links:
+  # industry 词源：词条 source: industry · pack_ref 指向行业包登记中心
+  - source: industry
+    keyword_path: references/config/keyword.yaml    # 词条主体
+    index_path: references/industry/index.yaml      # 登记中心
+    index_key: industry_packs                        # 登记列表键名
+    pack_id_field: id                                # pack 标识字段
+    pack_keyword_field: keywords                     # pack 关键词列表字段
+    desc: 行业知识包词源（注入 registry → keyword.yaml 双向）
+
+  # 预留：methods 词源（S6+ 方法论词条包注册中心接入时启用）
+  # - source: methods
+  #   keyword_path: references/config/keyword.yaml
+  #   index_path: references/methods/index.yaml
+  #   index_key: method_packs
+  #   pack_id_field: id
+  #   pack_keyword_field: keywords
+  #   desc: 方法论词条包词源（预留）
