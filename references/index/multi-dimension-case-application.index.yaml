@@ -1,0 +1,24 @@
+# QCM 大语料索引（自动生成 · 勿手改）
+file: references/knowledge/multi-dimension-case-application.md
+note: 工具案例五维交叉输出模板
+size_bytes: 7583
+size_kb: 7.4
+anchor_count: 16
+generated: 2026-09-02 18:25
+anchors:
+  - {id: -, title: 多链融合与多维交叉——质量工具应用案例输出模板, level: 1, line: 1, end_line: 148, lines: 148, tags: [], links: [§一, §二, §三, §四]}
+  - {id: -, title: 输出框架（五维交叉，三维定位）, level: 2, line: 5, end_line: 33, lines: 29, tags: [], links: []}
+  - {id: -, title: 示例：SPC 控制图（完整五维交叉案例）, level: 2, line: 34, end_line: 81, lines: 48, tags: [], links: []}
+  - {id: -, title: ① 四层穿透（组织维度）, level: 3, line: 36, end_line: 44, lines: 9, tags: [], links: []}
+  - {id: -, title: ② 四面交叉（流程维度）, level: 3, line: 45, end_line: 56, lines: 12, tags: [], links: []}
+  - {id: -, title: ③ 多链根因（SPC 判异后分析）, level: 3, line: 57, end_line: 64, lines: 8, tags: [], links: []}
+  - {id: -, title: ④ 工具链串联, level: 3, line: 65, end_line: 70, lines: 6, tags: [], links: []}
+  - {id: -, title: ⑤ 治理节拍, level: 3, line: 71, end_line: 81, lines: 11, tags: [], links: []}
+  - {id: -, title: 示例：8D 八步法（五维交叉案例）, level: 2, line: 82, end_line: 129, lines: 48, tags: [], links: []}
+  - {id: -, title: ① 四层穿透, level: 3, line: 84, end_line: 92, lines: 9, tags: [], links: []}
+  - {id: -, title: ② 四面交叉, level: 3, line: 93, end_line: 104, lines: 12, tags: [], links: []}
+  - {id: -, title: ③ 多链根因（客户端焊不上）, level: 3, line: 105, end_line: 112, lines: 8, tags: [], links: []}
+  - {id: -, title: ④ 工具链串联, level: 3, line: 113, end_line: 118, lines: 6, tags: [], links: []}
+  - {id: -, title: ⑤ 治理节拍, level: 3, line: 119, end_line: 129, lines: 11, tags: [], links: []}
+  - {id: -, title: 使用说明, level: 2, line: 130, end_line: 139, lines: 10, tags: [], links: []}
+  - {id: -, title: 文件索引, level: 2, line: 140, end_line: 148, lines: 9, tags: [], links: [§一, §二, §三, §四]}
