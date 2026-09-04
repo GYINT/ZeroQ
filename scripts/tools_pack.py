@@ -31,8 +31,42 @@ except Exception:
     LLM_AVAILABLE = False
 
 # ============ Corpus 加载（SQLite Cache） ============
+# V8.6.2 P1 懒加载接线：优先 load_section 按需载入（-98% 工具上下文），
+# 但为兼容既有调用方（corpus.get("tools.md") 裸文件名）保留全量 + 宽松键映射兜底。
+_TOOLS_MD_KEY_CANDIDATES = ("tools.md", "tools/tools.md")
+
+
+def _get_tools_md(corpus: Dict[str, str]) -> str:
+    """从 corpus 中取 tools.md 内容（修复裸文件名/相对路径键不匹配 Bug）"""
+    for k in _TOOLS_MD_KEY_CANDIDATES:
+        v = corpus.get(k)
+        if v:
+            return v
+    # 宽松匹配：任意含 tools.md 的键
+    for k, v in corpus.items():
+        if k.endswith("tools.md") and v:
+            return v
+    return ""
+
+
+def _load_tools_section(tool_title: str) -> str:
+    """懒加载：按工具标题载入单章节（corpus_loader · -98% 上下文）"""
+    try:
+        from corpus_loader import load_section
+        sec = load_section("tools", tool_title)
+        if sec:
+            return sec
+    except Exception:
+        pass
+    return ""
+
+
 def load_corpus() -> Dict[str, str]:
-    """读取 QCM 全量文件（references + outputs）· SQLite Cache"""
+    """读取 QCM 全量文件（references + outputs）· SQLite Cache
+
+    V8.6.2 P1：先尝试懒加载（使用者经 _load_tools_section 按需取段），
+    本函数保持全量返回（向后兼容 · 修复 tools.md 键不匹配）。
+    """
     if os.environ.get("QCM_CACHE_DISABLE", "0") == "1":
         return _load_corpus_direct()
     try:
@@ -64,8 +98,52 @@ def _load_corpus_direct() -> Dict[str, str]:
 # ============ 本地注册器（收集到 TOOL_DEFS · mcp_server 再注册） ============
 TOOL_DEFS: List[Dict[str, Any]] = []
 
+# V8.6 P2 · R10 蓝图落地：register_tool 织入（路径 B 自动织入——改一处即覆盖 9+ 未来工具）
+# 包装层责任：返回原 func（签名/元信息零改动）· _sampled wrapper 记录 record_usage("tool", name)
+# 双计治理：wrapper 与 mcp_server 网关共享同一 x_qcm_sampled 标记——
+#   - wrapper 被直接调用（本地直调场景）：标记写回 result → 网关不再重复采样
+#   - wrapper 被 MCP 网关调用：网关先查标记 → 命中则不重复采样（防同一次调用双计）
+_SAMPLED_FLAG = "_x_qcm_sampled"
+
+
+def _record_tool_usage(name: str):
+    """采样工具调用（防御降级：observation 失败不影响工具）"""
+    try:
+        from usage_global import record_usage
+        record_usage("tool", name)
+    except Exception:
+        pass
+
+
+def _tool_usage_wrapper(func, name: str):
+    """包装 handler：record_usage + 统一行为契约补全 + 采样标记（防双计）"""
+    import functools
+
+    @functools.wraps(func)
+    def _wrapper(*args, **kwargs):
+        _record_tool_usage(name)
+        try:
+            result = func(*args, **kwargs)
+        except Exception:
+            _record_tool_usage(name + ":error")  # 失败也采样（构建失败负反馈维度）
+            raise
+        # R13 链 B 履约单元：统一行为契约只增不改向后兼容（契约统一样式不强制统一内容）
+        if isinstance(result, dict):
+            try:
+                result.setdefault("_qcm_contract", _qcm_contract(name))
+                result.setdefault(_SAMPLED_FLAG, True)  # 网关据此跳过重复采样
+            except Exception:
+                pass
+        return result
+    return _wrapper
+
+
 def register_tool(name: str, description: str, input_schema: Dict[str, Any]):
-    """本地收集装饰器：向 TOOL_DEFS 追加定义（mcp_server 统一注册）"""
+    """本地收集装饰器：向 TOOL_DEFS 追加定义（mcp_server 统一注册）
+
+    V8.6 P2：handler 存原始 func（网关层决定是否包装调用），
+    wrapper 仅通过 register_all 的选择性织入生效（见 register_all）。
+    """
     def decorator(func):
         TOOL_DEFS.append({
             "name": name,
@@ -99,16 +177,20 @@ def qcm_research(query: str, level_hint: Optional[str] = None, context: Optional
     layer_map = {"T1": "L1", "T2": "L2", "T3": "L3", "T4": "L4"}
     layer = layer_map.get(level_hint, "L2")
 
-    # 工具匹配（规则保持）
+    # 工具匹配（规则保持 · V8.6.2 修复 tools.md 键不匹配 + 懒加载）
     tools_used = []
     corpus = load_corpus()
-    tools_md = corpus.get("tools.md", "")
+    tools_md = _get_tools_md(corpus)
     query_lower = query.lower()
     for m in re.finditer(r"^## ([A-F]\d+)\. (.+)$", tools_md, re.M):
         num, name = m.group(1), m.group(2).strip()
         first_kw = re.split(r"[\s（(]", name)[0].lower()
         if first_kw and first_kw in query_lower:
             tools_used.append(f"{num} {name[:30]}")
+            # 懒加载：命中工具 → 载入该工具章节（LLM 语境增强 · -98% 上下文）
+            sec = _load_tools_section(name)
+            if sec:
+                tools_used.append(f"{num}·已载入段落 {len(sec.splitlines())} 行")
             if len(tools_used) >= 5:
                 break
 
@@ -269,9 +351,9 @@ def qcm_decide(problem_text: str, urgency: Optional[str] = None) -> Dict[str, An
     layer_map = {"T1": "L1", "T2": "L2", "T3": "L3", "T4": "L4"}
     layer = layer_map[level]
 
-    # 工具匹配（关键词）
+    # 工具匹配（关键词 · V8.6.2 修复 tools.md 键不匹配）
     corpus = load_corpus()
-    tools_md = corpus.get("tools.md", "")
+    tools_md = _get_tools_md(corpus)
     matched = []
     for m in re.finditer(r"^## ([A-F]\d+)\. (.+)$", tools_md, re.M):
         num, name = m.group(1), m.group(2).strip()
@@ -577,11 +659,220 @@ def qcm_gap_detect(case: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
+# ---------- Tool 10: qcm_guardian（§多平台 · 守卫中心跨平台触发入口）----------
+@register_tool(
+    name="qcm_guardian",
+    description="QCM 守卫中心跨平台触发入口（M0 多生态平台适用）。在 MCP 侧暴露 guardian 守卫运行能力，"
+                "使非 WorkBuddy 生态（CI / 其他 skill / 外部 MCP 客户端）也能直接触发 QCM 守卫定时器逻辑。"
+                "支持 phase=register(注册缺口核验)/decision(决策校准环)/nightrun(夜巡决策环)；"
+                "可选 guard 单守卫精确定位。只读检测（不写回词库）——写回由 qcm_nightrun 夜巡脚本专门段负责。",
+    input_schema={
+        "type": "object",
+        "properties": {
+            "phase": {
+                "type": "string",
+                "enum": ["register", "decision", "nightrun"],
+                "description": "守卫相位：register=注册缺口归一化核验 / decision=决策校准环(含 g017 反向族) / nightrun=夜巡决策环",
+            },
+            "guard": {
+                "type": "string",
+                "description": "单守卫 ID 精确定位（如 g019_runtime_cache / g020_file_homology），缺省跑该 phase 全部守卫",
+            },
+        },
+        "required": ["phase"],
+    },
+)
+def qcm_guardian(phase: str, guard: Optional[str] = None) -> Dict[str, Any]:
+    """跨平台守卫触发（路径 B）：转发 guardian.py 运行，返回结构化结果
+
+    安全边界：仅运行检测（只读），不触发写回（写回由 word_evolution.sh 专门段负责），
+    避免 MCP 客户端误触发词库/语料写操作。
+    """
+    import subprocess
+    try:
+        from paths import QCM_ROOT
+    except Exception:
+        QCM_ROOT = os.environ.get("QCM_ROOT", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    py = os.environ.get("QCM_PYTHON", "python3")
+    cmd = [py, os.path.join(QCM_ROOT, "core", "guardian.py")]
+    if phase == "nightrun":
+        cmd.append("--nightrun")
+    else:
+        cmd += ["--phase", phase]
+    if guard:
+        cmd += ["--guard", guard]
+    try:
+        out = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", timeout=120)
+        text = (out.stdout or "") + (out.stderr or "")
+        # 粗略解析严重/警告计数（guardian 输出末行格式：严重 N · 警告 M）
+        sev = warn = 0
+        for ln in text.splitlines():
+            m = re.search(r"严重\s*(\d+)", ln)
+            if m: sev = int(m.group(1))
+            m = re.search(r"警告\s*(\d+)", ln)
+            if m: warn = int(m.group(1))
+        return {
+            "phase": phase,
+            "guard": guard or "all",
+            "exit_code": out.returncode,
+            "severe": sev,
+            "warning": warn,
+            "passed": out.returncode == 0 and sev == 0,
+            "output_tail": "\n".join(text.splitlines()[-20:]),
+            "protocol_reference": "guardian.yaml · 守卫中心归一化",
+        }
+    except Exception as e:
+        return {
+            "phase": phase,
+            "guard": guard or "all",
+            "exit_code": -1,
+            "severe": -1,
+            "warning": -1,
+            "passed": False,
+            "error": str(e),
+            "protocol_reference": "guardian.yaml · 守卫中心归一化",
+        }
+
+
+# ---------- Tool 11: qcm_corpus_read（M0.a · 热度层捕获感知语料读取）----------
+@register_tool(
+    name="qcm_corpus_read",
+    description="读取 QCM 大语料单个章节（capture 感知 · 走 load_section 埋点）。"
+                "MCP 形态下优先于直接 Read references/** —— 其访问会被 ref_heat 月度回灌采集，"
+                "用于校准 M3 同根阈值。stem 为语料名（如 tools / masters / knowledge/iso）；"
+                "title 为章节标题（支持模糊匹配），为空则返回首个有效章节（若语料索引含锚点）。",
+    input_schema={
+        "type": "object",
+        "properties": {
+            "stem": {"type": "string", "description": "语料 stem，如 tools / masters / knowledge/iso（非 references/ 路径）"},
+            "title": {"type": "string", "description": "章节标题（模糊匹配）；为空取首个锚点章节", "default": ""},
+        },
+        "required": ["stem"],
+    },
+)
+def qcm_corpus_read(stem: str, title: Optional[str] = "") -> Dict[str, Any]:
+    """capture 感知语料读取：包装已埋点的 load_section（D7/M0.a）。失败安全。"""
+    try:
+        from corpus_loader import load_section, CORPUS_FILES
+        if stem not in CORPUS_FILES:
+            # 宽松提示：列出可用 stem，便于 Agent 改正调用（不静默失败）
+            avail = sorted(CORPUS_FILES.keys())
+            return {
+                "stem": stem,
+                "title": title or "",
+                "section_text": "",
+                "found": False,
+                "available_stems": avail,
+                "note": "stem 不在 CORPUS_FILES；MCP 形态请用 qcm_corpus_read 而非直读",
+                "protocol_reference": "corpus_loader.load_section（capture 感知）",
+            }
+        sec = load_section(stem, title or "")
+        return {
+            "stem": stem,
+            "title": title or "",
+            "section_text": sec,
+            "found": bool(sec),
+            "protocol_reference": "corpus_loader.load_section（capture 感知）",
+        }
+    except Exception as e:
+        return {
+            "stem": stem,
+            "title": title or "",
+            "section_text": "",
+            "found": False,
+            "error": str(e),
+            "protocol_reference": "corpus_loader.load_section（capture 感知）",
+        }
+
+
+# ---------- Tool 12: qcm_corpus_search（M0.a · 热度层捕获感知语料搜索）----------
+@register_tool(
+    name="qcm_corpus_search",
+    description="跨 QCM 大语料关键词搜索（capture 感知 · 走 search_corpus 埋点）。"
+                "MCP 形态下优先于直接 Grep references/** —— 命中语料的访问会被 ref_heat 采集。"
+                "返回 [{file, line, text}] 片段（非全量，防上下文爆炸）；tier 感知排序。",
+    input_schema={
+        "type": "object",
+        "properties": {
+            "query": {"type": "string", "description": "关键词"},
+            "max_hits": {"type": "integer", "default": 5, "description": "最多返回命中数"},
+        },
+        "required": ["query"],
+    },
+)
+def qcm_corpus_search(query: str, max_hits: int = 5) -> Dict[str, Any]:
+    """capture 感知语料搜索：包装已埋点的 search_corpus（D7/M0.a）。失败安全。
+
+    D4 修复后 search_corpus 对「命中语料 stem」逐一埋点（检索命中即引用），
+    故本工具即复活 search_corpus 死路径 + 补全其余 references/** 的捕获。
+    """
+    try:
+        from corpus_loader import search_corpus
+        results = search_corpus(query, max_hits=int(max_hits))
+        return {
+            "query": query,
+            "hits": results,
+            "count": len(results),
+            "protocol_reference": "corpus_loader.search_corpus（capture 感知）",
+        }
+    except Exception as e:
+        return {
+            "query": query,
+            "hits": [],
+            "count": 0,
+            "error": str(e),
+            "protocol_reference": "corpus_loader.search_corpus（capture 感知）",
+        }
+
+
 # ============ JSON-RPC 协议处理 ============
 
 # ============ 工具注册辅助（mcp_server 调用） ============
-def register_all(target_registry: Dict[str, Dict[str, Any]]):
-    """把 TOOL_DEFS 注册进目标注册表（mcp_server.TOOL_REGISTRY）"""
+# V8.6 P3 · R13 蓝图落地：统一行为契约 _qcm_contract（链 B 履约单元）
+# 契约映射表（9 工具一次性成本 · intent/domain/form/objects_used 静态声明）
+# 目的：统一出口语义——每次工具调用 = 一个契约实例；采样/登记/分发全部消费契约
+CONTRACT_MAP: Dict[str, Dict[str, Any]] = {
+    "qcm_research":          {"intent": "④知识学习", "domain": ["通用"],    "form": "quick_response",    "objects_used": ["corpus", "llm_router"]},
+    "qcm_score_source":      {"intent": "③评估审计", "domain": ["通用"],    "form": "assessment_report", "objects_used": ["corpus"]},
+    "qcm_decide":            {"intent": "①危机处置", "domain": ["通用"],    "form": "case_application",  "objects_used": ["router"]},
+    "qcm_solve_problem":     {"intent": "①危机处置", "domain": ["通用"],    "form": "case_application",  "objects_used": ["assembler"]},
+    "qcm_audit":             {"intent": "③评估审计", "domain": ["通用"],    "form": "assessment_report", "objects_used": ["corpus", "router"]},
+    "qcm_validate":          {"intent": "③评估审计", "domain": ["通用"],    "form": "assessment_report", "objects_used": ["assembler"]},
+    "qcm_attribution":       {"intent": "⑤知识沉淀", "domain": ["通用"],    "form": "case_application",  "objects_used": ["router", "assembler"]},
+    "qcm_attribution_phase": {"intent": "⑤知识沉淀", "domain": ["通用"],    "form": "case_application",  "objects_used": ["router"]},
+    "qcm_gap_detect":        {"intent": "③评估审计", "domain": ["通用"],    "form": "assessment_report", "objects_used": ["gap_detector"]},
+    "qcm_guardian":          {"intent": "③评估审计", "domain": ["通用"],    "form": "assessment_report", "objects_used": ["guardian"]},
+    "qcm_corpus_read":      {"intent": "④知识学习", "domain": ["通用"],    "form": "quick_response",    "objects_used": ["corpus_loader"]},
+    "qcm_corpus_search":    {"intent": "④知识学习", "domain": ["通用"],    "form": "quick_response",    "objects_used": ["corpus_loader"]},
+}
+CONTRACT_VERSION = "1.0"
+
+
+def _qcm_contract(name: str, **extra) -> Dict[str, Any]:
+    """构造统一行为契约实例（R13 链 B 履约单元 · 只增不改向后兼容）
+
+    {intent, domain, form, objects_used} + version + 调用方附加字段（llm_meta 等）
+    """
+    base = dict(CONTRACT_MAP.get(name, {}))
+    base.setdefault("intent", "④知识学习")   # 未映射工具保守归学习意图（可扩展登记）
+    base.setdefault("domain", ["通用"])
+    base.setdefault("form", "quick_response")
+    base.setdefault("objects_used", [])
+    base["version"] = CONTRACT_VERSION
+    for k, v in extra.items():
+        base[k] = v
+    return base
+
+
+def register_all(target_registry: Dict[str, Dict[str, Any]], wrap: bool = True):
+    """把 TOOL_DEFS 注册进目标注册表（mcp_server.TOOL_REGISTRY）
+
+    V8.6 P2：wrap=True 时把 handler 替换为 _tool_usage_wrapper 织入采样——
+      本地直调场景（不经 MCP 网关）也能采样；网关场景由 x_qcm_sampled 防双计。
+    """
     for d in TOOL_DEFS:
-        target_registry[d["name"]] = d
+        entry = dict(d)
+        if wrap:
+            entry["handler"] = _tool_usage_wrapper(d["handler"], d["name"])
+        target_registry[d["name"]] = entry
     return len(TOOL_DEFS)
