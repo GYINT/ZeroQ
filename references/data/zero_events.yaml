@@ -1,0 +1,121 @@
+meta:
+  updated_at: '2026-01-01T00:00:00'
+  note: 演示数据模板（非真实业务记录，仅供发布版结构演示；请用真实事件替换）
+events:
+- event_id: QE-2026-001
+  title: 示例事件A：冲压清洗工序产品发白（演示数据·非真实）
+  registered_at: '2026-01-01T00:00:00'
+  owner: 示例责任部门
+  domain: D现场
+  severity: 普通
+  intent_route: ①危机处置
+  f13_confidence: 0.55
+  source_ref: cases.md#§示例
+  reuse_features:
+    industry: 示例/冲压
+    crisis_type: 过程异常-表面缺陷
+    tools:
+    - 5M1E
+    - SPC
+    standards:
+    - ISO 9001
+  status: deposited
+  current_stage: 沉淀资产化
+  dimensions:
+    D3_能力层覆盖:
+      M: ✅
+      R: ✅
+      S: 🔴
+      O: 🔴
+    D5_闭环门禁:
+      effectiveness_verified:
+        ok: true
+        verified_by: 示例责任方A
+        verified_at: '2026-01-01'
+        evidence: 示例验证证据（演示占位，请替换为真实验证记录）
+      review_layers:
+      - 示例责任方A
+      - 示例责任方B
+      horizontal_deployed:
+        ok: false
+      h6_spread:
+        targets:
+        - 示例推广对象1
+        - 示例推广对象2
+        ok: true
+      review_layers_signed:
+      - 示例责任方A
+      - 示例责任方B
+    D6_沉淀:
+      archive_ref: cases.md#§示例
+      indexed: true
+    D7_复用:
+      reuse_count: 0
+      last_reused: null
+      similarity_hits: []
+      reuse_rate: 0.0
+    D8_复发:
+      recurrence_count: 0
+  audit_trail:
+  - at: '2026-01-01T00:00:00'
+    action: record
+    via: trigger
+  - at: '2026-01-01T00:00:00'
+    action: deposit
+    via: demo
+    note: 演示数据（非真实业务）
+- event_id: QE-2026-002
+  title: 示例事件B：异型材压延异型处厚度不一致（演示数据·非真实）
+  registered_at: '2026-01-01T00:00:00'
+  owner: 示例责任部门
+  domain: B设计/D现场
+  severity: 中度危机
+  intent_route: ①危机处置
+  f13_confidence: 0.6
+  source_ref: cases.md#§示例
+  reuse_features:
+    industry: 示例/型材压延
+    crisis_type: 尺寸超差-厚度不一致
+    tools:
+    - SPC
+    standards: []
+  status: deposited
+  current_stage: 沉淀资产化
+  dimensions:
+    D3_能力层覆盖:
+      M: ✅
+      R: ✅
+      S: 🔴
+      O: 🔴
+    D5_闭环门禁:
+      effectiveness_verified:
+        ok: true
+        verified_by: 示例责任方A
+        verified_at: '2026-01-01'
+        evidence: 示例验证证据（演示占位，请替换为真实验证记录）
+      h6_spread:
+        targets:
+        - 示例推广对象B
+        ok: true
+      review_layers:
+      - 示例责任方A
+      review_layers_signed:
+      - 示例责任方A
+    D6_沉淀:
+      archive_ref: cases.md#§示例
+      indexed: false
+    D7_复用:
+      reuse_count: 0
+      last_reused: null
+      similarity_hits: []
+      reuse_rate: 0.0
+    D8_复发:
+      recurrence_count: 0
+  audit_trail:
+  - at: '2026-01-01T00:00:00'
+    action: record
+    via: trigger
+  - at: '2026-01-01T00:00:00'
+    action: deposit
+    via: demo
+    note: 演示数据（非真实业务）
