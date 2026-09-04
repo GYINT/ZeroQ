@@ -1,3 +1,18 @@
+> [!WARNING]
+> ## ⚠️ DEPRECATED — 本文件已废弃（2026-08-22）
+>
+> redirect_to: references/prompts/prompt-guide.md
+> deprecated_since: 2026-08-22
+> reason: 版本演进遗留，本文件为 prompt-guide.md 的旧版（v2.2 唯一真源）
+>
+> **原因（详）**：版本演进遗留。本文件（5W2H 简化版 Prompt 实战案例）是 `prompt-guide.md` 的**旧版**；`prompt-guide.md` 为同一手册的 **v2.2 演进**，补齐 T 层映射（单工具/组合/系统级→路由）+ 触发词探测 + 交叉引用。
+>
+> **请使用**：`references/prompts/prompt-guide.md`（v2.2 唯一真源）。
+>
+> **不删除原因**：历史测试（`qcm_super_reverse_test.py`）仍以本文件为样本，故保留不删；git 历史也已留痕。**后续新内容一律不得引用本文件。**
+>
+> **物理清理**：观察期满（≥30 日）+ 月度评审确认 + 人工核准后，移入 `references/archive/`（每 1 个季度物理清理窗口）。
+
 # QCM 应用提示词手册（5W2H 简化版 Prompt 实战案例）
 
 > 万能公式：`[角色 Who] + [场景 Where] + [问题/目标 What] + [交付] + [深度:单工具/组合/系统级]`
