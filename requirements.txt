@@ -1,5 +1,5 @@
 # QCM 核心依赖（必需）
-# 对外发布版本 1.0.0 · 最小化运行仅需本文件
+# 对外发布版本 1.0.1 · 最小化运行仅需本文件
 # 可选能力见 requirements-optional.txt；依赖说明见 DEPENDENCIES.md
 
 PyYAML>=6.0
