@@ -1,0 +1,102 @@
+schema_version: 1
+enabled: false
+module:
+  name: 归零事件全景维度
+  id: zero_event
+  impl: core/zero_event.py
+  phase:
+  - trigger
+  report_only: true
+  desc: 质量事件（归零）全景维度体系化跟踪子模块；默认关闭，--trigger 主动记录
+registry:
+  path: references/data/zero_events.yaml
+dimensions:
+  D1_登记:
+  - event_id
+  - title
+  - registered_at
+  - owner
+  - domain
+  - severity
+  - intent_route
+  - f13_confidence
+  - source_ref
+  D2_生命周期:
+  - current_stage
+  - stage_status
+  - timeline
+  D3_能力层覆盖:
+  - M_methodology
+  - R_runtime
+  - S_state
+  - O_observability
+  D4_状态机:
+  - status
+  D5_闭环门禁:
+  - effectiveness_verified
+  - review_layers
+  - horizontal_deployed
+  D6_沉淀:
+  - archive_ref
+  - indexed
+  - r4r_status
+  D7_复用:
+  - reuse_count
+  - last_reused
+  - similarity_hits
+  - reuse_rate
+  D8_复发:
+  - recurrence_count
+  - ao4_trigger
+  - related_ids
+  D9_观测:
+  - guardian_watch
+  - last_observed
+  - drift_alerts
+  D10_治理闭环:
+  - linked_gaps
+  - nightrun_advanced
+  - audit_trail
+state_machine:
+  initial: open
+  states:
+  - open
+  - registered
+  - analyzing
+  - correcting
+  - verified
+  - deposited
+  - reused
+  - resolved
+  - retired
+  transitions:
+    open:
+    - registered
+    registered:
+    - analyzing
+    - retired
+    analyzing:
+    - correcting
+    - registered
+    correcting:
+    - verified
+    - analyzing
+    verified:
+    - deposited
+    deposited:
+    - reused
+    reused:
+    - resolved
+    - reused
+    resolved:
+    - retired
+    - reused
+    retired: []
+  gate:
+    verified: effectiveness_verified.ok == true AND len(review_layers_signed) == len(review_layers)
+    deposited: status == verified
+trigger:
+  flag: --trigger
+  record_on_trigger: true
+  persist_enable: false
+  audit: true
