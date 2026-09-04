@@ -1,5 +1,5 @@
 # QCM 可选依赖（按能力启用 · 缺失时自动降级，不阻断主流程）
-# 对外发布版本 1.0.0 · 依赖说明见 DEPENDENCIES.md
+# 对外发布版本 1.0.1 · 依赖说明见 DEPENDENCIES.md
 
 websockets>=12.0        # WS 旁路推送 / WebSocket transport
 graphql-core>=3.2       # GraphQL schema + subscription
