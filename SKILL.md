@@ -1,8 +1,8 @@
 ---
-name: QCM
-version: 1.0.0
-display_name: Quality Crisis Management（QCM）
-description: 'QCM 问题解决指导 Skill · 4 层级架构（输出/协议/输入/底层）· 严格分离 · 动作阶段主·时间维度子 · 输出层 4 形态 · 场景路由消费（意图×领域→形态×组件动态组合）· 组件池三机制（归一化/热度/约束映射）· 5 范式 · action-orders.md 14 章协议权威 · 文件层治理（生命周期/守卫 9 检/归档）· 路径归一化（paths/registry）· 插件扩展（plugins/ 热加载）· 回归全绿 · Infoseek 协同 5 维缺口检测 + 混合策略 3 阶段触发'
+name: ZeroQ
+version: 1.0.1
+display_name: 归零（ZeroQ）
+description: '归零（ZeroQ）质量管理指导 Skill · 4 层级架构（输出/协议/输入/底层）· 严格分离 · 动作阶段主·时间维度子 · 输出层 4 形态 · 场景路由消费（意图×领域→形态×组件动态组合）· 组件池三机制（归一化/热度/约束映射）· 5 原则 · action-orders.md 15 章协议权威 · 文件层治理（生命周期/守卫 12 检/归档）· 路径归一化（paths/registry）· 插件扩展（plugins/ 热加载）· 回归全绿 · Infoseek 协同 5 维缺口检测 + 混合策略 3 阶段触发'
 author: Forka
 license: Apache-2.0
 entry_point: SKILL.md
@@ -13,359 +13,365 @@ output_validator: core/validator.py
 test_engine: 多引擎回归 + 验证器 全绿
 ---
 
-# QCM · Quality Crisis Management（质量问题解决指导 Skill）
+# 归零（ZeroQ）
 
-> 把「质量危机处置 + 体系治理评估 + 知识沉淀」封装成一条可复用的问题解决流水线：输入场景 → 协议匹配 → 场景路由 → 4 形态输出。
-> 对外发布版本 **1.0.0** ｜ 内部开发版本基线 **0.0.0**（见 `skill_meta.json` 的 `internal_version`）
+> 对外发布版本：**1.0.1**
+> 中文名「**归零**」源自质量管理的"问题归零 / 双归零"内核——定位、机理、机理延伸、管理归零、技术归零。
+> **一句话**：遇到质量危机、要做问题归零、评估体系成熟度、或想沉淀质量知识时，把问题交给它，它会按权威协议给你**可落地的处置方案**，而不是泛泛而谈。
 
 ---
 
 ## 目录
 
-1. [这是什么](#1-这是什么)
-2. [快速上手](#2-快速上手)
-3. [工作流](#3-工作流)
-4. [核心能力](#4-核心能力)
-5. [工作机制要点](#5-工作机制要点)
-6. [兼容性](#6-兼容性)
-7. [路线图](#7-路线图)
-8. [触发词](#8-触发词)
-9. [配套文档](#9-配套文档)
-10. [测试与质量](#10-测试与质量)
+1. [这是什么（给你）](#1-这是什么给你)
+2. [你怎么用（快速上手）](#2-你怎么用快速上手)
+3. [你能拿到什么（4 种输出形态）](#3-你能拿到什么4-种输出形态)
+4. [典型用法场景（可直接抄）](#4-典型用法场景可直接抄)
+5. [它怎么工作（简化流水线）](#5-它怎么工作简化流水线)
+6. [你能自己改什么（用户主导域）](#6-你能自己改什么用户主导域)
+7. [边界与纪律（什么它不干 + 守卫规则）](#7-边界与纪律什么它不干--守卫规则)
+8. [进阶：架构与模块（技术定位）](#8-进阶架构与模块技术定位)
+9. [兼容性](#9-兼容性)
+10. [路线图](#10-路线图)
+11. [触发词](#11-触发词)
+12. [配套文档](#12-配套文档)
+13. [测试与质量](#13-测试与质量)
 
 ---
 
-## 1. 这是什么
+## 1. 这是什么（给你）
 
-QCM 接收一个质量场景（危机事件 / 流程问题 / 治理评估 / 知识问答），自动完成：
+归零（ZeroQ）是一个面向**全行业质量管理与问题归零**的指导 Skill。它把"质量危机处置 → 问题归零（双归零）→ 体系治理评估 → 知识沉淀"封装为一套可复用的结构化问题解决流水线。
 
-1. **输入解析** — 结构化输入契约（mds-input）提取意图 / 领域 / 危机等级（关键词库 keyword.yaml 意图×领域映射）
-2. **协议匹配** — 14 章协议权威（action-orders.md）自动匹配：危机分级 → 触发矩阵 → 责任层 → 输出结构
-3. **场景路由** — 意图 × 领域 → 形态 × 组件动态组合（置信度驱动，缺命中自动降级）
-4. **4 形态输出** — 案例应用 / 决策卡片 / 评估报告 / 快速响应（防御性标注：`[unverified]` + 数据时效 + 边界声明）
-5. **缺口协同** — 5 维缺口（行业/危机类型/工具/标准/大师 ≥2）触发 Infoseek 归因（L0→L3 降级链）
-6. **回归验证** — 4 形态验证器 + 守卫 9 检 + 多引擎回归（发布门禁）
+你说清楚「**什么领域、出了什么事、危机到哪一步**」，它会：
 
-**3 种使用方式**：直接对话问答 / 作为 MCP Server 被 AI Agent 调用 / 插件扩展（热加载自定义工具）。
+1. **意图路由** — 按意图×领域匹配场景，自动选输出形态与组件
+2. **协议匹配** — 落到 `action-orders.md` 15 章权威协议（AO-1~AO-4 行动指令卡 + 5 段式 + 危机管理）
+3. **四形态输出** — 案例应用 / 决策卡片 / 评估报告 / 快速响应，按场景自动选
+4. **缺口协同** — 五维（行业/危机类型/工具/标准/大师）缺口达标 → 触发 Infoseek 归因与收敛
+5. **防御性交付** — `[unverified]` 标注 + 数据时效 + 边界声明，不编造
+6. **资产沉淀** — 案例蒸馏回组件池，知识入库，悬空/废弃经 R4R 环治理
 
-### 1.1 适用场景
+### 1.1 适用场景（你会在这些时候用它）
 
-✅ 制造业质量危机 / 服务业质量危机 / 跨业态质量治理 / 体系成熟度评估 / 现场应急处置 / 质量文化诊断
+✅ 质量危机处置（围堵/消除/纠正/预防）· 问题归零（双归零：管理归零+技术归零）· 8D / 5Why / FMEA 实战 · 体系成熟度评估 · 质量工具选型 · 质量文化建设 · 知识沉淀与行业拓展
 
-### 1.2 不适用场景
+### 1.2 不适用场景（它明确不干）
 
-❌ 纯财务问题 / 纯法务问题 / 纯营销问题 / 单一工具问答（8D 是什么 / SPC 公式等纯知识点）
+❌ 纯财务/法务/营销问题 · 单一工具问答（无质量问题语境）· 实时新闻监控 · 浏览器自动化爬取
 
 ---
 
-## 2. 快速上手
+## 2. 你怎么用（快速上手）
 
-### 2.1 MCP Server（10 工具）
+### 2.1 方式一：直接对话说需求（最常见）
+
+你不需要懂它的内部架构。像跟同事交代任务一样，说清楚 **「领域 + 事件 + 危机阶段」** 即可。例如：
+
+- "产线出现批量焊点虚焊，怎么围堵和归零？"
+- "帮我们做一次供应商质量管理成熟度评估"
+- "把这个客诉案例沉淀成知识库条目"
+
+它会自动路由到对应协议与输出形态。若意图模糊，它会**回显识别结果**（"已识别【意图X】→ 形态【Y】，如有偏差请纠正"），你纠正一句即可。
+
+### 2.2 方式二：作为 Skill 加载给 Agent
+
+Agent 读取本 `SKILL.md` 后，按输入结构体（见 `references/contract/mds-input.md`）承接你的请求：
+
+```
+3 步启动归零：
+① 输入结构体（mds-input.md）→ 意图 / 领域 / 危机等级
+② 协议层（action-orders.md）→ 14 协议自动匹配
+③ 输出层（4 形态）→ 按场景输出（决策卡/案例/评估/快响）
+```
+
+**快速判定**（你也可直接点名要哪种形态）：
+- D 总分 ≥4 → AO-1 围堵（决策卡）
+- 危机期 + 关键决策 → AO-2 应对（案例应用）
+- 危机后 + ≥2 次同类 → AO-4 治理（评估报告）
+- 缺口暴露 → 触发 Infoseek 协同
+
+### 2.3 方式三：作为 MCP Server 接入
+
+如果你在自己的系统里调用它（而非通过对话），以 stdio / HTTP 方式启动：
 
 ```bash
 pip install -r requirements.txt
 
-# stdio（本地默认）
+# stdio（本地）
 python scripts/mcp_server.py
 
-# HTTP/SSE（Claude Desktop / Cursor 等客户端）
+# HTTP/SSE（Claude Desktop / Cursor）
 python scripts/mcp_server.py --transport http --port 8080
 ```
 
-| 类别 | 工具 | 用途 |
-|------|------|------|
-| **问题解决核心（6）** | `qcm_research` / `qcm_decide` / `qcm_solve_problem` / `qcm_score_source` / `qcm_audit` / `qcm_validate` | 调研 → 判定 → 完整解决 → 来源评分 → 审计 → 输出校验 |
-| **Infoseek 协同（3）** | `qcm_attribution` / `qcm_attribution_phase` / `qcm_gap_detect` | 5 维归因 / 3 阶段混合策略 / 缺口检测 |
-| **插件扩展（1）** | `qcm_plugin_echo` | 插件样例（热加载验证） |
+**14 个 MCP 工具**（按你能做什么分类）：
 
-### 2.2 3 步启动
-
-```
-① 输入结构体（references/contract/mds-input.md）→ 意图/领域/危机等级
-② 协议层（references/protocol/action-orders.md）→ 14 协议自动匹配
-③ 输出层（outputs/ 4 形态模板）→ 按场景输出（决策卡/案例/评估/快响）
-```
-
-### 2.3 快速判定（D 总分路由）
-
-| 场景 | 动作 | 输出形态 |
+| 类别 | 工具 | 你用它来 |
 |------|------|---------|
-| D 总分 ≥4 | AO-1 围堵 | 决策卡片 ② |
-| 危机期 + 关键决策 | AO-2 应对 | 案例应用 ① |
-| 危机期 | AO-3 分解 | 案例应用 ① |
-| 危机后 + ≥2 次同类 | AO-4 治理 | 评估报告 ③ |
-| 缺口暴露（5 维 ≥2） | 触发 Infoseek 归因 | §13 协同 |
+| 研究/检索 | `qcm_research` / `qcm_score_source` | 协同调研 / 给信源评分 |
+| 决策/求解 | `qcm_decide` / `qcm_solve_problem` | 危机判定 / 问题求解 |
+| 审计/验证 | `qcm_audit` / `qcm_validate` | 决策审计 / 4 形态校验 |
+| 归因/缺口 | `qcm_attribution` / `qcm_attribution_phase` / `qcm_gap_detect` | 失效维度归因 / 缺口检测 |
+| 契约/路由 | `qcm_contract` / `qcm_failure_dimensions` | 输入契约校验 / 失效维度 |
+| 守卫/运维 | `qcm_guardian` / `qcm_nightrun` | 守卫触发 / 夜巡决策环 |
+| 采样/统计 | `qcm_sampled` | 抽样统计 |
+| 语料读取 | `qcm_corpus_read` / `qcm_corpus_search` | capture 感知读取/检索 `references/**`（喂热度回灌 · M0.a） |
 
-### 2.4 环境变量
+> **语料读取（capture 感知 · M0.a）**：MCP 形态下读取/检索 `references/**` 请优先用
+> `qcm_corpus_read(stem, title)` / `qcm_corpus_search(query)` —— 两者已接入引用热度埋点，
+> 其访问会被月度回灌脚本（`scripts/ref_heat.py --aggregate --backfill`）采集，用于校准 M3 同根阈值。
+> Skill-only 形态（无 MCP）下直接读 `references/**` 为兼容退化路径，访问不入热度统计。
+
+### 2.4 环境变量（按需设置）
 
 | 变量 | 用途 | 默认 |
 |------|------|------|
-| `QCM_ROOT` | QCM 安装根（路径归一化）| 自身推导 |
+| `QCM_ROOT` | ZeroQ 安装根（路径归一化）| 自身推导 |
 | `INFOSEEK_ROOT` | Infoseek 安装根（跨 Skill 协同）| 探测列表 |
 | `QCM_KEYWORDS` | 词库路径覆盖 | references/config/keyword.yaml |
 | `QCM_AUTH_TOKEN` | MCP 认证 Token | — |
 
-> 完整环境变量、API Key 与依赖说明见 **`DEPENDENCIES.md`** 与 **`API_KEYS.md`**。
+---
+
+## 3. 你能拿到什么（4 种输出形态）
+
+同样一个问题，因**危机阶段**不同，它会给你不同的成品。理解这四种形态，你就能在提需求时点名要哪种。
+
+| 形态 | 令牌 | 周期 | 什么时候用它 | 出来是什么样 | 给你什么 |
+|------|------|------|------------|-------------|---------|
+| ① **案例应用** | ~700 字 | 长期 | 实战案例复盘、知识沉淀 | 「背景 → 危机 → 处置 → 归零 → 复盘」完整叙事 | 一个可借鉴的真实解法 + 5 段式结构 |
+| ② **决策卡片** | ~50 字 | 即时 | 应急/选型/治理现场 | 一页纸要点（围堵/纠正/预防）| 立刻能用的决策依据 |
+| ③ **评估报告** | ~120 字 | 季度 | 治理水平评分、体系审计 | 打分 + 缺口清单 + 改进路线图 | 当下成熟度定位与下一步 |
+| ④ **快速响应** | ~30 字 | 即时 | 现场秒级判定、应急处置 | 一句结论 + 关键动作 | 马上能执行的动作指令 |
+
+每形态都经过 10 项自动校验（`core/validator.py`）：段模板 / 副作用声明 / 输入契约 / 输出契约 / 降级路径 / 执行轨迹 / `[unverified]` 标注 / 数据时效 / 边界声明 / 禁止内容清单——**所以你拿到的成品结构完整、带溯源、不编造**。
 
 ---
 
-## 3. 工作流
+## 4. 典型用法场景（可直接抄）
 
-```
-输入场景（危机/流程/评估/问答）
-   ↓
-阶段一：输入解析（mds-input + keyword.yaml）
-   意图/领域/危机等级提取 → 关键词归一化
-   ↓
-阶段二：协议匹配（action-orders.md 14 章）
-   危机分级 §3 → 触发矩阵 §4 → 责任层 §5 → 结构契约 §2
-   ↓
-阶段三：场景路由（§14 路由协议）
-   意图×领域 → 形态×组件 动态组合（置信度门控 + 降级）
-   ↓
-阶段四：形态输出（4 形态模板）
-   案例应用/决策卡/评估报告/快响 + 防御性标注
-   ↓
-阶段五（可选）：缺口协同（§8/§10/§13）
-   5 维缺口 ≥2 → Infoseek 归因（L0→L3 降级）→ 置信度门控入库
-```
+| # | 你的场景 | 你可以直接说 | 它会给你 |
+|---|---------|------------|---------|
+| A | 产线突发质量危机 | "产线出现批量焊点虚焊，怎么围堵和归零？" | AO-1 围堵 + 案例应用/决策卡 |
+| B | 不知该用哪个质量工具 | "想做供应商质量评估，该用哪个工具？" | 工具选型路由 + 决策卡片 |
+| C | 想摸清体系家底 | "帮我们做一次质量管理成熟度评估" | 评估报告（评分→缺口→路线图）|
+| D | 有个好案例想留档 | "把这个客诉案例沉淀成知识库条目" | 案例应用 + 入库（R4R 治理）|
+| E | 怀疑某领域覆盖不足 | "我们半导体行业在 ZeroQ 里覆盖够吗？" | 五维缺口检测 → 触发 Infoseek 协同调研 |
 
-| 阶段 | 关键模块 | 输入 | 输出 |
-|------|---------|------|------|
-| 输入解析 | `references/contract/mds-input.md` / `references/config/keyword.yaml` | 场景描述 | 意图/领域/等级 |
-| 协议匹配 | `references/protocol/action-orders.md` | 意图×领域 | 协议章节路由 |
-| 场景路由 | `core/router.py` / `references/config/router.yaml` | 意图×领域 | 形态×组件序列 |
-| 形态输出 | `outputs/*.md` / `core/assembler.py` | 组件序列 | 4 形态成品 |
-| 缺口协同 | `scripts/infoseek_bridge.py` | 5 维缺口 | 归因锚点（置信度标注）|
-| 回归验证 | `core/validator.py` / `scripts/config_sync.py` | 输出成品 | 96 项校验 / 9 检 |
+> 提示：场景 E 这类"缺口类"请求，当它判定**≥2 维缺口**时会自动进入 Infoseek 归因流程；深层调研（"展开 D"）需要你确认后才执行，不会擅自联网深挖。
 
 ---
 
-## 4. 核心能力
+## 5. 它怎么工作（简化流水线）
 
-> 按 **职能分层**：协议权威 → 输出形态 → 场景路由 → 输入词库 → 验证治理 → Infoseek 协同 → MCP 工具
+```
+你描述问题（意图/领域/危机等级）
+   ↓
+① 意图路由  → 意图×领域 → 形态×组件 动态组合
+   ↓
+② 协议匹配  → 落到 action-orders.md 15 章权威协议
+   ↓
+③ 组件装配  → 归一化 / 热度识别 / 约束映射（防模板爆炸）
+   ↓
+④ 四形态输出 → 案例应用 / 决策卡 / 评估报告 / 快响（带执行轨迹）
+   ↓
+⑤（条件）缺口协同 → 五维缺口 ≥2 → Infoseek 归因 → 置信度≥70 入库
+   ↓
+⑥（后台）资产治理 → 孤儿/悬空/废弃扫描 → R4R 环 → 季度清理
+```
 
-### 4.1 协议层（14 章 · 单一权威）
+| 阶段 | 你感知到的 | 背后在做 |
+|------|-----------|---------|
+| 意图路由 | 回显"已识别意图X→形态Y" | `router.py` + `keyword.yaml` |
+| 协议匹配 | 命中对应的处置协议 | `action-orders.md` 15 章 |
+| 组件装配 | 内容精准、不套空模板 | 组件池三机制（归一化/热度/约束映射）|
+| 四形态输出 | 结构完整的成品 | `validator.py` 10 项校验 |
+| 缺口协同 | 必要时提示"发现缺口，是否深挖" | `infoseek_bridge.py`（可选依赖）|
+| 资产治理 | 几乎无感（后台）| `asset_retirement.py` + `config_sync.py` |
 
-`references/protocol/action-orders.md`：
+---
 
-| § | 主题 | § | 主题 |
-|---|------|---|------|
-| §1 | AO 卡 4×N（动作阶段主·时间维度子）| §8 | QCM–Infoseek 归因协议 |
-| §2 | 5 段式结构 | §9 | 案例资产化协议 |
-| §3 | 危机管理协议（D 总分 · ITIL · 3T · 双归零）| §10 | Infoseek 收敛协议 |
-| §4 | L1–L4 触发矩阵 | §11 | 热词与末端触点协议 |
-| §5 | 责任层定义 | §12 | 三要素新鲜度与行业适配性协议 |
-| §6 | D 折叠段契约（5 触发词）| §13 | 缺口暴露驱动 Infoseek 协同协议 |
-| §7 | L4 组织治理 4 层 × N 维度 | §14 | 场景路由协议（意图×领域→形态×组件）|
+## 6. 你能自己改什么（用户主导域）
 
-### 4.2 输出层（4 形态）
+> **核心原则**：越靠**表层/下游**（输出模板、提示词）你随便改，错了被校验器拦住、影响局部；越靠**底层/上游**（意图路由、行业包）改动会沿"路由→协议→装配→输出"放大，须守门验证。
 
-| 形态 | 模板 | Token | 周期 | 触发场景 |
-|------|------|-------|------|---------|
-| ① 案例应用 | `outputs/case-application.md` | ~700 | 长期 | 实战案例（完整 5 段式）|
-| ② 决策卡片 | `outputs/decision-card.md` | ~50 | 即时 | 应急/选型/治理决策 |
-| ③ 评估报告 | `outputs/assessment-report.md` | ~120 | 季度 | 治理水平评分 |
-| ④ 快速响应 | `outputs/quick-response.md` | ~30 | 即时 | 现场判定/应急处置 |
+| 模块 | 架构层 | 文件 / 入口 | 风险 | 优先级 | 说明 |
+|------|--------|------------|------|--------|------|
+| **语料挂载** | L1 底层 | `references/config/corpus_manifest.yaml` | 低–中 | **高** | 登记新语料、生成索引；g018 守门 |
+| **输入契约** | L0 入口 | `references/contract/*.md` | 低 | 中 | 扩展分级输入模板 |
+| **意图路由** | L2 输入层 | `references/config/keyword.yaml` | 中–高 | 中 | 增删意图×领域映射；**须路由冒烟+回归** |
+| **组件池** | L2→L4 | `components.yaml` + `constraint.yaml` | 中 | 中 | 注册组件、调约束映射 |
+| **行业包** | L1 底层 | `references/industry/*.md` | 中 | 中 | 新增行业适配；须登记 index + 关键词注入 |
+| **插件** | L-2 协同 | `plugins/*.py` | 中–高 | 中 | 热加载自定义工具（`@register_tool`）|
+| **提示词** | L3 协议 | `references/prompts/*.md` | 低 | 低 | 话术微调 |
+| **输出模板** | L4 输出 | `outputs/*.md` | 中 | 低 | 4 形态模板微调（10 项结构不可破）|
+| **环境变量** | 运行态 | `.env` / shell | 低 | 低 | 路径/Key 指向 |
+| **自动化频率** | 调度 | `automation_manifest.yaml` | 中 | 低 | 调 rrule / prompt（须回写 manifest）|
 
-每形态 10 项校验（`core/validator.py` 自动验证）：段模板 / 副作用声明 / 输入契约 / 输出契约 / 降级路径 / 执行轨迹 / `[unverified]` 标注 / 数据时效 / 边界声明 / 禁止内容清单。
+**自定义安全要点**：
+- **首选（零风险上手）**：仅改**语料挂载**——局部影响、有守门，改后跑 `python3 scripts/config_sync.py --check` 零问题即可上线。
+- **须守门验证**：意图路由 / 组件池 / 行业包 / 插件 / 输入契约——改后必须 `validator.py` + 路由冒烟 + 回归。
+- **按需微调**：提示词 / 输出模板 / 环境变量 / 自动化频率。
+- 全部自定义受 M0.4 守卫保护：守卫只告警、不改写你的文件。
 
-### 4.3 场景路由与组件池
+**按你的角色**：
+- **普通用户**：直接改输出模板 / 提示词 / 语料挂载，跑 `config_sync.py --check` 即可，零风险上手。
+- **深度定制者**：改路由 / 组件池 / 行业包 / 插件前，先理解四层级依赖，改后必须 `validator.py` + 路由冒烟 + 黄金用例回归，再上线。
 
-| 机制 | 模块 | 简述 |
+---
+
+## 7. 边界与纪律（什么它不干 + 守卫规则）
+
+### 7.1 它明确不做什么
+- 不处理纯财务/法务/营销问题
+- 不做单一工具问答（脱离质量问题语境）
+- 不监控实时新闻、不自动化爬取网页
+- 不擅自联网深挖（深层调研须你确认）
+
+### 7.2 守卫默认 report-only（M0.4）
+全部注册守卫（g000~g030 + g_capacity，含 g017 反向族 r1~r8，共 **41 项**）默认**仅报告、不改写内容**。任何自主改写须你显式授权或观察期人工核准。这意味着：**它的自动化动作不会悄悄改坏你的文件**。
+
+### 7.3 关键纪律（你改动时要守）
+- **manifest 双绑**：`SKILL.md` frontmatter 与 `manifest.yaml` / `skill_meta.json` 字节级一致，改其一须跑 `python3 scripts/sync_manifest.py`。
+- **路径零硬编码**：内部路径一律经 `paths.py` / `registry.py`，禁止在脚本写死绝对路径。
+- **自动化回写**：WorkBuddy 定时器改 rrule/prompt 时，须同步回写 `automation_manifest.yaml`。
+
+---
+
+## 8. 进阶：架构与模块（技术定位）
+
+> 本章供需要深度定制或接入系统的用户 / Agent 参考。普通使用者可止步于 §7。
+
+### 8.1 四层级架构
+
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│ Layer 0 · 入口层   SKILL.md · manifest.yaml · skill_meta.json          │
+│ Layer 3 · 协议层   references/protocol/action-orders.md（15 章 · 权威） │
+│ Layer 2 · 输入层   references/config/keyword.yaml（意图×领域）         │
+│ Layer 4 · 输出层   4 形态（案例应用/决策卡/评估报告/快响）             │
+│ Layer 1 · 底层     tools/masters/books/scenarios（知识资产）           │
+│ Layer -1 · 验证层  多引擎回归 + 验证器 + 守卫体系（41 项）             │
+│ Layer -2 · 协同层  Infoseek 接口 + 插件扩展                           │
+└──────────────────────────────────────────────────────────────────────┘
+```
+
+### 8.2 核心能力模块
+
+| 职能 | 模块 | 文件 |
 |------|------|------|
-| 场景路由 | `core/router.py` + `references/config/router.yaml` | 意图特征词 × 领域特征词 → 置信度 → 形态映射（无命中自动兜底）|
-| 组件归一化 | `references/config/components.yaml` | 组件注册表（容量约束 ≤35）|
-| 组件热度 | `core/component_scan.py` | ref_count → new/active/stable 分级（复用 §11 状态机）|
-| 约束映射 | `references/config/constraint.yaml` | 意图 × D × 复杂度 → 组件序列动态映射 |
+| 入口与路由 | `router.py` / `intent_calibrator.py` / `ambiguity_resolver.py` | `core/` |
+| 协议权威 | 15 章唯一权威协议 + 输入契约（L0–L3）| `references/protocol/action-orders.md` · `references/contract/*.md` |
+| 组件池三机制 | 归一化（components.yaml）/ 热度（component_scan.py）/ 约束映射（constraint.yaml）| `references/config/` · `scripts/` |
+| 协同接口 | `infoseek_bridge.py` + `infoseek_zerodep_nlp.py`（可选依赖，未装自动降级）| `scripts/` |
+| 治理守卫 | 41 项守卫（g000~g030 + g_capacity）| `references/config/guardian.yaml`（单一真源）|
+| 插件扩展 | `PluginLoader.load_all()` / `hot_reload()` | `plugins/*.py` |
 
-### 4.4 输入与词库
+> **意图词典**：`components/intent-glossary.md`（6 类意图平白释义 + 触发词 + 形态 + 边界）；路由/校准层命中回显「已识别【意图X】→ 形态【Y】」。
 
-| 文件 | 用途 |
-|------|------|
-| `references/contract/mds-input.md` | 结构化输入契约（定位卡 + 深度卡 + 落地卡）|
-| `references/contract/input-handbook.md` / `input-guide.md` / `input-guide-l0-l3.md` | 输入指引与 L0-L3 降级说明 |
-| `references/config/keyword.yaml` | 意图词（5 类）+ 领域词（8 类）+ 歧义词 + 热词分层（L1/L2/L3）|
-| `references/config/entities.yaml` | 实体层（标准/工具/大师，单一真源）|
-| `references/config/semantic.yaml` / `disambiguation_cases.yaml` | 语义消解 + 歧义案例库 |
+### 8.3 场景路由与五维缺口
 
-### 4.5 验证与治理
+```
+意图 × 领域 → 形态 × 组件 动态组合
+① 危机处置 → 案例应用/决策卡/快响（D≥7 完整归零 / D<4 快响判定）
+② 流程优化 → 案例应用（PDCA 闭环）
+③ 评估审计 → 评估报告（评分→缺口→路线图）
+④ 知识学习 → 快响（定义→要点→工具→依据）
+⑤ 知识沉淀 → 案例应用（蒸馏 + gap 联动 Infoseek）
+⑥ 质量文化 → 评估报告/案例应用（ISO 10010 对齐）
+```
 
-| 能力 | 模块 | 简述 |
-|------|------|------|
-| 4 形态验证 | `core/validator.py` | 96/96 校验项（4 形态 × 24 检查）|
-| 双绑校验 | `scripts/sync_manifest.py` | SKILL.md + manifest.yaml + skill_meta.json 字段一致 |
-| 守卫 9 检 | `scripts/config_sync.py --check` | 悬空引用/嵌套链接/硬编码/组件容量等 9 项健康检查 |
-| 路径归一化 | `scripts/paths.py` + `scripts/registry.py` | 内部路径与跨 Skill 依赖零硬编码 |
-| 词库生命周期 | `scripts/keyword_lifecycle.py` | 热词发现→活跃→稳定→升级 base/淘汰 |
+五维缺口协同：`行业 → 工艺 → 工具 → 方法论 → 大师/思维`（调研深度 1→3）。**≥2 维失败 → 触发 Infoseek 归因**。混合策略三阶段：Phase 1 自动浅层 → Phase 2 关键中层 → Phase 3 用户深层（"展开 D"）。写入策略：置信度 ≥70 入库 / 40–69 归因历史 / <40 终止。
 
-### 4.6 Infoseek 协同
+### 8.4 文件层治理与路径归一化
+- `scripts/paths.py`：ZeroQ 内部路径单一真源（`QCM_ROOT` > `__file__` 推导 > 默认）
+- `scripts/registry.py`：跨 Skill 依赖解析（`INFOSEEK_ROOT` > 探测列表 > 验证 > None）
+- 守卫文件健康⑦⑨：ZeroQ 路径与跨 Skill 路径硬编码零容忍
 
-| 能力 | 说明 |
-|------|------|
-| 5 维触发 | 行业/危机类型/工具/标准/大师 缺口 ≥2 维 → 触发归因 |
-| 混合策略 3 阶段 | Phase 1 自动浅层 → Phase 2 关键中层 → Phase 3 用户深层 |
-| 写入策略 | 置信度 ≥70 入库 / 40–69 归因历史 / <40 终止 |
-| 降级链 | L0 Infoseek → L1 本地 corpus → L2 Web/LLM → L3 纯协议 |
-| 可选依赖 | Infoseek 未安装时自动降级，不报错 |
-
-### 4.7 MCP 工具（10 个）
-
-见 [2.1 快速上手](#21-mcp-server10-工具)。启动自动挂载：`PluginLoader.load_all()`（失败不阻塞）；热重载：`PluginLoader.hot_reload()`；样例：`plugins/echo_tool.py`。
+### 8.5 自动化闭环
+`scripts/word_evolution.sh` 词源自进化闭环（8 段全链路 + ±1H 抖动），由 `automation_manifest.yaml` 登记 5 个定时器（周检/月夜巡/R4 月评/热度回灌/周三孤儿专项）。
 
 ---
 
-## 5. 工作机制要点
+## 9. 兼容性
 
-### 5.1 场景路由（§14）
+- **双形态运行**：Skill 形态（Agent 直接加载）与 MCP Server 形态（stdio/http/ws）独立并存
+- **跨生态**：frontmatter 通用字段兼容 Anthropic Claude Skills / CodeBuddy；ZeroQ 增强字段其他宿主宽松忽略
+- **Infoseek 可选**：未安装自动降级，不报错
+- **运行时数据**：状态落 `outputs/.runtime/`，技能更新不丢数据
+- **升级方式**：备份 → 替换目录 → 跑 `python3 scripts/sync_manifest.py` + `python3 scripts/config_sync.py --check` 验证
 
-```
-意图特征词（5 类）× 领域特征词（8 类）→ 置信度 = 意图命中×α + 领域命中×β
-门控：高置信 → 形态×组件动态组合 | 歧义 → 置信度重算 | 无命中 → 知识学习兜底
-```
-
-### 5.2 组件池三机制
-
-```
-① 归一化：components.yaml 注册表（容量约束，防模板爆炸）
-② 热度识别：ref_count → new/active/stable（复用 §11 状态机）
-③ 约束映射：意图×D×复杂度 → 组件序列（constraint.yaml）
-```
-
-### 5.3 五维触发 + 混合策略
-
-```
-行业 → 工艺 → 工具 → 方法论 → 大师/思维（L1→L5）
-调研深度：1 → 1-2 → 2 → 2-3 → 3
-缺口 ≥2 维 → Phase 1 自动浅层 → Phase 2 关键中层 → Phase 3 用户深层（「展开 D」）
-```
-
-### 5.4 降级链（§8.5）
-
-```
-L0_infoseek → L1_local（本地 corpus）→ L2_web（AI 搜索/LLM 语义）→ L3_protocol（纯协议 + gap 记录）
-```
-
-### 5.5 防御性输出
-
-- 复述禁令：输出层严禁逐行复述协议层 4×N 表格；严禁展开底层工具/标准/大师详情
-- 时间维度默认折叠：⏳ 标记，触发词「展开时间轴」展开
-- 缺口标注：必须标注 `[Infoseek 补充 · 置信度 X%]`
-- 未验证来源：`[unverified]` 标注 + 数据时效 + 边界声明 + 禁止内容清单
+详见 `PLATFORM.md`（多生态平台适用性）。
 
 ---
 
-## 6. 兼容性
+## 10. 路线图
 
-- **0 破坏性变更**：对外 1.0.0 与内部 0.0.0 基线解耦，协议层演进（action-orders V8+）不影响发布契约
-- **MCP 工具**：10 工具完整保留，新增插件经 `@register_tool` 热加载，不侵入核心
-- **可选依赖**：Infoseek / LLM Key 缺失时自动降级（L1→L3），核心功能不报错
-- **升级方式**：备份 → 替换目录 → 运行 `python tests/run_all.py` + `python core/validator.py` 验证
+- **近期**：守卫体系扩展（g023+ 语义孤儿）、组件池热度自校准
+- **中期（v2.x）**：Infoseek 协同深化（图谱/同义词）、多模态案例起步
+- **长期**：编排协同、合规审计自动化、实时协作
+- **设计边界（不做）**：实时新闻监控 / 学术文献综述 / 浏览器自动化爬取 / 即时聊天对话
 
----
-
-## 7. 路线图
-
-详见 `docs/CHANGELOG.md`（版本脉络）与 `outputs/`（季度健康报告、优化升级路线）。
-
-**概要**：
-- **近期**：发布后优化升级（词库命中率淘汰机制评估、suggest_research 接线、组件文件切分落地）
-- **中期**：行业知识包扩展（消费电子/新能源已入，继续规模化）、Infoseek 协同深化
-- **长期**：跨 Skill 编排、合规审计自动化、质量文化评估体系（ISO 10010 对齐）
-- **设计边界（不做）**：纯财务问题 / 纯法务问题 / 纯营销问题 / 单一工具问答
 
 ---
 
-## 8. 触发词
+## 11. 触发词
 
-按 **场景 / 技术 / 能力** 三类组织，便于不同检索维度匹配。
+### 11.1 场景类
+`质量危机` · `问题归零` · `双归零` · `8D` · `5Why` · `FMEA` · `SPC` · `围堵` · `纠正预防` · `体系评估` · `质量文化` · `工具选型` · `案例沉淀`
 
-### 8.1 场景类（业务用途）
+### 11.2 技术类
+`场景路由` · `意图×领域` · `AO 卡` · `5 段式` · `触发矩阵` · `责任层` · `组件池` · `文件同源` · `ref_graph` · `守卫 12 检` · `R4R 资产退休` · `Infoseek 协同` · `路径归一化` · `插件热加载`
 
-`质量危机` · `危机管理` · `问题解决` · `双归零` · `8D` · `5Why` · `质量治理` · `体系评估` · `成熟度评估` · `现场处置` · `应急处置` · `围堵-消除-纠正-预防` · `质量文化` · `知识沉淀` · `行业拓展`
-
-### 8.2 技术类（方法 / 协议）
-
-`SPC` · `FMEA` · `控制计划` · `IATF 16949` · `ISO 9001` · `AS9100` · `4M1E` · `PDCA` · `PDSA` · `ITIL P1-P4` · `D1-D3` · `AO-1/AO-2/AO-3/AO-4` · `L1-L4 触发矩阵` · `动作阶段主` · `时间维度子` · `5 段式` · `场景路由` · `组件池` · `路径归一化` · `守卫 9 检` · `缺口检测`
-
-### 8.3 能力类（具体函数 / 工具名）
-
-`qcm_research` · `qcm_decide` · `qcm_solve_problem` · `qcm_score_source` · `qcm_audit` · `qcm_validate` · `qcm_attribution` · `qcm_attribution_phase` · `qcm_gap_detect` · `qcm_plugin_echo` · `mcp_server` · `assembler` · `validator` · `infoseek_bridge`
+### 11.3 能力类
+`qcm_decide` · `qcm_solve_problem` · `qcm_research` · `qcm_audit` · `qcm_validate` · `qcm_attribution` · `qcm_gap_detect` · `qcm_guardian` · `router.py` · `assembler.py` · `component_scan.py` · `validator.py` · `asset_retirement.py` · `config_sync.py` · `word_evolution.sh`
 
 ---
 
-## 9. 配套文档
+## 12. 配套文档
 
 | 文档 | 路径 | 用途 |
 |------|------|------|
 | README | `README.md` | 快速导航 + 5 秒看懂 |
-| 版本历史 | `version_history.md` | 对外版本记录 |
-| 协议权威 | `references/protocol/action-orders.md` | 14 章协议（单一权威）|
-| 输入契约 | `references/contract/` | mds-input + 输入指引 |
-| 词库配置 | `references/config/` | keyword/entities/components/constraint 等 10 配置 |
-| 输出模板 | `outputs/` | 4 形态模板（唯一真源）|
-| 组件池 | `components/` | 28 组件（索引自动生成，勿手改）|
-| 核心库 | `core/` | 路由/组装/验证/组件扫描/缺口检测 |
-| 适配层 | `scripts/` | MCP server + 桥接 + 工具模块 |
-| 部署资产 | `deploy/` | docker / k8s / monitoring / api |
-| 文档 | `docs/` | CHANGELOG / INSTALL / TROUBLESHOOTING / eval |
-| 测试套件 | `tests/` | basic / protocol / engines（run_all.py 聚合）|
-
-### 9.1 依赖与密钥声明
-
-| 文档 | 用途 |
-|------|------|
-| `DEPENDENCIES.md` | 外部依赖清单 + 作用 + 降级路径 |
-| `API_KEYS.md` | 外部 API Key 清单 + 效益（仅变量名与作用，不含真实密钥值）|
+| 协议权威 | `references/protocol/action-orders.md` | 15 章协议（输出层唯一权威） |
+| 输入契约 | `references/contract/*.md` | L0–L3 分级输入模板 |
+| 词库 | `references/config/keyword.yaml` | 意图×领域映射 |
+| 语料清单 | `references/config/corpus_manifest.yaml` | 语料单一真源 |
+| 守卫注册 | `references/config/guardian.yaml` | 41 项守卫定义（单一真源） |
+| 自动化 | `references/config/automation_manifest.yaml` | 5 定时器真源备份 |
+| 治理规范 | `references/governance/*.md` | 资产生命周期 / 冲突解决 |
+| 依赖/密钥 | `DEPENDENCIES.md` / `API_KEYS.md` | 外部依赖与 Key 声明 |
+| 平台适配 | `PLATFORM.md` | 多生态兼容性 |
+| 核心模块 | `core/` | 验证/路由/解析核心（22 模块） |
+| 适配层 | `scripts/` | MCP server + 工具 + 守卫 + 进化闭环 |
+| 知识资产 | `references/` | 协议/词库/配置/行业包/知识库/大师/方法 |
 
 ---
 
-## 10. 测试与质量
+## 13. 测试与质量
 
-- **测试套件**：38 个测试文件（脚本风格，聚合入口 `tests/run_all.py`）
-  - 引擎回归 8 套：all / cross / loop / combo / super / reverse / full / lowfreq
-  - MCP 协议 28 套：basic（v0.1→v0.9）+ protocol（v1.1→v1.6，含 GraphQL/OTel/WS）
-  - 主测试：`qcm_v82_test.py`（27 用例）+ `qcm_router_golden_test.py`（15 用例）
-- **运行方式**：`python tests/run_all.py`（38 套件）或 `python tests/run_all.py --group engines/core/smoke`
-- **验证器**：`python core/validator.py`（4 形态 × 24 检查 = 96/96）
-- **健康门禁**：`python scripts/config_sync.py --check`（守卫 9 检）+ `scripts/sync_manifest.py`（双绑）
-- **质量基线**：38/38 全绿 + 验证器 96/96 + 引擎 8/8 全绿 + v82 27/27 + router golden 15/15
-
----
-
-## 附录：发布到 Skill 平台
-
-### A.1 客户端集成示例（.mcp.json）
-
-```json
-{
-  "mcpServers": {
-    "qcm-search": {
-      "command": "${QCM_ROOT}/scripts/mcp_server.py",
-      "args": ["--transport", "stdio"],
-      "env": {
-        "QCM_ROOT": "${QCM_ROOT}",
-        "QCM_AUTH_TOKEN": "${QCM_AUTH_TOKEN}"
-      }
-    },
-    "infoseek-search": {
-      "command": "${INFOSEEK_ROOT}/scripts/infoseek_mcp_server.py",
-      "args": ["--transport", "stdio"],
-      "env": {
-        "INFOSEEK_ROOT": "${INFOSEEK_ROOT}"
-      }
-    }
-  }
-}
-```
-
-### A.2 获取帮助
-
-- 查看 `README.md` 5 秒看懂
-- 协议问题 → `references/protocol/action-orders.md`
-- 环境问题 → `DEPENDENCIES.md` / `docs/TROUBLESHOOTING.md`
+- **验证脚本**：
+  - `python3 scripts/sync_manifest.py` — Manifest 双绑
+  - `python3 core/validator.py` — 4 形态结构校验
+  - `python3 scripts/config_sync.py --check` — 配置+文件健康（守卫体系）
+  - `python3 scripts/gen_corpus_index.py --check` — 语料索引自洽
+  - `python3 scripts/qcm_ref_query.py --orphan / --dangling` — 孤儿/悬空查询
+- **测试归档**：`tests/`（basic / protocol / engines）
+- **质量基线**：回归全绿 · 4 形态验证全绿 · 守卫体系 0 问题（文件健康 12 检①~⑫ + 全 41 项） · 语料自洽（orphans=0 / dangling=0）
+- **健康指标**：缺口暴露率 30–50% · 缺口闭合率 ≥80% · 行业覆盖 100%
 
 ---
 
-> **核心设计原则**：4 层级架构 + 5 范式 + 14 章协议 + 4 形态 + 场景路由消费 + 组件池三机制 + 文件层治理 = QCM 终极架构。
-> **应用范围**：全行业 × 全工艺 × 全触点 × 全危机（依赖 §12 行业适配性 + §13 缺口暴露驱动 Infoseek 协同）。
+> **核心设计原则**：4 层级架构 + 5 原则 + 15 章协议 + 4 形态 + 场景路由消费 + 组件池三机制 + 文件层治理 = 归零（ZeroQ）终极架构。
+>
+> **5 原则（Skill 工程设计准则）**：
+> | # | 原则 | 实施 |
+> |---|------|------|
+> | ① | **单一职责** | ZeroQ = 质量管理 · `action-orders.md` = 协议层单一权威 |
+> | ② | **契约驱动** | MDS 22 字段契约 + `action-orders.md §1–§7` + 4 形态 `input_schema`/`output_schema` |
+> | ③ | **渐进增强** | MDS T1→T2→T3→T4 + 4 形态降级路径（完整 / 部分 / 缺失）|
+> | ④ | **可观测设计** | 8 引擎回归 + 4 形态 `execution_trace` + `qcm_output_validator.py` |
+> | ⑤ | **防御性输出** | `[unverified]` 标注 + 数据时效声明 + 边界声明 + 禁止内容清单 |
+> **应用范围**：全行业 × 全工艺 × 全触点 × 全危机（依赖 §12 行业适配性 + §8.3 缺口暴露驱动 Infoseek 协同）。
+> **版本说明**：对外发布版本固定为 `1.0.1`，全链路版本唯一（SKILL.md / manifest / skill_meta / SERVER_VERSION / 镜像标签统一）。
