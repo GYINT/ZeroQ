@@ -1,0 +1,20 @@
+# QCM 大语料索引（自动生成 · 勿手改）
+file: references/knowledge/material-mapping.md
+note: 外部素材映射库（PPT→QCM 模块 · 触发路由）
+size_bytes: 7310
+size_kb: 7.1
+anchor_count: 12
+generated: 2026-09-02 18:25
+anchors:
+  - {id: -, title: QCM 外部素材映射库（PPT → QCM 模块）, level: 1, line: 1, end_line: 132, lines: 132, tags: [], links: []}
+  - {id: -, title: 一、素材总览, level: 2, line: 9, end_line: 19, lines: 11, tags: [], links: []}
+  - {id: -, title: 二、问题分析与解决 ↔ QCM 主流程映射（核心）, level: 2, line: 20, end_line: 48, lines: 29, tags: [], links: []}
+  - {id: -, title: 四阶段 ↔ 六步导航映射, level: 3, line: 22, end_line: 30, lines: 9, tags: [], links: []}
+  - {id: -, title: 关键工具映射明细, level: 3, line: 31, end_line: 48, lines: 18, tags: [], links: []}
+  - {id: -, title: 三、报告制作 ↔ QCM 输出表达模块映射, level: 2, line: 49, end_line: 69, lines: 21, tags: [], links: []}
+  - {id: -, title: 报告类型 ↔ 输出模板映射, level: 3, line: 59, end_line: 69, lines: 11, tags: [], links: []}
+  - {id: -, title: 四、有效沟通 ↔ QCM 治理协作模块映射, level: 2, line: 70, end_line: 85, lines: 16, tags: [], links: []}
+  - {id: -, title: 五、应用调取方式, level: 2, line: 86, end_line: 112, lines: 27, tags: [], links: []}
+  - {id: -, title: 触发路由（SKILL.md 意图路由扩展）, level: 3, line: 88, end_line: 95, lines: 8, tags: [], links: []}
+  - {id: -, title: 调取示例, level: 3, line: 96, end_line: 112, lines: 17, tags: [], links: []}
+  - {id: -, title: 六、映射索引表（速查）, level: 2, line: 113, end_line: 132, lines: 20, tags: [], links: []}
