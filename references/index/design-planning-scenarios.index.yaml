@@ -1,0 +1,25 @@
+# QCM 大语料索引（自动生成 · 勿手改）
+file: references/knowledge/design-planning-scenarios.md
+note: 设计/规划场景库（NPI/APQP + 产品规划 · P0-2 场景补全）
+size_bytes: 6418
+size_kb: 6.3
+anchor_count: 17
+generated: 2026-09-02 18:25
+anchors:
+  - {id: -, title: 设计/规划场景库（V8.2 新增 · P0-2 场景覆盖补全）, level: 1, line: 1, end_line: 121, lines: 121, tags: [], links: []}
+  - {id: -, title: §1 产品开发车间 · NPI/APQP · 需求错配 / 设计风险 / 门控失效, level: 2, line: 9, end_line: 41, lines: 33, tags: [], links: []}
+  - {id: -, title: 典型缺陷, level: 3, line: 13, end_line: 19, lines: 7, tags: [], links: []}
+  - {id: -, title: 场景 → 工具映射, level: 3, line: 20, end_line: 30, lines: 11, tags: [], links: []}
+  - {id: -, title: 岗位, level: 3, line: 31, end_line: 34, lines: 4, tags: [], links: []}
+  - {id: -, title: 领域挂载, level: 3, line: 35, end_line: 41, lines: 7, tags: [], links: []}
+  - {id: -, title: §2 产品规划场景 · 需求洞察 / 目标对齐 · 优先级错配 / 战略漂移, level: 2, line: 42, end_line: 103, lines: 62, tags: [], links: []}
+  - {id: -, title: 典型缺陷, level: 3, line: 46, end_line: 51, lines: 6, tags: [], links: []}
+  - {id: -, title: 战略规划前置子场景（V8.7 扩充 · 挂载 PPTX 战略规划方法论）, level: 3, line: 52, end_line: 92, lines: 41, tags: [], links: []}
+  - {id: -, title: 子场景 → 工具映射（看-定-解 三步全链）, level: 4, line: 56, end_line: 66, lines: 11, tags: [], links: []}
+  - {id: -, title: 场景 → 工具映射（既有 + 新增合并）, level: 4, line: 67, end_line: 82, lines: 16, tags: [], links: []}
+  - {id: -, title: 全文资产（C 方案 · 内部资料脱敏登记）, level: 4, line: 83, end_line: 92, lines: 10, tags: [], links: []}
+  - {id: -, title: 岗位, level: 3, line: 93, end_line: 96, lines: 4, tags: [], links: []}
+  - {id: -, title: 领域挂载, level: 3, line: 97, end_line: 103, lines: 7, tags: [], links: []}
+  - {id: -, title: §3 场景-领域-工具映射表（B/F 领域挂载点）, level: 2, line: 104, end_line: 110, lines: 7, tags: [], links: []}
+  - {id: -, title: §4 与 P0-2 审计结论对应, level: 2, line: 111, end_line: 116, lines: 6, tags: [], links: []}
+  - {id: -, title: §5 关联引用（挂载回归）, level: 2, line: 117, end_line: 121, lines: 5, tags: [], links: []}
