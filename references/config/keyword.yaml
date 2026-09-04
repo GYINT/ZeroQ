@@ -1,9 +1,8 @@
-version: 1.0
 keywords:
 - word: 失效
   intent: ①危机处置
-  level: base
-  status: stable
+  level: hot
+  status: hot
   created_at: '2026-07-06'
   aliases:
   - failure
@@ -11,24 +10,24 @@ keywords:
   - 失效模式
 - word: 缺陷
   intent: ①危机处置
-  level: base
-  status: stable
+  level: hot
+  status: hot
   created_at: '2026-07-06'
   aliases:
   - defect
   - 瑕疵
 - word: 客诉
   intent: ①危机处置
-  level: base
-  status: stable
+  level: hot
+  status: hot
   created_at: '2026-07-06'
   aliases:
   - customer complaint
   - 客户投诉
 - word: 超差
   intent: ①危机处置
-  level: base
-  status: stable
+  level: hot
+  status: hot
   created_at: '2026-07-06'
   aliases:
   - 超出公差
@@ -45,8 +44,8 @@ keywords:
   - 异常波动
 - word: 报废
   intent: ①危机处置
-  level: base
-  status: stable
+  level: hot
+  status: hot
   created_at: '2026-07-06'
   aliases:
   - scrap
@@ -61,8 +60,8 @@ keywords:
   - 产品召回
 - word: 不良率
   intent: ①危机处置
-  level: base
-  status: stable
+  level: hot
+  status: hot
   created_at: '2026-07-06'
   aliases:
   - defect rate
@@ -70,16 +69,16 @@ keywords:
   - 废品率
 - word: 裂纹
   intent: ①危机处置
-  level: base
-  status: stable
+  level: hot
+  status: hot
   created_at: '2026-07-06'
   aliases:
   - crack
   - 裂缝
 - word: 划伤
   intent: ①危机处置
-  level: base
-  status: stable
+  level: hot
+  status: hot
   created_at: '2026-07-06'
   aliases:
   - scratch
@@ -132,8 +131,8 @@ keywords:
   aliases: []
 - word: 早衰
   intent: ①危机处置
-  level: base
-  status: active
+  level: hot
+  status: hot
   created_at: '2026-08-05'
   aliases: []
 - word: 损耗
@@ -176,8 +175,8 @@ keywords:
   aliases: []
 - word: 断裂
   intent: ①危机处置
-  level: base
-  status: active
+  level: hot
+  status: hot
   created_at: '2026-08-05'
   aliases:
   - break
@@ -207,14 +206,14 @@ keywords:
   - 停线
 - word: 跌破
   intent: ①危机处置
-  level: base
-  status: new
+  level: hot
+  status: hot
   created_at: '2026-08-20'
   aliases: []
 - word: 超标
   intent: ①危机处置
-  level: base
-  status: new
+  level: hot
+  status: hot
   created_at: '2026-08-20'
   aliases: []
 - word: 飙升
@@ -254,16 +253,16 @@ keywords:
   aliases: []
 - word: 优化
   intent: ②流程优化
-  level: base
-  status: stable
+  level: hot
+  status: hot
   created_at: '2026-07-06'
   aliases:
   - optimize
   - 优化改善
 - word: 改善
   intent: ②流程优化
-  level: base
-  status: stable
+  level: hot
+  status: hot
   created_at: '2026-07-06'
   aliases:
   - kaizen
@@ -320,8 +319,8 @@ keywords:
   aliases: []
 - word: 提升
   intent: ②流程优化
-  level: base
-  status: stable
+  level: hot
+  status: hot
   created_at: '2026-07-06'
   aliases:
   - improve
@@ -361,8 +360,8 @@ keywords:
   aliases: []
 - word: 评估
   intent: ③评估审计
-  level: base
-  status: stable
+  level: hot
+  status: hot
   created_at: '2026-07-06'
   aliases:
   - assessment
@@ -377,8 +376,8 @@ keywords:
   - 稽核
 - word: 成熟度
   intent: ③评估审计
-  level: base
-  status: stable
+  level: hot
+  status: hot
   created_at: '2026-07-06'
   aliases:
   - maturity
@@ -419,14 +418,14 @@ keywords:
   - VDA
 - word: 什么是
   intent: ④知识学习
-  level: base
-  status: stable
+  level: hot
+  status: hot
   created_at: '2026-07-06'
   aliases: []
 - word: 是什么
   intent: ④知识学习
-  level: base
-  status: stable
+  level: hot
+  status: hot
   created_at: '2026-07-06'
   aliases: []
 - word: 如何用
@@ -501,8 +500,8 @@ keywords:
   - 行业适配
 - word: 接入
   intent: ⑤知识沉淀
-  level: base
-  status: stable
+  level: hot
+  status: hot
   created_at: '2026-07-06'
   aliases: []
 - word: 蒸馏
@@ -525,8 +524,8 @@ keywords:
   aliases: []
 - word: 落地
   intent: ⑤知识沉淀
-  level: base
-  status: stable
+  level: hot
+  status: hot
   created_at: '2026-07-06'
   aliases:
   - deploy
@@ -596,8 +595,8 @@ keywords:
   aliases: []
 - word: 变革
   intent: ⑥质量文化
-  level: base
-  status: active
+  level: hot
+  status: hot
   created_at: '2026-08-05'
   aliases:
   - change
@@ -783,6 +782,18 @@ keywords:
   created_at: '2026-07-06'
   aliases:
   - development
+- word: 变更率
+  intent: ③评估审计
+  domain: B设计
+  level: base
+  status: new
+  created_at: '2026-09-02'
+  aliases:
+  - ECN
+  - ECR
+  - 设计变更
+  - 变更管理
+  - 4M变更
 - word: npi
   domain: B设计
   level: base
@@ -1045,8 +1056,8 @@ keywords:
   - CSAT
 - word: 客诉
   domain: Q客户
-  level: base
-  status: stable
+  level: hot
+  status: hot
   created_at: '2026-07-06'
   aliases:
   - customer complaint
@@ -1072,13 +1083,6 @@ keywords:
   created_at: '2026-08-05'
   aliases:
   - flower shop
-- word: 鲜花
-  domain: Q客户
-  level: base
-  status: active
-  created_at: '2026-08-05'
-  aliases:
-  - flower
 - word: 服务
   domain: Q客户
   level: base
@@ -1131,8 +1135,8 @@ keywords:
   - first pass yield
 - word: 提升
   role: optimize_verb
-  level: base
-  status: stable
+  level: hot
+  status: hot
   created_at: '2026-07-06'
   aliases:
   - improve
@@ -1140,8 +1144,8 @@ keywords:
   - 提高
 - word: 改善
   role: optimize_verb
-  level: base
-  status: stable
+  level: hot
+  status: hot
   created_at: '2026-07-06'
   aliases:
   - kaizen
@@ -1154,8 +1158,8 @@ keywords:
   aliases: []
 - word: 优化
   role: optimize_verb
-  level: base
-  status: stable
+  level: hot
+  status: hot
   created_at: '2026-07-06'
   aliases:
   - optimize
@@ -1196,7 +1200,8 @@ keywords:
   level: hot
   status: active
   created_at: '2026-08-05'
-  aliases: []
+  aliases:
+  - flower
 - word: 门店
   domain: D现场
   level: hot
@@ -1240,7 +1245,7 @@ keywords:
   intent: ①危机处置
   domain: A制造
   level: hot
-  status: active
+  status: hot
   created_at: '2026-08-05'
   aliases:
   - ovality
@@ -1275,12 +1280,379 @@ keywords:
   created_at: '2026-08-05'
   aliases:
   - overstock
+- word: 执行有效性
+  intent: ③评估审计
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - execution effectiveness
+  - implementation effectiveness
+  - 四性评估·执行
+- word: 教育符合性
+  intent: ③评估审计
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - educational alignment
+  - training compliance
+  - 四性评估·教育
+- word: 标准适宜性
+  intent: ③评估审计
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - standard suitability
+  - standard appropriateness
+  - 四性评估·标准
+- word: 监督可行性
+  intent: ③评估审计
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - oversight feasibility
+  - supervision feasibility
+  - 四性评估·监督
+- word: 流出
+  intent: ③评估审计
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - flow-out
+  - outflow
+  - 如何流出
+  - 落地管理
+- word: 四性评估
+  intent: ③评估审计
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - four-aspect evaluation
+  - 四性评审
+- word: VSM
+  intent: ②流程优化
+  domain: D现场
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - 价值流图
+  - 价值流映射
+  - value stream mapping
+  - 价值流
+- word: 价值流
+  intent: ②流程优化
+  domain: D现场
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - VSM
+  - value stream
+  - 价值流图
+- word: 因果分析
+  intent: ①危机处置
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - causal analysis
+  - 鱼骨图
+  - ishikawa
+- word: 要因分析
+  intent: ①危机处置
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - root cause factor analysis
+- word: 调查分析报告
+  intent: ①危机处置
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - investigation report
+  - 调查报告
+- word: PDCA
+  intent: ②流程优化
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - plan-do-check-act
+  - 戴明环
+  - deming cycle
+  - PDCA 循环
+- word: 5W1H
+  intent: ②流程优化
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - 五问一何
+  - what-why-how-when-who-where
+- word: CDA 活动
+  intent: ②流程优化
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - Confirm-Do-Act
+  - 持续改善
+- word: 推移图
+  intent: ②流程优化
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - run chart
+  - trend chart
+  - 时序图
+- word: 雷达图
+  intent: ②流程优化
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - radar chart
+  - spider chart
+- word: 管制图
+  intent: ②流程优化
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - control chart
+  - SPC 控制图
+- word: 标准化
+  intent: ②流程优化
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - standardization
+  - SOP 标准化
+- word: RACI
+  intent: ②流程优化
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - Responsible Accountable Consulted Informed
+  - 角色责任矩阵
+  - responsibility matrix
+  - RACI 矩阵
+- word: 问题解决流
+  intent: ②流程优化
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - problem solving flow
+  - 简化 8D
+  - 轻量问题解决
+  - 四阶段问题解决
+  - 4 阶段问题解决
+- word: 风险预控
+  intent: ②流程优化
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - risk pre-control
+  - 风险预案
+  - risk prevention
+  - 落地风险预控
+- word: 业务报告
+  intent: ②流程优化
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - business reporting
+  - 工作汇报
+  - 汇报
+- word: 报告机制
+  intent: ②流程优化
+  level: base
+  status: stable
+  created_at: '2026-08-21'
+  aliases:
+  - reporting mechanism
+  - 汇报机制
+  - 上级报告机制
+- word: SMT
+  intent: ④知识学习
+  level: base
+  status: new
+  domain: B设计
+  source: industry
+  origin: consumer-electronics:SMT
+  created_at: '2026-08-21'
+  aliases: []
+  pack_ref: consumer-electronics
+- word: PCBA
+  intent: ④知识学习
+  level: base
+  status: new
+  domain: B设计
+  source: industry
+  origin: consumer-electronics:PCBA
+  created_at: '2026-08-21'
+  aliases: []
+  pack_ref: consumer-electronics
+- word: 芯片封装
+  intent: ④知识学习
+  level: base
+  status: new
+  domain: B设计
+  source: industry
+  origin: consumer-electronics:芯片封装
+  created_at: '2026-08-21'
+  aliases: []
+  pack_ref: consumer-electronics
+- word: 整机组装
+  intent: ④知识学习
+  level: base
+  status: new
+  domain: B设计
+  source: industry
+  origin: consumer-electronics:整机组装
+  created_at: '2026-08-21'
+  aliases: []
+  pack_ref: consumer-electronics
+- word: 电芯
+  intent: ①危机处置
+  level: base
+  status: new
+  domain: C供应链
+  source: industry
+  origin: new-energy:电芯
+  created_at: '2026-08-21'
+  aliases: []
+  pack_ref: new-energy
+  calibrations:
+  - from: ⑤知识沉淀
+    to: ①危机处置
+    cycle: s8-legacy
+    reason: 使用事实主导危机语境（热失控/着火/紧急措施 · 误路由第15轮实证）→ 声明语义修正
+    date: '2026-08-21'
+- word: PACK
+  intent: ⑤知识沉淀
+  level: base
+  status: new
+  domain: C供应链
+  source: industry
+  origin: new-energy:PACK
+  created_at: '2026-08-21'
+  aliases: []
+  pack_ref: new-energy
+- word: 涂布
+  intent: ⑤知识沉淀
+  level: base
+  status: new
+  domain: C供应链
+  source: industry
+  origin: new-energy:涂布
+  created_at: '2026-08-21'
+  aliases: []
+  pack_ref: new-energy
+- word: 卷绕
+  intent: ⑤知识沉淀
+  level: base
+  status: new
+  domain: C供应链
+  source: industry
+  origin: new-energy:卷绕
+  created_at: '2026-08-21'
+  aliases: []
+  pack_ref: new-energy
+- word: 热失控
+  intent: ①危机处置
+  level: base
+  status: new
+  domain: C供应链
+  source: industry
+  origin: new-energy:热失控
+  pack_ref: new-energy
+  created_at: '2026-08-21'
+  aliases: []
+- word: 半导体
+  intent: ④知识学习
+  level: base
+  status: new
+  domain: B设计
+  source: industry
+  origin: semiconductor:半导体
+  created_at: '2026-08-31'
+  aliases: []
+  pack_ref: semiconductor
+- word: 晶圆
+  intent: ④知识学习
+  level: base
+  status: new
+  domain: B设计
+  source: industry
+  origin: semiconductor:晶圆
+  created_at: '2026-08-31'
+  aliases: []
+  pack_ref: semiconductor
+- word: 光刻
+  intent: ④知识学习
+  level: base
+  status: new
+  domain: B设计
+  source: industry
+  origin: semiconductor:光刻
+  created_at: '2026-08-31'
+  aliases: []
+  pack_ref: semiconductor
+static_bindings_allowlist:
+- 改善
+- kaizen
+- vda
 synonyms:
+  电芯:
+  - 电池
+  - battery
+  - cell
+  - 锂电池
+  - 锂离子
   良率:
-  - 良率
   - 直通率
-  - 合格率
-  fmea:
-  - fmea
-  - dfmea
-  - pfmea
+  - yield
+  - yielder
+  - 一次合格率
+  虚焊:
+  - 假焊
+  - 冷焊
+  注塑:
+  - 射出
+  - 成形
+  - 注塑成型
+  - 注塑
+  超差:
+  - 超规格
+  - 超公差
+  - 超界限
+  - 超差
+  来料:
+  - 进料
+  - 入料
+  - inbound
+  毛刺:
+  - 飞边
+  - 披锋
+  偏位:
+  - 偏移
+  - 移位
+  - misalignment
+  客诉:
+  - 客户投诉
+  - customer complaint
