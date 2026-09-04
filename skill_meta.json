@@ -1,10 +1,9 @@
 {
-  "skill_name": "QCM",
-  "skill_full_name": "Quality Crisis Management",
-  "version": "1.0.0",
-  "internal_version": "0.0.0",
-  "last_updated": "2026-08-20",
-  "description": "QCM 问题解决指导 Skill · 4 层级架构（输出/协议/输入/底层）· 严格分离 · 动作阶段主·时间维度子 · 输出层 4 形态 · 场景路由消费（意图×领域→形态×组件动态组合）· 组件池三机制（归一化/热度/约束映射）· 5 范式 · action-orders.md 14 章协议权威 · 文件层治理（生命周期/守卫 9 检/归档）· 路径归一化（paths/registry）· 插件扩展（plugins/ 热加载）· 回归全绿 · Infoseek 协同 5 维缺口检测 + 混合策略 3 阶段触发",
+  "skill_name": "ZeroQ",
+  "skill_full_name": "归零质量管理",
+  "version": "1.0.1",
+  "last_updated": "2026-09-02",
+  "description": "归零（ZeroQ）质量管理指导 Skill · 4 层级架构（输出/协议/输入/底层）· 严格分离 · 动作阶段主·时间维度子 · 输出层 4 形态 · 场景路由消费（意图×领域→形态×组件动态组合）· 组件池三机制（归一化/热度/约束映射）· 5 原则 · action-orders.md 15 章协议权威 · 文件层治理（生命周期/守卫 12 检/归档）· 路径归一化（paths/registry）· 插件扩展（plugins/ 热加载）· 回归全绿 · Infoseek 协同 5 维缺口检测 + 混合策略 3 阶段触发",
   "metadata": {
     "author": "Forka",
     "license": "Apache-2.0",
@@ -15,7 +14,7 @@
   },
   "5_dimensions": {
     "when": "用户提出质量管理/危机管理/问题解决/质量治理/双归零/8D 等相关问题",
-    "who": "QCM = 质量管理危机解决专家 · 4 层级架构·协议层单一权威",
+    "who": "ZeroQ = 质量管理危机解决专家 · 4 层级架构·协议层单一权威",
     "what": "按 4 输出形态提供质量管理实战输出（5 段式 · 案例数据 · 评估 · 决策 · 快速判定）",
     "why_applicable": [
       "制造业质量危机",
@@ -32,7 +31,7 @@
     "where": "全球 · 跨行业 · 跨业态 · 跨场景"
   },
   "5_paradigms": {
-    "single_responsibility": "QCM = 质量管理 · action-orders.md = 协议层单一权威",
+    "single_responsibility": "ZeroQ = 质量管理 · action-orders.md = 协议层单一权威",
     "contract_driven": "MDS 22 字段 + action-orders §1-§7 + 4 形态 input_schema/output_schema",
     "progressive_enhancement": "MDS T1→T2→T3→T4 + 4 形态降级路径（完整/部分/缺失）",
     "observable_design": "8 引擎回归 + 4 形态 execution_trace + qcm_output_validator.py",
@@ -115,27 +114,21 @@
     "manifest_dual_binding": "scripts/sync_manifest.py",
     "output_structure": "scripts/qcm_output_validator.py",
     "regression_tests": {
-      "all_test": "136/136",
-      "cross_test": "214/214",
-      "loop_test": "16/16",
-      "combo_test": "11/11",
-      "super_test": "20/20",
-      "super_reverse_test": "16/16",
-      "full_test": "0_悬空",
-      "lowfreq_test": "59/59",
-      "total_cases": 572
+      "pytest_suite": "105 passed / 28 skipped（tests/ 下 Python 3.10+ 可跑套件）",
+      "total_cases": 105,
+      "note": "历史 engines 572 例为旧 inventory，未计入发布回归；以 pytest 实跑为准"
     }
   },
   "version_history": [
     {
+      "date": "2026-09-02",
+      "version": "1.0.1",
+      "summary": "修订发布 1.0.1：修复 Python 3.10/3.11 测试套件不可用 · 引用图悬空归零 · 清理内部路径与专有名称 · 移除内部基线字段与内部开发史 · 包体压缩至 1.43 MB（回归 105 passed / 引用图 0 悬空）"
+    },
+    {
       "date": "2026-08-20",
       "version": "1.0.0",
       "summary": "对外发布 1.0.0：版本归一化（对外 1.0.0 / 内部 0.0.0 基线）· 清理内部版本标注 · 新增 DEPENDENCIES/API_KEYS 声明 · 清理缓存与开发痕迹 · Infoseek OAuth 环境补齐（v050/v060 转真实通过）"
-    },
-    {
-      "date": "2026-08-18",
-      "version": "0.0.0-pre",
-      "summary": "发布前基线（原内部 V8.3.1 体系，历史收口于 docs/CHANGELOG.md）"
     }
   ]
 }
