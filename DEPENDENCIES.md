@@ -1,6 +1,6 @@
-# QCM 外部依赖清单与作用
+# ZeroQ 外部依赖清单与作用
 
-> 本文档声明 QCM Skill 运行所需的全部外部依赖及其作用。
+> 本文档声明 ZeroQ Skill 运行所需的全部外部依赖及其作用。
 > 配套密钥说明见 **`API_KEYS.md`**（仅变量名与作用，不含真实密钥值）。
 
 ---
@@ -50,7 +50,7 @@ LLM 调用用于增强 `qcm_research` 等专业输出；**无 key 时自动降�
 ## 四、依赖关系图
 
 ```
-QCM Skill
+ZeroQ Skill
 ├─ Python 3.10+            （必选）
 ├─ PyYAML                  （必选）
 ├─ Infoseek Skill          （可选·协同）
