@@ -6,10 +6,12 @@ dictionaries:
   # ── 核心词源（路由/意图消费） ──
   - {id: keyword, path: references/config/keyword.yaml, schema: "word/intent/domain/role/level/status/aliases",
      consumers: [router, semantic_audit, keyword_lifecycle, metrics, hit_tracker],
-     capacity: {intent_max: 40, domain_max: 20}, status: active, owner: 词源管理}
-  - {id: entities, path: references/config/entities.yaml, schema: "name/type/aliases/domain/intent/source",
-     consumers: [router, extract_entities, resources, metrics], capacity: {max: 100},
+     capacity: {intent_max: 60, domain_max: 20}, status: active, owner: 词源管理}
+  - {id: entities, path: references/config/entities.yaml, schema: "name/type/aliases/domain/intent/source/status/level/lifecycle/tier",
+     consumers: [router, extract_entities, resources, metrics, guardian_reverse], capacity: {max: 160},
      status: active, owner: 实体层（自动生成）}
+     # 容量注记（V8.6 M0.9 P1-ctx）：原 max=100 仅覆盖标准/大师(~40)；纳入 tools.md 方法实体(87)后
+     # 稳定集达 127，故上调至 160 预留人工别名补充空间。集大小由知识库单一真源决定，非手增。
   - {id: synonyms, path: references/config/keyword.yaml#synonyms, schema: "main: [alts]",
      consumers: [router], capacity: {}, status: active, owner: 词源管理}
 
@@ -30,3 +32,28 @@ dictionaries:
      consumers: [assembler, component_scan], capacity: {}, status: active, owner: 组件池}
   - {id: validator, path: references/config/validator.yaml, schema: "checks/forms",
      consumers: [validator, config_sync], capacity: {}, status: active, owner: 校验配置}
+  - {id: test_unregistered, path: references/config/test_unregistered.yaml, schema: "checks/forms",
+     consumers: [validator, config_sync], capacity: {}, status: active, owner: 校验配置（qcm_output_validator 测试副本 · 与 validator.yaml 同源）}
+  - {id: industry_index, path: references/industry/index.yaml, schema: "industry_packs[id/path/industry/keywords/status]",
+     consumers: [config_sync], capacity: {}, status: active, owner: 行业知识包（V8.4+）}
+  - {id: guardian, path: references/config/guardian.yaml, schema: "guardians[id/severity/phase/trigger/data/level]",
+     consumers: [guardian], capacity: {}, status: active, owner: 守卫体系（S3 · 归一化定义）}
+  - {id: governance_gaps, path: references/config/governance_gaps.yaml, schema: "gaps[id/dimension/layer/category/severity/status/detection/registered_at/normalized/evidence/fix/target_guard]",
+     consumers: [guardian, governance_check], capacity: {}, status: active, owner: 治理缺口归一化注册表（S8 · 八维缺口动态索引）}
+  - {id: source_links, path: references/config/source_links.yaml, schema: "source_links[source/keyword_path/index_path/index_key/pack_id_field/pack_keyword_field]",
+     consumers: [guardian_reverse], capacity: {}, status: active, owner: 词源登记中心映射（S5.5 · R5 数据源归一化）}
+  - {id: corpus_manifest, path: references/config/corpus_manifest.yaml, schema: "corpus/excluded[rel/level/group/freq]",
+     consumers: [gen_corpus_index, corpus_loader, guardian], capacity: {}, status: active,
+     owner: 大语料清单（V8.6 · 自适应分类+自动检入单一真源）}
+  - {id: automation_manifest, path: references/config/automation_manifest.yaml, schema: "timers[id/automation_id/rrule/cron_expr/status/backfill_cmd] + platform_templates[crontab/systemd_timer/k8s_cronjob] + mcp_trigger[tool/phases]",
+     consumers: [config_sync, tools_pack, guardian], capacity: {}, status: active,
+     owner: 守卫定时器本体回写（M0 · 跨平台自触发凭证）}
+  - {id: zero_event, path: references/config/zero_event.yaml, schema: "module/registry/dimensions/state_machine/trigger",
+     consumers: [zero_event], capacity: {}, status: active,
+     owner: 归零事件全景维度子模块（V8.6 · --trigger 主动记录）}
+
+  # ── R18 P3/P5：懒加载登记门（anchors 段 · g011 字典注册守卫自动校验） ──
+  # path 指向 guardian.yaml#loaders · schema 首字段 "loaders" 由 g011 校验存在性——
+  # 即「loaders 段必须登记」的自动化登记门（删除/改错即触发 [字典注册] 警告）
+  - {id: anchors, path: references/config/guardian.yaml#loaders, schema: "loaders[object/level/group/freq]",
+     consumers: [guardian, router, corpus_loader], capacity: {max: 10}, status: active, owner: 懒加载元数据（R18）}
