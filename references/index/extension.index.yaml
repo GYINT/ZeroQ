@@ -1,0 +1,19 @@
+# QCM 大语料索引（自动生成 · 勿手改）
+file: references/knowledge/extension.md
+note: 扩展接口规范（七接口 A–G）· F 接口外部知识蒸馏与挂载使用指引
+size_bytes: 6276
+size_kb: 6.1
+anchor_count: 11
+generated: 2026-09-02 18:25
+anchors:
+  - {id: -, title: QCM extension.md · 扩展接口规范（七接口 A–G）与挂载使用指引, level: 1, line: 1, end_line: 130, lines: 130, tags: [], links: []}
+  - {id: -, title: 1. 七接口总览（A场景 / B工具 / C大师 / D字段 / E工序 / F知识 / G自进化）, level: 2, line: 9, end_line: 24, lines: 16, tags: [], links: []}
+  - {id: -, title: 2. 扩展接口通用模板, level: 2, line: 25, end_line: 39, lines: 15, tags: [], links: []}
+  - {id: -, title: 3. F 接口 · 外部知识蒸馏入库规则（挂载使用指引）, level: 2, line: 40, end_line: 90, lines: 51, tags: [], links: []}
+  - {id: -, title: 3.1 入库标准, level: 3, line: 44, end_line: 55, lines: 12, tags: [], links: []}
+  - {id: -, title: 3.2 应用约束（不破坏 QCM 结构）, level: 3, line: 56, end_line: 65, lines: 10, tags: [], links: []}
+  - {id: -, title: 3.3 挂载流程（新增外部素材 / 扩展模块）, level: 3, line: 66, end_line: 80, lines: 15, tags: [], links: []}
+  - {id: -, title: 3.4 覆盖监控, level: 3, line: 81, end_line: 90, lines: 10, tags: [], links: []}
+  - {id: -, title: 4. 扩展编号规则（唯一、与现有无重叠）, level: 2, line: 91, end_line: 104, lines: 14, tags: [], links: []}
+  - {id: -, title: 5. 版本管理, level: 2, line: 105, end_line: 116, lines: 12, tags: [], links: []}
+  - {id: -, title: 6. 与现有模块联动, level: 2, line: 117, end_line: 130, lines: 14, tags: [], links: []}
