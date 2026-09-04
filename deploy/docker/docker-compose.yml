@@ -7,7 +7,7 @@ services:
   # ============ QCM MCP Server ============
   qcm-mcp:
     build: .
-    image: qcm/mcp-server:1.0.0
+    image: qcm/mcp-server:1.0.1
     container_name: qcm-mcp
     ports:
       - "8080:8080"
@@ -20,11 +20,11 @@ services:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
       - DASHSCOPE_API_KEY=${DASHSCOPE_API_KEY:-}
       # Auth
-      - QCM_REQUIRE_TOKEN=${QCM_REQUIRE_TOKEN:-0}
+      - QCM_REQUIRE_TOKEN=${QCM_REQUIRE_TOKEN:-1}
       - QCM_AUTH_TOKEN=${QCM_AUTH_TOKEN:-}
     volumes:
       - ./logs:/var/log/qcm-mcp
-      - ./qcm_config.yaml:/app/qcm_config.yaml:ro
+      - ../qcm_config.yaml:/app/qcm_config.yaml:ro
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/health/live"]
