@@ -1,51 +1,65 @@
 # QCM 大语料索引（自动生成 · 勿手改）
 file: references/scenarios/cases.md
 note: 案例库（双归零/行业案例）
-size_bytes: 35452
-size_kb: 34.6
-anchor_count: 43
-generated: 2026-08-18 09:06
+size_bytes: 52924
+size_kb: 51.7
+anchor_count: 57
+generated: 2026-09-02 18:25
 anchors:
-  - {title: 企业 / 行业质量管理案例集, level: 1, line: 1, end_line: 359, lines: 359}
-  - {title: 一、某通信科技龙头：以客户为中心的大质量体系, level: 2, line: 7, end_line: 31, lines: 25}
-  - {title: 核心做法, level: 3, line: 9, end_line: 16, lines: 8}
-  - {title: 代表工具 / 方法, level: 3, line: 17, end_line: 19, lines: 3}
-  - {title: 可借鉴点, level: 3, line: 20, end_line: 24, lines: 5}
-  - {title: 来源（公开资料）, level: 3, line: 25, end_line: 31, lines: 7}
-  - {title: 二、某汽车集团：并购某北欧豪华品牌后的质量体系跃升, level: 2, line: 32, end_line: 54, lines: 23}
-  - {title: 核心做法, level: 3, line: 34, end_line: 39, lines: 6}
-  - {title: 代表工具 / 方法, level: 3, line: 40, end_line: 42, lines: 3}
-  - {title: 可借鉴点, level: 3, line: 43, end_line: 47, lines: 5}
-  - {title: 来源（公开资料）, level: 3, line: 48, end_line: 54, lines: 7}
-  - {title: 三、航空宇航：双归零方法论与宇航质量体系, level: 2, line: 55, end_line: 82, lines: 28}
-  - {title: 核心做法, level: 3, line: 57, end_line: 66, lines: 10}
-  - {title: 代表工具 / 方法, level: 3, line: 67, end_line: 69, lines: 3}
-  - {title: 可借鉴点, level: 3, line: 70, end_line: 74, lines: 5}
-  - {title: 来源（公开资料）, level: 3, line: 75, end_line: 82, lines: 8}
-  - {title: 四、quality-in 工具地图, level: 2, line: 83, end_line: 105, lines: 23}
-  - {title: 核心做法, level: 3, line: 85, end_line: 90, lines: 6}
-  - {title: 代表课程 / 工具, level: 3, line: 91, end_line: 94, lines: 4}
-  - {title: 可借鉴点, level: 3, line: 95, end_line: 99, lines: 5}
-  - {title: 来源（公开资料）, level: 3, line: 100, end_line: 105, lines: 6}
-  - {title: 五、某精密制造龙头：精密制造全工艺链质量治理, level: 2, line: 106, end_line: 136, lines: 31}
-  - {title: 核心画像（公开资料，跨源调研）, level: 3, line: 108, end_line: 114, lines: 7}
-  - {title: 代表工具 / 方法（映射到 QCM）, level: 3, line: 115, end_line: 122, lines: 8}
-  - {title: 可借鉴点, level: 3, line: 123, end_line: 128, lines: 6}
-  - {title: 来源（公开资料，三源）, level: 3, line: 129, end_line: 136, lines: 8}
-  - {title: 六、某精密制造龙头（消费电子 + 新能源双轮）的质量闭环, level: 2, line: 137, end_line: 163, lines: 27}
-  - {title: 核心画像（公开资料，2026-07-22 跨源调研）, level: 3, line: 139, end_line: 145, lines: 7}
-  - {title: 代表工具 / 方法（映射到 QCM）, level: 3, line: 146, end_line: 150, lines: 5}
-  - {title: 可借鉴点, level: 3, line: 151, end_line: 156, lines: 6}
-  - {title: 来源（公开资料）, level: 3, line: 157, end_line: 163, lines: 7}
-  - {title: 七、某射频器件龙头：泛射频 + 车规的 AI 质检与垂直整合, level: 2, line: 164, end_line: 192, lines: 29}
-  - {title: 核心画像（公开资料，2026-07-22 跨源调研）, level: 3, line: 166, end_line: 171, lines: 6}
-  - {title: 代表工具 / 方法（映射到 QCM）, level: 3, line: 172, end_line: 176, lines: 5}
-  - {title: 可借鉴点, level: 3, line: 177, end_line: 182, lines: 6}
-  - {title: 来源（公开资料）, level: 3, line: 183, end_line: 192, lines: 10}
-  - {title: 六、v4.6+ 行业适配案例（服务业零售 · 严格分离 · 对齐 action-orders.md V5.0+）, level: 2, line: 193, end_line: 303, lines: 111}
-  - {title: 花店差评危机（重度 D=8 · 服务业零售 · V5.0+ 严格分离）, level: 3, line: 202, end_line: 255, lines: 54}
-  - {title: 汽车零部件模具磨损危机（重度 D=8 · 跨场景对照 · V5.0+ 严格分离）, level: 3, line: 256, end_line: 303, lines: 48}
-  - {title: 七、跨行业复杂案例组合（case 组合 · 对齐 action-orders.md + corpus 工具×治理×大师）, level: 2, line: 304, end_line: 359, lines: 56}
-  - {title: 案例 A · 半导体晶圆厂光刻良率暴跌危机（L3 执行级 · 中度危机）, level: 3, line: 308, end_line: 326, lines: 19}
-  - {title: 案例 B · 航空宇航型号件飞行参数偏移危机（L3-L4 治理级 · 重度危机）, level: 3, line: 327, end_line: 345, lines: 19}
-  - {title: 跨行业 5 段式结构一致性对比表（横向验证 · 4 案例）, level: 3, line: 346, end_line: 359, lines: 14}
+  - {id: -, title: 企业 / 行业质量管理案例集, level: 1, line: 1, end_line: 602, lines: 602, tags: [], links: [##A01, ##B05, ##A05, ##A02, ##B06, ##B01, ##B03, ##E01, ##E02, ##E03, ##E05, ##F01, ##C08, ##C06, ##C09, §七, §三, §八, §九, §一, ##F03, ##G04, ##F06, ##G09, ##G10, ##G06, ##F02, ##G05, ##G02, ##G07, §十, §十一, §五, §六, §二, ##D26, ##F11]}
+  - {id: -, title: 一、某通信科技龙头：以客户为中心的大质量体系, level: 2, line: 7, end_line: 31, lines: 25, tags: [], links: []}
+  - {id: -, title: 核心做法, level: 3, line: 9, end_line: 16, lines: 8, tags: [], links: []}
+  - {id: -, title: 代表工具 / 方法, level: 3, line: 17, end_line: 19, lines: 3, tags: [], links: []}
+  - {id: -, title: 可借鉴点, level: 3, line: 20, end_line: 24, lines: 5, tags: [], links: []}
+  - {id: -, title: 来源（公开资料）, level: 3, line: 25, end_line: 31, lines: 7, tags: [], links: []}
+  - {id: -, title: 二、某汽车集团：并购某北欧豪华品牌后的质量体系跃升, level: 2, line: 32, end_line: 54, lines: 23, tags: [], links: []}
+  - {id: -, title: 核心做法, level: 3, line: 34, end_line: 39, lines: 6, tags: [], links: []}
+  - {id: -, title: 代表工具 / 方法, level: 3, line: 40, end_line: 42, lines: 3, tags: [], links: []}
+  - {id: -, title: 可借鉴点, level: 3, line: 43, end_line: 47, lines: 5, tags: [], links: []}
+  - {id: -, title: 来源（公开资料）, level: 3, line: 48, end_line: 54, lines: 7, tags: [], links: []}
+  - {id: -, title: 三、航空宇航：双归零方法论与宇航质量体系, level: 2, line: 55, end_line: 82, lines: 28, tags: [], links: []}
+  - {id: -, title: 核心做法, level: 3, line: 57, end_line: 66, lines: 10, tags: [], links: []}
+  - {id: -, title: 代表工具 / 方法, level: 3, line: 67, end_line: 69, lines: 3, tags: [], links: []}
+  - {id: -, title: 可借鉴点, level: 3, line: 70, end_line: 74, lines: 5, tags: [], links: []}
+  - {id: -, title: 来源（公开资料）, level: 3, line: 75, end_line: 82, lines: 8, tags: [], links: []}
+  - {id: -, title: 四、quality-in 工具地图, level: 2, line: 83, end_line: 105, lines: 23, tags: [], links: []}
+  - {id: -, title: 核心做法, level: 3, line: 85, end_line: 90, lines: 6, tags: [], links: []}
+  - {id: -, title: 代表课程 / 工具, level: 3, line: 91, end_line: 94, lines: 4, tags: [], links: []}
+  - {id: -, title: 可借鉴点, level: 3, line: 95, end_line: 99, lines: 5, tags: [], links: []}
+  - {id: -, title: 来源（公开资料）, level: 3, line: 100, end_line: 105, lines: 6, tags: [], links: []}
+  - {id: -, title: 五、某精密制造龙头：精密制造全工艺链质量治理, level: 2, line: 106, end_line: 136, lines: 31, tags: [], links: [##A01, ##B05, ##A05, ##A02, ##B06, ##B01, ##B03, ##E01, ##E02, ##E03, ##E05, ##F01, ##C08, ##C06, ##C09]}
+  - {id: -, title: 核心画像（公开资料，跨源调研）, level: 3, line: 108, end_line: 114, lines: 7, tags: [], links: []}
+  - {id: -, title: 代表工具 / 方法（映射到 QCM）, level: 3, line: 115, end_line: 122, lines: 8, tags: [], links: [##A01, ##B05, ##A05, ##A02, ##B06, ##B01, ##B03, ##E01, ##E02, ##E03, ##E05, ##F01, ##C08, ##C06, ##C09]}
+  - {id: -, title: 可借鉴点, level: 3, line: 123, end_line: 128, lines: 6, tags: [], links: []}
+  - {id: -, title: 来源（公开资料，三源）, level: 3, line: 129, end_line: 136, lines: 8, tags: [], links: []}
+  - {id: -, title: 六、某精密制造龙头（消费电子 + 新能源双轮）的质量闭环, level: 2, line: 137, end_line: 163, lines: 27, tags: [], links: [##B06, ##A01]}
+  - {id: -, title: 核心画像（公开资料，2026-07-22 跨源调研）, level: 3, line: 139, end_line: 145, lines: 7, tags: [], links: []}
+  - {id: -, title: 代表工具 / 方法（映射到 QCM）, level: 3, line: 146, end_line: 150, lines: 5, tags: [], links: [##B06, ##A01]}
+  - {id: -, title: 可借鉴点, level: 3, line: 151, end_line: 156, lines: 6, tags: [], links: []}
+  - {id: -, title: 来源（公开资料）, level: 3, line: 157, end_line: 163, lines: 7, tags: [], links: []}
+  - {id: -, title: 七、某射频器件龙头：泛射频 + 车规的 AI 质检与垂直整合, level: 2, line: 164, end_line: 192, lines: 29, tags: [], links: []}
+  - {id: -, title: 核心画像（公开资料，2026-07-22 跨源调研）, level: 3, line: 166, end_line: 171, lines: 6, tags: [], links: []}
+  - {id: -, title: 代表工具 / 方法（映射到 QCM）, level: 3, line: 172, end_line: 176, lines: 5, tags: [], links: []}
+  - {id: -, title: 可借鉴点, level: 3, line: 177, end_line: 182, lines: 6, tags: [], links: []}
+  - {id: -, title: 来源（公开资料）, level: 3, line: 183, end_line: 192, lines: 10, tags: [], links: []}
+  - {id: -, title: 八、v4.6+ 行业适配案例（服务业零售 · 严格分离 · 对齐 action-orders.md V5.0+）, level: 2, line: 193, end_line: 303, lines: 111, tags: [], links: []}
+  - {id: -, title: 花店差评危机（重度 D=8 · 服务业零售 · V5.0+ 严格分离）, level: 3, line: 202, end_line: 255, lines: 54, tags: [], links: []}
+  - {id: -, title: 汽车零部件模具磨损危机（重度 D=8 · 跨场景对照 · V5.0+ 严格分离）, level: 3, line: 256, end_line: 303, lines: 48, tags: [], links: []}
+  - {id: -, title: 九、跨行业复杂案例组合（case 组合 · 对齐 action-orders.md + corpus 工具×治理×大师）, level: 2, line: 304, end_line: 362, lines: 59, tags: [], links: [§七, §三, §八, §九]}
+  - {id: -, title: 案例 A · 半导体晶圆厂光刻良率暴跌危机（L3 执行级 · 中度危机）, level: 3, line: 308, end_line: 326, lines: 19, tags: [], links: [§七]}
+  - {id: -, title: 案例 B · 航空宇航型号件飞行参数偏移危机（L3-L4 治理级 · 重度危机）, level: 3, line: 327, end_line: 345, lines: 19, tags: [], links: [§三]}
+  - {id: -, title: 跨行业 5 段式结构一致性对比表（横向验证 · 4 案例）, level: 3, line: 346, end_line: 362, lines: 17, tags: [], links: [§八, §九]}
+  - {id: -, title: 十、软件行业质量管理（研发质量 / DevOps / MLOps）, level: 2, line: 363, end_line: 405, lines: 43, tags: [], links: [§一, ##F03, ##F01, ##G04, ##C08, ##F06, ##A01, ##G09, ##G10, ##G06, ##F02, ##G05, ##G02, ##G07]}
+  - {id: -, title: 8.1 某金融科技 SaaS 发布回滚危机（重度 D=7 · 软件研发 · 持续交付）, level: 3, line: 367, end_line: 384, lines: 18, tags: [], links: [##F03, ##F01, ##G04, ##C08, ##F06, ##A01, ##G09]}
+  - {id: -, title: 8.2 某推荐 / 风控 MLOps 模型退化危机（重度 D=7 · MLOps · 模型质量）, level: 3, line: 385, end_line: 405, lines: 21, tags: [], links: [##G10, ##G06, ##F02, ##G05, ##G02, ##G07]}
+  - {id: -, title: 十一、服务业系统化（金融 / 医疗 / 教育 · 严格分离 · 对齐 action-orders.md V5.0+）, level: 2, line: 406, end_line: 534, lines: 129, tags: [], links: [§八]}
+  - {id: -, title: 金融服务危机（重度 D=7 · 服务业金融 · V5.0+ 严格分离）, level: 3, line: 410, end_line: 450, lines: 41, tags: [], links: []}
+  - {id: -, title: 医疗服务危机（重度 D=8 · 服务业医疗 · V5.0+ 严格分离）, level: 3, line: 451, end_line: 490, lines: 40, tags: [], links: []}
+  - {id: -, title: 教育服务危机（中度 D=6 · 服务业教育 · V5.0+ 严格分离）, level: 3, line: 491, end_line: 534, lines: 44, tags: [], links: [§八]}
+  - {id: -, title: 十二、行业覆盖核对（目标 8/8）, level: 2, line: 535, end_line: 554, lines: 20, tags: [], links: [§十, §十一, §五, §六, §七, §二, §三, §九, §一]}
+  - {id: -, title: 十三、公差-制程能力治理闭环（##D26 挂钩 · 异型材压延厚差）, level: 2, line: 555, end_line: 579, lines: 25, tags: [], links: [##D26]}
+  - {id: -, title: 行业案例出口, level: 3, line: 567, end_line: 571, lines: 5, tags: [], links: [##D26]}
+  - {id: -, title: 来源（内部）, level: 3, line: 572, end_line: 579, lines: 8, tags: [], links: []}
+  - {id: -, title: 十四、冲压清洗工序产品发白质量事件（内部问题 · 治理闭环）, level: 2, line: 580, end_line: 602, lines: 23, tags: [], links: [##A01, ##B01, ##F01, ##F06, ##F11]}
+  - {id: -, title: 行业案例出口, level: 3, line: 592, end_line: 596, lines: 5, tags: [], links: [##A01, ##B01, ##F01, ##F06, ##F11]}
+  - {id: -, title: 来源（内部）, level: 3, line: 597, end_line: 602, lines: 6, tags: [], links: []}
