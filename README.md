@@ -54,9 +54,8 @@
 ```
 references/  协议+词库+配置    components/  组件池
 outputs/     4 形态模板        scripts/     运行脚本（paths/registry）
-tests/       测试归档          plugins/     插件扩展
-deploy/      部署资产          docs/        文档
-archive/     归档（deprecated 头注重定向）
+plugins/     插件扩展          deploy/      部署资产
+docs/        文档
 .file-manifest.yaml  子层级治理元数据
 ```
 
@@ -130,7 +129,6 @@ python scripts/mcp_server.py --transport http --port 8080
 python core/validator.py                  # 4 形态 验证
 python scripts/config_sync.py --check     # 配置+文件健康 12 检（全 41 项守卫）
 python core/component_scan.py             # 组件热度 + 容量
-# 测试归档（tests/）：basic / protocol / engines
 ```
 
 ## 九、外部依赖与密钥
