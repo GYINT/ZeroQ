@@ -1,13 +1,13 @@
-# QCM 平台适配说明（PLATFORM）
+# ZeroQ 平台适配说明（PLATFORM）
 
-> 本文档说明 QCM 在各生态平台的适用方式与 Skill 元数据字段的兼容边界，供集成方与维护者参考。
-> 评估结论详见 `outputs/QCM-多生态平台适用性评估.md`。
+> 本文档说明 ZeroQ 在各生态平台的适用方式与 Skill 元数据字段的兼容边界，供集成方与维护者参考。
+> 评估结论详见 `outputs/ZeroQ-多生态平台适用性评估.md`。
 
 ---
 
 ## 一、运行方式总览
 
-QCM 提供两种运行形态，二者独立：
+ZeroQ 提供两种运行形态，二者独立：
 
 | 形态 | 入口 | 适用场景 |
 |------|------|---------|
@@ -23,7 +23,7 @@ QCM 提供两种运行形态，二者独立：
 ### 通用字段（Anthropic Claude Skills / CodeBuddy 等生态通用）
 `name` `version` `display_name` `description` `author` `license` `entry_point`
 
-### QCM 增强字段（本生态专属，其他宿主宽松忽略）
+### ZeroQ 增强字段（本生态专属，其他宿主宽松忽略）
 | 字段 | 作用 | 其他宿主行为 |
 |------|------|-------------|
 | `protocol_authority` | 协议层单一权威指向 | 忽略（不报错）|
@@ -31,7 +31,7 @@ QCM 提供两种运行形态，二者独立：
 | `output_validator` | 4 形态输出校验器 | 忽略 |
 | `test_engine` | 回归声明 | 忽略 |
 
-> 结论：跨生态加载 QCM Skill 时主体字段可被识别；增强字段不破坏解析，仅失去深层校验能力。
+> 结论：跨生态加载 ZeroQ Skill 时主体字段可被识别；增强字段不破坏解析，仅失去深层校验能力。
 
 ---
 
@@ -85,7 +85,7 @@ helm install qcm-mcp deploy/k8s/helm/qcm-mcp -n qcm
 
 ## 四、LLM Provider 中立性
 
-QCM 不绑定任何推理厂商：`scripts/llm_router.py` 按环境变量自动探测
+ZeroQ 不绑定任何推理厂商：`scripts/llm_router.py` 按环境变量自动探测
 DeepSeek / OpenAI / Anthropic / DashScope / SCNet / Azure OpenAI / Ollama / LM Studio，
 `mode=auto` 缺 key 自动降级 mock，**无 key 也可运行**。密钥清单见 `API_KEYS.md`。
 
@@ -95,5 +95,5 @@ DeepSeek / OpenAI / Anthropic / DashScope / SCNet / Azure OpenAI / Ollama / LM S
 
 - **License**：Apache-2.0（见 `LICENSE`），可自由使用、修改与再分发（保留版权与许可声明）。
 - **Infoseek 协同**：深度调研/归因能力依赖 WorkBuddy 生态的 Infoseek Skill；其他平台缺失时自动降级（缺口标注 `[Infoseek 补充]` 不产生、改用规则兜底），不阻塞主体流程。
-- **插件 / WS 旁路推送**：QCM 自有扩展机制，非 MCP 标准能力；其他平台无需关注。
+- **插件 / WS 旁路推送**：ZeroQ 自有扩展机制，非 MCP 标准能力；其他平台无需关注。
 - **开发工具链**：`scripts/ci_core.sh` / `env_restore.sh` 为 bash 脚本（仅开发/CI 侧，运行时不受影响）。
