@@ -1,0 +1,7 @@
+{
+  "status": "observing",
+  "observe_start": "2026-08-24",
+  "review_due": "2026-09-23",
+  "auto_archive_enabled": false,
+  "note": "R4 归档观察期（30d）· 期满未发现误归档可放开 QCM_AUTO_ARCHIVE=1"
+}
