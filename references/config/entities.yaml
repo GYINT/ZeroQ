@@ -1,45 +1,163 @@
-# QCM 实体索引（V8.4 P1 · 由 scripts/extract_entities.py 从知识库生成）
-# 用途：用户输入实体识别 → 精确路由（标准→E体系+工具 · 大师→大师库）
+# QCM 实体索引（V8.6 M0.9 P1 · 由 scripts/extract_entities.py 从知识库生成）
+# 用途：用户输入实体识别 → 精确路由（标准→E体系+工具 · 大师→大师库 · 方法→跨意图领域锚点）
 # 维护：运行 extract_entities.py 重新生成；人工别名直接编辑本文件 aliases（生成时不覆盖）
+# 方法实体 intent="" 表示不绑定单一意图（跨意图上下文锚点），见 action-orders §14.8
+# 分层字段（M1.0 ①）：status∈{active,deprecated,archived} · level∈{core,derived} ·
+#   lifecycle∈{draft,evolving,stable,mature} · tier∈{hot,warm,cold}（tier 由使用事实校准，见 guardian_reverse R8）
 
 entities:
-  - {name: "ISO 9001", type: standard, aliases: ["ISO 9001", "ISO9001", "ISO9001:2015"], domain: E体系, intent: ③评估审计, source: standards.md}
-  - {name: "ISO 9000", type: standard, aliases: ["ISO 9000", "ISO9000", "ISO9000:2015"], domain: E体系, intent: ③评估审计, source: standards.md}
-  - {name: "IATF 16949", type: standard, aliases: ["IATF 16949", "IATF16949", "IATF16949:2016"], domain: E体系, intent: ③评估审计, source: standards.md}
-  - {name: "AS9100D", type: standard, aliases: ["AS9100D"], domain: E体系, intent: ③评估审计, source: standards.md}
-  - {name: "ISO 13485", type: standard, aliases: ["ISO 13485", "ISO13485", "ISO13485:2016"], domain: E体系, intent: ③评估审计, source: standards.md}
-  - {name: "TL 9000", type: standard, aliases: ["TL 9000", "TL9000"], domain: E体系, intent: ③评估审计, source: standards.md}
-  - {name: "TS 22163", type: standard, aliases: ["TS 22163", "TS22163", "TS22163:2017"], domain: E体系, intent: ③评估审计, source: standards.md}
-  - {name: "ISO/TS 16949", type: standard, aliases: ["ISO/TS 16949", "ISO/TS16949"], domain: E体系, intent: ③评估审计, source: standards.md}
-  - {name: "AIAG-VDA FMEA", type: standard, aliases: ["AIAG-VDA FMEA", "AIAG-VDAFMEA"], domain: E体系, intent: ③评估审计, source: standards.md}
-  - {name: "AIAG SPC", type: standard, aliases: ["AIAG SPC", "AIAGSPC"], domain: E体系, intent: ③评估审计, source: standards.md}
-  - {name: "AIAG PPAP", type: standard, aliases: ["AIAG PPAP", "AIAGPPAP"], domain: E体系, intent: ③评估审计, source: standards.md}
-  - {name: "AIAG APQP", type: standard, aliases: ["AIAG APQP", "AIAGAPQP"], domain: E体系, intent: ③评估审计, source: standards.md}
-  - {name: "VDA 6.3", type: standard, aliases: ["VDA 6.3", "VDA6.3"], domain: E体系, intent: ③评估审计, source: standards.md}
-  - {name: "VDA 6.5", type: standard, aliases: ["VDA 6.5", "VDA6.5"], domain: E体系, intent: ③评估审计, source: standards.md}
-  - {name: "ISO/TS 16949 MSA", type: standard, aliases: ["ISO/TS 16949 MSA", "ISO/TS16949MSA"], domain: E体系, intent: ③评估审计, source: standards.md}
-  - {name: "CMMI", type: standard, aliases: ["CMMI"], domain: E体系, intent: ③评估审计, source: standards.md}
-  - {name: "ISO 31000", type: standard, aliases: ["ISO 31000", "ISO31000"], domain: E体系, intent: ③评估审计, source: standards.md}
-  - {name: "IEC 31010", type: standard, aliases: ["IEC 31010", "IEC31010"], domain: E体系, intent: ③评估审计, source: standards.md}
-  - {name: "ESG", type: standard, aliases: ["ESG"], domain: E体系, intent: ③评估审计, source: standards.md}
-  - {name: "Walter A. Shewhart", type: master, aliases: ["Shewhart", "Walter A. Shewhart", "休哈特", "沃特·休哈特"], domain: 通用, intent: ④知识学习, source: masters.md}
-  - {name: "W. Edwards Deming", type: master, aliases: ["Deming", "W. Edwards Deming", "W.爱德华兹·戴明", "戴明"], domain: 通用, intent: ④知识学习, source: masters.md}
-  - {name: "Joseph M. Juran", type: master, aliases: ["Joseph M. Juran", "Juran", "朱兰", "约瑟夫·朱兰"], domain: 通用, intent: ④知识学习, source: masters.md}
-  - {name: "Philip B. Crosby", type: master, aliases: ["Crosby", "Philip B. Crosby", "克劳士比", "菲利普·克劳士比"], domain: 通用, intent: ④知识学习, source: masters.md}
-  - {name: "Kaoru Ishikawa", type: master, aliases: ["Ishikawa", "Kaoru Ishikawa", "石川馨"], domain: 通用, intent: ④知识学习, source: masters.md}
-  - {name: "Genichi Taguchi", type: master, aliases: ["Genichi Taguchi", "Taguchi", "田口玄一"], domain: 通用, intent: ④知识学习, source: masters.md}
-  - {name: "Armand V. Feigenbaum", type: master, aliases: ["Armand V. Feigenbaum", "Feigenbaum", "费根堡姆", "阿曼德·费根堡姆"], domain: 通用, intent: ④知识学习, source: masters.md}
-  - {name: "Taiichi Ohno", type: master, aliases: ["Ohno", "Taiichi Ohno", "大野耐一"], domain: 通用, intent: ④知识学习, source: masters.md}
-  - {name: "Shigeo Shingo", type: master, aliases: ["Shigeo Shingo", "Shingo", "新乡重夫"], domain: 通用, intent: ④知识学习, source: masters.md}
-  - {name: "Bill Smith", type: master, aliases: ["Bill Smith", "Smith", "史密斯", "比尔·史密斯"], domain: 通用, intent: ④知识学习, source: masters.md}
-  - {name: "Masaaki Imai", type: master, aliases: ["Imai", "Masaaki Imai", "今井正明"], domain: 通用, intent: ④知识学习, source: masters.md}
-  - {name: "Yoji Akao", type: master, aliases: ["Akao", "Yoji Akao", "赤尾洋二"], domain: 通用, intent: ④知识学习, source: masters.md}
-  - {name: "Dorian Shainin", type: master, aliases: ["Dorian Shainin", "Shainin", "多里安·谢宁", "谢宁"], domain: 通用, intent: ④知识学习, source: masters.md}
-  - {name: "Frederick W. Taylor", type: master, aliases: ["Frederick W. Taylor", "Taylor", "弗雷德里克·泰勒", "泰勒"], domain: 通用, intent: ④知识学习, source: masters.md}
-  - {name: "迈凯尔·哈里", type: master, aliases: ["Mikel Harry", "迈凯尔·哈里"], domain: 通用, intent: ④知识学习, source: masters.md}
-  - {name: "Shigeru Mizuno", type: master, aliases: ["Mizuno", "Shigeru Mizuno", "水野滋"], domain: 通用, intent: ④知识学习, source: masters.md}
-  - {name: "Henry Ford", type: master, aliases: ["Ford", "Henry Ford", "亨利·福特", "福特"], domain: 通用, intent: ④知识学习, source: masters.md}
-  - {name: "Michael Hammer", type: master, aliases: ["Hammer", "Michael Hammer", "哈默", "迈克尔·哈默"], domain: 通用, intent: ④知识学习, source: masters.md}
-  - {name: "James Harrington / H. James Harrington", type: master, aliases: ["Harrington", "James Harrington / H. James Harrington", "哈林顿", "詹姆斯·哈林顿"], domain: 通用, intent: ④知识学习, source: masters.md}
-  - {name: "Hitoshi Kume", type: master, aliases: ["Hitoshi Kume", "Kume", "久米均"], domain: 通用, intent: ④知识学习, source: masters.md}
-  - {name: "Peter F. Drucker", type: master, aliases: ["Drucker", "Peter F. Drucker", "彼得·德鲁克", "德鲁克"], domain: 通用, intent: ④知识学习, source: masters.md}
+  - {name: "ISO 9001", type: standard, aliases: ["ISO 9001", "ISO9001", "ISO9001:2015"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "ISO 9000", type: standard, aliases: ["ISO 9000", "ISO9000", "ISO9000:2015"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "IATF 16949", type: standard, aliases: ["IATF 16949", "IATF16949", "IATF16949:2016"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "AS9100D", type: standard, aliases: ["AS9100D"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "ISO 13485", type: standard, aliases: ["ISO 13485", "ISO13485", "ISO13485:2016"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "TL 9000", type: standard, aliases: ["TL 9000", "TL9000"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "TS 22163", type: standard, aliases: ["TS 22163", "TS22163", "TS22163:2017"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "ISO/TS 16949", type: standard, aliases: ["ISO/TS 16949", "ISO/TS16949"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "AIAG-VDA FMEA", type: standard, aliases: ["AIAG-VDA FMEA", "AIAG-VDAFMEA"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "AIAG SPC", type: standard, aliases: ["AIAG SPC", "AIAGSPC"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "AIAG PPAP", type: standard, aliases: ["AIAG PPAP", "AIAGPPAP"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "AIAG APQP", type: standard, aliases: ["AIAG APQP", "AIAGAPQP"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "VDA 6.3", type: standard, aliases: ["VDA 6.3", "VDA6.3"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "VDA 6.5", type: standard, aliases: ["VDA 6.5", "VDA6.5"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "ISO/TS 16949 MSA", type: standard, aliases: ["ISO/TS 16949 MSA", "ISO/TS16949MSA"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "CMMI", type: standard, aliases: ["CMMI"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "ISO 31000", type: standard, aliases: ["ISO 31000", "ISO31000"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "IEC 31010", type: standard, aliases: ["IEC 31010", "IEC31010"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "ESG", type: standard, aliases: ["ESG"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "ISO/IEC 42001", type: standard, aliases: ["ISO/IEC 42001", "ISO/IEC42001"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "NIST AI RMF", type: standard, aliases: ["NIST AI RMF", "NISTAIRMF"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "ISO 1101", type: standard, aliases: ["ISO 1101", "ISO1101"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "ASME Y14.5-2018", type: standard, aliases: ["ASME Y14.5-2018", "ASMEY14.5-2018"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "GB/T 1800.1-2020", type: standard, aliases: ["GB/T 1800.1-2020", "GB/T1800.1-2020"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "GB/T 1182-2018", type: standard, aliases: ["GB/T 1182-2018", "GB/T1182-2018"], domain: E体系, intent: ③评估审计, source: standards.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Walter A. Shewhart", type: master, aliases: ["Shewhart", "Walter A. Shewhart", "休哈特", "沃特·休哈特"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "W. Edwards Deming", type: master, aliases: ["Deming", "W. Edwards Deming", "W.爱德华兹·戴明", "戴明"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Joseph M. Juran", type: master, aliases: ["Joseph M. Juran", "Juran", "朱兰", "约瑟夫·朱兰"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Philip B. Crosby", type: master, aliases: ["Crosby", "Philip B. Crosby", "克劳士比", "菲利普·克劳士比"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Kaoru Ishikawa", type: master, aliases: ["Ishikawa", "Kaoru Ishikawa", "石川馨"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Genichi Taguchi", type: master, aliases: ["Genichi Taguchi", "Taguchi", "田口玄一"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Armand V. Feigenbaum", type: master, aliases: ["Armand V. Feigenbaum", "Feigenbaum", "费根堡姆", "阿曼德·费根堡姆"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Taiichi Ohno", type: master, aliases: ["Ohno", "Taiichi Ohno", "大野耐一"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Shigeo Shingo", type: master, aliases: ["Shigeo Shingo", "Shingo", "新乡重夫"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Bill Smith", type: master, aliases: ["Bill Smith", "Smith", "史密斯", "比尔·史密斯"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Masaaki Imai", type: master, aliases: ["Imai", "Masaaki Imai", "今井正明"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Yoji Akao", type: master, aliases: ["Akao", "Yoji Akao", "赤尾洋二"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Dorian Shainin", type: master, aliases: ["Dorian Shainin", "Shainin", "多里安·谢宁", "谢宁"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Frederick W. Taylor", type: master, aliases: ["Frederick W. Taylor", "Taylor", "弗雷德里克·泰勒", "泰勒"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "迈凯尔·哈里", type: master, aliases: ["Mikel Harry", "迈凯尔·哈里"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Shigeru Mizuno", type: master, aliases: ["Mizuno", "Shigeru Mizuno", "水野滋"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Henry Ford", type: master, aliases: ["Ford", "Henry Ford", "亨利·福特", "福特"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Michael Hammer", type: master, aliases: ["Hammer", "Michael Hammer", "哈默", "迈克尔·哈默"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "James Harrington / H. James Harrington", type: master, aliases: ["Harrington", "James Harrington / H. James Harrington", "哈林顿", "詹姆斯·哈林顿"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Hitoshi Kume", type: master, aliases: ["Hitoshi Kume", "Kume", "久米均"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Peter F. Drucker", type: master, aliases: ["Drucker", "Peter F. Drucker", "彼得·德鲁克", "德鲁克"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Andrew Ng", type: master, aliases: ["Andrew Ng", "Ng", "吴恩达"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Fei-Fei Li", type: master, aliases: ["Fei-Fei Li", "Li", "李飞飞"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Geoffrey Hinton", type: master, aliases: ["Geoffrey Hinton", "Hinton", "杰弗里·辛顿", "辛顿"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Yann LeCun", type: master, aliases: ["LeCun", "Yann LeCun", "勒丘恩", "扬·勒丘恩"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "Yoshua Bengio", type: master, aliases: ["Bengio", "Yoshua Bengio", "本吉奥", "约书亚·本吉奥"], domain: 通用, intent: ④知识学习, source: masters.md, status: active, level: core, lifecycle: stable, tier: warm}
+  - {name: "A01", type: method, aliases: ["A01", "SPC", "SPC 统计过程控制", "SPC统计过程控制"], domain: A制造, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "A02", type: method, aliases: ["A02", "Poka-Yoke", "Poka-Yoke 防错", "Poka-Yoke防错"], domain: A制造, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "A03", type: method, aliases: ["A03", "柏拉图", "柏拉图与 鱼骨图", "柏拉图与鱼骨图"], domain: A制造, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "A04", type: method, aliases: ["5S", "A04"], domain: A制造, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "A05", type: method, aliases: ["A05", "MSA", "MSA 测量系统分析", "MSA测量系统分析"], domain: A制造, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "A06", type: method, aliases: ["A06", "直方图 Histogram", "直方图Histogram"], domain: A制造, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "A07", type: method, aliases: ["A07", "散布图 Scatter", "散布图Scatter"], domain: A制造, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "A08", type: method, aliases: ["A08", "检查表 Check Sheet", "检查表CheckSheet"], domain: A制造, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "A09", type: method, aliases: ["A09", "层别法 Stratification", "层别法Stratification"], domain: A制造, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "A10", type: method, aliases: ["A10", "测量不确定度 GUM", "测量不确定度GUM"], domain: A制造, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "A11", type: method, aliases: ["A11", "假设检验"], domain: A制造, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "A12", type: method, aliases: ["A12", "回归分析"], domain: A制造, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "A13", type: method, aliases: ["A13", "EWMA", "EWMA / CUSUM 时间加权控制图", "EWMA/CUSUM时间加权控制图"], domain: A制造, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "B01", type: method, aliases: ["B01", "FMEA"], domain: B设计, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "B02", type: method, aliases: ["B02", "QFD", "QFD 质量功能展开", "QFD质量功能展开"], domain: B设计, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "B03", type: method, aliases: ["B03", "PPAP", "PPAP 生产件批准", "PPAP生产件批准"], domain: B设计, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "B04", type: method, aliases: ["B04", "DOE", "DOE 田口参数设计", "DOE田口参数设计"], domain: B设计, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "B05", type: method, aliases: ["B05", "控制计划 Control Plan", "控制计划ControlPlan"], domain: B设计, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "B06", type: method, aliases: ["APQP", "APQP 五大工具集成", "APQP五大工具集成", "B06"], domain: B设计, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "B07", type: method, aliases: ["B07", "矩阵图"], domain: B设计, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "B08", type: method, aliases: ["B08", "PDPC"], domain: B设计, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "B09", type: method, aliases: ["B09", "箭条图 / 网络图", "箭条图/网络图"], domain: B设计, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "B10", type: method, aliases: ["B10", "因果矩阵 C&E", "因果矩阵C&E"], domain: B设计, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "B11", type: method, aliases: ["AS9145", "B11"], domain: B设计, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "B12", type: method, aliases: ["B12", "FAI", "FAI 首件检验", "FAI首件检验"], domain: B设计, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "B13", type: method, aliases: ["B13", "HALT", "HALT / HASS", "HALT/HASS"], domain: B设计, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "B14", type: method, aliases: ["B14", "可靠性增长管理"], domain: B设计, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "B15", type: method, aliases: ["B15", "DFSS"], domain: B设计, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "C01", type: method, aliases: ["C01", "亲和图 KJ", "亲和图KJ"], domain: F战略, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "C02", type: method, aliases: ["C02", "关联图"], domain: F战略, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "C03", type: method, aliases: ["C03", "系统图"], domain: F战略, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "C04", type: method, aliases: ["C04", "KANO", "KANO 模型", "KANO模型"], domain: F战略, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "C05", type: method, aliases: ["C05", "VOC", "VOC 顾客之声", "VOC顾客之声"], domain: F战略, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "C06", type: method, aliases: ["C06", "方针管理 Hoshin", "方针管理Hoshin"], domain: F战略, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "C07", type: method, aliases: ["C07", "FTA", "FTA 故障树分析", "FTA故障树分析"], domain: F战略, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "C08", type: method, aliases: ["C08", "FRACAS", "FRACAS 故障报告闭环", "FRACAS故障报告闭环"], domain: F战略, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "C09", type: method, aliases: ["C09", "质量成本 COPQ / PONC 分析", "质量成本COPQ/PONC分析"], domain: F战略, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "C10", type: method, aliases: ["C10", "X-Matrix", "X-Matrix 方针展开矩阵", "X-Matrix方针展开矩阵"], domain: F战略, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "C11", type: method, aliases: ["C11", "六西格玛项目章程 Six Sigma Project Charter", "六西格玛项目章程SixSigmaProjectCharter"], domain: F战略, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "C12", type: method, aliases: ["C12", "NPS", "NPS / CSAT 客户满意度", "NPS/CSAT客户满意度"], domain: F战略, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "C13", type: method, aliases: ["C13", "PESTEL", "PESTEL 外部环境分析", "PESTEL外部环境分析"], domain: F战略, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "C14", type: method, aliases: ["C14", "安索夫矩阵"], domain: F战略, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "C15", type: method, aliases: ["C15", "麦肯锡矩阵"], domain: F战略, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "C16", type: method, aliases: ["C16", "三地平线增长模型"], domain: F战略, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "C17", type: method, aliases: ["BSC", "BSC 平衡计分卡", "BSC平衡计分卡", "C17"], domain: F战略, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "C18", type: method, aliases: ["C18", "战略地图"], domain: F战略, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D01", type: method, aliases: ["D01", "Kaizen", "Kaizen / PDCA", "Kaizen/PDCA"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D02", type: method, aliases: ["D02", "看板 Kanban", "看板Kanban"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D03", type: method, aliases: ["D03", "SMED", "SMED 快速换模", "SMED快速换模"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D04", type: method, aliases: ["D04", "安灯 Andon", "安灯Andon"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D05", type: method, aliases: ["D05", "价值流图 VSM", "价值流图VSM"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D06", type: method, aliases: ["D06", "标准作业 Standard Work", "标准作业StandardWork"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D07", type: method, aliases: ["D07", "TPM", "TPM 全员生产维护", "TPM全员生产维护"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D08", type: method, aliases: ["D08", "ECRS", "ECRS 改善四原则", "ECRS改善四原则"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D09", type: method, aliases: ["D09", "ESIA", "ESIA 流程优化四步", "ESIA流程优化四步"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D10", type: method, aliases: ["D10", "均衡生产 Heijunka", "均衡生产Heijunka"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D11", type: method, aliases: ["D11", "节拍时间 Takt Time", "节拍时间TaktTime"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D12", type: method, aliases: ["D12", "单件流 One-Piece Flow", "单件流One-PieceFlow"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D13", type: method, aliases: ["D13", "OEE", "OEE 设备综合效率", "OEE设备综合效率"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D14", type: method, aliases: ["D14", "Gemba", "Gemba Walk 现场巡视", "GembaWalk现场巡视"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D15", type: method, aliases: ["D15", "QCC", "QCC 品管圈", "QCC品管圈"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D16", type: method, aliases: ["D16", "山积图 Yamazumi", "山积图Yamazumi"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D17", type: method, aliases: ["D17", "拉动系统 Pull System", "拉动系统PullSystem"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D18", type: method, aliases: ["D18", "作业观察表"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D19", type: method, aliases: ["D19", "目视化管理"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D20", type: method, aliases: ["D20", "TWI", "TWI 一线督导训练体系", "TWI一线督导训练体系"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D21", type: method, aliases: ["D21", "改善提案制度"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D22", type: method, aliases: ["D22", "五现主义"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D23", type: method, aliases: ["D23", "QRQC", "QRQC 快速反应品质控制", "QRQC快速反应品质控制"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D24", type: method, aliases: ["D24", "班组长一日管理"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D25", type: method, aliases: ["D25", "预知性管理 / 4M 变更管理", "预知性管理/4M变更管理"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "D26", type: method, aliases: ["D26", "公差分析与尺寸链"], domain: D现场, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "E01", type: method, aliases: ["E01", "供应商过程审核 VDA 6.3", "供应商过程审核VDA6.3"], domain: C供应链, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "E02", type: method, aliases: ["E02", "供应商审核"], domain: C供应链, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "E03", type: method, aliases: ["E03", "供应商记分卡"], domain: C供应链, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "E04", type: method, aliases: ["E04", "来料 AQL 抽样检验", "来料AQL抽样检验"], domain: C供应链, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "E05", type: method, aliases: ["E05", "SQE", "SQE 供应商问题解决", "SQE供应商问题解决"], domain: C供应链, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "E06", type: method, aliases: ["E06", "VDA", "VDA 6.5 产品审核", "VDA6.5产品审核"], domain: C供应链, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "E07", type: method, aliases: ["AI", "AI 视觉质检 / AOI", "AI视觉质检/AOI", "E07"], domain: C供应链, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "E08", type: method, aliases: ["E08", "质量 4.0", "质量4.0"], domain: C供应链, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "E09", type: method, aliases: ["E09", "ISO", "ISO 9001:2015 QMS 体系工具", "ISO9001:2015QMS体系工具"], domain: C供应链, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "E10", type: method, aliases: ["CMMI", "CMMI 过程成熟度", "CMMI过程成熟度", "E10"], domain: C供应链, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "E11", type: method, aliases: ["E11", "供应链风险矩阵"], domain: C供应链, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "F01", type: method, aliases: ["8D", "8D 问题解决", "8D问题解决", "F01"], domain: 通用, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "F02", type: method, aliases: ["A3", "A3 问题解决报告", "A3问题解决报告", "F02"], domain: 通用, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "F03", type: method, aliases: ["DMAIC", "DMAIC 六西格玛路线图", "DMAIC六西格玛路线图", "F03"], domain: 通用, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "F04", type: method, aliases: ["5Why", "F04"], domain: 通用, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "F05", type: method, aliases: ["5W2H", "5W2H 问题陈述", "5W2H问题陈述", "F05"], domain: 通用, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "F06", type: method, aliases: ["CAPA", "CAPA 纠正预防系统", "CAPA纠正预防系统", "F06"], domain: 通用, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "F07", type: method, aliases: ["F07", "RCA", "RCA 根本原因分析体系", "RCA根本原因分析体系"], domain: 通用, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "F08", type: method, aliases: ["F08", "Stage-Gate", "Stage-Gate 阶段门", "Stage-Gate阶段门"], domain: 通用, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "F09", type: method, aliases: ["F09", "质量门 Quality Gate", "质量门QualityGate"], domain: 通用, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "F10", type: method, aliases: ["F10", "自检互检"], domain: 通用, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "F11", type: method, aliases: ["F11", "过程链联动审核"], domain: 通用, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "G01", type: method, aliases: ["AI", "AI 视觉质检", "AI视觉质检", "G01"], domain: G智能, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "G02", type: method, aliases: ["G02", "预测性质量"], domain: G智能, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "G03", type: method, aliases: ["G03", "数字孪生质量仿真"], domain: G智能, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "G04", type: method, aliases: ["G04", "生成式测试设计"], domain: G智能, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "G05", type: method, aliases: ["G05", "无监督异常检测"], domain: G智能, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "G06", type: method, aliases: ["G06", "大模型辅助根因分析"], domain: G智能, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "G07", type: method, aliases: ["G07", "合成数据增强"], domain: G智能, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "G08", type: method, aliases: ["G08", "自适应过程控制"], domain: G智能, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "G09", type: method, aliases: ["G09", "质量知识图谱"], domain: G智能, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
+  - {name: "G10", type: method, aliases: ["AI", "AI 治理与模型风控", "AI治理与模型风控", "G10"], domain: G智能, intent: "", source: tools.md, status: active, level: derived, lifecycle: evolving, tier: warm}
