@@ -139,9 +139,10 @@ QRQC ──→ 8D ──→ 3A5WHY ──→ Poka-Yoke ──→ PFMEA/CP 更新
 
 ## 文件索引
 
-- 四层定义：`references/organization-four-layers.md` §一
-- 四面定义：`references/organization-four-layers.md` §二
-- 多链定义：`references/organization-four-layers.md` §三
-- 三维定位矩阵：`references/organization-four-layers.md` §四
-- 3A5WHY 实践：`references/3a5why.md`
-- 工具实例库：`references/tools-examples.md`
+- 四层定义：`references/governance/organization-four-layers.md` §一
+- 四面定义：`references/governance/organization-four-layers.md` §二
+- 多链定义：`references/governance/organization-four-layers.md` §三
+- 三维定位矩阵：`references/governance/organization-four-layers.md` §四
+- 3A5WHY 实践：`references/methods/3a5why.md`
+- 工具实例库：`references/tools/tools-examples.md`
+- 知识族总纲：`references/knowledge/knowledge-base.md`（第三部分·维度与多维应用·工具案例输出框架）
