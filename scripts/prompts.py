@@ -126,6 +126,29 @@ PROMPT_TEMPLATES: Dict[str, Dict[str, Any]] = {
             }
         ],
     },
+    "qcm_clarify_input": {
+        "description": "QCM 输入引导 prompt · 最小必要信息集(F1-F4)澄清（M2 · 不复用 5Why）",
+        "arguments": [
+            {"name": "intent", "description": "已识别意图", "required": True},
+            {"name": "domain", "description": "已识别领域", "required": False},
+        ],
+        "messages": [
+            {
+                "role": "user",
+                "content": {
+                    "type": "template",
+                    "template": """已识别意图【{intent}】· 领域【{domain}】，但输入语义/语境不全，请补充最小必要信息：
+
+· F1 场景描述（实战问题/危机现象）
+· F2 涉及范围（行业/工艺/危机类型）
+· F3 影响对象（客户端/内部/供应链）
+· F4 期望产出（决策/案例/评估/快响）
+
+请按上述 4 项补齐后重述，便于精准路由与处置。"""
+                }
+            }
+        ],
+    },
 }
 
 
