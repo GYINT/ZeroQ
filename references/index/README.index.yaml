@@ -1,0 +1,17 @@
+# QCM 大语料索引（自动生成 · 勿手改）
+file: references/scenarios/events/README.md
+note: 事件归一化入口目录说明（目录描述·非内容承载；P3 检索面由 enroll_corpus 生成 <event_id>.md 实际承载）
+size_bytes: 1865
+size_kb: 1.8
+anchor_count: 9
+generated: 2026-09-02 18:25
+anchors:
+  - {id: -, title: scenarios/events/ · event 归一化语料入口（【可检索】corpus · 知识族）, level: 1, line: 1, end_line: 11, lines: 11, tags: [], links: []}
+  - {id: -, title: 文件形态（由 enroll_corpus 自动生成，勿手改）, level: 2, line: 7, end_line: 11, lines: 5, tags: [], links: []}
+  - {id: -, title: <event_id> · 归零事件资产化入口, level: 1, line: 12, end_line: 31, lines: 20, tags: [], links: []}
+  - {id: -, title: 核心画像      （标题/领域/严重度/路由意图/关联标签）, level: 2, line: 15, end_line: 15, lines: 1, tags: [], links: []}
+  - {id: -, title: 治理闭环      （有效性验证/水平展开）, level: 2, line: 16, end_line: 16, lines: 1, tags: [], links: []}
+  - {id: -, title: 可借鉴点      （D6 沉淀 / D7 复用特征，deposit 后 enrich）, level: 2, line: 17, end_line: 17, lines: 1, tags: [], links: []}
+  - {id: -, title: 来源          （🔗 真源 + 🔗 原始证据 sources/events/）, level: 2, line: 18, end_line: 24, lines: 7, tags: [], links: []}
+  - {id: -, title: 索引（G-EVT-2 绕 30KB）, level: 2, line: 25, end_line: 28, lines: 4, tags: [], links: []}
+  - {id: -, title: 滞后检测（G-EVT-1 缓解）, level: 2, line: 29, end_line: 31, lines: 3, tags: [], links: []}
