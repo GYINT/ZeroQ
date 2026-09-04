@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""QCM 跨 Skill 依赖解析器（归一化 · 消灭跨 Skill 硬编码）
+"""ZeroQ 跨 Skill 依赖解析器（归一化 · 消灭跨 Skill 硬编码）
 
-背景：QCM ↔ Infoseek 双向联用。此前每个文件各自硬编码 /root/.skills/infoseek
-或 /sandbox/workspace/skills/infoseek，环境重置/部署迁移必坏。
-本模块统一收敛：env > 探测列表 > 验证 > 降级。
+背景：ZeroQ 与生态 Skill（如 Infoseek 调研引擎）双向联用。此前各文件硬编码
+开发机绝对路径，环境迁移/部署必坏。本模块统一收敛：env > 探测列表 > 验证 > 降级。
 
 原则（跨 Skill 专用）：
   ① 探测优先于硬编码：枚举常见安装路径 + 验证标志文件存在
@@ -28,22 +27,11 @@ SKILL_DEFS = {
     "infoseek": {
         "env": "INFOSEEK_ROOT",
         "paths": [
-            "/root/.skills/infoseek",
-            "/sandbox/workspace/skills/infoseek",
-            "~/.workbuddy/skills/infoseek",   # V8.4 A3：本地用户级（Windows/macOS/Linux）
+            "~/.workbuddy/skills/infoseek",   # 本地用户级（Windows/macOS/Linux）
         ],
         "markers": ["SKILL.md", "scripts/infoseek_mcp_server.py"],
     },
-    # 未来扩展：qcm 自身也可注册（供其他 skill 反向依赖）
-    "qcm": {
-        "env": "QCM_ROOT",
-        "paths": [
-            "/root/.skills/QCM",
-            "/sandbox/workspace/skills/QCM",
-            "~/.workbuddy/skills/QCM",        # V8.4 A3：本地用户级
-        ],
-        "markers": ["SKILL.md", "scripts/mcp_server.py"],
-    },
+    # 未来扩展：本 Skill 自身注册（供其他 Skill 反向依赖）时在此追加
 }
 
 
@@ -87,6 +75,6 @@ def require_skill(name: str) -> Path:
 
 
 if __name__ == "__main__":
-    for name in ["infoseek", "qcm"]:
+    for name in ["infoseek"]:
         p = find_skill(name)
         print(f"{name:10s} → {p if p else '❌ 未找到'}")
