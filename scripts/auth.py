@@ -304,7 +304,7 @@ if __name__ == "__main__":
     # Secret 加密
     print("\n=== Secret 加密 ===")
     cipher = SecretCipher("test-master-key")
-    plaintext = "sk-deepseek-real-api-key-12345"
+    plaintext = "sk-TEST-FIXTURE-not-a-real-key"
     encrypted = cipher.encrypt(plaintext)
     print(f"  原文: {plaintext}")
     print(f"  密文: {encrypted[:60]}...")
