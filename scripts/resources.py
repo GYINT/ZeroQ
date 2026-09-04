@@ -29,15 +29,6 @@ class ResourceHandler:
         """corpus: {filename: content} 文件名到内容的映射"""
         self.corpus = corpus
 
-    def _find(self, name: str) -> Optional[str]:
-        """按文件名查找 corpus 内容（兼容子目录前缀 key）"""
-        if name in self.corpus:
-            return self.corpus[name]
-        for k, v in self.corpus.items():
-            if k.endswith("/" + name):
-                return v
-        return None
-
     def list_resources(self) -> List[Dict[str, str]]:
         """列出所有可用资源"""
         resources = []
@@ -46,7 +37,7 @@ class ResourceHandler:
         key_files = ["action-orders.md", "tools.md", "masters.md",
                      "standards-citation.md", "cases.md"]
         for filename in key_files:
-            if self._find(filename) is not None:
+            if filename in self.corpus:
                 resources.append({
                     "uri": f"qcm://corpus/{filename}",
                     "name": filename.replace(".md", "").replace("-", "_"),
@@ -55,7 +46,7 @@ class ResourceHandler:
                 })
 
         # 2. 工具（A01-F10）
-        tools_md = self._find("tools.md") or ""
+        tools_md = self.corpus.get("tools.md", "")
         for m in re.finditer(r"^## ([A-F]\d+)\. (.+)$", tools_md, re.M):
             num, name = m.group(1), m.group(2).strip()
             # 提取简称
@@ -68,7 +59,7 @@ class ResourceHandler:
             })
 
         # 3. 大师
-        masters_md = self._find("masters.md") or ""
+        masters_md = self.corpus.get("masters.md", "")
         # 简单正则：包含在 "## " 下的中文姓名（3-4 字）
         master_names = set()
         for m in re.finditer(r"^## ([^\n]{2,30})\s*$", masters_md, re.M):
@@ -129,7 +120,7 @@ class ResourceHandler:
 
         if path.startswith("corpus/"):
             filename = path[len("corpus/"):]
-            content = self._find(filename)
+            content = self.corpus.get(filename)
             if content is None:
                 return {"error": f"corpus file not found: {filename}", "uri": uri}
             return {
@@ -141,7 +132,7 @@ class ResourceHandler:
             }
         elif path.startswith("tools/"):
             tool_num = path[len("tools/"):]
-            tools_md = self._find("tools.md") or ""
+            tools_md = self.corpus.get("tools.md", "")
             # 提取该工具的完整定义
             pattern = re.compile(
                 rf"^## {tool_num}\. (.+?)(?=^## [A-F]\d+\. |\Z)",
@@ -159,7 +150,7 @@ class ResourceHandler:
             }
         elif path.startswith("masters/"):
             master_name = path[len("masters/"):]
-            masters_md = self._find("masters.md") or ""
+            masters_md = self.corpus.get("masters.md", "")
             # 简单返回段落
             return {
                 "contents": [{
