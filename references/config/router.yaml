@@ -17,3 +17,59 @@ thresholds:
 
   # 回问判定（§14.4 0 词命中 → <0.3 需回问）
   clarify: 0.3
+
+# 置信度阈值矩阵（MDS 动态自适应 · L2 风险分级 · 镜像 capacity.intent_overrides 骨架）
+# 语义：effective_floor = max(intent_overrides[intent], domain_overrides[domain],
+#                             crisis_overrides[F24], default) 再与 F13 输入置信度耦合（M3）
+# 校验：0 < 各 override < 1；缺失键回退 default(0.3)
+clarify_matrix:
+  default: 0.3
+  intent_overrides:
+    "①危机处置": 0.50        # 高风险：抬高门槛，宁问勿错
+    "③评估审计": 0.45        # 中高风险：评估须更稳
+    "②流程优化": 0.35
+    "④知识学习": 0.30
+    "⑤知识沉淀": 0.20        # 低风险：降低门槛，减少打扰
+    "⑥质量文化": 0.35
+  domain_overrides: {}        # 按需按领域覆盖（如 R风险 0.45）
+  crisis_overrides:           # 耦合 MDS F24 危机等级
+    "重度": 0.55
+    "中度危机": 0.45
+    "普通": 0.35
+    "微型": 0.30
+
+# 容量自适应容器（S1 · 归一化动态自适应 · 消费方：router/industry_sync/lifecycle/boundary_test）
+# 语义：仅 base 层计容量，hot 豁免（§11 生命周期天然管理），archived 退出路由不计
+# 模式：fixed=固定值（默认 · 与历史 40/20 零回归）；adaptive=按 base 词总量比例（min/max 保护）
+# 差异化：intent/domain/industry overrides 按具体键覆盖默认限值
+capacity:
+  mode: fixed
+  defaults:
+    intent: {limit: 40, unit: count}
+    domain: {limit: 20, unit: count}
+    industry: {limit: 50, unit: count}   # 行业路由标签维度（新增）
+  intent_overrides:
+    "①危机处置": {limit: 60}    # 业务量大意图：扩容 50%（对齐 dictionary.yaml intent_max=60）
+  domain_overrides: {}
+  industry_overrides: {}
+  adaptive:                      # mode: adaptive 时生效
+    base_ratio: 0.10             # 限值 = base 词总量 × 10%
+    min_limit: 10
+    max_limit: 120
+  lifecycle:                     # 各生命周期容量语义（对齐 §11.2）
+    new: pre_allocate            # 预占 计容量
+    active: count
+    stable: count
+    hot: exempt                  # 豁免（§11 天然管理）
+    archived: release            # 释放（退出路由不计）
+
+# 归零事件复用建议挂载（H2 · S1 建议层 · 消费方：router.py 命中已知危机类型时建议复用归零事件闭环）
+# 语义：意图=①危机处置 且 crisis_type/industry 命中已登记归零事件 → 路由层建议复用其治理闭环（D7 复用向量）
+zero_event_hint:
+  enabled: true
+  trigger_intents: ["①危机处置", "③评估审计", "②流程优化"]
+  match_on: [crisis_type, industry]
+  registry: references/data/zero_events.yaml
+  min_sim: 0.5            # §9.4 复用门槛：≥0.5 中档才建议（<0.3 不复用）
+  operator: zero_event.suggest_reuse   # A1 接线点：router.py 热路径调此只读纯函数
+  hint: "命中已登记归零事件，其治理闭环已沉淀于 cases.md（§十三/§十四 · id: case-ze-qe2026-00X 锚点 + 🔗 注册表指针），建议作为参考案例复用（S1 建议层 · 绝不自动套用治理闭环）"
