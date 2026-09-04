@@ -1,0 +1,13 @@
+# ZeroQ 大语料索引（自动生成 · 勿手改）
+file: references/scenarios/events/QE-2026-002.md
+note: 事件归零资产化入口（归一化·route-aware）· 演示数据
+size_bytes: 620
+size_kb: 0.6
+anchor_count: 5
+generated: 2026-01-01 00:00
+anchors:
+  - {id: -, title: QE-2026-002 · 归零事件资产化入口, level: 1, line: 1, end_line: 20, lines: 20, tags: [], links: []}
+  - {id: -, title: 核心画像, level: 2, line: 7, end_line: 12, lines: 6, tags: [], links: []}
+  - {id: -, title: 治理闭环, level: 2, line: 13, end_line: 16, lines: 4, tags: [], links: []}
+  - {id: -, title: 可借鉴点, level: 2, line: 17, end_line: 19, lines: 3, tags: [], links: []}
+  - {id: -, title: 来源, level: 2, line: 20, end_line: 20, lines: 1, tags: [], links: []}
