@@ -1,0 +1,234 @@
+# QCM 治理缺口归一化注册表（治理成熟度评估 S1 产出 · 单一真源）
+#
+# 双角色定位：
+#   (1) 动态索引（dynamic index） —— 缺口清单登记，status 随自治闭环演进
+#   (2) 归一化注册（normalized registry） —— 可接入 guardian 引擎一等守卫
+#
+# 消费方（规划）：core/governance_check.py -> guardian.py classify/run/nightrun
+# 维护：新增缺口 → 在此登记（id 唯一 · 对齐 g023 治理守卫前缀）
+# 字段说明：
+#   id            缺口唯一 ID（GAP-<维度><序号>）
+#   dimension     治理维度（ref_graph/guard/dual_bind/component/protocol/terminology/deploy/legacy）
+#   layer         治理层（file 文件层 / L1 底层 / L2 输入 / L3 协议 / L4 输出 / L-1 验证 / L-2 协同 / cross 跨层）
+#   category      分类（一致性 / 可靠性 / 稳定性 / 盲区 / 死代码 / 双路漂移 / 生命周期）
+#   severity      critical / high / medium / low
+#   status        open / registered / normalized / watched / resolved / retired
+#   detection     发现方式（manual / audit / guard）
+#   registered_at 登记时间
+#   normalized    是否已归一化注册（true / false）
+#   evidence      证据（文件 / 行 / 命令）
+#   fix           建议修复
+#   target_guard  建议接入的守卫 id（治理闭环落点）
+
+meta:
+  schema_version: 1
+  generated_at: "2026-08-25"
+  source: "治理成熟度评估（引用图/守卫/双绑/组件/协议/术语/部署产物/历史死代码）"
+  total: 15
+  by_severity: {critical: 0, high: 7, medium: 6, low: 2}
+  by_status: {open: 0, registered: 0, normalized: 9, watched: 0, resolved: 6, retired: 0}
+  note: "status/normalized 由 governance_check --nightrun 自动推进；本文件为初始登记快照"
+
+gaps:
+  # ── 引用图维度（ref_graph） ──
+  - id: GAP-RG1
+    dimension: ref_graph
+    layer: file
+    category: 盲区
+    severity: high
+    status: normalized
+    detection: audit
+    registered_at: "2026-08-25"
+    normalized: true
+    evidence: "scripts/corpus_cache.py:ref_graph() 仅扫描 references/ 根；deploy/ 不在 roots"
+    fix: "扩展 ref_graph 多根扫描纳入 deploy/（排除 secrets）；新增 g024 部署产物一致性守卫"
+    target_guard: g024_deploy_health
+
+  - id: GAP-RG2
+    dimension: ref_graph
+    layer: file
+    category: 生命周期
+    severity: medium
+    status: normalized
+    detection: audit
+    registered_at: "2026-08-25"
+    normalized: true
+    evidence: "corpus_cache._iter_files / ref_graph 显式排除 archive/；退役资产无引用图可见性"
+    fix: "archive/ 纳入独立 retired 视图（不进活引用图），由 g021 资产退休环消费"
+    target_guard: g021_asset_retirement
+
+  # ── 守卫维度（guard） ──
+  - id: GAP-G1
+    dimension: guard
+    layer: L-1
+    category: 可靠性
+    severity: high
+    status: normalized
+    detection: audit
+    registered_at: "2026-08-25"
+    normalized: true
+    evidence: "core/guardian.py FALLBACK 仅 18 项 ≠ guardian.yaml 注册 31 项；无自动一致性校验"
+    fix: "新增 guardian --selfcheck：校验 FALLBACK ⊆ registry；CI 门禁拦截缺漏"
+    target_guard: g023_governance_selfcheck
+
+  - id: GAP-G2
+    dimension: guard
+    layer: L3
+    category: 一致性
+    severity: medium
+    status: normalized
+    detection: audit
+    registered_at: "2026-08-25"
+    normalized: true
+    evidence: "无守卫校验『5 范式/5 原则』术语一致性；依赖人工 grep"
+    fix: "新增 g025_terminology 守卫：扫描 forbidden legacy terms（范式/13章等）"
+    target_guard: g025_terminology_consistency
+
+  - id: GAP-G3
+    dimension: guard
+    layer: L1
+    category: 双路漂移
+    severity: medium
+    status: normalized
+    detection: audit
+    registered_at: "2026-08-25"
+    normalized: true
+    evidence: "无守卫校验 components.yaml 键 ↔ 磁盘 .md 双路一致"
+    fix: "新增 g026_component_parity 守卫：键集合对称差 + 重复键检测"
+    target_guard: g026_component_dualpath
+
+  # ── 双绑维度（dual_bind） ──
+  - id: GAP-DB1
+    dimension: dual_bind
+    layer: L3
+    category: 一致性
+    severity: high
+    status: resolved
+    detection: audit
+    registered_at: "2026-08-25"
+    normalized: true
+    evidence: "manifest.yaml description『5 原则』vs 设计表『5 大范式（V6.1-6.3 强化）』内部矛盾 —— P0-1(2026-08-25)已统一为『5 原则』。注：CHANGELOG/archive『范式』为发布史、naming-convention/test-cases『范式』为质量领域术语(SPC/TQM/ISO)，均非设计原则误用，不应改"
+    fix: "统一为『5 原则』；扩展 sync_manifest 校验 SKILL/manifest/skill_meta 三件套术语一致"
+    target_guard: g027_bind_consistency
+
+  - id: GAP-DB2
+    dimension: dual_bind
+    layer: L3
+    category: 一致性
+    severity: medium
+    status: normalized
+    detection: audit
+    registered_at: "2026-08-25"
+    normalized: true
+    evidence: "sync_manifest 实际已覆盖 skill_meta.json（步骤[2/4]）；真实缺口为术语全量同步联合校验（守卫数/章数/版本），已由 g027 落地"
+    fix: "g027 扩展三件套 + 术语字段联合校验"
+    target_guard: g027_bind_consistency
+
+  # ── 组件维度（component） ──
+  - id: GAP-C1
+    dimension: component
+    layer: L1
+    category: 一致性
+    severity: high
+    status: resolved
+    detection: audit
+    registered_at: "2026-08-25"
+    normalized: true
+    evidence: "components.yaml 重复键 _knowledge_points：第110行误置条目(ref §14)被第175行知识骨架簇内同名条目(ref 知识管理)静默覆盖，YAML 加载丢失第110行 —— P0-2(2026-08-25)已删除第110行误置块，保留知识骨架簇规范条目"
+    fix: "P0-2 删除误置重复键；后续启用 YAML 重复键 CI 报错防回归"
+    target_guard: g026_component_dualpath
+
+  - id: GAP-C2
+    dimension: component
+    layer: L1
+    category: 可靠性
+    severity: low
+    status: resolved
+    detection: audit
+    registered_at: "2026-08-25"
+    normalized: true
+    evidence: "components.yaml 注释写『27 组件』，实际去重 28 键 —— P0-2(2026-08-25)已改为『28 组件』与磁盘 28 .md 齐平"
+    fix: "P0-2 修正注释；后续注释改为动态生成（governance_check 输出真实计数）"
+    target_guard: g026_component_dualpath
+
+  # ── 协议维度（protocol） ──
+  - id: GAP-P1
+    dimension: protocol
+    layer: L3
+    category: 一致性
+    severity: medium
+    status: normalized
+    detection: audit
+    registered_at: "2026-08-25"
+    normalized: true
+    evidence: "部分文档/测试仍引用旧章数（13章）或旧术语（5范式）；协议版本演进无守卫门禁"
+    fix: "新增 g028_protocol_version 守卫：校验全仓章数/版本引用与 action-orders 文件头一致"
+    target_guard: g028_protocol_version
+
+  # ── 术语维度（terminology） ──
+  - id: GAP-T1
+    dimension: terminology
+    layer: cross
+    category: 一致性
+    severity: high
+    status: resolved
+    detection: audit
+    registered_at: "2026-08-25"
+    normalized: true
+    evidence: "原判『改名未全量』过度泛化。实测全仓设计原则『5 大范式』残留仅 manifest.yaml 设计表一处(=GAP-DB1同因)，已 P0-1 修复；CHANGELOG/archive『范式』为发布史、naming-convention/test-cases『范式』为质量方法论术语，与设计原则无关，不应改"
+    fix: "P0-1 已修复 manifest 设计表；保留质量领域『范式』术语；g025 仅守设计原则语境"
+    target_guard: g025_terminology_consistency
+
+  - id: GAP-T2
+    dimension: terminology
+    layer: cross
+    category: 一致性
+    severity: high
+    status: normalized
+    detection: audit
+    registered_at: "2026-08-25"
+    normalized: true
+    evidence: "『工具』术语三义：MCP 代码工具 10 / 质量实例 86（tools.md）/ 领域分类 87（全景审计 GAP-1）"
+    fix: "在 naming-convention.md 受控定义『工具』三义并加 g025 引用校验"
+    target_guard: g025_terminology_consistency
+
+  # ── 部署产物维度（deploy） ──
+  - id: GAP-D1
+    dimension: deploy
+    layer: L-2
+    category: 盲区
+    severity: high
+    status: normalized
+    detection: audit
+    registered_at: "2026-08-25"
+    normalized: true
+    evidence: "deploy/ 17 文件（api/openapi.yaml, docker, k8s/helm, monitoring）无任何守卫覆盖与一致性校验"
+    fix: "g024 校验 deploy 产物与协议/组件/文档引用一致；纳入 ref_graph 与 nightrun"
+    target_guard: g024_deploy_health
+
+  # ── 历史死代码逻辑架构维度（legacy） ──
+  - id: GAP-L1
+    dimension: legacy
+    layer: file
+    category: 死代码
+    severity: medium
+    status: resolved
+    detection: audit
+    registered_at: "2026-08-25"
+    normalized: true
+    evidence: "archive/ 5 文件（4 .deprecated）+ g021 资产退休环季度物理清理未自动化，死代码簇 silent"
+    fix: "g021 R4R 观察期后接自动化物理清理（沙箱护栏放行环境）；archive 纳入 retired 视图"
+    target_guard: g021_asset_retirement
+
+  - id: GAP-L2
+    dimension: legacy
+    layer: L1
+    category: 双路漂移
+    severity: low
+    status: resolved
+    detection: audit
+    registered_at: "2026-08-25"
+    normalized: true
+    evidence: "潜在孤儿组件（如 _crisis_judge_mini）经 core/assembler.py 默认映射，但未显式登记依赖"
+    fix: "组件依赖显式登记于 components.yaml（dep 字段）；g026 校验引用闭合"
+    target_guard: g026_component_dualpath
