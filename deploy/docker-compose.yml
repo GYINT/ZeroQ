@@ -1,0 +1,75 @@
+# QCM MCP Server — 全栈编排（E1-02）
+# 组件：qcm-mcp（MCP 服务器） + prometheus（指标采集） + grafana（可视化）
+#
+# 一键起：docker compose -f deploy/docker-compose.yml up -d --build
+# 访问：
+#   MCP HTTP  : http://localhost:8080/health  ·  /openapi.json  ·  /metrics
+#   Prometheus: http://localhost:9090
+#   Grafana   : http://localhost:3000  (admin / 见 deploy/README.md)
+version: "3.8"
+
+services:
+  qcm-mcp:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    image: qcm-mcp:1.0.1
+    container_name: qcm-mcp
+    ports:
+      - "8080:8080"
+    environment:
+      - QCM_REQUIRE_TOKEN=${QCM_REQUIRE_TOKEN:-1}
+      - QCM_TOKEN=${QCM_TOKEN:-}
+      - QCM_ACCESS_LOG_DIR=/var/log/qcm-access
+      - QCM_AUDIT_DIR=/var/log/qcm-audit
+    volumes:
+      - qcm-access:/var/log/qcm-access
+      - qcm-audit:/var/log/qcm-audit
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8080/health').status==200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    restart: unless-stopped
+    networks: [qcm-net]
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: qcm-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--web.enable-lifecycle"
+    restart: unless-stopped
+    networks: [qcm-net]
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: qcm-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - grafana-data:/var/lib/grafana
+    depends_on: [prometheus]
+    restart: unless-stopped
+    networks: [qcm-net]
+
+volumes:
+  qcm-access:
+  qcm-audit:
+  prometheus-data:
+  grafana-data:
+
+networks:
+  qcm-net:
+    driver: bridge
