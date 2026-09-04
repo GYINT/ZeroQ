@@ -1,0 +1,66 @@
+# QCM 大语料索引（自动生成 · 勿手改）
+file: references/testing/test-cases.md
+note: 测试案例库（>30KB）
+size_bytes: 53584
+size_kb: 52.3
+anchor_count: 58
+generated: 2026-09-02 18:25
+anchors:
+  - {id: -, title: QCM 测试用例集, level: 1, line: 1, end_line: 772, lines: 772, tags: [], links: [§八, §六, §二]}
+  - {id: -, title: A 组 · 基本原则, level: 2, line: 18, end_line: 24, lines: 7, tags: [], links: []}
+  - {id: -, title: B 组 · 问题分类, level: 2, line: 25, end_line: 31, lines: 7, tags: [], links: []}
+  - {id: -, title: C 组 · 穿透框架, level: 2, line: 32, end_line: 38, lines: 7, tags: [], links: []}
+  - {id: -, title: D 组 · 风险评价, level: 2, line: 39, end_line: 45, lines: 7, tags: [], links: []}
+  - {id: -, title: G 组 · 穿透韧性, level: 2, line: 46, end_line: 52, lines: 7, tags: [], links: []}
+  - {id: -, title: H 组 · 成熟度诊断, level: 2, line: 53, end_line: 58, lines: 6, tags: [], links: []}
+  - {id: -, title: 引用完整性, level: 2, line: 59, end_line: 67, lines: 9, tags: [], links: []}
+  - {id: -, title: O 组 · 输出边界（v2.9 新增）, level: 2, line: 68, end_line: 132, lines: 65, tags: [], links: []}
+  - {id: -, title: O-1 组 · 层级边界（★ 高）, level: 3, line: 74, end_line: 83, lines: 10, tags: [], links: []}
+  - {id: -, title: O-2 组 · 导航头完整性（★ 高）, level: 3, line: 84, end_line: 92, lines: 9, tags: [], links: []}
+  - {id: -, title: O-3 组 · 字段门控边界（★ 高）, level: 3, line: 93, end_line: 101, lines: 9, tags: [], links: []}
+  - {id: -, title: O-4 组 · 置信度边界（扩展）, level: 3, line: 102, end_line: 108, lines: 7, tags: [], links: []}
+  - {id: -, title: O-5 组 · 覆盖边界（扩展）, level: 3, line: 109, end_line: 115, lines: 7, tags: [], links: []}
+  - {id: -, title: O-6 组 · 表达规范边界（扩展）, level: 3, line: 116, end_line: 123, lines: 8, tags: [], links: []}
+  - {id: -, title: O 组执行顺序, level: 3, line: 124, end_line: 132, lines: 9, tags: [], links: []}
+  - {id: -, title: F 组 · 正向链路（输入→决策→输出 · v2.10 新增）, level: 2, line: 133, end_line: 185, lines: 53, tags: [], links: []}
+  - {id: -, title: F 组扩展（边界压力 · v2.12 新增）, level: 3, line: 149, end_line: 161, lines: 13, tags: [], links: []}
+  - {id: -, title: F 组执行顺序（更新）, level: 3, line: 162, end_line: 169, lines: 8, tags: [], links: []}
+  - {id: -, title: F 组扩展二 · 前景输入优先级路由（v2.14 新增）, level: 3, line: 170, end_line: 185, lines: 16, tags: [], links: []}
+  - {id: -, title: R 组 · 反向链路（输出→决策→输入回溯 · v2.10 新增）, level: 2, line: 186, end_line: 247, lines: 62, tags: [], links: []}
+  - {id: -, title: R 组扩展（边界压力 · v2.12 新增）, level: 3, line: 202, end_line: 214, lines: 13, tags: [], links: []}
+  - {id: -, title: R 组执行顺序（更新）, level: 3, line: 215, end_line: 222, lines: 8, tags: [], links: []}
+  - {id: -, title: R 组扩展二 · 前景输入反向回溯（v2.14 新增）, level: 3, line: 223, end_line: 238, lines: 16, tags: [], links: []}
+  - {id: -, title: F/R 组执行顺序, level: 3, line: 239, end_line: 247, lines: 9, tags: [], links: []}
+  - {id: -, title: S 组 · 场景集成测试（8 车间 × 链路 · v2.11 新增）, level: 2, line: 248, end_line: 273, lines: 26, tags: [], links: []}
+  - {id: -, title: S 组执行顺序, level: 3, line: 265, end_line: 273, lines: 9, tags: [], links: []}
+  - {id: -, title: X 组 · 挤压测试报告（v2.12 · 四类）, level: 2, line: 274, end_line: 378, lines: 105, tags: [], links: [§八]}
+  - {id: -, title: X-1 全链路挤压（输入→场景决策→输出）, level: 3, line: 279, end_line: 288, lines: 10, tags: [], links: []}
+  - {id: -, title: X-2 决策格工具可用性, level: 3, line: 289, end_line: 296, lines: 8, tags: [], links: []}
+  - {id: -, title: X-3 运行完整性/稳定性, level: 3, line: 297, end_line: 305, lines: 9, tags: [], links: []}
+  - {id: -, title: X-4 模块泛化边界与交叉关联, level: 3, line: 306, end_line: 314, lines: 9, tags: [], links: []}
+  - {id: -, title: X-2b 工具适用性维度（v2.14 升级 · 项目②）, level: 3, line: 315, end_line: 330, lines: 16, tags: [], links: []}
+  - {id: -, title: X-3b 运行稳定性（v2.14 升级 · 项目③）, level: 3, line: 331, end_line: 347, lines: 17, tags: [], links: []}
+  - {id: -, title: X-4b 模块泛化边界与交叉关联（v2.14 升级 · 项目④）, level: 3, line: 348, end_line: 363, lines: 16, tags: [], links: [§八]}
+  - {id: -, title: X 组结论, level: 3, line: 364, end_line: 378, lines: 15, tags: [], links: []}
+  - {id: -, title: Y 组 · 孤儿模块单测vs混测对比边界（v2.14 新增）, level: 2, line: 379, end_line: 570, lines: 192, tags: [], links: [§八, §六, §二]}
+  - {id: -, title: Y-1 naming-convention.md（真孤儿 · 入度0）, level: 3, line: 385, end_line: 397, lines: 13, tags: [], links: []}
+  - {id: -, title: Y-2 problem-solving.md（真孤儿 · 入度0）, level: 3, line: 398, end_line: 421, lines: 24, tags: [], links: []}
+  - {id: -, title: Y-3 mds-input.md（半耦合 · 入度1）, level: 3, line: 422, end_line: 441, lines: 20, tags: [], links: []}
+  - {id: -, title: Y-4 extension.md（半耦合 · 入度2）, level: 3, line: 442, end_line: 454, lines: 13, tags: [], links: []}
+  - {id: -, title: Y-5 navigation.md（半耦合 · 入度1）, level: 3, line: 455, end_line: 466, lines: 12, tags: [], links: []}
+  - {id: -, title: Y 组结论, level: 3, line: 467, end_line: 484, lines: 18, tags: [], links: [§八]}
+  - {id: -, title: Y-6~Y-14 主干模块全模块矩阵（v2.15）, level: 3, line: 485, end_line: 514, lines: 30, tags: [], links: [§六, §二]}
+  - {id: -, title: Y 组结论（v2.15 更新）, level: 3, line: 515, end_line: 540, lines: 26, tags: [], links: [§八]}
+  - {id: -, title: F/R 扩展三 · 加压（v2.15 新增）, level: 3, line: 541, end_line: 557, lines: 17, tags: [], links: []}
+  - {id: -, title: X-5 压力测试段（v2.15 新增）, level: 3, line: 558, end_line: 570, lines: 13, tags: [], links: []}
+  - {id: -, title: Z 组 · 全链路端到端压测（v2.15 新增）, level: 2, line: 571, end_line: 614, lines: 44, tags: [], links: []}
+  - {id: -, title: Z 组结论, level: 3, line: 604, end_line: 614, lines: 11, tags: [], links: []}
+  - {id: -, title: v4.6 测试组（对齐 action-orders.md · 2026-08-08 补入）, level: 2, line: 615, end_line: 633, lines: 19, tags: [], links: []}
+  - {id: -, title: V4.8 组 · 4×N 维度归一化测试用例, level: 2, line: 634, end_line: 654, lines: 21, tags: [], links: [§六]}
+  - {id: -, title: V5.0 组 · 动作维度主·时间维度子架构测试用例, level: 2, line: 655, end_line: 675, lines: 21, tags: [], links: [§六]}
+  - {id: -, title: V6.0 组 · 输出层 4 形态测试用例（P4 扩展）, level: 2, line: 676, end_line: 696, lines: 21, tags: [], links: []}
+  - {id: -, title: V8.0+ 组 · 15 协议 + 缺口暴露驱动 Infoseek 协同测试用例, level: 2, line: 697, end_line: 720, lines: 24, tags: [], links: []}
+  - {id: -, title: V8.2 组（判定+资产+路由 · 2026-08-14 新增）, level: 2, line: 721, end_line: 737, lines: 17, tags: [], links: []}
+  - {id: -, title: V8.8 组 · 6 场景路由测试（12+6 用例 · 2026-08-25 新增）, level: 2, line: 738, end_line: 772, lines: 35, tags: [], links: []}
+  - {id: -, title: V8.8 场景组（12 · 6 意图 × 2）, level: 3, line: 744, end_line: 760, lines: 17, tags: [], links: []}
+  - {id: -, title: V8.8 链式组（6 · 每意图 1 条端到端）, level: 3, line: 761, end_line: 772, lines: 12, tags: [], links: []}
