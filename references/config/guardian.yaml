@@ -1,0 +1,206 @@
+# QCM 守卫注册中心（S3 · 归一化定义 · 六要素元数据）
+# 用途：登记全部守卫（id/severity/phase/trigger/data/level/exempt）——归一化守卫体系的定义层
+# 消费方：core/guardian.py（load_registry → 裁剪 → 归类 → 报告）
+# 维护：新增守卫时在此登记（id 唯一 · 对齐 config_sync.py 输出前缀的 alias）
+# 阶段（phase）：register 注册环 / inject 注入环 / run 运行环 / decision 决策校准环
+# 触发（trigger）：ci / watch 变更 / inject 注入 / evolution 闭环 / nightrun 夜巡 / load 加载
+# 等级（level）：full 全量 / l2 结构体 / kw 关键词级 / adaptive 自适应 / l0 轻量
+
+guardians:
+  # ── g000 基础配置一致性（role/validator 基检 + 标签值域 · l0 超轻量常驻） ──
+  - {id: g000_core, alias: ["T1.6 标签一致性"], severity: error, phase: register,
+     trigger: [ci, watch], data: [role.yaml, validator.yaml, keyword.yaml], level: l0,
+     desc: "role/validator 配置一致性 + 领域标签值域校验（l0 超轻量常驻 · 懒加载最基层）", impl: "config_sync.py:T1.6 标签一致性"}
+
+  # ── g001~g010 + g012 文件层健康（config_sync file_health_check · 前缀 [文件健康①~⑩,⑫]；⑪ 为 g011_dict_registry 字典注册） ──
+  - {id: g001_dangling_ref, alias: ["文件健康①"], severity: error, phase: register,
+     trigger: [ci, watch], data: [SKILL.md, manifest.yaml], level: full,
+     desc: "SKILL.md 引用文件必须存在且不在 archive/", impl: "config_sync.py:文件健康①"}
+  - {id: g002_deprecated, alias: ["文件健康②"], severity: error, phase: register,
+     trigger: [ci, watch], data: [references/, scripts/, outputs/], level: full,
+     desc: "archive/ 外不允许 .deprecated 后缀", impl: "config_sync.py:文件健康②"}
+  - {id: g003_ownership, alias: ["文件健康③"], severity: error, phase: register,
+     trigger: [ci], data: [outputs/], level: full,
+     desc: "outputs/ 禁止 deprecated 文件", impl: "config_sync.py:文件健康③"}
+  - {id: g004_test_archive, alias: ["文件健康④"], severity: warn, phase: register,
+     trigger: [ci], data: [scripts/], level: full,
+     desc: "scripts/ 根不允许 *_test.py 堆积（应入 tests/）", impl: "config_sync.py:文件健康④"}
+  - {id: g005_nested_link, alias: ["文件健康⑤"], severity: error, phase: register,
+     trigger: [ci, watch], data: [root], level: full,
+     desc: "QCM/QCM 悬空符号链接即报错", impl: "config_sync.py:文件健康⑤"}
+  - {id: g006_capacity_files, alias: ["文件健康⑥"], severity: warn, phase: register,
+     trigger: [ci], data: [components/, tests/, .file-manifest.yaml], level: full,
+     desc: "组件/测试容量上限（超限告警 · 与 .file-manifest 对齐）", impl: "config_sync.py:文件健康⑥"}
+  - {id: g007_qcm_hardcode, alias: ["文件健康⑦"], severity: error, phase: register,
+     trigger: [ci, watch], data: [scripts/, tests/], level: full,
+     desc: "QCM 本体路径硬编码零容忍（应使用 qcm_paths/env）", impl: "config_sync.py:文件健康⑦"}
+  - {id: g008_plugins, alias: ["文件健康⑧"], severity: warn, phase: register,
+     trigger: [ci], data: [plugins/], level: full,
+     desc: "plugins 目录存在性", impl: "config_sync.py:文件健康⑧"}
+  - {id: g009_cross_skill_hardcode, alias: ["文件健康⑨"], severity: error, phase: register,
+     trigger: [ci, watch], data: [scripts/, tests/], level: full,
+     desc: "跨 Skill 硬编码零容忍（禁止裸内部绝对路径 skills 安装目录）", impl: "config_sync.py:文件健康⑨"}
+  - {id: g010_ref_exists, alias: ["文件健康⑩"], severity: error, phase: register,
+     trigger: [ci, watch], data: [core/, scripts/, references/], level: full,
+     desc: "配置引用存在性（references 字面引用必须存在 · 防 reorg 断链）", impl: "config_sync.py:文件健康⑩"}
+  - {id: g012_rglob_scan, alias: ["文件健康⑫"], severity: error, phase: register,
+     trigger: [ci, watch], data: [core/, scripts/], level: full,
+     desc: "references 禁止 os.listdir 顶层扫描（应 Path.rglob 递归 · 反重组回归）", impl: "config_sync.py:文件健康⑫"}
+
+  # ── g011 字典注册合规（V8.4 B1 · 前缀 [字典注册]） ──
+  - {id: g011_dict_registry, alias: ["字典注册"], severity: error, phase: register,
+     trigger: [ci, watch], data: [dictionary.yaml, config/*.yaml], level: full,
+     desc: "字典登记覆盖 + 字段完整 + schema 引用 + 消费方存在 + 容量比对", impl: "config_sync.py:字典注册"}
+
+  # ── g013 Key 健康（V8.4 T6 · 前缀 [Key 健康⑬]） ──
+  - {id: g013_key_health, alias: ["Key 健康⑬"], severity: warn, phase: run,
+     trigger: [ci, nightrun], data: [key_state.json], level: full,
+     desc: "key_state.json 熔断/耗尽状态告警", impl: "config_sync.py:Key 健康⑬"}
+
+  # ── g014 四件套齐备性（V8.4+ · 前缀 [四件套⑭] · industry 词豁免） ──
+  - {id: g014_four_aspect, alias: ["四件套⑭"], severity: warn, phase: inject,
+     trigger: [ci], data: [keyword.yaml, methods/, contract/, action-orders.md], level: full,
+     exempt: ["source: industry"], desc: "方法论词条四件套齐备（模板/摘要/词条/登记）", impl: "config_sync.py:四件套⑭"}
+
+  # ── g015 契约校验（V8.4+ · 前缀 [契约⑮] · L1 字段 / L2 结构体） ──
+  - {id: g015_contract, alias: ["契约⑮"], severity: warn, phase: inject,
+     trigger: [ci, watch], data: [contract/*.md], level: l2,
+     desc: "contract/ 模板须含输入/输出结构体契约（L1 字段存在性 → L2 成对校验）", impl: "config_sync.py:契约⑮"}
+
+  # ── g016 行业包登记 + 关键词级注入（V8.5 · 前缀 [行业包⑯] / [行业包⑯-KW]） ──
+  - {id: g016_pack_registry, alias: ["行业包⑯"], severity: error, phase: register,
+     trigger: [ci, inject, watch], data: [industry/index.yaml, industry/*.md], level: full,
+     desc: "行业包登记覆盖 + 字段完整（新增行业包必须登记 index.yaml）", impl: "config_sync.py:行业包⑯"}
+  - {id: g016_kw_injected, alias: ["行业包⑯-KW"], severity: warn, phase: inject,
+     trigger: [ci, inject], data: [industry/index.yaml, keyword.yaml], level: kw,
+     desc: "登记 keywords 必须已注入 keyword.yaml（断裂点4 · B5 行业扩展前置）", impl: "config_sync.py:行业包⑯-KW"}
+
+  # ── g018 语料清单登记（V8.6 · 前缀 [语料登记⑱] · 自适应分类+自动检入归一化守门） ──
+  - {id: g018_corpus_registry, alias: ["语料登记⑱"], severity: error, phase: register,
+     trigger: [ci, nightrun, watch], data: [corpus_manifest.yaml, references/index/*.index.yaml], level: full,
+     desc: "大语料清单登记：新增大文件必须登记 corpus_manifest.yaml + 索引新鲜 + corpus/excluded 不冲突（自适应分类+自动检入归一化守门）", impl: "config_sync.py:语料登记⑱"}
+
+  # ── g019 运行态缓存（M1/M2 · 前缀 [运行态缓存⑲] · 动态分类分层+全生命周期轮转归一化守门） ──
+  - {id: g019_runtime_cache, alias: ["运行态缓存⑲", "运行态缓存"], severity: warn,
+     phase: [register, nightrun, decision, watch], trigger: [ci, nightrun, watch],
+     data: [outputs/.runtime/corpus.db, references/, docs/, outputs/, components/, archive/],
+     level: adaptive,
+     desc: "运行态缓存全生命周期（多 root 分类分层+容量上限+老化轮转+漂移检测）归一化守门", impl: "config_sync.py:运行态缓存⑲"}
+
+  # ── g_capacity 容量容器（S1+M5 · 前缀 [容量容器] · 持久化台账+漂移 去空壳） ──
+  - {id: g_capacity, alias: ["容量容器"], severity: error,
+     phase: [register, inject, run, nightrun, decision],
+     trigger: [ci, inject, evolution, load, nightrun],
+     data: [router.yaml, keyword.yaml, outputs/.runtime/capacity_ledger.json], level: adaptive,
+     desc: "容量容器检查（core/capacity.py · 持久化台账+漂移+超限归一化守门 · M5 去空壳）", impl: "capacity.py:check_ledger"}
+
+  # ── g020 同源文件归一化（M3 · 前缀 [同源文件⑳] · H1 缺口落地 · 文件层动态自适应） ──
+  - {id: g020_file_homology, alias: ["同源文件⑳", "同源文件", "file_homology", "同根聚类"],
+     severity: warn, phase: [register, nightrun, decision], trigger: [ci, nightrun],
+     data: [references/**/*.md, outputs/.runtime/ref_heat.json], level: adaptive,
+     desc: "文件/资料层同源指纹聚类（标题/首段/锚点重叠）+ 交叉引用缺失检测 · 标记疑似同根未互链（阈值 0.6 动态校准 · report-only）", impl: "config_sync.py:同源文件⑳"}
+  # ── g020b 废弃资产模板校验（R-4 · 前缀 [废弃资产⑳b] · DEPRECATED 头结构 + redirect_to 存在性） ──
+  - {id: g020b_deprecated_asset, alias: ["废弃资产⑳b", "废弃资产", "deprecated_asset"],
+     severity: warn, phase: [register, nightrun], trigger: [ci, nightrun],
+     data: [references/**/*.md], level: full,
+     desc: "废弃资产模板校验：DEPRECATED 头须 > [!WARNING] + redirect_to 字段且目标存在（规范 governance/asset-lifecycle.md · report-only）", impl: "config_sync.py:废弃资产⑳b"}
+  # ── g021 资产退休注册（R-6 · 前缀 [资产退休㉑] · R4R 状态机 + 观察期 + 季度物理清理） ──
+  - {id: g021_asset_retirement, alias: ["资产退休㉑", "资产退休", "asset_retirement"],
+     severity: warn, phase: [register, nightrun], trigger: [ci, nightrun],
+     data: [references/config/asset_retirement.json, outputs/.runtime/ref_graph.json], level: full,
+     desc: "R4R 资产退休环：孤儿/悬空/废弃三源扫描 → 30d 观察 → 月度评审 → 人工 retire/revive/whitelist → 每 1 个季度物理清理（report-only）", impl: "config_sync.py:资产退休㉑"}
+
+  # ── g022 未登记语料扫描（V8.6+ · 前缀 [未登记语料㉒] · 闭环小文件静默孤儿根因） ──
+  - {id: g022_unregistered_corpus, alias: ["未登记语料㉒", "未登记语料", "unregistered_corpus"],
+     severity: warn, phase: [register, nightrun], trigger: [ci, nightrun],
+     data: [references/config/corpus_manifest.yaml], level: full,
+     desc: "未登记语料扫描：corpus 类目录(knowledge/tools/scenarios/protocol/industry)下 .md 若未登记 corpus_manifest.yaml → corpus_loader 不可达、静默变孤儿（auto_checkin 仅检入>30KB 大文件的根因）。report-only，建议登记 manifest 或评估归档。", impl: "config_sync.py:未登记语料㉒"}
+
+  # ── g017 反向守卫族（S4 实施 · core/guardian_reverse.py · 前缀 [反向R1]~[反向R8] · 含 r1~r8 八族） ──
+  - {id: g017_r1_orphan_rev, alias: ["[反向R1]"], severity: warn, phase: decision,
+     trigger: [ci, nightrun], data: [keyword.yaml, index.yaml], level: full,
+     desc: "R1 孤儿反向：source: industry 词条 origin → 源 pack 仍登记于 index.yaml", impl: "guardian_reverse.py:check_r1"}
+  - {id: g017_r2_word_sem, alias: ["[反向R2]"], severity: warn, phase: decision,
+     trigger: [ci, nightrun], data: [keyword.yaml, semantic.yaml], level: full,
+     desc: "R2 词面校准：声明意图 vs 同根/上下位族主导意图（confirmed_pairs 豁免）", impl: "guardian_reverse.py:check_r2"}
+  - {id: g017_r3_usage_cal, alias: ["[反向R3]"], severity: warn, phase: decision,
+     trigger: [nightrun, evolution], data: [usage_stats.json, keyword.yaml], level: full,
+     desc: "R3 使用事实校准：实际主导意图 vs 声明意图（S2 usage_stats · 阈值 60%/min 3）", impl: "guardian_reverse.py:check_r3"}
+  - {id: g017_r4_heat_sr, alias: ["[反向R4]"], severity: warn, phase: decision,
+     trigger: [nightrun, evolution], data: [hit_stats.json, keyword.yaml], level: full,
+     desc: "R4 热度一致性：30d 高命中非 hot / 90d 零活动未归档 / hot 名不副实", impl: "guardian_reverse.py:check_r4"}
+  - {id: g017_r5_chain_bi, alias: ["[反向R5]"], severity: warn, phase: [register, inject, decision],
+     trigger: [ci, inject], data: [keyword.yaml, industry/index.yaml, source_links.yaml], level: full,
+     desc: "R5 注入链双向引用：词条 pack_ref ↔ pack 登记（按 source_links 映射遍历多词源）", impl: "guardian_reverse.py:check_r5"}
+  - {id: g017_r6_src_probe, alias: ["[反向R6]"], severity: warn, phase: register,
+     trigger: [ci, watch], data: [keyword.yaml, source_links.yaml], level: kw,
+     desc: "R6 词源自适应探测：keyword.yaml 出现未登记 source 值（source_links 未映射）→ 提示登记", impl: "guardian_reverse.py:check_r6"}
+  - {id: g017_r7_static_bind, alias: ["[反向R7]"], severity: warn, phase: decision,
+     trigger: [ci, nightrun], data: [keyword.yaml, entities.yaml], level: full,
+     desc: "R7 静态绑定碰撞：keyword.yaml 静态意图绑定 不得与 method 实体（intent='' 跨意图锚点）词面/别名碰撞（§14.8 顶层宽 · static_bindings_allowlist 白名单豁免）", impl: "guardian_reverse.py:check_r7"}
+  - {id: g017_r8_entity_cal, alias: ["[反向R8]"], severity: warn, phase: [register, decision],
+     trigger: [ci, nightrun], data: [entities.yaml, entity_hit_stats.json], level: full,
+     desc: "R8 实体分层+使用事实校准：实体分层字段(status/level/lifecycle/tier)枚举合法性 + 声明 tier/status 与命中热度自洽（M1.0 · 闭环 method 实体缺三段离群 · report-only）", impl: "guardian_reverse.py:check_r8"}
+
+  # ── g023~g028 治理自愈守卫族（S8 · 归一化治理闭环 · 定义层登记） ──
+  - {id: g023_governance_selfcheck, alias: ["治理自检"], severity: warn, phase: register,
+     trigger: [nightrun, ci], data: [governance_gaps.yaml, guardian.yaml], level: full,
+     desc: "治理缺口注册表存在且全部 normalized；FALLBACK⊆registry；兜底表与注册中心一致", impl: "governance_check.py:check_g023_selfcheck"}
+  - {id: g024_deploy_health, alias: ["部署产物健康"], severity: warn, phase: register,
+     trigger: [ci, watch], data: [deploy/], level: full,
+     desc: "deploy/ 产物纳入 corpus 多根扫描且无孤儿/死文件（闭环 GAP-D/RG1）", impl: "governance_check.py:check_g024_deploy_health"}
+  - {id: g025_terminology_consistency, alias: ["术语一致"], severity: warn, phase: register,
+     trigger: [ci], data: [manifest.yaml, SKILL.md, naming-convention.md], level: l2,
+     desc: "设计原则语境禁止『5 大范式』残留（仅允许质量领域范式术语）；意图表==router INTENTS（A+B B-3 · gen_intent_table 派生断言）", impl: "governance_check.py:check_g025_terminology"}
+  - {id: g026_component_dualpath, alias: ["组件双路一致"], severity: error, phase: register,
+     trigger: [ci, watch], data: [components.yaml, components/], level: full,
+     desc: "components.yaml 键集合 == 磁盘 components/*.md（无重复键/孤儿/缺漏）", impl: "governance_check.py:check_g026_component_dualpath, validator.py:check_component_closure, validator.py:check_component_engine, validator.py:check_component_mapping"}
+  - {id: g027_bind_consistency, alias: ["双绑一致"], severity: error, phase: register,
+     trigger: [ci], data: [SKILL.md, manifest.yaml, skill_meta.json], level: l2,
+     desc: "SKILL/manifest/skill_meta 三件套双绑一致（守卫数/协议章数/版本号）", impl: "governance_check.py:check_g027_bind_consistency"}
+  - {id: g028_protocol_version, alias: ["协议版本一致"], severity: warn, phase: register,
+     trigger: [ci], data: [action-orders.md, manifest.yaml], level: l2,
+     desc: "action-orders 实际章数 == 声明章数（如 15 章）且与 manifest 对齐", impl: "governance_check.py:check_g028_protocol_version"}
+
+  # ── g029 退役资产编目漂移（GAP-L1 动态自适应 · 前缀 [archive 编目漂移] · archive/inventory.py） ──
+  - {id: g029_archive_drift, alias: ["archive 编目漂移"], severity: warn, phase: [register, nightrun],
+     trigger: [ci, nightrun], data: [archive/], level: full,
+     desc: "archive/ 实际文件 vs INDEX.md 编目比对：孤儿（未编目）/悬空（编目无文件）→ 动态自适应闭环（report-only）", impl: "governance_check.py:check_g029_archive_drift"}
+
+  # ── g031 澄清率漂移（L3 · GAP-L1 动态自适应延伸 · 前缀 [澄清率漂移] · core/usage_drift.py） ──
+  - {id: g031_clarify_drift, alias: ["澄清率漂移"], severity: warn, phase: [register, nightrun],
+     trigger: [ci, nightrun], data: [references/usage_global.json], level: full,
+     desc: "usage_global clarify/intent 双维：逐意图澄清率超阈值(>20%)→ 提示阈值/提示词需复盘 → 供 R3 校准器消费（report-only · 复刻 g029）", impl: "governance_check.py:check_g031_clarify_drift"}
+  # ── g0ze 归零事件全景维度（子模块 · 默认关闭 · 仅用户 --trigger 记录） ──
+  - {id: g0ze_panorama, alias: ["归零事件全景维度", "zero_event"], severity: info, phase: [trigger],
+     trigger: [user], data: [references/data/zero_events.yaml], level: full,
+     desc: "质量事件（归零）全景维度体系化跟踪：10 维度 ZE-PDM + 状态机 spine；默认关闭，--trigger 主动记录（report-only）", impl: "core/zero_event.py:main"}
+
+  # ── g032 归零事件观测守卫（M1 · GAP-QE 观测维度 · 前缀 [归零事件观测] · governance_check.py） ──
+  - {id: g032_zero_event_obs, alias: ["归零事件观测"], severity: warn, phase: [register, nightrun],
+     trigger: [ci, nightrun], data: [references/data/zero_events.yaml], level: full,
+     desc: "zero_events.yaml 观测：闭环门禁未过 / 复发≥2 但 AO-4 未触发 / 有复发但复用率=0 → 动态自适应闭环（report-only）", impl: "governance_check.py:check_g032_zero_event_obs"}
+
+
+  # ── g030 元守卫（M1.4 · 前缀 [元守卫] · 实现态↔注册态差集 + 元数据漂移 + 治理文件冗余 · report-only） ──
+  - {id: g030_meta_completeness, alias: ["元守卫", "meta_completeness"],
+     severity: warn, phase: [register, decision], trigger: [ci, watch, nightrun],
+     data: [guardian.yaml, core/*.py, governance_gaps.yaml, gap_tracker.md], level: full,
+     impl: "governance_check.py:check_g030_meta",
+     desc: "元层完备性：实现态↔注册态差集（幽灵注册/漏登）+ 元数据漂移 + 治理文件冗余（report-only · fail-open）"}
+# ── loaders 段（R18 P3 · 懒加载归一化定义层） ──
+# 用途：登记全部懒加载语料对象（object/level/group/freq）——P3 loader 元数据
+# 消费方：core/guardian.py registry_summary（--registry 输出 loaders 统计）、config_sync g011（登记门）
+# 对象（object）：tools/knowledge-base/masters/cases/action-orders/test-cases（= corpus_loader CORPUS_FILES 键）
+# 等级（level）：full 全量 / chapter 按章 / kw 关键词级 / index 仅索引（与守卫分级同语）
+# 分组（group）：工具族 / 知识族 / 协议族 / 测试族（load_plan 分发按 group 聚类）
+# 频率（freq）：low 低频按需 / mid 中频会话内 / high 高频常驻（route 分发决策依据）
+# excluded_from_full: true —— 显式声明该对象不进入全量语料输入，仅经索引锚点按需检索
+#   （R21：test-cases 测试案例集 >30KB · 显式排除全量 · 仅索引使用，与 gen_corpus_index.EXCLUDE 对应）
+loaders:
+  - {object: tools, level: kw, group: 工具族, freq: low, note: "90+ 工具实例 · 关键词定位单节"}
+  - {object: knowledge-base, level: chapter, group: 知识族, freq: low, note: "案例集/外部素材 · 按章读取"}
+  - {object: masters, level: chapter, group: 知识族, freq: low, note: "21 位质量大师心智模型 · 按章读取"}
+  - {object: cases, level: chapter, group: 知识族, freq: low, note: "双归零/行业案例 · 按章读取"}
+  - {object: action-orders, level: chapter, group: 协议族, freq: high, note: "AO-1~AO-4/危机/§14 路由协议 · 按章懒加载 35.5KB→-90%"}
+  - {object: test-cases, level: index, group: 测试族, freq: low, excluded_from_full: true, note: "测试用例集（>30KB · 显式排除全量语料输入 · 仅经索引锚点按需检索）"}
