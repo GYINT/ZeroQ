@@ -1,7 +1,7 @@
 # QCM MCP 兼容性与扩展性评估（V0.3 现状）
 
 > **评估时点**：2026-08-10（QCM MCP v0.3.0 交付后）
-> **协议层 SOLE 权威**：action-orders.md V8.0+ 13 协议
+> **协议层 SOLE 权威**：action-orders.md V8.0+ 15 协议
 > **关联文档**：qcm_mcp_path.md · CHANGELOG.md · gap_tracker.md
 > **目的**：识别当前局限 · 规划 V0.5-V1.0 优化方向
 
@@ -351,7 +351,7 @@ class RemoteAuditLogger(AuditLogger):
 
 | 文档 | 路径 |
 |------|------|
-| QCM 协议层 | `action-orders.md V8.0+` 13 协议 |
+| QCM 协议层 | `action-orders.md V8.0+` 15 协议 |
 | QCM MCP 路径规划 | `qcm_mcp_path.md` |
 | QCM MCP v0.3 CHANGELOG | `CHANGELOG.md` |
 | Infoseek 协同 | `gap_tracker.md` · 5 维缺口 |
