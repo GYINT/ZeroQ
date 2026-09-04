@@ -1,0 +1,17 @@
+{
+  "成熟度": {
+    "target_intent": "⑥质量文化",
+    "runs": 17,
+    "last_cycle": "cycle-1"
+  },
+  "划伤": {
+    "target_intent": "②流程优化",
+    "runs": 17,
+    "last_cycle": "cycle-1"
+  },
+  "报废": {
+    "target_intent": "②流程优化",
+    "runs": 17,
+    "last_cycle": "cycle-1"
+  }
+}
