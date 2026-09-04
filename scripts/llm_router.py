@@ -200,6 +200,18 @@ class LLMRouter:
                 continue
         return False
 
+    def _persist_stats(self, provider: str, mode: str) -> None:
+        """V8.6.2 P4：by_provider stats 落盘 usage_global（对账基准跨进程稳定）
+
+        - namespace=llm · obj=<provider>:<mode>（与 qcm_reconcile 对账口径一致）
+        - QCM_NO_REPORT 隔离由 record_usage 内部处理（CI/合成测试不污染观测）
+        """
+        try:
+            from usage_global import record_usage
+            record_usage("llm", f"{provider}:{mode}")
+        except Exception:
+            pass  # 落盘失败不影响 LLM 调用（观测环防御降级）
+
     def is_real_mode(self) -> bool:
         """是否走真实 API"""
         if self.mode == "mock":
@@ -275,6 +287,7 @@ class LLMRouter:
                 cached = self.cache[cache_key]
                 # 检查 TTL
                 if time.time() - cached["cached_at"] < self._cache_ttl_s:
+                    self._persist_stats(cached["response"].get("provider", "cache"), "cache")
                     return {
                         **cached["response"],
                         "cache_hit": True,
@@ -335,6 +348,7 @@ class LLMRouter:
                             "response": {k: v for k, v in result.items() if k != "cache_hit"},
                             "cached_at": time.time(),
                         }
+                    self._persist_stats(name, "real")
                     return result
                 except Exception as e:
                     if km is not None:
@@ -350,6 +364,7 @@ class LLMRouter:
         # mock fallback（所有 real 失败或无 key）
         self.stats["calls_mock"] += 1
         text = self._call_mock(prompt, task, system)
+        self._persist_stats("mock", "mock")
         return {
             "text": text,
             "provider": "mock",
