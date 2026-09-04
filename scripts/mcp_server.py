@@ -38,6 +38,7 @@ import threading
 import logging
 from datetime import datetime
 from pathlib import Path
+from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import multiprocessing
 import socket
@@ -58,6 +59,20 @@ except ImportError:
     TRACING_AVAILABLE = False
 from socketserver import ThreadingMixIn
 from urllib.parse import urlparse, parse_qs
+
+# E1-03 出站 HTTP 连接池客户端（urllib3.PoolManager 复用）
+try:
+    from mcp_http_client import HTTPClient
+    HTTP_CLIENT_AVAILABLE = True
+except ImportError:
+    HTTP_CLIENT_AVAILABLE = False
+
+# E1-04 服务端 TLS/HTTPS（证书加载 + 热重载）
+try:
+    from mcp_tls import TLSConfig
+    TLS_AVAILABLE = True
+except ImportError:
+    TLS_AVAILABLE = False
 from typing import Any, Dict, List, Optional, Tuple
 
 # Metrics + Rate Limit
@@ -143,7 +158,7 @@ def _process_jsonrpc_static(request: dict) -> dict:
                     })
                 except Exception:
                     pass
-            result = TOOL_REGISTRY[tool_name]["handler"](**arguments)
+            result = _gateway_invoke(tool_name, arguments)
             return {"jsonrpc": "2.0", "id": req_id, "result": {
                 "content": [{"type": "text", "text": json.dumps(result, ensure_ascii=False, indent=2)}]
             }}
@@ -154,7 +169,7 @@ def _process_jsonrpc_static(request: dict) -> dict:
 
 # ============ 版本常量（必须在 initialize 响应前定义） ============
 PROTOCOL_VERSION = "V8.0+"
-SERVER_VERSION = "1.0.0"
+SERVER_VERSION = "1.0.1"
 
 # LLM Router 初始化已移至 tools_pack.py（P2-9 拆分）
 from tools_pack import LLM_ROUTER, LLM_AVAILABLE
@@ -178,6 +193,26 @@ from tools_pack import load_corpus
 
 # ============ 工具实现（规则引擎 · 无 LLM）============
 TOOL_REGISTRY: Dict[str, Dict[str, Any]] = {}
+
+# V8.6 P2 · R10/R11 蓝图落地：TOOL_REGISTRY 网关兜底采样（链 B 归一点兜底）
+# 语义：wrapped handler 已带 _x_qcm_sampled 标记（本地直调场景已采样）→ 网关跳过；
+#       未带标记（wrap=False 注册 / 历史调用路径）→ 网关兜底采样（双计治理关键）。
+def _gateway_record(tool_name: str, result: Any) -> None:
+    try:
+        if isinstance(result, dict) and result.get("_x_qcm_sampled"):
+            return  # 织入层已采样 → 防双计
+        from usage_global import record_usage
+        record_usage("tool", tool_name)
+    except Exception:
+        pass
+
+
+def _gateway_invoke(tool_name: str, arguments: Dict) -> Any:
+    """统一网关调用 + 兜底采样（四条协议路径共用）"""
+    handler = TOOL_REGISTRY[tool_name]["handler"]
+    result = handler(**arguments)
+    _gateway_record(tool_name, result)
+    return result
 
 def register_tool(name: str, description: str, input_schema: Dict[str, Any]):
     """注册 MCP 工具"""
@@ -342,7 +377,7 @@ async def handle_stdio():
                                 })
                             except Exception:
                                 pass
-                        result = handler(**arguments)
+                        result = _gateway_invoke(tool_name, arguments)
                         response = {
                             "jsonrpc": "2.0",
                             "id": req_id,
@@ -474,7 +509,35 @@ def main():
                         help="WS 旁路事件推送端口（stdio/http 模式并行启动，默认 8765）")
     parser.add_argument("--disable-ws-push", action="store_true",
                         help="禁用 WS 旁路推送（仅主传输）")
+    parser.add_argument("--upstream-url", default=None,
+                        help="E1-03: 上游就绪探针 URL（/health/ready 将探测此地址，如 http://127.0.0.1:8080/health）")
+    parser.add_argument("--tls-cert", default=None, help="E1-04: TLS 证书路径（PEM），启用 HTTPS")
+    parser.add_argument("--tls-key", default=None, help="E1-04: TLS 私钥路径（PEM），启用 HTTPS")
+    parser.add_argument("--tls-watch", action="store_true",
+                        help="E1-04: 监听证书文件变更并热重载（配合 certbot 续期，无需重启）")
     args = parser.parse_args()
+
+    # E1-03 连接池 + 上游就绪探针激活
+    global UPSTREAM_URL, UPSTREAM_CLIENT, TLS_CTX
+    if args.upstream_url and HTTP_CLIENT_AVAILABLE:
+        UPSTREAM_URL = args.upstream_url
+        UPSTREAM_CLIENT = HTTPClient()
+    elif args.upstream_url and not HTTP_CLIENT_AVAILABLE:
+        print(f"[qcm-mcp v{SERVER_VERSION}] ⚠ --upstream-url 已设但连接池客户端不可用（mcp_http_client 缺失），跳过上游探针", file=sys.stderr)
+
+    # E1-04 服务端 TLS 激活
+    if args.tls_cert and args.tls_key and TLS_AVAILABLE:
+        try:
+            TLS_CTX = TLSConfig(args.tls_cert, args.tls_key, watch=args.tls_watch)
+            print(f"[qcm-mcp v{SERVER_VERSION}] ✅ TLS 已启用（cert={args.tls_cert} · watch={args.tls_watch}）", file=sys.stderr)
+        except Exception as e:
+            TLS_CTX = None
+            print(f"[qcm-mcp v{SERVER_VERSION}] ⚠ TLS 启用失败（回退 HTTP）：{e}", file=sys.stderr)
+    elif args.tls_cert or args.tls_key:
+        if not TLS_AVAILABLE:
+            print(f"[qcm-mcp v{SERVER_VERSION}] ⚠ TLS 模块不可用（mcp_tls 缺失），跳过 HTTPS", file=sys.stderr)
+        else:
+            print(f"[qcm-mcp v{SERVER_VERSION}] ⚠ 需同时提供 --tls-cert 与 --tls-key，跳过 HTTPS", file=sys.stderr)
 
     # T-P2: 插件挂载（plugins/ 目录 → PluginLoader.load_all → TOOL_REGISTRY）
     try:
@@ -568,12 +631,119 @@ class AuditLogger:
 AUDIT = AuditLogger()  # 全局实例
 
 
+class AccessLogLogger:
+    """HTTP 访问日志（JSON Lines · 按日轮转）— E1-01
+
+    与工具级 AUDIT 区分：本类记录 HTTP 传输层（method/path/status/bytes/duration/
+    client_ip/ua），服务于排障与可观测性；AUDIT 记录工具调用级语义（method/params/
+    provider）。两者独立，互不替代。
+    """
+
+    def __init__(self, log_dir: str = None):
+        # 支持 QCM_ACCESS_LOG_DIR 环境变量（独立于 AUDIT 的 QCM_AUDIT_DIR）
+        self.log_dir = log_dir or os.environ.get("QCM_ACCESS_LOG_DIR", "/tmp/qcm-mcp-access")
+        os.makedirs(self.log_dir, exist_ok=True)
+        self._lock = threading.Lock()
+
+    def log(self, method: str, path: str, status: int, bytes_sent: int,
+            duration_s: float, client_ip: str, user_agent: str):
+        """写入一条结构化 HTTP 访问记录"""
+        with self._lock:
+            today = datetime.utcnow().strftime("%Y-%m-%d")
+            log_file = os.path.join(self.log_dir, f"access-{today}.log")
+            entry = {
+                "ts": datetime.utcnow().isoformat() + "Z",
+                "method": method or "-",
+                "path": path or "-",
+                "status": int(status),
+                "bytes_sent": int(bytes_sent),
+                "duration_s": round(duration_s, 6),
+                "client_ip": client_ip or "unknown",
+                "user_agent": user_agent or "-",
+            }
+            try:
+                with open(log_file, "a", encoding="utf-8") as f:
+                    f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+            except Exception:
+                pass  # 访问日志失败不阻塞主流程
+
+
+ACCESS = AccessLogLogger()  # 全局实例（HTTP 访问日志）
+
+
+# ============ E1-05 OpenAPI 3.1 动态生成路由注册表 ============
+# 单一真源：本表驱动 /openapi.json 的动态生成（非静态托管文件）。
+# 新增端点时在此登记，文档即自动同步，避免文档与实现漂移。
+MCP_ROUTE_SPEC = {
+    "/health":       {"get": {"summary": "服务总览健康检查（overview）", "tags": ["health"]}},
+    "/health/live": {"get": {"summary": "存活探针 (K8s liveness)", "tags": ["health"]}},
+    "/health/ready": {"get": {"summary": "就绪探针 (K8s readiness)", "tags": ["health"]}},
+    "/sse":          {"get": {"summary": "Server-Sent Events 实时推送流", "tags": ["realtime"]}},
+    "/metrics":      {"get": {"summary": "Prometheus 指标端点", "tags": ["observability"]}},
+    "/stats":        {"get": {"summary": "运行态统计端点", "tags": ["observability"]}},
+    "/openapi.json": {"get": {"summary": "本 OpenAPI 文档（由代码动态生成）", "tags": ["meta"]}},
+    "/oauth/token":  {"post": {"summary": "OAuth2 令牌签发（无需 Bearer Token）", "tags": ["auth"]}},
+    "/graphql":      {"post": {"summary": "GraphQL 查询端点（Bearer Token）", "tags": ["protocol"]}},
+    "/messages":     {"post": {"summary": "JSON-RPC 消息端点（Bearer Token + 限流）", "tags": ["protocol"]}},
+    "/rpc":          {"post": {"summary": "JSON-RPC 端点别名（Bearer Token + 限流）", "tags": ["protocol"]}},
+}
+
+
+# E1-03 连接池 + 上游就绪探针（由 --upstream-url 激活；None 表示不探测）
+UPSTREAM_URL = None
+UPSTREAM_CLIENT = None
+
+# E1-04 服务端 TLS/HTTPS（由 --tls-cert/--tls-key 激活；None 表示不启用）
+TLS_CTX = None
+
+
 class QCMHTTPHandler(BaseHTTPRequestHandler):
     """QCM MCP HTTP/SSE 端点处理器"""
 
-    # 禁用默认 access log（我们用 audit.log）
+    # 禁用默认 stderr access log（改用结构化 JSONL 访问日志 ACCESS）
     def log_message(self, format, *args):
         pass
+
+    def handle_one_request(self):
+        """每个请求开始计时并重置响应字节计数（E1-01 访问日志前置）"""
+        self._req_start = time.monotonic()
+        self._resp_bytes = 0
+        super().handle_one_request()
+
+    def send_header(self, keyword, value):
+        """捕获响应 Content-Length 供访问日志统计字节数（E1-01）"""
+        if keyword.lower() == "content-length":
+            try:
+                self._resp_bytes = int(value)
+            except (TypeError, ValueError):
+                pass
+        super().send_header(keyword, value)
+
+    def log_request(self, code='-', size='-'):
+        """结构化 HTTP 访问日志（E1-01 · JSON Lines）
+
+        BaseHTTPRequestHandler.send_response() 在发送响应前调用本方法并传入状态码；
+        method/path 取自 self.command/self.path，耗时取自本请求起始时间，
+        bytes 取自响应 Content-Length（send_header 捕获）。
+        """
+        try:
+            if isinstance(code, HTTPStatus):
+                code = code.value
+            status = int(code) if str(code).strip("-").isdigit() else 500
+        except (TypeError, ValueError):
+            status = 500
+        duration_s = round(time.monotonic() - getattr(self, "_req_start", time.monotonic()), 6)
+        client_ip = self.client_address[0] if self.client_address else "unknown"
+        user_agent = self.headers.get("User-Agent", "-") if self.headers else "-"
+        ACCESS.log(
+            method=self.command or "-",
+            path=self.path or "-",
+            status=status,
+            bytes_sent=getattr(self, "_resp_bytes", 0),
+            duration_s=duration_s,
+            client_ip=client_ip,
+            user_agent=user_agent,
+        )
 
     def _send_json(self, status: int, payload: dict):
         body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
@@ -636,12 +806,25 @@ class QCMHTTPHandler(BaseHTTPRequestHandler):
                     "providers_with_keys": LLM_ROUTER.list_providers_with_keys(),
                 }
 
-            ok = corpus_ok and (LLM_AVAILABLE or True)
+            # E1-03 上游就绪探针（--upstream-url 激活）：探测上游可达性并纳入就绪判定
+            upstream_info = None
+            if UPSTREAM_URL and UPSTREAM_CLIENT is not None:
+                try:
+                    _u = UPSTREAM_CLIENT.get(UPSTREAM_URL, timeout=2.0)
+                    _u_status = getattr(_u, "status", None)
+                    upstream_ok = _u_status == 200
+                except Exception as _e:
+                    _u_status = f"error: {_e}"
+                    upstream_ok = False
+                upstream_info = {"url": UPSTREAM_URL, "ok": upstream_ok, "status": _u_status}
+
+            ok = corpus_ok and (LLM_AVAILABLE or True) and (upstream_info is None or upstream_info["ok"])
             ready_payload = {
                 "status": "ready" if ok else "degraded",
                 "corpus_files": len(corpus) if corpus_ok else 0,
                 "corpus_ok": corpus_ok,
                 "llm": providers_info,
+                "upstream": upstream_info,
             }
             # 增强：添加 rate limiter + metrics 状态
             if METRICS_AVAILABLE and default_rate_limiter:
@@ -660,12 +843,52 @@ class QCMHTTPHandler(BaseHTTPRequestHandler):
             "transports": ["stdio", "sse", "http"],
         })
 
+    def _build_openapi(self) -> dict:
+        """根据 MCP_ROUTE_SPEC 动态生成 OpenAPI 3.1 文档（E1-05 · 非静态文件）"""
+        paths = {}
+        for route, methods in MCP_ROUTE_SPEC.items():
+            item = {}
+            for method, meta in methods.items():
+                item[method] = {
+                    "summary": meta.get("summary", ""),
+                    "tags": meta.get("tags", []),
+                    "responses": {
+                        "200": {"description": "OK"},
+                        "401": {"description": "Unauthorized — Bearer Token 缺失或无效"},
+                        "429": {"description": "Rate limit exceeded"},
+                    },
+                }
+            paths[route] = item
+        host, port = ("127.0.0.1", 8080)
+        try:
+            host, port = self.server.server_address[0], self.server.server_address[1]
+        except Exception:
+            pass
+        return {
+            "openapi": "3.1.0",
+            "info": {
+                "title": "QCM MCP Server",
+                "version": SERVER_VERSION,
+                "description": "Quality Control Manual (QCM) MCP Server — HTTP/SSE 传输层 API。"
+                               "本文档由代码内 MCP_ROUTE_SPEC 动态生成，非静态托管文件。",
+            },
+            "servers": [{"url": f"http://{host}:{port}", "description": "当前运行实例"}],
+            "paths": paths,
+        }
+
+    def _handle_openapi(self):
+        """GET /openapi.json — 返回动态生成的 OpenAPI 3.1 文档（E1-05）"""
+        self._send_json(200, self._build_openapi())
+
     def do_GET(self):
         parsed = urlparse(self.path)
         path = parsed.path
 
+        # OpenAPI 3.1 动态文档（E1-05 · 由 MCP_ROUTE_SPEC 生成）
+        if path == "/openapi.json":
+            self._handle_openapi()
         # 健康检查
-        if path == "/health":
+        elif path == "/health":
             self._do_health("overview")
         elif path == "/health/live" or path == "/healthz":
             self._do_health("live")
@@ -1022,7 +1245,7 @@ class QCMHTTPHandler(BaseHTTPRequestHandler):
                                 })
                             except Exception:
                                 pass
-                        result = TOOL_REGISTRY[tool_name]["handler"](**arguments)
+                        result = _gateway_invoke(tool_name, arguments)
                         if want_streaming:
                             # 完成时推送 100%
                             complete_event = {
@@ -1123,10 +1346,14 @@ def _gql_call_provider(name: str, arguments: Dict) -> Dict:
     # OpenTelemetry span
     span = start_tool_span(name, arguments) if TRACING_AVAILABLE else None
     try:
-        return handler(**arguments) if arguments else handler()
+        result = handler(**arguments) if arguments else handler()
+        _gateway_record(name, result)  # 网关兜底采样（未带标记才采样 · 防双计）
+        return result
     except TypeError:
         # 某些 handler 不接受 kwargs（容错）
-        return handler(arguments)
+        result = handler(arguments)
+        _gateway_record(name, result)
+        return result
     finally:
         if span:
             span.end()
@@ -1226,7 +1453,17 @@ SERVER_START_TIME = time.time()
 def start_http_server(host: str = "127.0.0.1", port: int = 8080):
     """启动 HTTP/SSE 服务器（阻塞）"""
     server = ThreadingHTTPServer((host, port), QCMHTTPHandler)
-    print(f"[qcm-mcp v{SERVER_VERSION}] HTTP/SSE listening on http://{host}:{port}", file=sys.stderr)
+    # E1-04 服务端 TLS：将监听套接字包装为 SSL（server_side），accept 出的连接自动 TLS 握手
+    if TLS_CTX is not None:
+        try:
+            server.socket = TLS_CTX.context.wrap_socket(server.socket, server_side=True)
+            scheme = "https"
+        except Exception as e:
+            print(f"[qcm-mcp v{SERVER_VERSION}] ⚠ TLS 套接字包装失败（回退 HTTP）：{e}", file=sys.stderr)
+            scheme = "http"
+    else:
+        scheme = "http"
+    print(f"[qcm-mcp v{SERVER_VERSION}] HTTP/SSE listening on {scheme}://{host}:{port}", file=sys.stderr)
     print(f"  MCP API:", file=sys.stderr)
     print(f"    tools + resources + prompts + sampling", file=sys.stderr)
     print(f"  Endpoints:", file=sys.stderr)
@@ -1235,6 +1472,13 @@ def start_http_server(host: str = "127.0.0.1", port: int = 8080):
     print(f"    GET  /sse            (Server-Sent Events)", file=sys.stderr)
     print(f"    POST /messages /rpc  (JSON-RPC + auth + rate limit)", file=sys.stderr)
     print(f"  Audit log: {AUDIT.log_dir}", file=sys.stderr)
+    print(f"  Access log: {ACCESS.log_dir}", file=sys.stderr)
+    if TLS_CTX is not None:
+        _exp = TLS_CTX.expiry()
+        if _exp:
+            print(f"  TLS cert expires: {_exp['not_after']} ({_exp['days_remaining']}d remaining)", file=sys.stderr)
+    if UPSTREAM_URL:
+        print(f"  Upstream probe: {UPSTREAM_URL} (via connection pool)", file=sys.stderr)
     if METRICS_AVAILABLE and default_rate_limiter:
         print(f"  Rate limit: per_ip={default_rate_limiter.per_ip}/{default_rate_limiter.per_ip_window_s}s · per_token={default_rate_limiter.per_token}/{default_rate_limiter.per_token_window_s}s · global={default_rate_limiter.global_limit}/{default_rate_limiter.global_window_s}s", file=sys.stderr)
     try:
