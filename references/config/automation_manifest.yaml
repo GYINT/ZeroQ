@@ -1,0 +1,158 @@
+# =====================================================================
+# QCM automation_manifest.yaml — 守卫定时器本体回写（M0 多生态平台适用）
+# ---------------------------------------------------------------------
+# 本文件是 WorkBuddy automation 定时器的「真源备份 + 跨平台自触发凭证」。
+# 目的：当 QCM 脱离 WorkBuddy 生态（CI / 裸机 / k8s / 其他 MCP 宿主）时，
+#       仍可通过 crontab / systemd / CronJob 自触发守卫闭环，不依赖
+#       WorkBuddy 专属定时器。
+#
+# 与 WorkBuddy automation 表（~/.workbuddy/workbuddy.db）双向对齐：
+#   - WorkBuddy 侧：4 个 ACTIVE 定时器（见下方 automation_id 映射）
+#   - 本体侧：本 manifest + word_evolution.sh（已含 ±1H 抖动防并发）
+# 维护纪律：WorkBuddy 定时器改 rrule/prompt 时，须同步回写本文件。
+# =====================================================================
+
+version: "1.0"
+sync_note: >
+  本 manifest 由 WorkBuddy automation 定时器回写生成。cron_expr 字段为
+  从 RRULE 推导的等价 POSIX crontab 表达式（本地时区视角），供跨平台直接挂载。
+  实际调度仍优先使用 WorkBuddy automation；无 WorkBuddy 时回退到 cron 模板。
+entrypoint: "bash scripts/word_evolution.sh"
+python: "${QCM_PYTHON:-python3}"
+
+# ---------------------------------------------------------------------
+# 定时器清单（与 workbuddy.db.automations 一一对应）
+# ---------------------------------------------------------------------
+timers:
+  - id: qcm-weekly-word-evolution
+    automation_id: "automation-1787197054394"
+    name: "QCM 词源自进化周检"
+    rrule: "FREQ=WEEKLY;BYDAY=MO;BYHOUR=09;BYMINUTE=00"
+    cron_expr: "0 9 * * 1"
+    status: ACTIVE
+    jitter: "内置 ±1H 随机偏移（word_evolution.sh [0/8]）"
+    prompt_summary: >
+      周一自动运转观测→检测→决策→回灌→行业包→夜巡决策环→语料→缓存→容器→AI健康→指标。
+      输出 Top5 待调研词供人工确认。
+    scope: keyword
+
+  - id: qcm-nightrun-monthly
+    automation_id: "automation-1787312499382"
+    name: "QCM 夜巡兜底（月≤3 次）"
+    rrule: "FREQ=MONTHLY;BYMONTHDAY=1,10,20;BYHOUR=22;BYMINUTE=0;BYSECOND=0"
+    cron_expr: "0 22 1,10,20 * *"
+    status: ACTIVE
+    jitter: "内置 ±1H 随机偏移（word_evolution.sh [0/8]）"
+    prompt_summary: >
+      低频兜底：若主链路已正常运行可仅做简短确认；检出异常（守卫严重/对账双计/生命周期积压）重点报告。
+    scope: all
+
+  - id: qcm-r4-archive-review
+    automation_id: "automation-1787365144880"
+    name: "QCM R4 归档观察评估（月检）"
+    rrule: "FREQ=MONTHLY;BYMONTHDAY=1;BYHOUR=09;BYMINUTE=30;BYSECOND=0"
+    cron_expr: "30 9 1 * *"
+    status: ACTIVE
+    jitter: "无（评估型只读，无并发风险）"
+    prompt_summary: >
+      只读评估 R4 归档观察期状态：observing→review_due 到期且无误归档风险→建议放开 QCM_AUTO_ARCHIVE=1。
+    scope: keyword
+
+  - id: qcm-refheat-backfill
+    automation_id: "automation-1787382137111"
+    name: "QCM 关联热度回灌（每月≤2次）"
+    rrule: "FREQ=MONTHLY;BYMONTHDAY=1,15"
+    cron_expr: "0 3 1,15 * *"
+    status: ACTIVE
+    jitter: "无（低频·月度≤2次·严禁每夜）"
+    prompt_summary: >
+      运行 ref_heat.py --aggregate --backfill --apply，将高置信未互链对写入 confirmed_pairs 供 M3 阈值校准。
+    scope: corpus
+    # 回灌不挂 word_evolution.sh（避免与夜巡 aggregate-dry 冲突），独立命令：
+    backfill_cmd: "${QCM_PYTHON:-python3} scripts/ref_heat.py --aggregate --backfill --apply"
+
+  - id: qcm-orphan-discovery
+    automation_id: "automation-1787558509281"
+    name: "QCM 孤儿/未登记语料发现巡检（周三专项）"
+    rrule: "FREQ=WEEKLY;BYDAY=WE;BYHOUR=09;BYMINUTE=00"
+    cron_expr: "0 9 * * 3"
+    status: ACTIVE
+    jitter: "无（report-only·只读·无并发风险）"
+    prompt_summary: >
+      专项补充巡检（与周一全链路词源周检错峰）：跑 config_sync --check（g022 静默孤儿）
+      + ref_query --orphan + gen_corpus_index --check（大文件漂移）+ ref_query --dangling，汇总语料缺口简报。
+      不重复 word_evolution 全链路，仅聚焦「未登记/孤儿/悬空」三类语料健康信号。
+    scope: corpus
+    note: >
+      本定时器为 Phase 4 新增专项巡检，独立于 qcm-weekly-word-evolution（周一全链路）。
+      错峰周三 09:00 避免双触发噪声；g022 守卫逻辑见 scripts/config_sync.py:_check_unregistered_corpus。
+
+# ---------------------------------------------------------------------
+# 跨平台自触发模板（复制即用）
+# ---------------------------------------------------------------------
+platform_templates:
+  crontab: |
+    # === QCM 守卫自触发 crontab（脱离 WorkBuddy 时启用）===
+    # 周检（周一 09:00 ±1H 抖动已在脚本内）
+    0 9 * * 1  cd /path/to/QCM && QCM_PYTHON=/usr/bin/python3 bash scripts/word_evolution.sh
+    # 月夜巡（1/10/20 日 22:00）
+    0 22 1,10,20 * *  cd /path/to/QCM && QCM_PYTHON=/usr/bin/python3 bash scripts/word_evolution.sh
+    # R4 归档评估（每月 1 日 09:30）
+    30 9 1 * *  cd /path/to/QCM && QCM_PYTHON=/usr/bin/python3 bash scripts/word_evolution.sh
+    # 关联热度回灌（每月 1/15 日 03:00）
+    0 3 1,15 * *  cd /path/to/QCM && QCM_PYTHON=/usr/bin/python3 python3 scripts/ref_heat.py --aggregate --backfill --apply
+    # 孤儿/未登记语料发现巡检（每周三 09:00 · 与周一全链路周检错峰）
+    0 9 * * 3  cd /path/to/QCM && QCM_PYTHON=/usr/bin/python3 python3 scripts/config_sync.py --check && python3 scripts/qcm_ref_query.py --orphan && python3 scripts/gen_corpus_index.py --check && python3 scripts/qcm_ref_query.py --dangling
+
+  systemd_timer: |
+    # === QCM 守卫 systemd 单元（示例：周检）===
+    # /etc/systemd/system/qcm-weekly.service
+    [Unit]
+    Description=QCM Weekly Word Evolution Guardian
+    [Service]
+    Type=oneshot
+    WorkingDirectory=/path/to/QCM
+    Environment=QCM_PYTHON=/usr/bin/python3
+    ExecStart=/bin/bash scripts/word_evolution.sh
+    # === /etc/systemd/system/qcm-weekly.timer ===
+    [Unit]
+    Description=QCM Weekly Timer
+    [Timer]
+    OnCalendar=Mon *-*-* 09:00:00
+    Persistent=true
+    [Install]
+    WantedBy=timers.target
+
+  k8s_cronjob: |
+    # === QCM 守卫 k8s CronJob（示例：月夜巡）===
+    apiVersion: batch/v1
+    kind: CronJob
+    metadata:
+      name: qcm-nightrun-monthly
+    spec:
+      schedule: "0 22 1,10,20 * *"
+      concurrencyPolicy: Forbid
+      jobTemplate:
+        spec:
+          template:
+            spec:
+              containers:
+              - name: qcm
+                image: qcm-runtime:latest
+                workingDir: /skills/QCM
+                command: ["bash", "scripts/word_evolution.sh"]
+                env:
+                - name: QCM_PYTHON
+                  value: "/usr/bin/python3"
+              restartPolicy: OnFailure
+
+# ---------------------------------------------------------------------
+# 跨平台触发守卫的 MCP 入口（已落地 tools_pack.qcm_guardian）
+# ---------------------------------------------------------------------
+mcp_trigger:
+  tool: "qcm_guardian"
+  phases: [register, decision, nightrun]
+  note: >
+    MCP 客户端（含其他 skill / 外部平台）可直接调用 qcm_guardian(phase=...)
+    触发守卫检测。该工具只读（不写回词库），写回仍由 word_evolution.sh 专门段负责。
+    与本体 cron 互补：cron 负责定时自触发，MCP 负责按需/事件驱动触发。
