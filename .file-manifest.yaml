@@ -10,14 +10,14 @@ root:
 subdirs:
   core:
     status: stable
-    capacity: {max: 20, current: 9}
+    capacity: {max: 20, current: 13}
     rules: [read_only, entry_point_only]
-    note: 核心引擎（router/assembler/validator/component_scan/component_index/gap_detector/hit_tracker/key_manager/ambiguity_resolver）
+    note: 核心引擎（router/assembler/validator/component_scan/component_index/gap_detector/hit_tracker/key_manager/ambiguity_resolver/capacity/guardian/guardian_reverse/intent_calibrator）
   components:
     status: active
-    capacity: {max: 35, current: 28}
+    capacity: {max: 35, current: 29}
     rules: [manifest_required, heat_tracked]
-    note: 组件池（热度 new→active→stable · core/component_scan.py 自动统计）
+    note: 组件池（热度 new→active→stable · core/component_scan.py 自动统计 · V8.7 并入 intent-glossary）
   outputs:
     status: stable
     capacity: {max: 6, current: 5}
@@ -25,9 +25,9 @@ subdirs:
     note: 4 形态模板（唯一真源）+ 待办文档（QCM-优化升级待办.md）
   references:
     status: active
-    capacity: {max: 90, current: 80}
+    capacity: {max: 90, current: 82}
     rules: [append_only, bidirectional_ref]
-    note: 知识/协议/配置（13 子目录：protocol/config/tools/scenarios/methods/people/contract/governance/knowledge/testing/planning/prompts/industry · industry 为规模化行业知识包）
+    note: 知识/协议/配置（13 子目录：protocol/config/tools/scenarios/methods/people/contract/governance/knowledge/testing/planning/prompts/industry · industry 为规模化行业知识包 · config 含 guardian 守卫注册中心 + source_links 词源映射）
   scripts:
     status: active
     capacity: {max: 35, current: 35}
@@ -35,9 +35,9 @@ subdirs:
     note: 运行脚本（30 py + config.example.yaml + env_restore.sh · 测试已迁 tests/）
   tests:
     status: active
-    capacity: {max: 45, current: 42}
+    capacity: {max: 50, current: 46}
     rules: [version_merge, no_runtime_import]
-    note: 测试归档（basic 20/protocol 8/engines 8/v82 + router_golden + run_all 串联）
+    note: 测试归档（basic/protocol/engines/v82 + router_golden + scene_route_6 + run_all 串联）
   deploy:
     status: stable
     capacity: {max: 20, current: 17}
