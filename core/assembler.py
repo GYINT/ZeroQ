@@ -49,6 +49,7 @@ SKELETON_WRAP = {
 COMPONENT_CATEGORY = {
     # 分析组件（认知·为什么）
     "_meta": "analysis",            # 路由元数据（透明性）
+    "intent-glossary": "analysis",  # 意图词典（意图×形态规范真源 · A+B V8.7）
     "_route": "analysis",           # 导航行（特征→AO）
     "_state_nav": "analysis",       # 事态导航
     "_probe": "analysis",           # 定位探针
@@ -232,6 +233,69 @@ def strip_frontmatter(snippet: str) -> str:
     return snippet
 
 
+def _build_distill_context(route: dict) -> dict:
+    """⑤知识沉淀蒸馏上下文推导（T1 · 2026-08-25 三项遗留）
+
+    为 _distill_pack 组件补 3 个 required 字段（industry/process_map/standards）的
+    语义注入源——行业包 index.yaml 登记 + route.domain 兜底，纯只读推导：
+      industry   ← route.domain 首域匹配行业包 industry 列表
+      process_map← 命中行业包正文 §1 行业概述首行工艺链路
+      standards  ← domain 关联标准（E体系→ISO/IATF · C供应链→IATF/VDA · entities 兜底）
+    设计边界：只注入路由可推导字段；其余 content 字段（行业定位/工序细分/场景/
+    工具落格等）属内容生成职责，保留占位由调用方填充。
+    """
+    from pathlib import Path as _P
+    _dev = _P(__file__).resolve().parent.parent
+    _idx = _dev / "references" / "industry" / "index.yaml"
+
+    domain0 = (route.get("domain") or ["通用"])[0]
+    industry, pack_path, process_map = "（按 %s 行业适配）" % domain0, None, "（按 %s 领域工艺映射）" % domain0
+
+    try:
+        import yaml as _y
+        if _idx.exists():
+            data = _y.safe_load(_idx.read_text(encoding="utf-8")) or {}
+            for p in data.get("industry_packs", []):
+                inds = p.get("industry", [])
+                doms = p.get("domain", [])
+                if domain0 in inds or domain0 in doms:
+                    industry = " / ".join(inds[:2])
+                    pack_path = _dev / p.get("path", "")
+                    break
+            if pack_path and pack_path.exists():
+                for line in pack_path.read_text(encoding="utf-8").splitlines():
+                    if "制造链路" in line or "工艺" in line or "→" in line:
+                        process_map = line.strip().strip(">").strip()
+                        break
+    except Exception:
+        pass  # 行业包不可读 → 兜底文案（不阻断装配）
+
+    # standards：领域关联标准（E体系/C供应链优先，entities.yaml 兜底）
+    if domain0 == "E体系":
+        standards = "ISO 9001 / IATF 16949 / VDA 6.3"
+    elif domain0 == "C供应链":
+        standards = "IATF 16949 / VDA 6.3 / PPAP"
+    else:
+        standards = "（按 %s 领域标准）" % domain0
+        try:
+            import yaml as _y
+            _ent = _dev / "references" / "config" / "entities.yaml"
+            if _ent.exists():
+                data = _y.safe_load(_ent.read_text(encoding="utf-8")) or {}
+                hits = [e["name"] for e in data.get("entities", [])
+                        if e.get("type") == "standard" and e.get("domain") == domain0]
+                if hits:
+                    standards = " / ".join(hits[:3])
+        except Exception:
+            pass
+
+    return {
+        "{industry}": industry,
+        "{process_map}": process_map,
+        "{standards}": standards,
+    }
+
+
 def inject_fields(snippet: str, route: dict, spec: dict) -> str:
     """字段注入：占位符替换（动态自适应核心）"""
     body = strip_frontmatter(snippet)
@@ -247,6 +311,12 @@ def inject_fields(snippet: str, route: dict, spec: dict) -> str:
         "{nav}": route.get("nav", "（待补充导航）"),
         "{tools}": route.get("tools", "（按领域预选工具）"),
     }
+    # T1（2026-08-25 三项遗留）：⑤知识沉淀蒸馏上下文推导注入
+    if route.get("intent") == "⑤知识沉淀":
+        try:
+            vars_map.update(_build_distill_context(route))
+        except Exception:
+            pass  # 推导失败 → 保留原占位（白名单登记）
     for k, v in vars_map.items():
         body = body.replace(k, v)
     return body
@@ -388,7 +458,9 @@ def assemble(route: dict, actions: list, role: str = "manager",
             "spec": spec, "errors": errors,
             "density": f"{role}({density['analysis']})",
             "analysis_display": f"{analysis_shown} 分析组件显示",
-            "cross_matrix": cross}
+            "cross_matrix": cross,
+            # B2 · 归零事件复用建议透传（S1 建议层 · 仅透传、不进 action_list、绝不自动套用治理闭环）
+            "reuse_suggest": route.get("reuse_suggest", [])}
 
 
 if __name__ == "__main__":
